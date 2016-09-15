@@ -1,0 +1,21 @@
+
+.intro {
+    background-color: #ffc10e;
+    min-height: 400px;
+}
+
+.intro-logo {
+    text-align: center;
+}
+
+.intro-title {
+    text-align: center;
+}
+
+.intro-caption {
+    text-align: center;
+}
+
+.intro-button {
+    text-align: center;
+}
