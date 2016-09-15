@@ -1,0 +1,29 @@
+.nav-top {
+    background: #FFC10E;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-top li {
+    list-style-type: none;
+    display: inline-block;
+    text-transform: capitalize;
+    font-weight: bold;
+    padding: 15px 10px;
+}
+
+.nav-links:hover {
+    background-color: #dda20e;
+}
+
+.nav-top ul {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    color: #fff;
+}
