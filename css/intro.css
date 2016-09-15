@@ -2,29 +2,38 @@
 .intro {
     background-color: #ffc10e;
     min-height: 400px;
+    padding: 30px;
+    border: 3px solid #ffa813;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
 }
 
 .intro-logo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     background-color: #fff;
     background-image: url("../images/logo-janusz.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 90px;
-    border: 3px solid #ffa813;
+    border: 4px solid #ffa813;
     margin: 20px auto;
 }
 
 .intro-title {
-    text-align: center;
+
 }
 
 .intro-caption {
-    text-align: center;
+    color: #fff;
 }
 
 .intro-button {
-    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #262e3e;
+    padding: 0.5em 1em;
+    background-color: #262e3e;
+    color: #fff;
 }
