@@ -1,6 +1,3 @@
-/*Zmienić w html rząd ikon i rząd opisów*/
-
-
 .main-functionalities-container {
 
     height: auto;
@@ -14,13 +11,23 @@
 
 .functionality-img {
 
+    margin: 80px 15px 15px;
     display: inline-block;
     width: 20%;
 
 }
 
+.functionality-img img {
+
+    height: 60px;
+    width: auto;
+
+}
+
+
 .functionality-name {
 
+    margin: 10px 15px 40px;
     display: inline-block;
     width: 20%;
 
