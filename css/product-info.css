@@ -1,0 +1,27 @@
+/*Zmienić w html rząd ikon i rząd opisów*/
+
+
+.main-functionalities-container {
+
+    height: auto;
+    max-width: 905px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+.functionality-img {
+
+    display: inline-block;
+    width: 20%;
+
+}
+
+.functionality-name {
+
+    display: inline-block;
+    width: 20%;
+
+}
