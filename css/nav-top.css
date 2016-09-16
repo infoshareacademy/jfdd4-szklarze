@@ -7,23 +7,42 @@
     left: 0;
 }
 
-.nav-top li {
+.nav-top ul {
+    margin: 0;
+    padding: 0 20px;
     list-style-type: none;
-    display: inline-block;
+    overflow: hidden;
+}
+
+.nav-top li {
+    display: inline;
     text-transform: capitalize;
     font-weight: bold;
-    padding: 15px 10px;
+}
+
+.nav-top a {
+    display: block;
+    padding: 10px;
 }
 
 .nav-links:hover {
     background-color: #dda20e;
 }
 
-.nav-top ul {
-    margin: 0;
-    padding: 0 20px;
-}
-
 .nav-logo {
     color: #fff;
+}
+
+.logo-img {
+    background: url("../images/logo-janusz.svg") #ffffff no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.nav-logo div {
+    display: inline-block;
 }
