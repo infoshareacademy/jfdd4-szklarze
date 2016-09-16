@@ -1,5 +1,6 @@
 .sign-up {
     background-color:#f5f5f5;
+    padding: 100px 0 100px 0;
 }
 
 .sign-up-intro {
@@ -25,7 +26,7 @@ input[type="email"] {
 }
 
 input[type="submit"] {
-    background: url("../images/paper-plane-icon.svg") no-repeat 10px center;
+    background-color: #ffc10e;
     border-radius: 0 30px 30px 0;
     border: 2px solid #262e3e;
     border-left: 0;
@@ -34,4 +35,8 @@ input[type="submit"] {
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     color: #262e3e;
+}
+.img-plane {
+    width: 50px;
+    height: 50px;
 }
