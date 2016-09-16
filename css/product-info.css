@@ -1,4 +1,4 @@
-.main-functionalities-container {
+.product-info {
 
     height: auto;
     max-width: 905px;
@@ -8,10 +8,15 @@
 
 }
 
+.product-info p {
 
-.functionality-item{
+    margin: 0;
 
-    margin: 120px 10px 100px;
+}
+
+.functionality-item {
+
+    margin: 100px 10px 100px;
     display: inline-block;
     width: 22%;
 
@@ -22,9 +27,7 @@
     padding: 15px 0;
     margin: 0;
 
-
 }
-
 
 .functionality-img img {
 
@@ -34,7 +37,6 @@
 
 }
 
-
 .functionality-name {
 
     padding: 15px 0;
@@ -42,9 +44,5 @@
 
 }
 
-.functionality-name p {
 
-    margin: 0;
-
-}
 

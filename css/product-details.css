@@ -1,0 +1,23 @@
+.product-details {
+
+    max-width: 905px;
+    margin: 100px auto;
+}
+
+
+
+.product-details-list {
+
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    width: 50%;
+
+}
+
+.product-details-list li {
+
+    height: 80px;
+
+
+}
