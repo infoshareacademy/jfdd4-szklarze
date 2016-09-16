@@ -2,10 +2,8 @@
 .intro {
     background-color: #ffc10e;
     min-height: 400px;
-    padding: 90px 30px;
-    border: 2px solid #dda20e;
-    border-left: 0;
-    border-right: 0;
+    padding: 120px 30px 90px 30px;
+    border-bottom: 2px solid #dda20e;
     text-align: center;
 }
 
@@ -18,9 +16,13 @@
     background-image: url("../images/logo-janusz.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100px;
+    background-size: 120px;
     /*border: 2px solid #ddaf40;*/
     margin: 20px auto;
+    transition: all 0.2s ease-in-out;
+}
+.intro-logo:hover {
+    background-color: #ffe9a4;
 }
 
 .intro-title {
