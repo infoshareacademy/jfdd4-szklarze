@@ -24,14 +24,19 @@
 .nav-top a {
     display: block;
     padding: 10px;
+    line-height: 40px;
 }
 
 .nav-links:hover {
-    background-color: #dda20e;
+background-color: #dda20e;
 }
 
 .nav-logo {
-    color: #fff;
+color: #fff;
+}
+
+.logo-title a {
+    line-height: 12px;
 }
 
 .logo-img {
@@ -41,8 +46,4 @@
     height: 30px;
     padding: 5px;
     border-radius: 50%;
-}
-
-.nav-logo div {
-    display: inline-block;
 }
