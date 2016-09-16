@@ -1,5 +1,6 @@
 .sign-up {
     background-color:#f5f5f5;
+    padding: 100px 0 100px 0;
 }
 
 .sign-up-intro {
@@ -14,9 +15,10 @@
 }
 
 input[type="email"] {
-    background: #fff url("../images/email-icon.svg") no-repeat 10px center;
+    /*background: #fff url("../images/email-icon.svg") no-repeat 10px center;*/
     border-radius: 30px 0 0 30px;
     border: 2px solid #262e3e;
+    border-right: 0;
     padding: 20px 90px 20px 60px;
     font-size: 16px;
     font-weight: bold;
@@ -24,12 +26,18 @@ input[type="email"] {
 }
 
 input[type="submit"] {
-    background: #fff url("../images/paper-plane-icon.svg") no-repeat 10px center;
+    width: auto;
+    background-color: #ffc10e;
     border-radius: 0 30px 30px 0;
     border: 2px solid #262e3e;
+    border-left: 0;
     padding: 20px 40px;
     font-size: 16px;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     color: #262e3e;
+}
+.img-plane {
+    width: 50px;
+    height: 50px;
 }
