@@ -17,7 +17,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 140px;
-    /*border: 2px solid #ddaf40;*/
     margin: 20px auto;
     transition: all 0.2s ease-in-out;
 }
@@ -40,7 +39,6 @@
     padding: 1em 2em;
     background-color: #262e3e;
     color: #fff;
-    /*border: 2px solid #262e3e;*/
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }

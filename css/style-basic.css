@@ -32,6 +32,10 @@ h6 {
     font-size: 1.2em;
 }
 
+p {
+    margin: 0.2em 0;
+}
+
 a {
     text-decoration: none;
     color: inherit;
