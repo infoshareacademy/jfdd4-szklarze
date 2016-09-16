@@ -18,8 +18,8 @@
     font-weight: bold;
 }
 
-.nav-top li:first-letter {
-    text-transform: capitalize;
+.nav-top li a:first-letter {
+    text-transform: uppercase;
 }
 
 .nav-top ul li:last-child {
@@ -39,15 +39,15 @@
 .nav-logo {
     color: #fff;
     font-size: 20px;
-}
-
-.logo-title {
     text-transform: uppercase;
+    background: url("../images/logo-janusz-white-nav.png") no-repeat left center;
+    background-size: 40px 40px;
+    padding-left: 50px; /*rozwiazac problem paddingu - silniejsze klasy*/
 }
 
-.logo-img {
-    background: url("../images/logo-janusz-white-nav.png") no-repeat center;
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
+.logo-title.logo-img {
+}
+
+@media screen and (max-width: 610px) {
+
 }
