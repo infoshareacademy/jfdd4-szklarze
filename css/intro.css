@@ -11,15 +11,15 @@
 
 .intro-logo {
     box-sizing: border-box;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background-color: #fff;
-    background-image: url("../images/logo-janusz.svg");
+    background-image: url("../images/logo-janusz.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 90px;
-    border: 3px solid #dda20e;
+    background-size: 100px;
+    /*border: 2px solid #ddaf40;*/
     margin: 20px auto;
 }
 
@@ -42,7 +42,7 @@
     color: #fff;
     /*border: 2px solid #262e3e;*/
     cursor: pointer;
-    transition: all 0.1s ease-out;
+    transition: all 0.2s ease-in-out;
 }
 .intro-button:hover {
     background-color: #465676;
