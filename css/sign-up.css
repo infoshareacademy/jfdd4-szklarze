@@ -15,9 +15,8 @@
 }
 
 input[type="email"] {
-    /*background: #fff url("../images/email-icon.svg") no-repeat 10px center;*/
     border-radius: 30px 0 0 30px;
-    border: 2px solid #262e3e;
+    border: 1px solid #262e3e;
     border-right: 0;
     padding: 20px 90px 20px 60px;
     font-size: 16px;
@@ -29,13 +28,14 @@ input[type="submit"] {
     width: auto;
     background-color: #ffc10e;
     border-radius: 0 30px 30px 0;
-    border: 2px solid #262e3e;
+    border: 1px solid #262e3e;
     border-left: 0;
     padding: 20px 40px;
     font-size: 16px;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     color: #262e3e;
+    cursor: pointer;
 }
 .img-plane {
     width: 50px;
