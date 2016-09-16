@@ -9,7 +9,7 @@
 
 .nav-top ul {
     margin: 0;
-    padding: 0 20px;
+    padding: 0 50px;
     list-style-type: none;
     overflow: hidden;
     height: 60px;
@@ -28,22 +28,22 @@
 }
 
 .nav-links:hover {
-background-color: #dda20e;
+    background-color: #dda20e;
 }
 
 .nav-logo {
-color: #fff;
+    color: #fff;
+    font-size: 20px;
 }
 
-.logo-title a {
-    line-height: 12px;
+.logo-title {
+    text-transform: uppercase;
 }
 
 .logo-img {
-    background: url("../images/logo-janusz.svg") #ffffff no-repeat center;
-    background-size: 25px 25px;
-    width: 30px;
-    height: 30px;
-    padding: 5px;
+    background: url("../images/logo-janusz-white-nav.png") no-repeat center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
