@@ -42,7 +42,10 @@
     text-transform: uppercase;
     background: url("../images/logo-janusz-white-nav.png") no-repeat left center;
     background-size: 40px 40px;
-    padding-left: 50px; /*rozwiazac problem paddingu - silniejsze klasy*/
+}
+
+.nav-top .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+    padding-left: 50px;
 }
 
 .logo-title.logo-img {
