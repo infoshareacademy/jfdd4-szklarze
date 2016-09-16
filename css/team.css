@@ -10,4 +10,18 @@
 .team-member {
     display: inline-block;
     width: 20%;
+    padding: 2em;
+}
+
+.team-member-foto {
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+
+.team-member-caption {
+    border-top: 1px solid #262e3e;
+    padding-top: 0.5em;
 }
