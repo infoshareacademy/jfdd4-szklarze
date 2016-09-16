@@ -10,7 +10,7 @@
 
 
 
-.functionality-img {
+.functionality-item{
 
     margin: 80px 10px 15px;
     display: inline-block;
@@ -30,6 +30,6 @@
 
     margin: 10px 10px 40px;
     display: inline-block;
-    width: 22%;
+
 
 }
