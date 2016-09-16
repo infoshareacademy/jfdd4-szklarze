@@ -2,14 +2,15 @@
 .intro {
     background-color: #ffc10e;
     min-height: 400px;
-    padding: 30px;
-    border: 3px solid #ffa813;
+    padding: 90px 30px;
+    border: 2px solid #dda20e;
     border-left: 0;
     border-right: 0;
     text-align: center;
 }
 
 .intro-logo {
+    box-sizing: border-box;
     width: 180px;
     height: 180px;
     border-radius: 50%;
@@ -18,22 +19,34 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 90px;
-    border: 4px solid #ffa813;
+    border: 3px solid #dda20e;
     margin: 20px auto;
 }
 
 .intro-title {
-
+    display: block;
+    margin: 0.5em 0;
 }
 
 .intro-caption {
+    display: block;
     color: #fff;
+    margin: 0.5em 0;
 }
 
 .intro-button {
-    margin: 0 auto;
-    border: 2px solid #262e3e;
-    padding: 0.5em 1em;
+    display: inline-block;
+    margin: 1em auto;
+    padding: 1em 2em;
     background-color: #262e3e;
     color: #fff;
+    /*border: 2px solid #262e3e;*/
+    cursor: pointer;
+    transition: all 0.1s ease-out;
 }
+.intro-button:hover {
+    background-color: #465676;
+    padding: 1em 3em;
+}
+
+
