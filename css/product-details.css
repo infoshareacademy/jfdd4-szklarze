@@ -1,23 +1,24 @@
 .product-details {
 
-    max-width: 905px;
+    max-width: 1000px;
     margin: 100px auto;
 }
-
-
 
 .product-details-list {
 
     display: inline-block;
     vertical-align: top;
     margin: 0;
-    width: 50%;
+    width: 44%;
+    padding: 20px;
 
 }
 
 .product-details-list li {
 
-    height: 80px;
-
+    min-height: 80px;
+    text-align: justify;
+    list-style-image: url("../images/check-mark-icon.png");
+    padding-left: 10px;
 
 }
