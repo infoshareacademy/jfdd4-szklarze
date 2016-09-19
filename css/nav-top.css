@@ -47,10 +47,3 @@
 .nav-top .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px;
 }
-
-.logo-title.logo-img {
-}
-
-@media screen and (max-width: 610px) {
-
-}
