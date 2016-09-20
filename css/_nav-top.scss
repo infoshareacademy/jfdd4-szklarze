@@ -19,17 +19,21 @@
     a:first-letter {
       text-transform: uppercase;
     }
+
+    :last-child {
+      display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
+    }
   }
-}
 
-.nav-top ul li:last-child {
-  display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
-}
+  a {
+    display: block;
+    padding: 10px;
+    line-height: 40px;
+  }
 
-.nav-top a {
-  display: block;
-  padding: 10px;
-  line-height: 40px;
+  .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+    padding-left: 50px;
+  }
 }
 
 .nav-links:hover {
@@ -44,7 +48,4 @@
   background-size: 40px 40px;
 }
 
-.nav-top .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
-  padding-left: 50px;
-}
 
