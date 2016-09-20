@@ -53,10 +53,10 @@ a {
     clear: both;
 }
 
-@import "_nav-top.scss";
-@import "_intro.scss";
-@import "_product-info.scss";
-@import "_sign-up.scss";
-@import "_product-details.scss";
-@import "_team.scss";
-@import "_footer.scss";
+@import "nav-top";
+@import "intro";
+@import "product-info";
+@import "sign-up";
+@import "product-details";
+@import "team";
+@import "footer";
