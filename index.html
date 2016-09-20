@@ -99,11 +99,12 @@
         <h2>Wyślemy Ci tylko jedną wiadomość</h2>
     </div>
     <div class="sign-up-form-field">
-        <form class="sign-up-email">
-            <input type="email" placeholder="Zostaw tu swój e-mail"><input type="submit" value="Wyślij">
+        <form class="sign-up-email" action="http://tools.is-academy.pl/mailer.php" method="POST">
+            <input type="email" name="email" placeholder="Zostaw tu swój e-mail"><input type="hidden" name="receiver" value="info@andrzejewski.me"><input type="submit" value="Wyślij">
         </form>
-            <input type="checkbox"  class="sign-up-giodo-checkbox" title="">
-        <p class="sign-up-info-giodo-text"> Wyrażam zgodę na otrzymywanie drogą elektroniczną na wskazany przeze mnie adres e-mail
+        <input type="checkbox" class="sign-up-giodo-checkbox" title="zgoda">
+        <p class="sign-up-info-giodo-text"> Wyrażam zgodę na otrzymywanie drogą elektroniczną na wskazany przeze mnie
+            adres e-mail
             informacji handlowej w rozumieniu art. 10 ust. 1 ustawy z dnia 18 lipca 2002
             roku o świadczeniu usług drogą elektroniczną od Janusz Pomocnik Zakupowy
             sp. z o. o. z siedzibą w Gdańsku.<br>
