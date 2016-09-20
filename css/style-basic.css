@@ -1,55 +1,258 @@
+@charset "UTF-8";
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.4em;
-    color: #262e3e;
-}
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4em;
+  color: #262e3e; }
 
 h1, h2, h3, h5, h5, h6 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    line-height: 1.4em;
-    margin: 0.5em;
-}
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  line-height: 1.4em;
+  margin: 0.5em; }
+
 h1 {
-    font-size: 2.4em;
-}
+  font-size: 2.4em; }
+
 h2 {
-    font-size: 2em;
-}
+  font-size: 2em; }
+
 h3 {
-    font-size: 1.8em;
-}
+  font-size: 1.8em; }
+
 h4 {
-    font-size: 1.6em;
-}
+  font-size: 1.6em; }
+
 h5 {
-    font-size: 1.4em;
-}
+  font-size: 1.4em; }
+
 h6 {
-    font-size: 1.2em;
-}
+  font-size: 1.2em; }
 
 p {
-    margin: 0.2em 0;
-}
+  margin: 0.2em 0; }
 
 a {
-    text-decoration: none;
-    color: inherit;
-}
+  text-decoration: none;
+  color: inherit; }
 
 .float-right {
-    float: right;
-}
+  float: right; }
 
 .float-left {
-    float: left;
-}
+  float: left; }
 
 .float-clear {
-    clear: both;
-}
+  clear: both; }
 
+.nav-top {
+  background: #FFC10E;
+  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.nav-top ul {
+  margin: 0;
+  padding: 0 50px;
+  list-style-type: none; }
+
+.nav-top li {
+  display: inline;
+  font-weight: bold; }
+
+.nav-top li a:first-letter {
+  text-transform: uppercase; }
+
+.nav-top ul li:last-child {
+  display: list-item;
+  /*Potrzebne, żeby prawidłowo działał clear*/ }
+
+.nav-top a {
+  display: block;
+  padding: 10px;
+  line-height: 40px; }
+
+.nav-links:hover {
+  background-color: #dda20e; }
+
+.nav-logo {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  background: url("../images/icon-white-janusz.svg") no-repeat left center;
+  background-size: 40px 40px; }
+
+.nav-top .nav-logo {
+  /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+  padding-left: 50px; }
+
+.intro {
+  background-color: #ffc10e;
+  min-height: 400px;
+  padding: 120px 30px 90px 30px;
+  border-bottom: 2px solid #dda20e;
+  text-align: center; }
+
+.intro-logo {
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url("../images/icon-blue-janusz.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 140px;
+  margin: 20px auto;
+  transition: background-color 0.2s ease-in-out; }
+
+.intro-logo:hover {
+  background-color: #ffe9a4; }
+
+.intro-title {
+  display: block; }
+
+.intro-caption {
+  display: block;
+  color: #fff; }
+
+.intro-button {
+  display: inline-block;
+  border-radius: 27px;
+  margin: 1em auto;
+  padding: 1em 2em;
+  background-color: #262e3e;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+
+.intro-button:hover {
+  background-color: #465676;
+  padding: 1em 3em; }
+
+.product-info {
+  height: auto;
+  max-width: 905px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+
+.product-info p {
+  margin: 0; }
+
+.functionality-item {
+  margin: 100px 10px 100px;
+  display: inline-block;
+  width: 22%; }
+
+.functionality-img {
+  padding: 15px 0;
+  margin: 0; }
+
+.functionality-img img {
+  height: 60px;
+  width: auto;
+  padding: 20px; }
+
+.functionality-name {
+  padding: 15px 0;
+  margin: 0; }
+
+.sign-up {
+  background-color: #f5f5f5;
+  padding: 100px 0 100px 0; }
+
+.sign-up-intro-text {
+  text-align: center;
+  padding-top: 21px; }
+
+.sign-up-form-field {
+  text-align: center;
+  padding: 40px 0 40px 0; }
+
+input[type="email"] {
+  border-radius: 30px 0 0 30px;
+  border: 1px solid #262e3e;
+  border-right: 0;
+  padding: 20px 90px 20px 60px;
+  font: bold 16px 'Open Sans', sans-serif; }
+
+input[type="submit"] {
+  background-color: #262e3e;
+  border-radius: 0 30px 30px 0;
+  border: 1px solid #262e3e;
+  border-left: 0;
+  padding: 20px 40px;
+  font: bold 16px 'Open Sans', sans-serif;
+  color: #fff;
+  cursor: pointer; }
+
+.img-plane {
+  width: 50px;
+  height: 50px; }
+
+.sign-up-info-giodo-text {
+  color: #888888;
+  display: inline;
+  font-size: 10px; }
+
+.sign-up-giodo-checkbox {
+  display: inline; }
+
+.sign-up-email {
+  margin-bottom: 20px; }
+
+.product-details {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 0; }
+
+.product-details-list {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: 44%;
+  padding: 20px; }
+
+.product-details-list li {
+  min-height: 80px;
+  text-align: justify;
+  list-style-image: url("../images/icon-yellow-check-mark.png");
+  padding-left: 10px; }
+
+.team {
+  background-color: #f5f5f5;
+  min-height: 300px;
+  padding: 60px 30px;
+  border-bottom: 2px solid #ccc;
+  text-align: center; }
+
+.team-member {
+  display: inline-block;
+  width: 20%;
+  padding: 2em; }
+
+.team-member-foto {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff; }
+
+.team-member-caption {
+  border-top: 1px solid #262e3e;
+  padding-top: 0.5em; }
+
+.footer {
+  background-color: #f5f5f5;
+  color: #888;
+  padding: 10px 30px 20px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.9em; }
+
+/*# sourceMappingURL=style-basic.css.map */
