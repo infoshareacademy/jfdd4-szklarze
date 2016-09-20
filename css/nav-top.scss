@@ -5,21 +5,21 @@
   position: fixed;
   top: 0;
   left: 0;
-}
 
-.nav-top ul {
-  margin: 0;
-  padding: 0 50px;
-  list-style-type: none;
-}
+  ul {
+    margin: 0;
+    padding: 0 50px;
+    list-style-type: none;
+  }
 
-.nav-top li {
-  display: inline;
-  font-weight: bold;
-}
+  li {
+    display: inline;
+    font-weight: bold;
 
-.nav-top li a:first-letter {
-  text-transform: uppercase;
+    a:first-letter {
+      text-transform: uppercase;
+    }
+  }
 }
 
 .nav-top ul li:last-child {
