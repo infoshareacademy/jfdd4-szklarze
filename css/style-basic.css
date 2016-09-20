@@ -54,27 +54,25 @@ a {
   position: fixed;
   top: 0;
   left: 0; }
-
-.nav-top ul {
-  margin: 0;
-  padding: 0 50px;
-  list-style-type: none; }
-
-.nav-top li {
-  display: inline;
-  font-weight: bold; }
-
-.nav-top li a:first-letter {
-  text-transform: uppercase; }
-
-.nav-top ul li:last-child {
-  display: list-item;
-  /*Potrzebne, żeby prawidłowo działał clear*/ }
-
-.nav-top a {
-  display: block;
-  padding: 10px;
-  line-height: 40px; }
+  .nav-top ul {
+    margin: 0;
+    padding: 0 50px;
+    list-style-type: none; }
+  .nav-top li {
+    display: inline;
+    font-weight: bold; }
+    .nav-top li a:first-letter {
+      text-transform: uppercase; }
+    .nav-top li:last-child {
+      display: list-item;
+      /*Potrzebne, żeby prawidłowo działał clear*/ }
+  .nav-top a {
+    display: block;
+    padding: 10px;
+    line-height: 40px; }
+  .nav-top .nav-logo {
+    /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+    padding-left: 50px; }
 
 .nav-links:hover {
   background-color: #dda20e; }
@@ -85,10 +83,6 @@ a {
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
   background-size: 40px 40px; }
-
-.nav-top .nav-logo {
-  /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
-  padding-left: 50px; }
 
 .intro {
   background-color: #ffc10e;
