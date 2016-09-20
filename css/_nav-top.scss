@@ -20,7 +20,7 @@
       text-transform: uppercase;
     }
 
-    :last-child {
+    &:last-child {
       display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
     }
   }
