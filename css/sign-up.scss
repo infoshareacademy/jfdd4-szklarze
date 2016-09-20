@@ -21,6 +21,10 @@ input[type="email"] {
     font: bold 16px 'Open Sans', sans-serif;
 }
 
+input[type="email"]:focus {
+    outline: none;
+}
+
 input[type="submit"] {
     background-color: #262e3e;
     border-radius: 0 30px 30px 0;
@@ -37,15 +41,24 @@ input[type="submit"] {
     height: 50px;
 }
 
-.sign-up-info-giodo-text {
+.sign-up-giodo-block {
     color: #888888;
-    display: inline;
+    display: block;
     font-size: 10px;
+    text-align: left;
+    margin: auto;
 
+}
+.sign-up-giodo-text {
+    color: #888888;
+    display: block;
+    font-size: 10px;
+    text-align: left;
+    margin: auto;
 }
 
 .sign-up-giodo-checkbox {
-    display: inline;
+    padding-right: 10px;
 }
 
 .sign-up-email {
