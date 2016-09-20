@@ -1,45 +1,50 @@
-@charset "UTF-8";
 .nav-top {
   background: #FFC10E;
   margin: 0;
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+}
 
 .nav-top ul {
   margin: 0;
   padding: 0 50px;
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 .nav-top li {
   display: inline;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .nav-top li a:first-letter {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .nav-top ul li:last-child {
-  display: list-item;
-  /*Potrzebne, żeby prawidłowo działał clear*/ }
+  display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
+}
 
 .nav-top a {
   display: block;
   padding: 10px;
-  line-height: 40px; }
+  line-height: 40px;
+}
 
 .nav-links:hover {
-  background-color: #dda20e; }
+  background-color: #dda20e;
+}
 
 .nav-logo {
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
-  background-size: 40px 40px; }
+  background-size: 40px 40px;
+}
 
-.nav-top .nav-logo {
-  /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
-  padding-left: 50px; }
+.nav-top .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+  padding-left: 50px;
+}
 
-/*# sourceMappingURL=nav-top.css.map */
