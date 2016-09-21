@@ -10,10 +10,11 @@
     margin: 0;
     padding: 0 50px;
     list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
   }
 
   li {
-    display: inline;
     font-weight: bold;
 
     a:first-letter {
@@ -30,17 +31,14 @@
     padding: 10px;
     line-height: 40px;
   }
-
-  .nav-logo { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
-    padding-left: 50px;
-  }
 }
 
 .nav-links:hover {
   background-color: #dda20e;
 }
 
-.nav-logo {
+.nav-logo-img {
+  flex-grow: 5;
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
@@ -48,4 +46,9 @@
   background-size: 40px 40px;
 }
 
-
+.nav-logo {
+  margin-right: auto; /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/
+  .nav-logo-img { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+    padding-left: 50px;
+  }
+}
