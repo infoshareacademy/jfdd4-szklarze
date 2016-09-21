@@ -142,15 +142,15 @@ a {
   margin: 0; }
 
 .functionality-item {
-  margin: 100px 10px 100px;
+  margin: 100px 10px;
   display: inline-block;
   width: 22%; }
 
-.functionality-img {
+.functionality-img-wrapper {
   padding: 15px 0;
   margin: 0; }
 
-.functionality-img img {
+.functionality-img-wrapper img {
   height: 60px;
   width: auto;
   padding: 20px; }
@@ -250,6 +250,11 @@ input[type="submit"] {
   .footer .social-media-icon img {
     width: 30px;
     height: auto;
-    margin: 15px; }
+    margin: 17px; }
+  .footer p {
+    color: #bfbfbf;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 35px; }
 
 /*# sourceMappingURL=style-basic.css.map */
