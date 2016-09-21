@@ -16,6 +16,7 @@
 
   li {
     font-weight: bold;
+    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
 
     a:first-letter {
       text-transform: uppercase;
@@ -38,12 +39,11 @@
 }
 
 .nav-logo-img {
-  flex-grow: 5;
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
-  background-size: 40px 40px;
+  background-size: 40px;
 }
 
 .nav-logo {
