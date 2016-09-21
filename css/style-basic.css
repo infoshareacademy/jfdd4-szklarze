@@ -86,6 +86,9 @@ a {
 
 .intro {
   background-color: #ffc10e;
+  background-image: url("../images/intro-background.svg");
+  background-position: bottom;
+  background-size: 360px 150px;
   min-height: 400px;
   padding: 120px 30px 90px 30px;
   border-bottom: 2px solid #dda20e;
@@ -105,7 +108,7 @@ a {
   transition: background-color 0.2s ease-in-out; }
 
 .intro-logo:hover {
-  background-color: #ffe9a4; }
+  background-color: #fffbd2; }
 
 .intro-title {
   display: block; }
@@ -222,7 +225,6 @@ input[type="submit"] {
   background-color: #f5f5f5;
   min-height: 300px;
   padding: 60px 30px;
-  border-bottom: 2px solid #ccc;
   text-align: center; }
 
 .team-member {
