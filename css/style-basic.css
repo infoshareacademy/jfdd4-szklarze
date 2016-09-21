@@ -87,7 +87,7 @@ a {
 .intro {
   background-color: #ffc10e;
   background-image: url("../images/intro-background.svg");
-  background-position: bottom;
+  background-position: center bottom;
   background-size: 360px 150px;
   min-height: 400px;
   padding: 120px 30px 90px 30px;
@@ -224,14 +224,28 @@ input[type="submit"] {
 .team {
   background-color: #f5f5f5;
   min-height: 300px;
-  padding: 60px 30px;
+  padding: 60px;
   text-align: center; }
 
+@media (max-width: 768px) {
+  .team {
+    padding: 60px 0; } }
 .team-member {
+  box-sizing: border-box;
   display: inline-block;
-  width: 20%;
+  vertical-align: top;
+  width: 22%;
   padding: 2em; }
 
+@media (max-width: 1224px) {
+  .team-member {
+    width: 40%; } }
+@media (max-width: 768px) {
+  .team-member {
+    width: 80%; } }
+@media (max-width: 320px) {
+  .team-member {
+    width: 100%; } }
 .team-member-foto {
   box-sizing: border-box;
   width: 150px;
