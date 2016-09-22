@@ -167,8 +167,7 @@ a {
 
 .sign-up {
   background-color: #f5f5f5;
-  padding: 100px 0 100px 0;
-  height: 100vh; }
+  padding: 100px 0 100px 0; }
 
 .sign-up-intro-text {
   text-align: center;
@@ -182,8 +181,7 @@ input[type="email"] {
   border-radius: 30px 0 0 30px;
   border: 1px solid #262e3e;
   border-right: 0;
-  padding: 20px 90px 20px 60px;
-  font: bold 16px 'Open Sans', sans-serif; }
+  padding: 20px 90px 20px 60px; }
 
 input[type="email"]:focus {
   outline: none; }
@@ -194,9 +192,15 @@ input[type="submit"] {
   border: 1px solid #262e3e;
   border-left: 0;
   padding: 20px 40px;
-  font: bold 16px 'Open Sans', sans-serif;
   color: #fff;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+
+input[type="submit"]:hover {
+  background-color: #465676; }
+
+input[type="submit"]:focus {
+  outline: none; }
 
 .img-plane {
   width: 50px;
@@ -207,11 +211,10 @@ input[type="submit"] {
   font-size: 10px;
   text-align: left;
   margin: auto;
-  width: 25%; }
+  width: 30%; }
 
 .sign-up-giodo-text {
   color: #b3b3b3;
-  display: block;
   font-size: 10px;
   text-align: left;
   margin-top: 30px; }
@@ -222,6 +225,27 @@ input[type="submit"] {
 .sign-up-email {
   margin-bottom: 20px; }
 
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .sign-up-giodo-block {
+    width: 40%; } }
+@media screen and (max-width: 800px) {
+  .sign-up-giodo-block {
+    width: 60%; }
+
+  input[type="email"] {
+    border-radius: 30px 0 0 30px;
+    border: 1px solid #262e3e;
+    border-right: 0;
+    padding: 20px 0 20px 20px; }
+
+  input[type="submit"] {
+    background-color: #262e3e;
+    border-radius: 0 30px 30px 0;
+    border: 1px solid #262e3e;
+    border-left: 0;
+    padding: 20px 20px;
+    color: #fff;
+    cursor: pointer; } }
 .product-details {
   max-width: 1000px;
   margin: 0 auto;
