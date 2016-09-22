@@ -53,16 +53,23 @@ a {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  display: flex; }
   .nav-top ul {
     margin: 0;
-    padding: 0 50px;
     list-style-type: none;
-    display: flex;
-    justify-content: flex-end; }
+    display: flex; }
+  .nav-top ul:first-child {
+    width: 20%;
+    padding-left: 5%; }
+  .nav-top ul:last-child {
+    justify-content: flex-end;
+    width: 70%;
+    padding-right: 5%;
+    padding-left: 0; }
   .nav-top li {
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+    transition: background-color 0.2s ease-in-out; }
     .nav-top li a:first-letter {
       text-transform: uppercase; }
   .nav-top a {
@@ -87,6 +94,24 @@ a {
     /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px; }
 
+@media screen and (max-width: 660px) {
+  .nav-top {
+    flex-direction: column; }
+    .nav-top ul {
+      align-items: center;
+      flex-direction: column; }
+    .nav-top ul:first-child, .nav-top ul:last-child {
+      padding: 0 5%;
+      width: 90%; }
+    .nav-top li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+      .nav-top li a:first-letter {
+        text-transform: uppercase; }
+    .nav-top a {
+      display: block;
+      padding: 10px;
+      line-height: 40px; } }
 .intro {
   background-color: #ffc10e;
   background-image: url("../images/intro-background.svg");

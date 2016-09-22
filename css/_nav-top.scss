@@ -5,25 +5,31 @@
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
 
   ul {
     margin: 0;
-    padding: 0 50px;
     list-style-type: none;
     display: flex;
+  }
+
+  ul:first-child {
+    width: 20%;
+    padding-left: 5%;
+  }
+  ul:last-child {
     justify-content: flex-end;
+    width: 70%;
+    padding-right: 5%;
+    padding-left: 0;
   }
 
   li {
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 
     a:first-letter {
       text-transform: uppercase;
-    }
-
-    &:last-child {
-      display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
     }
   }
 
@@ -50,5 +56,35 @@
   margin-right: auto; /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/
   .nav-logo-img { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px;
+  }
+}
+
+@media screen and (max-width: 660px){
+  .nav-top {
+    flex-direction: column;
+    ul {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    ul:first-child, ul:last-child {
+      padding: 0 5%;
+      width: 90%;
+    }
+
+    li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+
+      a:first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 10px;
+      line-height: 40px;
+    }
   }
 }
