@@ -65,9 +65,6 @@ a {
     transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
     .nav-top li a:first-letter {
       text-transform: uppercase; }
-    .nav-top li:last-child {
-      display: list-item;
-      /*Potrzebne, żeby prawidłowo działał clear*/ }
   .nav-top a {
     display: block;
     padding: 10px;
