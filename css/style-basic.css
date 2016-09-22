@@ -94,24 +94,36 @@ a {
     /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px; }
 
+.nav-unfold-btn {
+  display: none; }
+
 @media screen and (max-width: 660px) {
   .nav-top {
     flex-direction: column; }
-    .nav-top ul {
+    .nav-top ul:first-child {
       align-items: center;
-      flex-direction: column; }
+      flex-direction: row; }
+    .nav-top ul:last-child {
+      align-items: center;
+      flex-direction: column;
+      display: none; }
+      .nav-top ul:last-child li {
+        width: 100%;
+        text-align: center; }
+      .nav-top ul:last-child a {
+        padding: 5px; }
     .nav-top ul:first-child, .nav-top ul:last-child {
       padding: 0 5%;
       width: 90%; }
-    .nav-top li {
-      font-weight: bold;
-      transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
-      .nav-top li a:first-letter {
-        text-transform: uppercase; }
-    .nav-top a {
-      display: block;
-      padding: 10px;
-      line-height: 40px; } }
+    .nav-top a:first-letter {
+      text-transform: uppercase; }
+
+  .nav-unfold-btn {
+    display: list-item;
+    background-image: url("../images/icon-white-menu.svg");
+    background-size: contain;
+    height: 40px;
+    width: 40px; } }
 .intro {
   background-color: #ffc10e;
   background-image: url("../images/intro-background.svg");
