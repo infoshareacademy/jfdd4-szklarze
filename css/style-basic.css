@@ -57,10 +57,12 @@ a {
   .nav-top ul {
     margin: 0;
     padding: 0 50px;
-    list-style-type: none; }
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end; }
   .nav-top li {
-    display: inline;
-    font-weight: bold; }
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
     .nav-top li a:first-letter {
       text-transform: uppercase; }
     .nav-top li:last-child {
@@ -70,19 +72,23 @@ a {
     display: block;
     padding: 10px;
     line-height: 40px; }
-  .nav-top .nav-logo {
-    /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
-    padding-left: 50px; }
 
 .nav-links:hover {
   background-color: #dda20e; }
 
-.nav-logo {
+.nav-logo-img {
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
-  background-size: 40px 40px; }
+  background-size: 40px; }
+
+.nav-logo {
+  margin-right: auto;
+  /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/ }
+  .nav-logo .nav-logo-img {
+    /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+    padding-left: 50px; }
 
 .intro {
   background-color: #ffc10e;
