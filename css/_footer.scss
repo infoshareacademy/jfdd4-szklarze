@@ -1,19 +1,18 @@
-
 .footer {
   padding: 60px;
-  max-width: 200px;
-  margin: auto;
-
-  .social-media-icon img {
-    width: 30px;
-    height: auto;
-    margin: 17px;
-  }
-
-  p {
-    color: #bfbfbf;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 35px;
-  }
+  text-align: center;
+  color: #bfbfbf;
+  font-size: 0.8em;
+  font-weight: 300;
 }
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+}
+
+.footer-caption {
+  margin-top: 2em;
+}
+
