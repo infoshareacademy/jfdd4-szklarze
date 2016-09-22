@@ -264,9 +264,9 @@ input[type="submit"] {
   padding-top: 0.5em; }
 
 .footer {
-  padding: 60px;
+  padding: 30px 60px;
   text-align: center;
-  color: #bfbfbf;
+  color: #888;
   font-size: 0.8em;
   font-weight: 300; }
 
