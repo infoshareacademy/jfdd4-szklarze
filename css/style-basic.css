@@ -53,28 +53,32 @@ a {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  display: flex; }
   .nav-top ul {
     margin: 0;
-    padding: 0 50px;
     list-style-type: none;
-    display: flex;
-    justify-content: flex-end; }
-  .nav-top li {
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
-    .nav-top li a:first-letter {
-      text-transform: uppercase; }
-    .nav-top li:last-child {
-      display: list-item;
-      /*Potrzebne, żeby prawidłowo działał clear*/ }
+    display: flex; }
+  .nav-top ul:first-child {
+    width: 20%;
+    padding-left: 5%; }
+  .nav-top ul:last-child {
+    justify-content: flex-end;
+    width: 70%;
+    padding-right: 5%;
+    padding-left: 0; }
+  .nav-top a:first-letter {
+    text-transform: uppercase; }
   .nav-top a {
     display: block;
     padding: 10px;
     line-height: 40px; }
 
-.nav-links:hover {
-  background-color: #dda20e; }
+.nav-links {
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out; }
+  .nav-links:hover {
+    background-color: #dda20e; }
 
 .nav-logo-img {
   color: #fff;
@@ -90,6 +94,36 @@ a {
     /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px; }
 
+.nav-btn {
+  display: none; }
+
+@media screen and (max-width: 660px) {
+  .nav-top {
+    flex-direction: column; }
+    .nav-top ul:first-child {
+      align-items: center;
+      flex-direction: row; }
+    .nav-top ul:last-child {
+      align-items: center;
+      flex-direction: column;
+      display: none; }
+      .nav-top ul:last-child li {
+        width: 100%;
+        text-align: center; }
+      .nav-top ul:last-child a {
+        padding: 5px; }
+    .nav-top ul:first-child, .nav-top ul:last-child {
+      padding: 0 5%;
+      width: 90%; }
+    .nav-top a:first-letter {
+      text-transform: uppercase; }
+
+  .nav-btn {
+    display: list-item;
+    background-image: url("../images/icon-white-menu.svg");
+    background-size: contain;
+    height: 40px;
+    width: 40px; } }
 .intro {
   background-color: #ffc10e;
   background-image: url("../images/intro-background.svg");
@@ -252,16 +286,21 @@ input[type="submit"]:focus {
     color: #fff;
     cursor: pointer; } }
 .product-details {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 0; }
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 80px 0;
+  text-align: center; }
 
 .product-details-list {
   display: inline-block;
   vertical-align: top;
   margin: 0;
-  width: 44%;
-  padding: 20px; }
+  width: 100%;
+  padding-right: 20px; }
+
+.product-details-list ul {
+  margin: 0; }
 
 .product-details-list li {
   min-height: 80px;
@@ -269,6 +308,9 @@ input[type="submit"]:focus {
   list-style-image: url("../images/icon-yellow-check-mark.png");
   padding-left: 10px; }
 
+@media screen and (min-width: 1201px) {
+  .product-details-list {
+    width: 44%; } }
 .team {
   background-color: #f5f5f5;
   min-height: 300px;

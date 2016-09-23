@@ -5,27 +5,29 @@
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
 
   ul {
     margin: 0;
-    padding: 0 50px;
     list-style-type: none;
     display: flex;
-    justify-content: flex-end;
   }
 
-  li {
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+  ul:first-child {
+    width: 20%;
+    padding-left: 5%;
+  }
+
+  ul:last-child {
+    justify-content: flex-end;
+    width: 70%;
+    padding-right: 5%;
+    padding-left: 0;
+  }
 
     a:first-letter {
       text-transform: uppercase;
     }
-
-    &:last-child {
-      display: list-item; /*Potrzebne, żeby prawidłowo działał clear*/
-    }
-  }
 
   a {
     display: block;
@@ -34,8 +36,13 @@
   }
 }
 
-.nav-links:hover {
-  background-color: #dda20e;
+.nav-links{
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #dda20e;
+  }
 }
 
 .nav-logo-img {
@@ -50,5 +57,52 @@
   margin-right: auto; /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/
   .nav-logo-img { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px;
+  }
+}
+
+.nav-btn {
+  display: none;
+}
+
+@media screen and (max-width: 660px){
+  .nav-top {
+    flex-direction: column;
+
+    ul:first-child {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    ul:last-child {
+      align-items: center;
+      flex-direction: column;
+      display: none;
+
+      li {
+        width: 100%;
+        text-align: center;
+      }
+
+      a {
+        padding: 5px;
+      }
+    }
+
+    ul:first-child, ul:last-child {
+      padding: 0 5%;
+      width: 90%;
+    }
+
+    a:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-btn {
+    display: list-item;
+    background-image: url("../images/icon-white-menu.svg");
+    background-size: contain;
+    height: 40px;
+    width: 40px;
   }
 }
