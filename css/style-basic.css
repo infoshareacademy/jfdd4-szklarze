@@ -97,7 +97,7 @@ a {
 .nav-btn {
   display: none; }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 600px) {
   .nav-top {
     flex-direction: column; }
     .nav-top ul:first-child {
@@ -175,7 +175,8 @@ a {
   height: auto;
   max-width: 70%;
   text-align: center;
-  margin: 100px auto; }
+  margin: auto;
+  padding: 100px 0; }
 
 .product-info p {
   margin: 0; }

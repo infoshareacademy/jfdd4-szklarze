@@ -20,9 +20,9 @@ function toggleMenu() {
 (function() {
     document.getElementById("nav-btn").setAttribute("onclick", "toggleMenu()");
     var w = window.innerWidth;
-    if (w <= 660) {
+    if (w <= 600) {
         document.getElementById("nav-links").setAttribute("onclick", "toggleMenu()");
-    };
+    }
 })();
 
 <!-- End - Nawigacja-->
