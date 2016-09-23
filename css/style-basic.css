@@ -325,7 +325,12 @@ input[type="submit"]:focus {
   display: inline-block;
   vertical-align: top;
   width: 22%;
-  padding: 2em; }
+  padding: 2em;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out; }
+
+.team-member:hover {
+  background: #fff; }
 
 @media (max-width: 1224px) {
   .team-member {
@@ -336,6 +341,10 @@ input[type="submit"]:focus {
 @media (max-width: 320px) {
   .team-member {
     width: 100%; } }
+.team-member-back {
+  display: none;
+  background: #ddd; }
+
 .team-member-foto {
   box-sizing: border-box;
   width: 150px;
