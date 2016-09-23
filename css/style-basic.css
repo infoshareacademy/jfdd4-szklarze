@@ -212,7 +212,7 @@ input[type="submit"]:focus {
   height: 50px; }
 
 .sign-up-giodo-block {
-  color: #888888;
+  color: #888;
   font-size: 10px;
   text-align: left;
   margin: auto;
@@ -230,10 +230,10 @@ input[type="submit"]:focus {
 .sign-up-email {
   margin-bottom: 20px; }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1200px) {
   .sign-up-giodo-block {
     width: 40%; } }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .sign-up-giodo-block {
     width: 60%; }
 
@@ -241,7 +241,7 @@ input[type="submit"]:focus {
     border-radius: 30px 0 0 30px;
     border: 1px solid #262e3e;
     border-right: 0;
-    padding: 20px 0 20px 20px; }
+    padding: 20px 0 20px 50px; }
 
   input[type="submit"] {
     background-color: #262e3e;
