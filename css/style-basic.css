@@ -97,7 +97,7 @@ a {
 .nav-btn {
   display: none; }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 600px) {
   .nav-top {
     flex-direction: column; }
     .nav-top ul:first-child {
