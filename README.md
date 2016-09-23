@@ -1,6 +1,92 @@
 # jfdd4-szklarze
 
-# Janusz - Frontend Guidelines
+# Janusz - Project Guidelines
+
+## General rules
+
+### Styling constants
+### Git - branches and commits
+### Code formatting
+
+This project was made in Webstorm IDE and uses it's default settings for code maintenance.
+General rules:
+
+* Avoid lines of code longer than 90 characters. Break lines on multiple attributes in HTML,
+* Leave only one blank line at the end of the code,
+*
+*
+*
+
+
+There are the examples of code formatting below.
+
+```*.html
+<!-- End - Previous block of code -->
+
+<!-- Start - Block of code -->
+<section class="blocks-name"
+         id="blocks-id">
+    <div class="some-class">
+        <ul>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhffs</li>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhffs dfsa
+                fdafdasb asbrgney 
+            </li>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjf aslkhjdhffs</li>
+        </ul>
+    </div><!--White spaces clearance.
+ --><div class="another-class">
+        <ul>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhffs</li>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhf aslkhjdhffs</li>
+            <li>Abcsdg aslkhjdhf aslkhjdhf aslkhjf aslkhjdhffs</li>
+        </ul>
+    </div>
+</section>
+<!-- End - Block of code-->
+
+<!-- Start - Next block of code -->
+```
+
+
+```*.scss
+.previous-selector {
+...
+}
+
+.selector {
+  property: value;
+    
+  element:pseudo-class {
+    property: value;
+    property: value;
+  }
+    
+  element:pseudo-class {
+    property: value;
+    property: value;
+    
+    li {
+      property: value;
+      property: value;
+    }
+  }
+}
+
+.next-selector {
+...
+}
+
+.last-selector {
+...
+}
+
+@media {
+Media Queries declarations
+}
+```
+
+## Files naming and grouping
 
 ## HTML
 
@@ -52,8 +138,7 @@ element in a wrong way than staying neutral.
 
 ### Accessibility
 
-Accessibility shouldn't be an afterthought. You don't have to be a WCAG expert to improve your
-website, you can start immediately by fixing the little things that make a huge difference, such as:
+Accessibility shouldn't be an afterthought. Fix the little things that make a huge difference, such as:
 
 * learning to use the `alt` attribute properly
 * making sure your links and buttons are marked as such (no `<div class=button>` atrocities)
@@ -135,9 +220,8 @@ div {
 
 ### Box model
 
-The box model should ideally be the same for the entire document. A global
-`* { box-sizing: border-box; }` is fine, but don't change the default box model
-on specific elements if you can avoid it.
+The box model should ideally be the same for the entire document. 
+Don't change the default box model.
 
 ```css
 /* bad */
@@ -146,6 +230,9 @@ div {
   padding: 10px;
   box-sizing: border-box;
 }
+
+/* bad */
+* { box-sizing: border-box; }
 
 /* good */
 div {
@@ -202,6 +289,24 @@ position: absolute;
 position: fixed;
 ```
 
+Use flexbox instead of floating and clearing, wherever possible.
+
+```css
+/* bad */
+.float-container div {
+  float: left;
+}
+.float-container:after {
+  clear: both;
+}
+
+/* good */
+.flexbox-container {
+  display: flex;
+  justify-content: flex-start;
+}
+```
+
 ### Selectors
 
 Minimize selectors tightly coupled to the DOM. Consider adding a class to the elements
@@ -230,9 +335,29 @@ img[src$=svg], ul > li:first-child {
 }
 ```
 
+Use classes that indicates the area of the page you are working on.
+
+```html
+<!-bad-->
+<nav>
+    ...
+</nav>
+<nav>
+    ...
+</nav>
+
+<!--good-->
+<nav class="nav-top">
+    ...
+</nav>
+<nav class="nav-footer">
+    ...
+</nav>
+```
+
 ### Specificity
 
-Don't make values and selectors hard to override. Minimize the use of `id`'s
+Don't make values and selectors hard to override. Minimize the use of `id` for styling
 and avoid `!important`.
 
 ```css
@@ -240,7 +365,7 @@ and avoid `!important`.
 .bar {
   color: green !important;
 }
-.foo {
+#foo {
   color: red;
 }
 
@@ -313,47 +438,9 @@ div {
 }
 ```
 
-### Language
-
-Prefer English over math.
-
-```css
-/* bad */
-:nth-child(2n + 1) {
-  transform: rotate(360deg);
-}
-
-/* good */
-:nth-child(odd) {
-  transform: rotate(1turn);
-}
-```
-
 ### Vendor prefixes
 
-Kill obsolete vendor prefixes aggressively. If you need to use them, insert them before the
-standard property.
-
-```css
-/* bad */
-div {
-  transform: scale(2);
-  -webkit-transform: scale(2);
-  -moz-transform: scale(2);
-  -ms-transform: scale(2);
-  transition: 1s;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-}
-
-/* good */
-div {
-  -webkit-transform: scale(2);
-  transform: scale(2);
-  transition: 1s;
-}
-```
+Do not use them in this project.
 
 ### Animations
 
@@ -380,14 +467,14 @@ div:hover {
 
 ### Units
 
-Use unitless values when you can. Favor `rem` if you use relative units. Prefer seconds over
+Use unitless values when you can. Use `em` for font size. Prefer seconds over
 milliseconds.
 
 ```css
 /* bad */
 div {
   margin: 0px;
-  font-size: .9em;
+  font-size: 12px;
   line-height: 22px;
   transition: 500ms;
 }
@@ -395,7 +482,7 @@ div {
 /* good */
 div {
   margin: 0;
-  font-size: .9rem;
+  font-size: .9em;
   line-height: 1.5;
   transition: .5s;
 }
@@ -456,6 +543,7 @@ div {
 }
 ```
 
+#!!!THE PART BELOW NEEDS TO BE UPDATED!!!
 ## JavaScript
 
 ### Performance
