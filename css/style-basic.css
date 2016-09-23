@@ -308,7 +308,7 @@ input[type="submit"]:focus {
   list-style-image: url("../images/icon-yellow-check-mark.png");
   padding-left: 10px; }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 1201px) {
   .product-details-list {
     width: 44%; } }
 .team {
