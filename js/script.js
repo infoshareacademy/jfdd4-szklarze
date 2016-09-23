@@ -10,10 +10,10 @@ function toggleMenu() {
 
     if (navDspl == "flex") {
         navLinks.style.display = "none";
-        navBtn.style.backgroundImage = "url(../images/icon-white-menu.svg)"
+        navBtn.style.backgroundImage = "url(images/icon-white-menu.svg)";
     } else {
         navLinks.style.display = "flex";
-        navBtn.style.backgroundImage = "url(../images/icon-white-janusz.svg)"
+        navBtn.style.backgroundImage = "url(images/icon-white-menu-close.svg)";
     }
 }
 
