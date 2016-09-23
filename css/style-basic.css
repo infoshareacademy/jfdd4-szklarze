@@ -286,16 +286,21 @@ input[type="submit"]:focus {
     color: #fff;
     cursor: pointer; } }
 .product-details {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 0; }
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 80px 0;
+  text-align: center; }
 
 .product-details-list {
   display: inline-block;
   vertical-align: top;
   margin: 0;
-  width: 44%;
-  padding: 20px; }
+  width: 100%;
+  padding: 0 20px; }
+
+.product-details-list ul {
+  margin: 0; }
 
 .product-details-list li {
   min-height: 80px;
@@ -303,6 +308,9 @@ input[type="submit"]:focus {
   list-style-image: url("../images/icon-yellow-check-mark.png");
   padding-left: 10px; }
 
+@media screen and (min-width: 801px) {
+  .product-details-list {
+    width: 44%; } }
 .team {
   background-color: #f5f5f5;
   min-height: 300px;
