@@ -67,18 +67,18 @@ a {
     width: 70%;
     padding-right: 5%;
     padding-left: 0; }
-  .nav-top li {
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out; }
-    .nav-top li a:first-letter {
-      text-transform: uppercase; }
+  .nav-top a:first-letter {
+    text-transform: uppercase; }
   .nav-top a {
     display: block;
     padding: 10px;
     line-height: 40px; }
 
-.nav-links:hover {
-  background-color: #dda20e; }
+.nav-links {
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out; }
+  .nav-links:hover {
+    background-color: #dda20e; }
 
 .nav-logo-img {
   color: #fff;
@@ -94,7 +94,7 @@ a {
     /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px; }
 
-.nav-unfold-btn {
+.nav-btn {
   display: none; }
 
 @media screen and (max-width: 660px) {
@@ -118,7 +118,7 @@ a {
     .nav-top a:first-letter {
       text-transform: uppercase; }
 
-  .nav-unfold-btn {
+  .nav-btn {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
