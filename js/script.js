@@ -19,6 +19,7 @@ function toggleMenu() {
 
 (function() {
     document.getElementById("nav-btn").setAttribute("onclick", "toggleMenu()");
+    document.getElementById("nav-links").setAttribute("onclick", "toggleMenu()");
 })();
 
 <!-- End - Nawigacja-->
