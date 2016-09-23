@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- Start - Nawigacja-->
+<!-- Start - Nawigacja -->
 <nav class="nav-top">
     <ul>
         <li class="nav-logo"><a href="#intro" class="nav-logo-img">janusz</a></li>
@@ -22,23 +22,23 @@
         <li class="nav-links"><a href="#team">zespół</a></li>
     </ul>
 </nav>
-<!-- End - Nawigacja-->
+<!-- End - Nawigacja -->
 
-<!-- Start - Zajawka-->
+<!-- Start - Zajawka -->
 <header class="intro" id="intro">
     <div class="intro-logo"></div>
     <h1 class="intro-title">Janusz wie lepiej, zawsze.</h1>
     <h3 class="intro-caption">
-        Zostań Januszem w swojej okolicy. Znajduj najlepsze i najtańsze oferty.<br>
-        Lorem ipsum dolor, przyda się tu więcej tekstu.
+        Zostań Januszem w swojej okolicy! Znajduj najlepsze i najtańsze oferty.<br>
+        Otrzymuj powiadomienia o promocjach, oszczędzaj czas i pieniądze.
     </h3>
     <div>
         <a class="intro-button" href="#sign-up">Chcę zostać Januszem!</a>
     </div>
 </header>
-<!-- End - Zajawka-->
+<!-- End - Zajawka -->
 
-<!-- Start - Funkcje produktu-->
+<!-- Start - Funkcje produktu -->
 <section class="product-info"
          id="product-info">
 
@@ -83,40 +83,48 @@
         </div>
     </div>
 </section>
-<!-- End - Funkcje produktu-->
+<!-- End - Funkcje produktu -->
 
-<!-- Start - Zapis na premierę-->
-<section class="sign-up" id="sign-up">
+<!-- Start - Zapis na premierę -->
+<section class="sign-up"
+         id="sign-up">
     <div class="sign-up-intro-text">
-        <img src="images/icon-blue-paper-plane.svg" class="img-plane" alt="paper plane icon">
+        <img src="images/icon-blue-paper-plane.svg"
+             class="img-plane"
+             alt="paper plane icon">
         <h1>Nie chcesz przegapić premiery Janusza?</h1>
         <h2>Wyślemy Ci tylko jedną wiadomość</h2>
     </div>
     <div class="sign-up-form-field">
-        <form class="sign-up-email" action="http://tools.is-academy.pl/mailer.php" method="POST">
-            <input type="email" name="email" placeholder="Zostaw tu swój e-mail"><input type="hidden" name="receiver"
-                                                                                        value="info@andrzejewski.me"><input
-                type="submit" value="Wyślij">
-            <input type="checkbox" required class="sign-up-giodo-checkbox" title="zgoda">
+        <form class="sign-up-email"
+              action="http://tools.is-academy.pl/mailer.php"
+              method="POST">
+            <input type="email"
+                   name="email"
+                   placeholder="Zostaw tu swój e-mail"
+                   required><input type="hidden"
+                                   name="receiver"
+                                   value="info@andrzejewski.me"><input type="submit" value="Wyślij">
+            <div class="sign-up-giodo-block">
+                <p class="sign-up-giodo-text">
+                    <span class="sign-up-giodo-checkbox">
+                        <input type="checkbox"
+                               required
+                               class="sign-up-giodo-checkbox"
+                               title="zgoda">
+                    </span>
+                    Wyrażam zgodę na otrzymywanie drogą elektroniczną na wskazany przeze mnie
+                    adres e-mail informacji handlowej w rozumieniu art. 10 ust. 1 ustawy z dnia 18 lipca 2002 roku
+                    o świadczeniu usług drogą elektroniczną od Janusz Pomocnik Zakupowy sp. z o. o. z siedzibą w
+                    Gdańsku.
+                </p>
+            </div>
         </form>
-        <p class="sign-up-info-giodo-text">
-            Wyrażam zgodę na otrzymywanie drogą elektroniczną na wskazany przeze mnie
-            adres e-mail informacji handlowej w rozumieniu art. 10 ust. 1 ustawy z dnia
-            18 lipca 2002 roku o świadczeniu usług drogą elektroniczną od Janusz Pomocnik
-            Zakupowy sp. z o. o. z siedzibą w Gdańsku.<br>
-            Wyrażam zgodę na przetwarzanie moich danych osobowych w rozumieniu ustawy z
-            dnia 29 sierpnia 1997 roku o ochronie danych osobowych oraz ustawy z dnia
-            16 lipca 2004 roku Prawo telekomunikacyjne w celach marketingowych przez
-            Janusz Pomocnik Zakupowy sp. z o. o. z siedzibą <br>
-            w Gdańsku i oświadczam, iż podanie przeze mnie danych osobowych jest dobrowolne
-            oraz iż zostałem poinformowany o prawie żądania dostępu do moich danych osobowych,
-            ich zmiany oraz usunięcia.
-        </p>
     </div>
 </section>
-<!-- End - Zapis na premierę-->
+<!-- End - Zapis na premierę -->
 
-<!-- Start - Opis funkcjonalności - Natalia -->
+<!-- Start - Opis funkcjonalności -->
 <section class="product-details"
          id="product-details">
     <div class="product-details-list">
@@ -139,7 +147,7 @@
 </section>
 <!-- End - Opis funkcjonalności-->
 
-<!-- Start - Zespół - Kamil -->
+<!-- Start - Zespół -->
 <section class="team" id="team">
     <h1>Zespół</h1>
 
@@ -152,7 +160,7 @@
  --><div class="team-member">
         <img class="team-member-foto" src="http://placehold.it/200x200" alt="Sebastian">
         <h5>Sebastian</h5>
-        <p class="team-member-caption">Lorem ipsum dolor, pijcie ze mno kompot. Kilka słów o sobie. Lorem ipsum dolor, pijcie ze mno kompot. Kilka słów o sobie. Kilka słów o sobie.</p>
+        <p class="team-member-caption">Wielbiciel kuchni orientalnej i dobrego, czerwonego wina, zakupionego koniecznie w mega promocji w okolicznym dyskoncie. Technomaniak i elektroświr.</p>
     </div><!--
 
  --><div class="team-member">
@@ -168,26 +176,22 @@
     </div>
 
 </section>
-<!-- End - Zespół-->
+<!-- End - Zespół -->
 
+<!-- Start - Stopka -->
 <footer class="footer">
-
-    <a class="social-media-icon" href="mailto:nataliavetter@gmail.com" title="Our e-mail">
-        <img src="images/icon-gray-mail.png">
+    <a href="mailto:nataliavetter@gmail.com" title="Email">
+        <img class="footer-icon" src="images/icon-grey-mail.png">
     </a>
-
-    <a class="social-media-icon" href="https://www.facebook.com/Janusz" title="Facebook profile">
-        <img src="images/icon-gray-facebook.png">
+    <a href="https://www.facebook.com/janusz" title="Facebook" target="_blank">
+        <img class="footer-icon" src="images/icon-grey-facebook.png">
     </a>
-
-    <a class="social-media-icon" href="https://twitter.com/Janusz" title="Twitter profile">
-        <img src="images/icon-gray-twitter.png">
+    <a href="https://twitter.com/janusz" title="Twitter" target="_blank">
+        <img class="footer-icon" src="images/icon-grey-twitter.png">
     </a>
-
-    <p>&copy; 2016 Szklarze </p>
-
-
+    <p class="footer-caption">&copy; 2016 Szklarze</p>
 </footer>
+<!-- End - Stopka -->
 
 <script src="js/script.js"></script>
 </body>
