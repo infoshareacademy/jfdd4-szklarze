@@ -4,7 +4,111 @@
 
 ## General rules
 
-### Styling constants
+### Styling
+
+In this project we use specific set of styles and you should be consistent in using them.
+The styles are in _style-basic.scss_ file. The styles are as follows.
+
+##### Colors
+
+``` 
+Sass variables for colors:
+
+$yellow: #ffc10e ;
+$yellow-dark: #dda20e ;
+
+$blue: #465676 ;
+$blue-dark: #262e3e ;
+
+$grey: #888;
+$grey-light: #f5f5f5 ;
+$grey-dark: ;
+```
+
+##### Fonts
+
+We use "Roboto" font from GoogleFonts. You need to add these lines of code to use it:
+
+```
+HTML:
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext">
+```
+
+###### Font settings
+
+```
+$font-main: 'Roboto', sans-serif;
+
+body {
+  margin: 0;
+  font: 500 1em/1.4em $font-main;
+  color: $blue-dark;
+}
+
+h1, h2, h3, h5, h5, h6 {
+  font: 700 1em/1.4em $font-main;
+  margin: 0.5em;
+}
+
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+h6 {
+  font-size: 1.2em;
+}
+
+p {
+  margin: 0.2em 0;
+}
+```
+
+###### Fonts on small devices
+
+If it is possible, try targeting only "the oldest" ancestor to change font size on smaller devices.
+That way all the descendants will be smaller - this is the privilege of using "em" units. 
+
+```
+body {
+    font-size: 1em;
+}
+
+@media screen and (max-width: 350px){
+    body {
+        font-size: 0.8em;
+    }
+}
+```
+
+###### Media Queries
+
+Stick to these breakpoints for media queries:
+
+1. ```@media screen and (max-width: 350px) {}```
+2. ```@media screen and (min-width: 351px) and (max-width: 600px) {}```
+3. ```@media screen and (min-width: 601px) and (max-width: 800px) {}```
+4. ```@media screen and (min-width: 801px) and (max-width: 1200px) {}```
+
+You can use other ranges and variants, e.g.:
+ ```@media screen and (min-width: 800px) {}```, but remember to use only these 4 breakpoints (350px, 600px, 800px, 1200px) with formatting presented above.
+If you have some spare time, try to rebuild code for the "mobile first" approach.
+
 ### Git - branches and commits
 ### Code formatting
 
