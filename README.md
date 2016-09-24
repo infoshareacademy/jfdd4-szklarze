@@ -181,7 +181,9 @@ General rules:
 
 There are the examples of code formatting below.
 
-```*.html
+```
+*.html
+
 <!-- End - Previous block of code -->
 
 <!-- Start - Block of code -->
@@ -210,7 +212,9 @@ There are the examples of code formatting below.
 ```
 
 
-```*.scss
+```
+*.scss
+
 .previous-selector {
 ...
 }
