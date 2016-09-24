@@ -25,9 +25,9 @@
     padding-left: 0;
   }
 
-    a:first-letter {
-      text-transform: uppercase;
-    }
+  a:first-letter {
+    text-transform: uppercase;
+  }
 
   a {
     display: block;
@@ -36,7 +36,7 @@
   }
 }
 
-.nav-links{
+.nav-links {
   font-weight: bold;
   transition: background-color 0.2s ease-in-out;
 
@@ -64,7 +64,7 @@
   display: none;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   .nav-top {
     flex-direction: column;
 
