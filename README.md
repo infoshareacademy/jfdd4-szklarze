@@ -96,7 +96,7 @@ body {
 }
 ```
 
-###### Media Queries
+##### Media Queries
 
 Stick to these breakpoints for media queries:
 
@@ -109,17 +109,74 @@ You can use other ranges and variants, e.g.:
  ```@media screen and (min-width: 800px) {}```, but remember to use only these 4 breakpoints (350px, 600px, 800px, 1200px) with formatting presented above.
 If you have some spare time, try to rebuild code for the "mobile first" approach.
 
-### Git - branches and commits
+### Git
+
+Rule #1 - Use English! We are Polish team and work on project with polish content but you have to make sure that the whole ropository is understandible for English speakers.
+
+#### Branches
+
+There are 4 types of branches:
+
+1. ```main```    - the main branch where the source code of HEAD always reflects a production-ready state,
+2. ```develop``` - the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release, so called the “integration branch”,
+3. ```feature``` - these are used to develop new features for the upcoming or a distant future release. In this project you use this type when you are working on any particular task/sub-task from your project tracking software (here: JIRA).
+4. ```hotfix```  - originally they are made for resolving critical bugs in a production version. For the sake of this project we can use them for any other changes, that are not directly connected with JIRA tasks, i.e.:
+                   
+    * improvements in a feature after marking a task as DONE
+    * code cleaning
+    * changes in this documentation
+    * etc.
+
+General rules:
+
+* ```main``` and ```develop``` branches are permanent and never to be deleted.
+* ```feature``` and ```hotfix``` branches must always be deleted after marging them with main branches.
+* ```feature``` branch is always created on most up to date ```develop``` branch and is marged back to it
+* ```hotfix``` can be created on ```main``` or ```develop```. If it is created on ```main``` than it is marged back both to ```main``` and ```develop```. Otherwise marge it only with ```devlop```.  
+
+#### Marging - the right way
+
+F.e. you have task called _MP-1 add search engine_, so lets create branch for it.
+
+1. Checkout **develop** branch - `git checkout develop`
+1. Pull **develop** to be up to date - `git pull`
+1. Create new branch **feature/MP-1-add-search-engine** here, on the top of **develop**
+    * Create commits on branch **feature/MP-1-add-search-engine**, put there your changes connected to this feature
+    * Push **feature/MP-1-add-search-engine** to server - do it frequently. Without push you won't have it on GitHub :)
+1. When you're ready - take all changes from **develop** to your branch. Be up to date with your collagues changes!
+    * checkout **develop** again. - `git checkout develop` 
+    * pull **develop** To be up to date with others collagues work - `git pull`
+    * get back to your branch - and merge current **develop** into it. `git checkout feature/MP-1-add-search-engine` and then `git merge develop`
+1. When your're up to date with develop and resolve all merge conflicts. Not its finally time to close your feature :)
+    * checkout **develop** again. - `git checkout develop` 
+    * merge your feature to develop (or create pull request for it) - `git merge feature/MP-1-add-search-engine`
+    * push your changes (so your merge on **develop**, you should be still on **develop** branch) - `git push`
+1. Congrats - now the whole team can `git fetch` and `git pull` **develop** to have your changes :wink:
+
+#### Branch names and commit messages
+
+Always name branches like this
+```type/very-short-title```,
+where:
+
+* ```type``` is one of supporting branches - ```feature``` or ```hotfix```
+* ```very-short-title``` is a description of the taks you are working with. Try to make it maximum 3 words seperated with hyphens.
+
+When you commit, use message format like this
+```ABC-01 Progress description```,
+where:
+
+* ```ABC-01``` is the task number from JIRA. If you REALLY can't assign a commit to any task than create a new one or use "**XX-XXX**", but avoid the last solution.
+* ```Progress description``` is the place where you can write anything worth mentioning about the progress with the task. If you just want to save your progress, write "**Checkpoint commit**".
+
 ### Code formatting
 
 This project was made in Webstorm IDE and uses it's default settings for code maintenance.
 General rules:
 
-* Avoid lines of code longer than 90 characters. Break lines on multiple attributes in HTML,
+* Avoid lines of code longer than 90 characters. 
+* Break lines on multiple attributes in HTML,
 * Leave only one blank line at the end of the code,
-*
-*
-*
 
 
 There are the examples of code formatting below.
@@ -190,7 +247,26 @@ Media Queries declarations
 }
 ```
 
-## Files naming and grouping
+### Files naming and grouping
+
+All files need to be grouped in folders, according to their type:
+
+* styles
+* images
+* scripts
+
+SCSS files are named after the class name of a particular section on a page. They must begin with an underscore. All ```_example.scss``` files are attached to ```style-basic.scss``` using **@import** declaration.
+
+```
+HTML
+<section class="sect-name"></section>
+
+File name:
+_sect-name.scss
+
+Marging styles in style-basic.scss:
+@import _sect-name.scss
+```
 
 ## HTML
 
