@@ -526,7 +526,7 @@ img[src$=svg], ul > li:first-child {
 Use classes that indicates the area of the page you are working on.
 
 ```html
-<!-bad-->
+<!--bad-->
 <nav>
     ...
 </nav>
