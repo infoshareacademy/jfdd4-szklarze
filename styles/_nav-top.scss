@@ -1,5 +1,5 @@
 .nav-top {
-  background: #FFC10E;
+  background: $yellow;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -16,13 +16,24 @@
   ul:first-child {
     width: 20%;
     padding-left: 5%;
+    align-items: center;
   }
 
   ul:last-child {
     justify-content: flex-end;
+    align-items: center;
     width: 70%;
     padding-right: 5%;
     padding-left: 0;
+
+    li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $yellow-dark;
+      }
+    }
   }
 
   a:first-letter {
@@ -36,32 +47,20 @@
   }
 }
 
-.nav-links {
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #dda20e;
-  }
-}
-
-.nav-logo-img {
-  color: #fff;
-  font-size: 20px;
-  text-transform: uppercase;
-  background: url("../images/icon-white-janusz.svg") no-repeat left center;
-  background-size: 40px;
-}
-
 .nav-logo {
-  margin-right: auto; /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/
-  .nav-logo-img { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+  a { /*Overwrites ".nav-top a" selector*/
     padding-left: 50px;
+    color: $white;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: url("../images/icon-white-janusz.svg") no-repeat left center;
+    background-size: 40px;
   }
 }
 
 .nav-btn {
   display: none;
+  margin-left: auto; /*Sets a flex-item (here: nav-bth) on the right side*/
 }
 
 @media screen and (max-width: 600px) {
@@ -69,12 +68,10 @@
     flex-direction: column;
 
     ul:first-child {
-      align-items: center;
       flex-direction: row;
     }
 
-    ul:last-child {
-      align-items: center;
+    ul:last-child { /*Hamburger navigation*/
       flex-direction: column;
       display: none;
 
@@ -91,10 +88,6 @@
     ul:first-child, ul:last-child {
       padding: 0 5%;
       width: 90%;
-    }
-
-    a:first-letter {
-      text-transform: uppercase;
     }
   }
 
