@@ -14,3 +14,8 @@ $white: #fff;
 //Fonts
 
 $font-main: 'Roboto', sans-serif;
+
+@mixin font($font) {
+  font: 500 1.0em/1.4em $font;
+  color: $blue-dark;
+}

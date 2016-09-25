@@ -2,8 +2,7 @@
 
 body {
   margin: 0;
-  font: 500 1.0em/1.4em $font-main;
-  color: $blue-dark;
+  @include font($font-main);
 }
 
 h1, h2, h3, h5, h5, h6 {
