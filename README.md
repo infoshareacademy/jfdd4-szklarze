@@ -96,6 +96,11 @@ body {
 }
 ```
 
+###### Margins and paddings
+
+There is a fixed navigation bar, which is **60px high**. Make sure that every section of the page has 60px top padding, so as the navigation won't cover the content, when the navigation link is clicked.
+Try to use relative units for margins and paddings where it is possible.
+
 ##### Media Queries
 
 Stick to these breakpoints for media queries:
