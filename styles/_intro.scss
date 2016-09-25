@@ -1,12 +1,30 @@
 .intro {
-  background-color: #ffc10e;
-  background-image: url("../images/intro-background.svg");
-  background-position: center bottom;
+  background: $yellow url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
   min-height: 400px;
   padding: 120px 30px 90px 30px;
-  border-bottom: 2px solid #dda20e;
+  border-bottom: 2px solid $yellow-dark;
   text-align: center;
+
+  h3 {
+    color: $white;
+  }
+
+  a {
+    display: inline-block;
+    border-radius: 27px;
+    margin: 1em auto;
+    padding: 1em 2em;
+    background-color: $blue-dark;
+    color: $white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $blue;
+      padding: 1em 3em;
+    }
+  }
 }
 
 .intro-logo {
@@ -14,40 +32,8 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #fff;
-  background-image: url("../images/icon-blue-janusz.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: $white url("../images/icon-blue-janusz.svg") no-repeat center;
   background-size: 140px;
   margin: 20px auto;
   transition: background-color 0.2s ease-in-out;
-}
-
-.intro-logo:hover {
-  background-color: #fffbd2;
-}
-
-.intro-title {
-  display: block;
-}
-
-.intro-caption {
-  display: block;
-  color: #fff;
-}
-
-.intro-button {
-  display: inline-block;
-  border-radius: 27px;
-  margin: 1em auto;
-  padding: 1em 2em;
-  background-color: #262e3e;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
-}
-
-.intro-button:hover {
-  background-color: #465676;
-  padding: 1em 3em;
 }
