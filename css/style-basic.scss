@@ -1,10 +1,12 @@
+@import "variables";
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4em;
-  color: #262e3e;
+  color: $blue-dark;
 }
 
 h1, h2, h3, h5, h5, h6 {
@@ -57,6 +59,12 @@ a {
 
 .float-clear {
   clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 0.7em;
+  }
 }
 
 @import "nav-top";
