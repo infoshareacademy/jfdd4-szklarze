@@ -1,5 +1,5 @@
 .team {
-  background-color: #f5f5f5;
+  background-color: $grey-light;
   min-height: 300px;
   padding: 60px;
   text-align: center;
@@ -36,7 +36,7 @@
 }
 
 .team-member-caption {
-  border-top: 1px solid #262e3e;
+  border-top: 1px solid $blue-dark;
   padding-top: 0.5em;
 }
 
