@@ -54,8 +54,7 @@
 }
 
 .nav-logo {
-  margin-right: auto; /*Ustawia pierwszy flex-item (tj. logo) po lewej stronie*/
-  .nav-logo-img { /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
+  .nav-logo-img {
     padding-left: 50px;
   }
 }
@@ -71,6 +70,7 @@
     ul:first-child {
       align-items: center;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     ul:last-child {
