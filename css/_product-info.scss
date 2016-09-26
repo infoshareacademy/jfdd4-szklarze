@@ -10,7 +10,7 @@
   margin: 0;
 }
 
-.functionality-item {
+.functionality-item-wrapper {
   display: inline-block;
   width: 100%;
   vertical-align: top;
@@ -27,19 +27,19 @@
   padding: 20px;
 }
 
-.functionality-name {
-  padding: 15px 0;
+.functionality-caption {
+  padding: 15px;
   margin: 0;
 }
 
 @media screen and (min-width: 801px) and (max-width: 1200px) {
-  .functionality-item {
+  .functionality-item-wrapper {
     width: 49%;
   }
 }
 
 @media screen and (min-width: 1201px){
-  .functionality-item {
+  .functionality-item-wrapper {
     width: 24%;
   }
 
