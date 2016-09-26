@@ -17,7 +17,7 @@ function toggleMenu() {
     }
 }
 
-(function() {
+(function () {
     document.getElementById("nav-button").setAttribute("onclick", "toggleMenu()");
     var w = window.innerWidth;
     if (w <= 600) {
