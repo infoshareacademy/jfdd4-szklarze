@@ -1,11 +1,9 @@
 .intro {
-  background-color: #ffc10e;
-  background-image: url("../images/intro-background.svg");
-  background-position: center bottom;
+  background: $yellow url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
   min-height: 400px;
   padding: 120px 30px 90px 30px;
-  border-bottom: 2px solid #dda20e;
+  border-bottom: 2px solid $yellow-dark;
   text-align: center;
 }
 
