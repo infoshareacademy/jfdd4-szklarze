@@ -47,6 +47,9 @@ a {
 .float-clear {
   clear: both; }
 
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 0.7em; } }
 .nav-top {
   background: #FFC10E;
   margin: 0;
@@ -97,7 +100,7 @@ a {
 .nav-btn {
   display: none; }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 600px) {
   .nav-top {
     flex-direction: column; }
     .nav-top ul:first-child {
@@ -139,10 +142,7 @@ a {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #fff;
-  background-image: url("../images/icon-blue-janusz.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #fff url("../images/icon-blue-janusz.svg") no-repeat center;
   background-size: 140px;
   margin: 20px auto;
   transition: background-color 0.2s ease-in-out; }
@@ -150,11 +150,7 @@ a {
 .intro-logo:hover {
   background-color: #fffbd2; }
 
-.intro-title {
-  display: block; }
-
 .intro-caption {
-  display: block;
   color: #fff; }
 
 .intro-button {
@@ -175,7 +171,8 @@ a {
   height: auto;
   max-width: 70%;
   text-align: center;
-  margin: 100px auto; }
+  margin: auto;
+  padding: 100px 0; }
 
 .product-info p {
   margin: 0; }
@@ -204,33 +201,53 @@ a {
 @media screen and (min-width: 1201px) {
   .functionality-item {
     width: 24%; } }
+.img-plane {
+  width: 50px;
+  height: 50px; }
+
 .sign-up {
   background-color: #f5f5f5;
-  padding: 100px 0 100px 0; }
+  padding: 100px 0 100px 0;
+  display: flex;
+  justify-content: center; }
 
-.sign-up-intro-text {
+.sign-up-box {
+  width: 65%;
+  max-width: 1200px;
+  text-align: center; }
+
+.sign-up-intro, .sign-up-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.sign-up-form {
   text-align: center;
-  padding-top: 20px; }
+  margin-top: 1%;
+  padding-top: 3%; }
 
-.sign-up-form-field {
-  text-align: center;
-  padding: 40px 0 40px 0; }
-
-input[type="email"] {
+input[type=email] {
+  padding: 2% 5%;
   border-radius: 30px 0 0 30px;
   border: 1px solid #262e3e;
   border-right: 0;
-  padding: 20px 90px 20px 60px; }
+  font-size: 1em;
+  width: 40%;
+  text-align: center; }
 
 input[type="email"]:focus {
   outline: none; }
 
-input[type="submit"] {
+input[type=submit] {
+  width: 20%;
+  font-size: 1em;
   background-color: #262e3e;
   border-radius: 0 30px 30px 0;
   border: 1px solid #262e3e;
   border-left: 0;
-  padding: 20px 40px;
+  padding: 2% 3%;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
@@ -241,50 +258,23 @@ input[type="submit"]:hover {
 input[type="submit"]:focus {
   outline: none; }
 
-.img-plane {
-  width: 50px;
-  height: 50px; }
-
-.sign-up-giodo-block {
-  color: #888;
-  font-size: 10px;
-  text-align: left;
-  margin: auto;
-  width: 30%; }
-
 .sign-up-giodo-text {
-  color: #b3b3b3;
-  font-size: 10px;
-  text-align: left;
-  margin-top: 30px; }
+  padding: 1% 0;
+  text-align: justify;
+  color: #888;
+  width: 75%;
+  margin: 1% auto 0 auto;
+  font-size: 0.6em; }
 
-.sign-up-giodo-checkbox {
-  width: 10px; }
+@media screen and (max-width: 800px) {
+  .sign-up-box {
+    width: 90%; }
 
-.sign-up-email {
-  margin-bottom: 20px; }
+  input[type=email] {
+    width: 50%; }
 
-@media screen and (min-width: 769px) and (max-width: 1200px) {
-  .sign-up-giodo-block {
-    width: 40%; } }
-@media screen and (max-width: 768px) {
-  .sign-up-giodo-block {
-    width: 60%; }
-
-  input[type="email"] {
-    border-radius: 30px 0 0 30px;
-    border: 1px solid #262e3e;
-    border-right: 0;
-    padding: 20px 0 20px 50px; }
-
-  input[type="submit"] {
-    background-color: #262e3e;
-    border-radius: 0 30px 30px 0;
-    border: 1px solid #262e3e;
-    border-left: 0;
-    padding: 20px 20px;
-    color: #fff;
-    cursor: pointer; } }
+  input[type=submit] {
+    width: 20%; } }
 .product-details {
   width: 80%;
   max-width: 1200px;
@@ -325,7 +315,12 @@ input[type="submit"]:focus {
   display: inline-block;
   vertical-align: top;
   width: 22%;
-  padding: 2em; }
+  padding: 2em;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out; }
+
+.team-member:hover {
+  background: #fff; }
 
 @media (max-width: 1224px) {
   .team-member {
@@ -336,6 +331,10 @@ input[type="submit"]:focus {
 @media (max-width: 320px) {
   .team-member {
     width: 100%; } }
+.team-member-back {
+  display: none;
+  background: #ddd; }
+
 .team-member-foto {
   box-sizing: border-box;
   width: 150px;

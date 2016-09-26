@@ -14,10 +14,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #fff;
-  background-image: url("../images/icon-blue-janusz.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: #fff url("../images/icon-blue-janusz.svg") no-repeat center;
   background-size: 140px;
   margin: 20px auto;
   transition: background-color 0.2s ease-in-out;
@@ -28,11 +25,10 @@
 }
 
 .intro-title {
-  display: block;
+
 }
 
 .intro-caption {
-  display: block;
   color: #fff;
 }
 
