@@ -69,18 +69,17 @@ a {
     width: 70%;
     padding-right: 5%;
     padding-left: 0; }
+    .nav-top ul:last-child li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out; }
+      .nav-top ul:last-child li:hover {
+        background-color: #dda20e; }
   .nav-top a:first-letter {
     text-transform: uppercase; }
   .nav-top a {
     display: block;
     padding: 10px;
     line-height: 40px; }
-
-.nav-links {
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out; }
-  .nav-links:hover {
-    background-color: #dda20e; }
 
 .nav-logo-img {
   color: #fff;
