@@ -7,7 +7,6 @@ function toggleMenu() {
     var navLinks = document.getElementById("nav-links");
     var navButton = document.getElementById("nav-button");
     var navDislplay = getComputedStyle(navLinks, null).display;
-
     if (navDislplay == "flex") {
         navLinks.style.display = "none";
         navButton.style.backgroundImage = "url(images/icon-white-menu.svg)";
@@ -17,7 +16,7 @@ function toggleMenu() {
     }
 }
 
-(function() {
+(function () {
     document.getElementById("nav-button").setAttribute("onclick", "toggleMenu()");
     var w = window.innerWidth;
     if (w <= 600) {
