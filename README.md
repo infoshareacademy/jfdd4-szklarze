@@ -125,12 +125,8 @@ There are 4 types of branches:
 1. ```main```    - the main branch where the source code of HEAD always reflects a production-ready state,
 2. ```develop``` - the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release, so called the “integration branch”,
 3. ```feature``` - these are used to develop new features for the upcoming or a distant future release. In this project you use this type when you are working on any particular task/sub-task from your project tracking software (here: JIRA).
-4. ```hotfix```  - originally they are made for resolving critical bugs in a production version. For the sake of this project we can use them for any other changes, that are not directly connected with JIRA tasks, i.e.:
-                   
-    * improvements in a feature after marking a task as DONE
-    * code cleaning
-    * changes in this documentation
-    * etc.
+                   If you are making any minor changes or improvements, use also this type of branch.
+4. ```hotfix```  - they are made for resolving critical bugs in a production version.
 
 General rules:
 
