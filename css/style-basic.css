@@ -68,11 +68,12 @@ a {
     justify-content: flex-end;
     width: 70%;
     padding-right: 5%;
-    padding-left: 0;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out; }
-    .nav-top ul:last-child:hover {
-      background-color: #dda20e; }
+    padding-left: 0; }
+    .nav-top ul:last-child li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out; }
+      .nav-top ul:last-child li:hover {
+        background-color: #dda20e; }
   .nav-top a:first-letter {
     text-transform: uppercase; }
   .nav-top a {
