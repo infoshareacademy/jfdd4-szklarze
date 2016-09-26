@@ -97,7 +97,7 @@ a {
     /*Potrzebny silniejszy selektor niz sam .nav-logo, żeby móc nadpisać padding*/
     padding-left: 50px; }
 
-.nav-btn {
+.nav-button {
   display: none; }
 
 @media screen and (max-width: 600px) {
@@ -121,7 +121,7 @@ a {
     .nav-top a:first-letter {
       text-transform: uppercase; }
 
-  .nav-btn {
+  .nav-button {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
