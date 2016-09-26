@@ -9,7 +9,7 @@
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 22%;
+  width: 24%;
   padding: 2em;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
@@ -40,19 +40,19 @@
   padding-top: 0.5em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .team {
     padding: 60px 0;
   }
 }
 
-@media (max-width: 1224px) {
+@media (max-width: 1200px) {
   .team-member {
     width: 40%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .team-member {
     width: 80%;
   }
