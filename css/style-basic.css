@@ -272,8 +272,6 @@ input[type="submit"]:focus {
   margin: 0;
   width: 100%;
   padding-right: 20px; }
-  .product-details-list ul {
-    margin: 0; }
   .product-details-list li {
     min-height: 80px;
     text-align: justify;
