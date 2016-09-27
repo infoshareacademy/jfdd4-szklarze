@@ -96,6 +96,11 @@ body {
 }
 ```
 
+###### Margins and paddings
+
+There is a fixed navigation bar, which is **60px high**. Make sure that every section of the page has 60px top padding, so as the navigation won't cover the content, when the navigation link is clicked.
+Try to use relative units for margins and paddings where it is possible.
+
 ##### Media Queries
 
 Stick to these breakpoints for media queries:
@@ -120,12 +125,8 @@ There are 4 types of branches:
 1. ```main```    - the main branch where the source code of HEAD always reflects a production-ready state,
 2. ```develop``` - the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release, so called the “integration branch”,
 3. ```feature``` - these are used to develop new features for the upcoming or a distant future release. In this project you use this type when you are working on any particular task/sub-task from your project tracking software (here: JIRA).
-4. ```hotfix```  - originally they are made for resolving critical bugs in a production version. For the sake of this project we can use them for any other changes, that are not directly connected with JIRA tasks, i.e.:
-                   
-    * improvements in a feature after marking a task as DONE
-    * code cleaning
-    * changes in this documentation
-    * etc.
+                   If you are making any minor changes or improvements, use also this type of branch.
+4. ```hotfix```  - they are made for resolving critical bugs in a production version.
 
 General rules:
 
@@ -155,15 +156,19 @@ F.e. you have task called _MP-1 add search engine_, so lets create branch for it
 
 #### Branch names and commit messages
 
-Always name branches like this
-```type/very-short-title```,
+Always name branches like this 
+```
+type/very-short-title
+```
 where:
 
 * ```type``` is one of supporting branches - ```feature``` or ```hotfix```
 * ```very-short-title``` is a description of the taks you are working with. Try to make it maximum 3 words seperated with hyphens.
 
-When you commit, use message format like this
-```ABC-01 Progress description```,
+When you commit, use message format like this 
+```
+ABC-01 Progress description
+```
 where:
 
 * ```ABC-01``` is the task number from JIRA. If you REALLY can't assign a commit to any task than create a new one or use "**XX-XXX**", but avoid the last solution.
@@ -522,7 +527,7 @@ img[src$=svg], ul > li:first-child {
 Use classes that indicates the area of the page you are working on.
 
 ```html
-<!-bad-->
+<!--bad-->
 <nav>
     ...
 </nav>
