@@ -165,7 +165,7 @@ a {
   max-width: 70%;
   text-align: center;
   margin: auto;
-  padding: 100px 0; }
+  padding: 80px 0 60px; }
   .product-info p {
     margin: 0; }
 
@@ -182,7 +182,7 @@ a {
     width: auto;
     padding: 20px; }
 
-.functionality-caption {
+.functionality-caption-wrapper {
   padding: 15px;
   margin: 0; }
 
@@ -262,8 +262,8 @@ input[type="submit"]:focus {
 .product-details {
   width: 80%;
   max-width: 1200px;
-  margin: 100px auto;
-  padding: 80px 0;
+  margin: auto;
+  padding: 80px 0 60px;
   text-align: center; }
 
 .product-details-list {
@@ -282,7 +282,9 @@ input[type="submit"]:focus {
 
 @media screen and (min-width: 1201px) {
   .product-details-list {
-    width: 44%; } }
+    width: 44%; }
+    .product-details-list ul {
+      margin: 20px 0; } }
 .team {
   background-color: #f5f5f5;
   min-height: 300px;
