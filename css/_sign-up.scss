@@ -1,13 +1,13 @@
-.img-plane {
-  width: 50px;
-  height: 50px;
-}
-
 .sign-up {
   background-color: $grey-light;
-  padding: 100px 0 100px 0;
+  padding: 80px 0;
   display: flex;
   justify-content: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .sign-up-box {
@@ -16,45 +16,55 @@
   text-align: center;
 }
 
-.sign-up-form {
+.sign-up-intro, .sign-up-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+form {
   text-align: center;
   margin-top: 1%;
   padding-top: 3%;
 }
 
-input[type=email] {
-  padding: 2% 5%;
-  border-radius: 30px 0 0 30px;
-  border: 1px solid $blue-dark;
-  border-right: 0;
-  font-size: 1em;
-  width: 40%;
-  text-align: center;
-}
+input {
+  &[type=email] {
+    padding: 2% 5%;
+    border-radius: 30px 0 0 30px;
+    border: 1px solid $blue-dark;
+    border-right: 0;
+    font-size: 1em;
+    width: 40%;
+    text-align: center;
 
-input[type="email"]:focus {
-  outline: none;
-}
+    &:focus {
+      outline: none;
+    }
+  }
 
-input[type=submit] {
-  width: 20%;
-  font-size: 1em;
-  background-color: $blue-dark;
-  border-radius: 0 30px 30px 0;
-  border: 1px solid $blue-dark;
-  border-left: 0;
-  padding: 2% 3%;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
-}
+  &[type=submit] {
+    width: 20%;
+    font-size: 1em;
+    background-color: $blue-dark;
+    border-radius: 0 30px 30px 0;
+    border: 1px solid $blue-dark;
+    border-left: 0;
+    padding: 2% 3%;
+    color: $white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out;
+  }
 
-input[type="submit"]:hover {
-  background-color: #465676
-}
+  &[type="submit"]:hover {
+    background-color: $blue;
+  }
 
-input[type="submit"]:focus {
-  outline: none;
+  &[type="submit"]:focus {
+    outline: none;
+  }
 }
 
 .sign-up-giodo-text {
@@ -77,6 +87,3 @@ input[type="submit"]:focus {
     width: 20%;
   }
 }
-
-
-

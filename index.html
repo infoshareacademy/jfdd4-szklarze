@@ -2,33 +2,38 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <title>Janusz - pomocnik zakupowy</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext">
-    <link rel="stylesheet" href="css/style-basic.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext">
+    <link rel="stylesheet"
+          href="css/style-basic.css">
 </head>
 <body>
 
 <!-- Start - Nawigacja -->
 <nav class="nav-top">
     <ul>
-        <li class="nav-logo"><a href="#intro" class="nav-logo-img">janusz</a></li>
-        <li class="nav-button" id="nav-button"></li>
+        <li class="nav-logo"><a href="#intro">janusz</a></li>
+        <li class="nav-btn"
+            id="nav-btn"></li>
     </ul>
     <ul id="nav-links">
-        <li class="nav-links"><a href="#product-info">funkcje</a></li>
-        <li class="nav-links"><a href="#sign-up">zapisz się</a></li>
-        <li class="nav-links"><a href="#product-details">szczegóły</a></li>
-        <li class="nav-links"><a href="#team">zespół</a></li>
+        <li><a href="#product-info">funkcje</a></li>
+        <li><a href="#sign-up">zapisz się</a></li>
+        <li><a href="#product-details">szczegóły</a></li>
+        <li><a href="#team">zespół</a></li>
     </ul>
 </nav>
 <!-- End - Nawigacja -->
 
-<!-- Start - Intro -->
-<header class="intro" id="intro">
+<!-- Start - Zajawka -->
+<header class="intro"
+        id="intro">
     <div class="intro-logo"></div>
     <h1>Janusz wie lepiej, zawsze.</h1>
-    <h3 class="intro-caption">
+    <h3>
         Zostań Januszem w swojej okolicy! Znajduj najlepsze i najtańsze oferty.<br>
         Otrzymuj powiadomienia o promocjach, oszczędzaj czas i pieniądze.
     </h3>
@@ -36,50 +41,46 @@
         <a class="intro-button" href="#sign-up">Chcę zostać Januszem!</a>
     </div>
 </header>
-<!-- End - Intro -->
+<!-- End - Zajawka -->
 
 <!-- Start - Funkcje produktu -->
 <section class="product-info"
          id="product-info">
-    <div class="functionality-item-wrapper">
+    <div class="functionality-item">
         <div class="functionality-img-wrapper">
-            <img src="images/icon-blue-shopping-list.svg" alt="lista zakupów">
+            <img src="images/icon-blue-shopping-list.svg"
+                 alt="lista zakupów">
         </div>
-        <div class="functionality-caption">
-            <p>
-                W łatwy sposób twórz listy tego co chcesz dziś tanio kupić
-            </p>
-        </div>
-    </div>
-    <div class="functionality-item-wrapper">
+        <p>
+            W łatwy sposób twórz listy tego co chcesz dziś tanio kupić
+        </p>
+    </div><!--Whitespace clear!
+ --><div class="functionality-item">
         <div class="functionality-img-wrapper">
-            <img src="images/icon-blue-geolocation.svg" alt="mapa">
+            <img src="images/icon-blue-geolocation.svg"
+                 alt="mapa">
         </div>
-        <div class="functionality-caption">
-            <p>
-                Znajduj sklepy w twojej okolicy gdzie zrobisz najlepszy interes
-            </p>
-        </div>
-    </div>
-    <div class="functionality-item-wrapper">
+        <p>
+            Znajduj sklepy w twojej okolicy gdzie zrobisz najlepszy interes
+        </p>
+    </div><!--Whitespace clear!
+ --><div class="functionality-item">
         <div class="functionality-img-wrapper">
-            <img src="images/icon-blue-offer-alert.svg" alt="promocja">
+            <img src="images/icon-blue-offer-alert.svg"
+                 alt="promocja">
         </div>
-        <div class="functionality-caption">
-            <p>
-                Otrzymuj powiadomienia o promocjach na twoje ulubione produkty
-            </p>
-        </div>
-    </div>
-    <div class="functionality-item-wrapper">
+        <p>
+            Otrzymuj powiadomienia o promocjach na twoje ulubione produkty
+        </p>
+    </div><!--Whitespace clear!
+ --><div class="functionality-item">
         <div class="functionality-img-wrapper">
-            <img src="images/icon-blue-reviews.svg" alt="recenzje">
+            <img src="images/icon-blue-reviews.svg"
+                 alt="recenzje">
         </div>
-        <div class="functionality-caption">
-            <p>
-                Poznaj opinie innych Januszów o produktach, które chcesz mieć
-            </p>
-        </div>
+        <p>
+            Poznaj opinie innych Januszów o produktach, które chcesz mieć
+        </p>
     </div>
 </section>
 <!-- End - Funkcje produktu -->
@@ -90,29 +91,29 @@
     <div class="sign-up-box">
         <div class="sign-up-intro">
             <img src="images/icon-blue-paper-plane.svg"
-                 alt="paper plane icon"
-                 class="img-plane">
+                 alt="paper plane icon">
             <h1>Nie chcesz przegapić premiery Janusza?</h1>
             <h2>Wyślemy Ci tylko jedną wiadomość</h2>
         </div>
-        <form class="sign-up-form"
-              action="http://tools.is-academy.pl/mailer.php"
+        <form action="http://tools.is-academy.pl/mailer.php"
               method="post">
             <input type="email"
                    name="email"
                    placeholder="Zostaw tu swój e-mail"
-                   required><input type="hidden"
-                                   name="receiver"
-                                   value="info@andrzejewski.me"><input type="submit"
-                                                                       value="Wyślij">
+                   required><!--Whitespace clear!
+         --><input type="hidden"
+                   name="receiver"
+                   value="info@andrzejewski.me"><!--Whitespace clear!
+         --><input type="submit"
+                   value="Wyślij">
             <div class="sign-up-giodo-text">
                 <p>
-                       <span>
-                           <input type="checkbox"
-                                  name="Zgoda-na-przetwarzanie-danych-osobowych"
-                                  required
-                                  title="Zgoda">
-                       </span>
+                   <span>
+                       <input type="checkbox"
+                              name="Zgoda-na-przetwarzanie-danych-osobowych"
+                              required
+                              title="Zgoda">
+                   </span>
                     Wyrażam zgodę na otrzymywanie drogą elektroniczną na wskazany przeze mnie
                     adres e-mail informacji handlowej
                     w rozumieniu art. 10 ust. 1 ustawy z dnia 18 lipca 2002 roku
@@ -128,34 +129,38 @@
 <!-- Start - Opis funkcjonalności -->
 <section class="product-details"
          id="product-details">
-    <div class="product-details-list">
-        <ul>
-            <li>Twórz listy zakpów i dziel się nimi z kim chcesz, jednym kliknięciem</li>
-            <li>Poznawaj pomysły na tanie dania i błyskawicznie dodawaj potrzebne produkty
-                do listy zakupów
-            </li>
-            <li>Sprawdź, w którym sklepie zrobisz zakupy najtaniej, wyznacz najszybszą i
-                najtańszą trasę dojazdu
-            </li>
-            <li>Wybierz swoje ulubione produkty i otrzymuj powiadomienia kiedy będą w promocji w twojej okolicy</li>
-        </ul>
-    </div><!--Nie wstawiać tu białych znaków! Display inline-block
-    -->
-    <div class="product-details-list">
-        <ul>
-            <li>Przeglądaj wszystkie oferty promocyjne w twoim sąsiedztwie</li>
-            <li>Znajdź wszystkie opinie o sklepach i produktach w jednym miejscu, podziel się swoimi</li>
-            <li>Oszczędzaj z kuponami zniżkowymi</li>
-            <li>Zdobądź odznakę TurboMegaJanusza i kupuj jeszcze taniej!</li>
-        </ul>
-    </div>
+    <ul>
+        <li>Dołącz do społeczności, w której wszyscy sobie pomagają w odnalezieniu
+            najtańszych produktów na twoim osiedlu
+        </li>
+        <li>Twórz listy zakpów i dziel się nimi z kim chcesz, jednym kliknięciem</li>
+        <li>Poznawaj pomysły na tanie dania i błyskawicznie dodawaj potrzebne produkty
+            do listy zakupów
+        </li>
+        <li>Sprawdź, w którym sklepie zrobisz zakupy najtaniej, wyznacz najszybszą i
+            najtańszą trasę dojazdu
+        </li>
+        <li>Wybierz swoje ulubione produkty i otrzymuj powiadomienia kiedy będą w
+            promocji w twojej okolicy
+        </li>
+    </ul><!--Whitespace clear! Display inline-block
+ --><ul>
+        <li>Nawiąż kontakt z twoim bratnim Januszem i wspólnie wybierzcie się na
+            tematyczne targi, konferencje i eventy
+        </li>
+        <li>Przeglądaj wszystkie oferty promocyjne w twoim sąsiedztwie</li>
+        <li>Znajdź wszystkie opinie o sklepach i produktach w jednym miejscu, podziel
+            się swoimi
+        </li>
+        <li>Oszczędzaj z kuponami zniżkowymi</li>
+        <li>Zdobądź odznakę TurboMegaJanusza i kupuj jeszcze taniej!</li>
+    </ul>
 </section>
 <!-- End - Opis funkcjonalności-->
 
 <!-- Start - Zespół -->
 <section class="team" id="team">
     <h1>Zespół</h1>
-
     <div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-natalia.jpg" alt="Natalia">
@@ -163,71 +168,71 @@
             <p class="team-member-caption">Globtrotterka, obieżyświatka, obywatelka świata. Zdobędzie całą planetę, ale
                 wcześniej... wyłączy ten przeklęty budzik i pośpi jeszcze chwilkę.</p>
         </div>
-
         <div class="team-member-back">
             <p>Back placeholder</p>
             <p>Natalia Vetter</p>
         </div>
-    </div><!--
+    </div><!--Whitespace clear!
 
- -->
-    <div class="team-member">
+ --><div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-sebastian.jpg" alt="Sebastian">
             <h5>Sebastian</h5>
             <p class="team-member-caption">Wielbiciel kuchni orientalnej i dobrego, czerwonego wina, zakupionego
                 koniecznie w mega promocji w okolicznym dyskoncie. Technomaniak i elektroświr.</p>
         </div>
-
         <div class="team-member-back">
             <p>Back placeholder</p>
             <p>Sebastian Kreft</p>
         </div>
-    </div><!--
+    </div><!--Whitespace clear!
 
- -->
-    <div class="team-member">
+ --><div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-kamil.jpg" alt="Kamil">
             <h5>Kamil</h5>
             <p class="team-member-caption">Lubi śruby i nakrętki, potrafi obsługiwać młotek i śrubokręt. Wszędzie widzi
                 szczegóły, prawie wszędzie. Chciałby mieć kota albo psa, albo kota i psa.</p>
         </div>
-
         <div class="team-member-back">
             <p>Back placeholder</p>
             <p>Kamil Orłowski</p>
         </div>
-    </div><!--
+    </div><!--Whitespace clear!
 
- -->
-    <div class="team-member">
+ --><div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-marcin.jpg" alt="Marcin">
             <h5>Marcin</h5>
             <p class="team-member-caption">Szalony chemik, bezwzględny prawnik, od niedawna haker, słowem człowiek
                 orkiestra. Zna kody do Matrixa na funkcjonowanie bez snu.</p>
         </div>
-
         <div class="team-member-back">
             <p>Back placeholder</p>
             <p>Marcin Andrzejewski</p>
         </div>
     </div>
-
 </section>
 <!-- End - Zespół -->
 
 <!-- Start - Stopka -->
 <footer class="footer">
-    <a href="mailto:nataliavetter@gmail.com" title="Email">
-        <img class="footer-icon" src="images/icon-grey-mail.png">
+    <a href="mailto:nataliavetter@gmail.com"
+       title="Email">
+        <img class="footer-icon"
+             src="images/icon-grey-mail.png">
     </a>
-    <a href="#" title="Facebook" target="_blank">
-        <img class="footer-icon" src="images/icon-grey-facebook.png">
+    <a href="#"
+       title="Facebook"
+       target="_blank">
+        <img class="footer-icon"
+             src="images/icon-grey-facebook.png">
     </a>
-    <a href="#" title="Twitter" target="_blank">
-        <img class="footer-icon" src="images/icon-grey-twitter.png">
+    <a href="#"
+       title="Twitter"
+       target="_blank">
+        <img class="footer-icon"
+             src="images/icon-grey-twitter.png">
     </a>
     <p class="footer-caption">&copy; 2016 Szklarze</p>
 </footer>
