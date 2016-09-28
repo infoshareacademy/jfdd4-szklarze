@@ -1,12 +1,39 @@
 .game-container {
   position: fixed;
-  width: 96%;
-  height: 96%;
-  top: 2%;
-  right: 2%;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  right: 5%;
   background: $yellow;
   border: 1px solid $yellow-dark;
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  * {
+    border: 1px solid red;
+  }
+
+  p {
+    padding-top: 35vw;
+    background: url("../images/icon-black-beer.svg") center top no-repeat;
+    background-size: 30vw 30vw;
+    font-size: 1.2em;
+  }
+}
+
+.close-button {
+  height: 8vh;
+  width: 8vh;
+  margin-left: auto;
+  background: url("../images/icon-white-menu-close.svg") right top no-repeat;
+  background-size: cover;
+}
+
+.text-container {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
