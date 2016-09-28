@@ -1,32 +1,33 @@
 .product-details {
   width: 80%;
-  max-width: 1200px;
-  margin: 100px auto;
+  margin: auto;
   padding: 80px 0;
   text-align: center;
-}
-
-.product-details-list {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0;
-  width: 100%;
-  padding-right: 20px;
 
   ul {
+    vertical-align: top;
     margin: 0;
+    width: calc(98% - 40px);
+    padding-right: 2%;
   }
 
   li {
     min-height: 80px;
+    width: calc(100% - 10px);
     text-align: justify;
     list-style-image: url("../images/icon-yellow-check-mark.png");
     padding-left: 10px;
   }
 }
 
-@media screen and (min-width: 1201px) {
-  .product-details-list {
-    width: 44%;
+@media screen and (min-width: 801px) {
+  .product-details {
+    max-width: 1200px;
+
+    ul {
+      display: inline-block;
+      width: calc(44% - 40px);
+      padding-right: 6%;
+    }
   }
 }

@@ -2,15 +2,10 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.4em;
-  color: $blue-dark;
+  @include font($font-main);
 }
 
 h1, h2, h3, h5, h5, h6 {
-  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   line-height: 1.4em;
   margin: 0.5em;
@@ -49,21 +44,13 @@ a {
   color: inherit;
 }
 
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-clear {
-  clear: both;
-}
-
 @media screen and (max-width: 600px) {
   body {
     font-size: 0.7em;
+  }
+
+  p, a, li {
+    font-size: 1.25em; //1em = 16px; 16px * 0.7 * 1.25 = 14px
   }
 }
 

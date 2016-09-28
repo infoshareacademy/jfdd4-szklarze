@@ -3,14 +3,15 @@
   max-width: 70%;
   text-align: center;
   margin: auto;
-  padding: 100px 0;
+  padding: 80px 0;
 
   p {
     margin: 0;
+    padding: 15px 0;
   }
 }
 
-.functionality-item-wrapper {
+.functionality-item {
   display: inline-block;
   width: 100%;
   vertical-align: top;
@@ -18,7 +19,6 @@
 
 .functionality-img-wrapper {
   padding: 15px 0;
-  margin: 0;
 
   img {
     height: 60px;
@@ -27,20 +27,15 @@
   }
 }
 
-.functionality-caption {
-  padding: 15px;
-  margin: 0;
-}
-
-@media screen and (min-width: 801px) and (max-width: 1200px) {
-  .functionality-item-wrapper {
-    width: 49%;
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .functionality-item {
+    width: 47%;
+    padding: 0 1.25%;
   }
 }
 
-@media screen and (min-width: 1201px) {
-  .functionality-item-wrapper {
+@media screen and (min-width: 1201px){
+  .functionality-item {
     width: 24%;
   }
-
 }

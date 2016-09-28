@@ -1,5 +1,5 @@
 .nav-top {
-  background: #FFC10E;
+  background: $yellow;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -16,10 +16,12 @@
   ul:first-child {
     width: 20%;
     padding-left: 5%;
+    align-items: center;
   }
 
   ul:last-child {
     justify-content: flex-end;
+    align-items: center;
     width: 70%;
     padding-right: 5%;
     padding-left: 0;
@@ -29,7 +31,7 @@
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: #dda20e;
+        background-color: $yellow-dark;
       }
     }
   }
@@ -46,9 +48,9 @@
 }
 
 .nav-logo {
-  a {
+  a { /*Overwrites ".nav-top a" selector*/
     padding-left: 50px;
-    color: #fff;
+    color: $white;
     font-size: 20px;
     text-transform: uppercase;
     background: url("../images/icon-white-janusz.svg") no-repeat left center;
@@ -56,8 +58,9 @@
   }
 }
 
-.nav-button {
+.nav-btn {
   display: none;
+  margin-left: auto; /*Sets a flex-item (here: nav-bth) on the right side*/
 }
 
 @media screen and (max-width: 600px) {
@@ -65,13 +68,10 @@
     flex-direction: column;
 
     ul:first-child {
-      align-items: center;
       flex-direction: row;
-      justify-content: space-between;
     }
 
-    ul:last-child {
-      align-items: center;
+    ul:last-child { /*Hamburger navigation*/
       flex-direction: column;
       display: none;
 
@@ -89,13 +89,9 @@
       padding: 0 5%;
       width: 90%;
     }
-
-    a:first-letter {
-      text-transform: uppercase;
-    }
   }
 
-  .nav-button {
+  .nav-btn {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
