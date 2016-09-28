@@ -13,11 +13,11 @@
   width: 100%;
   padding-right: 20px;
 
-  #list-1 {
+  .list-1 {
     margin: 20px 0 0;
   }
 
-  #list-2 {
+  .list-2 {
     margin: 0;
   }
 
@@ -33,7 +33,7 @@
   .product-details-list {
     width: 44%;
 
-    #list-1, #list-2 {
+    .list-1, .list-2 {
       margin: 20px 0;
     }
   }
