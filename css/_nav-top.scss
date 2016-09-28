@@ -1,5 +1,5 @@
 .nav-top {
-  background: #FFC10E;
+  background: $yellow;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -29,7 +29,7 @@
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: #dda20e;
+        background-color: $yellow-dark;
       }
     }
   }
@@ -48,7 +48,7 @@
 .nav-logo {
   a {
     padding-left: 50px;
-    color: #fff;
+    color: $white;
     font-size: 20px;
     text-transform: uppercase;
     background: url("../images/icon-white-janusz.svg") no-repeat left center;
