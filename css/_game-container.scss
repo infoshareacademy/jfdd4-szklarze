@@ -5,13 +5,13 @@
   top: 5%;
   right: 5%;
   background: $yellow;
-  border: 1px solid $yellow-dark;
+  border: 2px solid $yellow-dark;
   text-align: center;
   display: flex;
   flex-direction: column;
 
   * {
-    border: 1px solid red;
+    //border: 1px solid red;
   }
 
   p {

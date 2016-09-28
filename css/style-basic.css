@@ -264,12 +264,10 @@ input[type="submit"]:focus {
   top: 5%;
   right: 5%;
   background: #ffc10e;
-  border: 1px solid #dda20e;
+  border: 2px solid #dda20e;
   text-align: center;
   display: flex;
   flex-direction: column; }
-  .game-container * {
-    border: 1px solid red; }
   .game-container p {
     padding-top: 35vw;
     background: url("../images/icon-black-beer.svg") center top no-repeat;
