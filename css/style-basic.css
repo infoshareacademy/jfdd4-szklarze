@@ -272,16 +272,20 @@ input[type="submit"]:focus {
   margin: 0;
   width: 100%;
   padding-right: 20px; }
+  .product-details-list #list-1 {
+    margin: 20px 0 0; }
+  .product-details-list #list-2 {
+    margin: 0; }
   .product-details-list li {
     min-height: 80px;
-    text-align: justify;
+    text-align: left;
     list-style-image: url("../images/icon-yellow-check-mark.png");
     padding-left: 10px; }
 
 @media screen and (min-width: 1201px) {
   .product-details-list {
     width: 44%; }
-    .product-details-list ul {
+    .product-details-list #list-1, .product-details-list #list-2 {
       margin: 20px 0; } }
 .team {
   background-color: #f5f5f5;

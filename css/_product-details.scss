@@ -13,10 +13,17 @@
   width: 100%;
   padding-right: 20px;
 
+  #list-1 {
+    margin: 20px 0 0;
+  }
+
+  #list-2 {
+    margin: 0;
+  }
 
   li {
     min-height: 80px;
-    text-align: justify;
+    text-align: left;
     list-style-image: url("../images/icon-yellow-check-mark.png");
     padding-left: 10px;
   }
@@ -26,7 +33,7 @@
   .product-details-list {
     width: 44%;
 
-    ul {
+    #list-1, #list-2 {
       margin: 20px 0;
     }
   }
