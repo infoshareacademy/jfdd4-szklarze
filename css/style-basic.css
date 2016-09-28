@@ -257,32 +257,49 @@ input[type="submit"]:focus {
 
   input[type=submit] {
     width: 20%; } }
-.game-container {
+.dimm-layer {
   position: fixed;
-  width: 90%;
-  height: 90%;
-  top: 5%;
-  right: 5%;
+  top: 0;
+  left: 0;
+  background-color: rgba(38, 46, 62, 0.71);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.game-container {
+  position: relative;
+  width: 80%;
+  height: 70%;
+  padding: 3%;
   background: #ffc10e;
   border: 2px solid #dda20e;
   text-align: center;
   display: flex;
   flex-direction: column; }
   .game-container p {
-    padding-top: 35vw;
-    background: url("../images/icon-black-beer.svg") center top no-repeat;
-    background-size: 30vw 30vw;
     font-size: 1.2em; }
 
 .close-button {
-  height: 8vh;
-  width: 8vh;
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  height: 40px;
+  width: 40px;
   margin-left: auto;
   background: url("../images/icon-white-menu-close.svg") right top no-repeat;
-  background-size: cover; }
+  background-size: contain; }
+
+.beer-img {
+  background: url("../images/icon-black-beer.svg") center center no-repeat;
+  background-size: contain;
+  width: 25vw;
+  height: 25vw;
+  min-height: 20%; }
 
 .text-container {
-  height: 92%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
