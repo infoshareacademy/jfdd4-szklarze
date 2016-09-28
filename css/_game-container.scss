@@ -55,7 +55,7 @@
   margin: 5% auto;
 }
 
-@media screen and (max-width: 600px) and (orientation: landscape){
+@media screen and (orientation: landscape) and (max-width: 600px){
   .header-flex-container {
     flex-direction: row;
     align-items: center;
@@ -72,5 +72,18 @@
     h3:first-child{
       text-align: left;
     }
+  }
+}
+
+@media screen and (min-width: 601px){
+  .beer-img {
+    height: 25vh;
+    max-height: 200px;
+  }
+}
+
+@media screen and (min-width: 801px){
+  .game-container {
+    width: 60%;
   }
 }
