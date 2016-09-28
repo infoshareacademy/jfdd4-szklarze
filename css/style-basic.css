@@ -124,7 +124,7 @@ a {
   background: #ffc10e url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
   min-height: 400px;
-  padding: 120px 30px 90px 30px;
+  padding: 120px 30px 60px 30px;
   border-bottom: 2px solid #dda20e;
   text-align: center; }
 
@@ -163,7 +163,7 @@ a {
   max-width: 70%;
   text-align: center;
   margin: auto;
-  padding: 80px 0 60px; }
+  padding: 60px 0; }
   .product-info p {
     margin: 0; }
 
@@ -196,7 +196,7 @@ a {
 
 .sign-up {
   background-color: #f5f5f5;
-  padding: 80px 0 60px 0;
+  padding: 60px 0;
   display: flex;
   justify-content: center; }
 
@@ -261,7 +261,7 @@ input[type="submit"]:focus {
   width: 80%;
   max-width: 1200px;
   margin: auto;
-  padding: 80px 0 60px;
+  padding: 60px 0;
   text-align: center; }
 
 .product-details-list {
@@ -271,7 +271,7 @@ input[type="submit"]:focus {
   width: 100%;
   padding-right: 20px; }
   .product-details-list .list-1 {
-    margin: 20px 0 0; }
+    margin: 30px 0 0; }
   .product-details-list .list-2 {
     margin: 0; }
   .product-details-list li {
@@ -284,11 +284,11 @@ input[type="submit"]:focus {
   .product-details-list {
     width: 44%; }
     .product-details-list .list-1, .product-details-list .list-2 {
-      margin: 20px 0; } }
+      margin: 30px 0; } }
 .team {
   background-color: #f5f5f5;
   min-height: 300px;
-  padding: 80px 0 60px;
+  padding: 60px 0;
   text-align: center; }
 
 .team-member {
