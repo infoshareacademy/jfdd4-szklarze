@@ -257,6 +257,18 @@ input[type="submit"]:focus {
 
   input[type=submit] {
     width: 20%; } }
+.game-container {
+  position: fixed;
+  width: 96%;
+  height: 96%;
+  top: 2%;
+  right: 2%;
+  background: #ffc10e;
+  border: 1px solid #dda20e;
+  text-align: center;
+  display: flex;
+  flex-direction: column; }
+
 .product-details {
   width: 80%;
   max-width: 1200px;
