@@ -81,15 +81,13 @@ a {
     padding: 10px;
     line-height: 40px; }
 
-.nav-logo-img {
+.nav-logo a {
+  padding-left: 50px;
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
   background-size: 40px; }
-
-.nav-logo .nav-logo-img {
-  padding-left: 50px; }
 
 .nav-button {
   display: none; }
