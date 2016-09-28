@@ -12,20 +12,22 @@
 .game-container {
   position: relative;
   width: 80%;
-  height: 70%;
-  padding: 3%;
+  padding: 5% 3%;
   background: $yellow;
-  border: 2px solid $yellow-dark;
+  border: 5px solid $yellow-dark;
   text-align: center;
-  display: flex;
-  flex-direction: column;
 
   * {
     //border: 1px solid red;
   }
 
+  h1, h3, p {
+    margin: 0;
+  }
+
   p {
     font-size: 1.2em;
+    padding: 1em 0;
   }
 }
 
@@ -35,7 +37,6 @@
   top: 1vw;
   height: 40px;
   width: 40px;
-  margin-left: auto;
   background: url("../images/icon-white-menu-close.svg") right top no-repeat;
   background-size: contain;
 }
@@ -43,15 +44,8 @@
 .beer-img {
   background: url("../images/icon-black-beer.svg") center center no-repeat;
   background-size: contain;
-  width: 25vw;
-  height: 25vw;
+  width: 100%;
+  height: 35vw;
   min-height: 20%;
-}
-
-.text-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 5% auto;
 }
