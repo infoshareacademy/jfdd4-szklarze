@@ -268,16 +268,16 @@ input[type="submit"]:focus {
   justify-content: center;
   align-items: center; }
 
-.game-container {
+.popup-window {
   position: relative;
   width: 80%;
   padding: 5% 3%;
   background: #ffc10e;
   border: 5px solid #dda20e;
   text-align: center; }
-  .game-container h1, .game-container h3, .game-container p {
+  .popup-window h1, .popup-window h3, .popup-window p {
     margin: 0; }
-  .game-container p {
+  .popup-window p {
     font-size: 1.2em;
     padding: 1em 0; }
 
@@ -313,14 +313,14 @@ input[type="submit"]:focus {
     margin: 0;
     width: 20%; }
 
-  .game-container h3:first-child {
+  .popup-window h3:first-child {
     text-align: left; } }
 @media screen and (min-width: 601px) {
   .beer-img {
     height: 25vh;
     max-height: 200px; } }
 @media screen and (min-width: 801px) {
-  .game-container {
+  .popup-window {
     width: 60%; } }
 .product-details {
   width: 80%;
