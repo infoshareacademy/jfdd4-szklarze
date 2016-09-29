@@ -53,8 +53,7 @@
   margin: 5% auto;
 }
 
-@media screen and (orientation: landscape) and (max-width: 600px){
-
+@media screen and (orientation: landscape) {
   .text-container {
     div{
       flex-direction: row;
@@ -70,20 +69,42 @@
   }
 
   .popup-window {
+    font-size: 0.8em;
+
     h3:first-child{
       text-align: left;
     }
   }
 }
 
-@media screen and (min-width: 601px){
+@media screen and (min-width: 601px) and (max-width: 800px){
+  .text-container {
+    div{
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
   .beer-img {
     height: 25vh;
-    max-height: 200px;
+    margin: 0;
+    width: 30%;
+  }
+
+  .popup-window {
+    h3:first-child{
+      text-align: left;
+    }
   }
 }
 
 @media screen and (min-width: 801px){
+  .beer-img {
+    height: 25vh;
+    max-height: 200px;
+  }
+
   .popup-window {
     width: 60%;
   }

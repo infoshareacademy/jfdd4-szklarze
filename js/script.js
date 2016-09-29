@@ -26,8 +26,10 @@ function toggleMenu() {
 })();
 <!-- End - Nawigacja-->
 
-<!-- Start - "Thank-you" window -->
+/*Start - "Thank-you" window*/
+
 function closeSection(closingButtonsClass, sectionsToCloseClass) {
+    // * Parameters needs to have this format: '.class-name'
     var closeButton = $(closingButtonsClass);
     var sectionToClose = $(sectionsToCloseClass);
 
@@ -37,4 +39,5 @@ function closeSection(closingButtonsClass, sectionsToCloseClass) {
 }
 
 closeSection('.popup-close-button','.popup-window-dimm');
-<!-- End - "Thank-you" window -->
+
+/*End - "Thank-you" window*/
