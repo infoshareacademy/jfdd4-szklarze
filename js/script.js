@@ -4,9 +4,9 @@
 
 <!-- Start - Nawigacja-->
 function toggleMenu() {
-    var navLinks = document.getElementById("nav-links");
-    var navButton = document.getElementById("nav-button");
-    var navDislplay = getComputedStyle(navLinks, null).display;
+    var navLinks = document.getElementById("nav-links"),
+        navButton = document.getElementById("nav-button"),
+        navDislplay = getComputedStyle(navLinks, null).display;
 
     if (navDislplay == "flex") {
         navLinks.style.display = "none";
@@ -30,24 +30,28 @@ function toggleMenu() {
 
 function closeSection(closingButtonsClass, sectionsToCloseClass) {
     // * Parameters needs to have this format: '.class-name'
-    var closeButton = $(closingButtonsClass);
-    var sectionToClose = $(sectionsToCloseClass);
+    var closeButton = $(closingButtonsClass),
+        sectionToClose = $(sectionsToCloseClass);
 
     closeButton.click(function () {
         sectionToClose.hide();
     });
 }
 
-function showSection(triggerButtonsClass, sectionToShowClass) {
-    var triggerButton = $(triggerButtonsClass);
-    var sectionToShow = $(sectionToShowClass);
+function showPopup(triggerButtonsClass, popupClass) {
+    // * Parameters needs to have this format: '.class-name'
+    var triggerButton = $(triggerButtonsClass),
+        sectionToShow = $(popupClass);
 
     triggerButton.click(function () {
-        sectionToShow.css({'display': 'flex'});
+        var usersEmail = $('.users-email').val(),
+            emailPatter = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            emailTest = emailPatter.test(usersEmail);
+        if (emailTest) {sectionToShow.css({'display': 'flex'})}
     })
 }
 
-showSection('.sign-up-button','.popup-window-dimm');
+showPopup('.sign-up-button','.popup-window-dimm');
 closeSection('.popup-close-button','.popup-window-dimm');
 
 /*End - "Thank-you" window*/
