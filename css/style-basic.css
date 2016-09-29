@@ -50,7 +50,7 @@ a {
   body {
     font-size: 0.7em; } }
 .nav-top {
-  background: #FFC10E;
+  background: #ffc10e;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -83,7 +83,7 @@ a {
 
 .nav-logo a {
   padding-left: 50px;
-  color: #fff;
+  color: #ffffff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
