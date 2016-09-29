@@ -120,6 +120,10 @@ a {
     background-size: contain;
     height: 40px;
     width: 40px; } }
+.active {
+  background-color: #dda20e;
+}
+
 .intro {
   background: #ffc10e url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
