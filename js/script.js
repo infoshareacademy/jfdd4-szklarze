@@ -35,9 +35,19 @@ function closeSection(closingButtonsClass, sectionsToCloseClass) {
 
     closeButton.click(function () {
         sectionToClose.hide();
+    });
+}
+
+function showSection(triggerButtonsClass, sectionToShowClass) {
+    var triggerButton = $(triggerButtonsClass);
+    var sectionToShow = $(sectionToShowClass);
+
+    triggerButton.click(function () {
+        sectionToShow.css({'display': 'flex'});
     })
 }
 
+showSection('.sign-up-button','.popup-window-dimm');
 closeSection('.popup-close-button','.popup-window-dimm');
 
 /*End - "Thank-you" window*/

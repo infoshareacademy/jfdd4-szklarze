@@ -264,7 +264,7 @@ input[type="submit"]:focus {
   background-color: rgba(38, 46, 62, 0.71);
   width: 100vw;
   height: 100vh;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center; }
 
