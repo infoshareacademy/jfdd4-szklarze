@@ -25,3 +25,16 @@ function toggleMenu() {
     }
 })();
 <!-- End - Nawigacja-->
+
+<!-- Start - "Thank-you" window -->
+function closeSection(closingButtonsClass, sectionsToCloseClass) {
+    var closeButton = $(closingButtonsClass);
+    var sectionToClose = $(sectionsToCloseClass);
+
+    closeButton.click(function () {
+        sectionToClose.hide();
+    })
+}
+
+closeSection('.popup-close-button','.popup-window-dimm');
+<!-- End - "Thank-you" window -->
