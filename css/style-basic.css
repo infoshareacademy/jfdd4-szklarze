@@ -281,9 +281,17 @@ input[type="submit"]:focus {
     font-size: 1.2em;
     padding: 1em 0; }
 
-.text-container div {
+.text-container > div {
   display: flex;
   flex-direction: column; }
+
+.beer-img {
+  background: url("../images/icon-black-beer.svg") center center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 35vw;
+  min-height: 20%;
+  margin: 5% auto; }
 
 .popup-close-button {
   position: absolute;
@@ -294,42 +302,17 @@ input[type="submit"]:focus {
   background: url("../images/icon-white-menu-close.svg") right top no-repeat;
   background-size: contain; }
 
-.beer-img {
-  background: url("../images/icon-black-beer.svg") center center no-repeat;
-  background-size: contain;
-  width: 100%;
-  height: 35vw;
-  min-height: 20%;
-  margin: 5% auto; }
-
-@media screen and (orientation: landscape) {
-  .text-container div {
+@media screen and (orientation: landscape) and (max-width: 800px) {
+  .text-container > div {
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around; }
+    justify-content: flex-start;
+    align-items: center; }
 
   .beer-img {
-    height: 25vh;
-    margin: 0;
-    width: 20%; }
-
-  .popup-window {
-    font-size: 0.8em; }
-    .popup-window h3:first-child {
-      text-align: left; } }
-@media screen and (min-width: 601px) and (max-width: 800px) {
-  .text-container div {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around; }
-
-  .beer-img {
-    height: 25vh;
-    margin: 0;
-    width: 30%; }
-
-  .popup-window h3:first-child {
-    text-align: left; } }
+    width: 25vw;
+    height: 20vw;
+    min-height: 20%;
+    margin: 0 5vw 0 0; } }
 @media screen and (min-width: 801px) {
   .beer-img {
     height: 25vh;
@@ -337,6 +320,28 @@ input[type="submit"]:focus {
 
   .popup-window {
     width: 60%; } }
+/*
+//  .text-container {
+&>div{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+}
+
+.beer-img {
+  height: 25vh;
+  margin: 0;
+  width: 20%;
+}
+
+.popup-window {
+  font-size: 0.8em;
+
+  h3:first-child{
+    text-align: left;
+  }
+}*/
 .product-details {
   width: 80%;
   max-width: 1200px;
