@@ -257,7 +257,7 @@ input[type="submit"]:focus {
 
   input[type=submit] {
     width: 20%; } }
-.dimm-layer {
+.popup-window-dimm {
   position: fixed;
   top: 0;
   left: 0;
@@ -281,11 +281,11 @@ input[type="submit"]:focus {
     font-size: 1.2em;
     padding: 1em 0; }
 
-.header-flex-container {
+.text-container div {
   display: flex;
   flex-direction: column; }
 
-.close-button {
+.popup-close-button {
   position: absolute;
   right: 1vw;
   top: 1vw;
@@ -303,7 +303,7 @@ input[type="submit"]:focus {
   margin: 5% auto; }
 
 @media screen and (orientation: landscape) and (max-width: 600px) {
-  .header-flex-container {
+  .text-container div {
     flex-direction: row;
     align-items: center;
     justify-content: space-around; }

@@ -1,4 +1,4 @@
-.dimm-layer {
+.popup-window-dimm {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,10 +17,6 @@
   border: 5px solid $yellow-dark;
   text-align: center;
 
-  * {
-    //border: 1px solid red;
-  }
-
   h1, h3, p {
     margin: 0;
   }
@@ -31,12 +27,14 @@
   }
 }
 
-.header-flex-container {
-  display: flex;
-  flex-direction: column;
+.text-container {
+  div{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.close-button {
+.popup-close-button {
   position: absolute;
   right: 1vw;
   top: 1vw;
@@ -56,10 +54,13 @@
 }
 
 @media screen and (orientation: landscape) and (max-width: 600px){
-  .header-flex-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+
+  .text-container {
+    div{
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
   }
 
   .beer-img {
