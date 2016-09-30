@@ -44,10 +44,12 @@ function showPopup(triggerButtonsClass, popupClass) {
         sectionToShow = $(popupClass);
 
     triggerButton.click(function () {
-        var usersEmail = $('.users-email').val(),
+        var $usersEmail = $('.users-email').val(),
             emailPatter = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            emailTest = emailPatter.test(usersEmail);
-        if (emailTest) {sectionToShow.css({'display': 'flex'})}
+            emailTest = emailPatter.test($usersEmail),
+            $checkboxTest = $('input:checked').addClass('checked');
+
+        if (emailTest && $checkboxTest.hasClass('checked')) {sectionToShow.css({'display': 'flex'})}
     })
 }
 
