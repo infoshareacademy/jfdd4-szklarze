@@ -171,14 +171,13 @@
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-natalia.jpg" alt="Natalia">
             <h5>Natalia</h5>
-            <p class="team-member-caption">Globtrotterka, obieżyświatka, obywatelka
-                świata. Zdobędzie całą planetę, ale wcześniej... wyłączy ten przeklęty
-                budzik i pośpi jeszcze chwilkę.</p>
+            <p class="team-member-caption">Globtrotterka, obieżyświatka, obywatelka świata. Zdobędzie całą planetę, ale wcześniej... wyłączy ten przeklęty budzik i pośpi jeszcze chwilkę.</p>
         </div>
 
         <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Natalia Vetter</p>
+            <img class="team-member-foto" src="http://placehold.it/500x500" alt="Natalia">
+            <h5>Natalia Vetter</h5>
+            <p class="team-member-caption">Lorem ipsum dolor emet i tak dalej.</p>
         </div>
     </div><!--
 
@@ -187,14 +186,13 @@
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-sebastian.jpg" alt="Sebastian">
             <h5>Sebastian</h5>
-            <p class="team-member-caption">Wielbiciel kuchni orientalnej i dobrego,
-                czerwonego wina, zakupionego koniecznie w mega promocji w okolicznym
-                dyskoncie. Technomaniak i elektroświr.</p>
+            <p class="team-member-caption">Wielbiciel kuchni orientalnej i dobrego, czerwonego wina, zakupionego koniecznie w mega promocji w okolicznym dyskoncie. Technomaniak i elektroświr.</p>
         </div>
 
         <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Sebastian Kreft</p>
+            <img class="team-member-foto" src="http://placehold.it/500x500" alt="Sebastian">
+            <h5>Sebastian Kreft</h5>
+            <p class="team-member-caption">Lorem ipsum dolor emet i tak dalej.</p>
         </div>
     </div><!--
 
@@ -203,14 +201,13 @@
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-kamil.jpg" alt="Kamil">
             <h5>Kamil</h5>
-            <p class="team-member-caption">Lubi śruby i nakrętki, potrafi obsługiwać
-                młotek i śrubokręt. Wszędzie widzi szczegóły, prawie wszędzie. Chciałby
-                mieć kota albo psa, albo kota i psa.</p>
+            <p class="team-member-caption">Lubi śruby i nakrętki, potrafi obsługiwać młotek i śrubokręt. Wszędzie widzi szczegóły, prawie wszędzie. Chciałby mieć kota albo psa, albo kota i psa.</p>
         </div>
 
         <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Kamil Orłowski</p>
+            <img class="team-member-foto" src="http://placehold.it/500x500" alt="Kamil">
+            <h5>Kamil Orłowski</h5>
+            <p class="team-member-caption">Lorem ipsum dolor emet i tak dalej.</p>
         </div>
     </div><!--
 
@@ -219,16 +216,27 @@
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-marcin.jpg" alt="Marcin">
             <h5>Marcin</h5>
-            <p class="team-member-caption">Szalony chemik, bezwzględny prawnik, od
-                niedawna haker, słowem człowiek orkiestra. Zna kody do Matrixa na
-                funkcjonowanie bez snu.</p>
+            <p class="team-member-caption">Szalony chemik, bezwzględny prawnik, od niedawna haker, słowem człowiek orkiestra. Zna kody do Matrixa na funkcjonowanie bez snu.</p>
         </div>
 
         <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Marcin Andrzejewski</p>
+            <img class="team-member-foto" src="http://placehold.it/500x500" alt="Marcin">
+            <h5>Marcin Andrzejewski</h5>
+            <p class="team-member-caption">Lorem ipsum dolor emet i tak dalej.</p>
         </div>
     </div>
+
+    <!-- Start - Test -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.team-member').click(function () {
+                $(this).find('.team-member-front').toggleClass('toggle');
+                $(this).find('.team-member-back').toggleClass('toggle');
+            })
+        })
+    </script>
+    <!-- End - Test -->
 
 </section>
 <!-- End - Zespół -->

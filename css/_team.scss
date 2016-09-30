@@ -18,13 +18,15 @@
   background: #fff;
 }
 
-.team-member-front {
-
+.team-member-front.toggle {
+  display: none;
 }
 
 .team-member-back {
   display: none;
-  background: #ddd;
+}
+.team-member-back.toggle {
+  display: block;
 }
 
 .team-member-foto {
@@ -38,6 +40,7 @@
 .team-member-caption {
   border-top: 1px solid $blue-dark;
   padding-top: 0.5em;
+  min-height: 6em; /////////////// Needs to be set better with media queries.
 }
 
 @media (max-width: 800px) {

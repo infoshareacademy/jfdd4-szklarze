@@ -303,9 +303,14 @@ input[type="submit"]:focus {
 .team-member:hover {
   background: #fff; }
 
+.team-member-front.toggle {
+  display: none; }
+
 .team-member-back {
-  display: none;
-  background: #ddd; }
+  display: none; }
+
+.team-member-back.toggle {
+  display: block; }
 
 .team-member-foto {
   box-sizing: border-box;
@@ -316,7 +321,8 @@ input[type="submit"]:focus {
 
 .team-member-caption {
   border-top: 1px solid #262e3e;
-  padding-top: 0.5em; }
+  padding-top: 0.5em;
+  min-height: 6em; }
 
 @media (max-width: 800px) {
   .team {
