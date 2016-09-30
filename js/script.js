@@ -40,16 +40,21 @@ function closeSection(closingButtonsClass, sectionsToCloseClass) {
 
 function showPopup(triggerButtonsClass, popupClass) {
     // * Parameters needs to have this format: '.class-name'
-    var triggerButton = $(triggerButtonsClass),
-        sectionToShow = $(popupClass);
+    var $triggerButton = $(triggerButtonsClass),
+        $sectionToShow = $(popupClass);
 
-    triggerButton.click(function () {
+    $triggerButton.click(function (event) {
+        event.preventDefault(); /*WARNING! This is line temporary! It disables
+        submitting!*/
+
         var $usersEmail = $('.users-email').val(),
             emailPatter = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
             emailTest = emailPatter.test($usersEmail),
             $checkboxTest = $('input:checked').addClass('checked');
 
-        if (emailTest && $checkboxTest.hasClass('checked')) {sectionToShow.css({'display': 'flex'})}
+        if (emailTest && $checkboxTest.hasClass('checked')) {
+            $sectionToShow.css({'display': 'flex'})
+        }
     })
 }
 
