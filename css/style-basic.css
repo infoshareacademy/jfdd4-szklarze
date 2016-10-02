@@ -72,7 +72,7 @@ a {
     .nav-top ul:last-child li {
       font-weight: bold;
       transition: background-color 0.2s ease-in-out; }
-      .nav-top ul:last-child li:hover {
+      .nav-top ul:last-child li:hover, .nav-top ul:last-child li a.active {
         background-color: #dda20e; }
   .nav-top a:first-letter {
     text-transform: uppercase; }
@@ -120,6 +120,10 @@ a {
     background-size: contain;
     height: 40px;
     width: 40px; } }
+.active {
+  background-color: #dda20e;
+}
+
 .intro {
   background: #ffc10e url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
