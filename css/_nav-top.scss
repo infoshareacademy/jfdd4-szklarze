@@ -28,7 +28,10 @@
       font-weight: bold;
       transition: background-color 0.2s ease-in-out;
 
-      &:hover {
+      li:hover {
+        background-color: $yellow-dark;
+      }
+      a.active {
         background-color: $yellow-dark;
       }
     }

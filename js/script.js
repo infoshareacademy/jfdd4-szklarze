@@ -26,7 +26,25 @@ $(document).ready(function() {
             document.getElementById("nav-links").setAttribute("onclick", "toggleMenu()");
         }
     })();
-    <!-- End - Nawigacja-->
 
+    var sections = $('section')
+        , nav = $('.nav-top')
+        , nav_height = nav.outerHeight();
 
-}
+    $(window).on('scroll', function () {
+        var cur_pos = $(this).scrollTop();
+        nav.find('a').removeClass('active');
+        sections.each(function () {
+            var top = $(this).offset().top - nav_height,
+                bottom = top + $(this).outerHeight();
+
+            if (cur_pos + 200 >= top && cur_pos <= bottom) {
+                nav.find('a').removeClass('active');
+                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+            }
+        });
+    });
+
+<!-- End - Nawigacja-->
+
+});
