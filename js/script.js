@@ -40,7 +40,7 @@ $(document).ready(function () {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
-            if (cur_pos >= top && cur_pos <= bottom) {
+            if (cur_pos + 200 >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
             }
