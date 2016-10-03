@@ -50,7 +50,7 @@ a {
   body {
     font-size: 0.7em; } }
 .nav-top {
-  background: #FFC10E;
+  background: #ffc10e;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -391,6 +391,10 @@ tr, td, .game-find-this-img {
 
 .game-points {
   text-align: center; }
+
+.img-element {
+  width: 100%;
+  height: 100%; }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
   tr, td, .game-find-this-img {
