@@ -63,10 +63,9 @@ function createRandomElement() {
     return createElement();
 }
 function addRandomElementToEmptyCell() {
-   var emptyCell = findEmptyCell();
-    var addElement = emptyCell.map(function (cell) {
+   var emptyCell = [ findEmptyCell()];
+    var addElement = emptyCell.forEach(function(cell){
         return cell.append(createRandomElement());
-
     })
    };
     // var add = $emptyCell.prepend("test");
@@ -80,6 +79,6 @@ $('.game-mix-button').click(function () {
     createRandomElement();
     addRandomElementToEmptyCell();
 });
-test
+
 
 // End - mix-buton
