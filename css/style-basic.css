@@ -50,7 +50,7 @@ a {
   body {
     font-size: 0.7em; } }
 .nav-top {
-  background: #ffc10e;
+  background: #FFC10E;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -349,5 +349,118 @@ input[type="submit"]:focus {
 
 .credits {
   font-size: 0.8em; }
+
+.game-intro-text {
+  text-align: center; }
+
+.game-table, .game-panel {
+  margin: 2% auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-around; }
+
+.game-panel {
+  flex-direction: column;
+  align-items: center; }
+
+tr, td, .game-find-this-img {
+  border: dotted 1px #888;
+  width: 25px;
+  height: 25px; }
+
+.game-mix-button, .game-start-button {
+  width: 100%;
+  max-width: 310px;
+  border-radius: 30px 30px;
+  border: 0;
+  padding: 10px 0; }
+
+.game-mix-button:focus, .game-start-button {
+  outline: none; }
+
+.game-mix-button {
+  background-color: #ffc10e; }
+
+.game-start-button {
+  background-color: #262e3e;
+  color: white; }
+
+.game-find-this-img {
+  margin-left: auto;
+  margin-right: auto; }
+
+.game-points {
+  text-align: center; }
+
+@media screen and (min-width: 351px) and (max-width: 600px) {
+  tr, td, .game-find-this-img {
+    width: 30px;
+    height: 30px; } }
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  tr, td, .game-find-this-img {
+    width: 35px;
+    height: 35px; }
+
+  .game-table {
+    width: 80%; }
+
+  .game-panel {
+    width: 20%;
+    margin-right: 5%;
+    margin-left: 5%; }
+
+  .game-box {
+    display: flex; } }
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  tr, td, .game-find-this-img {
+    width: 40px;
+    height: 40px; }
+
+  .game-table {
+    width: 70%; }
+
+  .game-panel {
+    width: 30%;
+    margin-right: 5%;
+    margin-left: 5%; }
+
+  .game-box {
+    display: flex; } }
+@media screen and (min-width: 1201px) {
+  tr, td, .game-find-this-img {
+    width: 45px;
+    height: 45px; }
+
+  .game-table {
+    width: 70%; }
+
+  .game-panel {
+    width: 30%;
+    margin-right: 5%;
+    margin-left: 5%; }
+
+  .game-box {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; } }
+@media screen and (min-width: 1601px) {
+  tr, td, .game-find-this-img {
+    width: 45px;
+    height: 45px; }
+
+  .game-table {
+    width: 70%; }
+
+  .game-panel {
+    width: 30%;
+    margin-right: 5%;
+    margin-left: 5%; }
+
+  .game-box {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; } }
 
 /*# sourceMappingURL=style-basic.css.map */
