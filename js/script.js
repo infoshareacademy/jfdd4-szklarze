@@ -80,6 +80,6 @@ $('.game-mix-button').click(function () {
     createRandomElement();
     addRandomElementToEmptyCell();
 });
-
+test
 
 // End - mix-buton
