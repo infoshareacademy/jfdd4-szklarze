@@ -366,6 +366,9 @@ tr, td, .game-find-this-img {
   border: 0;
   padding: 10px 0; }
 
+.game-mix-button:focus, .game-start-button {
+  outline: none; }
+
 .game-mix-button {
   background-color: #ffc10e; }
 

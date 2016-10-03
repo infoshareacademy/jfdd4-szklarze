@@ -28,6 +28,10 @@ tr, td, .game-find-this-img {
   padding: 10px 0;
 }
 
+.game-mix-button:focus, .game-start-button {
+  outline: none;
+}
+
 .game-mix-button {
   background-color: $yellow;
 }
