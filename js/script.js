@@ -47,4 +47,54 @@ $(document).ready(function() {
 
 <!-- End - Nawigacja-->
 
+// Start - mix-button
+
+    function clearCells() {
+        var cells = $('td');
+        return cells.empty();
+    }
+
+    function findEmptyCells() {
+        var emptyCells = $('td:empty').addClass('empty-cell');
+        return emptyCells;
+    }
+
+    function createRandomElement() {
+        var elements = [
+            'icon-black-mustache-v1',
+            'icon-black-mustache-v2',
+            'icon-black-mustache-v3',
+            'icon-blue-flipflops',
+            'icon-brown-bottle',
+            'icon-green-bottle',
+            'icon-green-onion',
+            'icon-grey-bag',
+            'icon-onion-brown',
+            'icon-purple-onion',
+            'icon-red-beetroot',
+            'icon-yellow-pint'
+        ];
+        var randomNumber = Math.floor(Math.random() * elements.length);
+        img = new Image();
+        img.src = 'images/game-icons/' + elements[randomNumber] + '.svg';
+        img.className = 'img-element';
+        return img;
+    }
+
+    function addCreatedRandomElementToEmptyCell() {
+        var emptyCell = $('.empty-cell');
+        emptyCell.each(function () {
+            $(this).append(createRandomElement());
+        });
+    }
+
+    $('.game-mix-button').click(function () {
+        clearCells();
+        findEmptyCells();
+        createRandomElement();
+        addCreatedRandomElementToEmptyCell();
+    });
+
+
+// End - mix-buton
 });
