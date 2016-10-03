@@ -95,11 +95,19 @@
     }
   }
 
-  .nav-button {
+  #nav-button {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
     height: 40px;
     width: 40px;
+  }
+
+  #nav-links.toggle-menu {
+    display: flex;
+  }
+
+  #nav-button.change-icon {
+    background-image: url('../images/icon-white-menu-close.svg');
   }
 }

@@ -3,27 +3,12 @@
  */
 
 <!-- Start - Nawigacja-->
-function toggleMenu() {
-    var navLinks = document.getElementById("nav-links"),
-        navButton = document.getElementById("nav-button"),
-        navDislplay = getComputedStyle(navLinks, null).display;
-
-    if (navDislplay == "flex") {
-        navLinks.style.display = "none";
-        navButton.style.backgroundImage = "url(images/icon-white-menu.svg)";
-    } else {
-        navLinks.style.display = "flex";
-        navButton.style.backgroundImage = "url(images/icon-white-menu-close.svg)";
-    }
-}
-
-(function() {
-    document.getElementById("nav-button").setAttribute("onclick", "toggleMenu()");
-    var w = window.innerWidth;
-    if (w <= 600) {
-        document.getElementById("nav-links").setAttribute("onclick", "toggleMenu()");
-    }
-})();
+$(document).ready(function () {
+    $('#nav-button, #nav-links li').click(function () {
+        $('#nav-links').toggleClass('toggle-menu');
+        $('#nav-button').toggleClass('change-icon');
+    });
+});
 <!-- End - Nawigacja-->
 
 /*Start - "Thank-you" window*/
@@ -44,12 +29,13 @@ function showPopup(triggerButtonsClass, popupClass) {
         $sectionToShow = $(popupClass);
 
     $triggerButton.click(function (event) {
-        event.preventDefault(); /*WARNING! This is line temporary! It disables
-        submitting!*/
+        event.preventDefault();
+        /*WARNING! This is line temporary! It disables
+         submitting!*/
 
         var $usersEmail = $('.users-email').val(),
-            emailPatter = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            emailTest = emailPatter.test($usersEmail),
+            emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            emailTest = emailPattern.test($usersEmail),
             $checkboxTest = $('input:checked').addClass('checked');
 
         if (emailTest && $checkboxTest.hasClass('checked')) {
@@ -58,7 +44,7 @@ function showPopup(triggerButtonsClass, popupClass) {
     })
 }
 
-showPopup('.sign-up-button','.popup-window-dimm');
-closeSection('.popup-close-button','.popup-window-dimm');
+showPopup('.sign-up-button', '.popup-window-dimm');
+closeSection('.popup-close-button', '.popup-window-dimm');
 
 /*End - "Thank-you" window*/
