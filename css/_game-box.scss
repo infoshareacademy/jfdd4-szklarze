@@ -42,12 +42,21 @@ tr, td, .game-find-this-img {
 }
 
 .game-find-this-img {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .game-points {
   text-align: center;
+}
+
+//TODO: sprawdzić przydatność klas game-elements po połączeniu elementów gry
+.game-element1 {
+  background: url(../images/game-icons/icon-green-onion.svg) no-repeat center;
+  background-size: cover;
+}
+.game-element2 {
+  background: url(../images/game-icons/icon-onion-brown.svg) no-repeat center;
+  background-size: cover;
 }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {

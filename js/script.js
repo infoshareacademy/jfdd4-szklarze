@@ -51,9 +51,13 @@ $(document).ready(function() {
 
 <!-- Start - Game-->
 
-// kod tymczasowy
-var $imgToFind = $('<img>').prop('src="images/game-icons/icon-green-onion.svg"');
-$('.game-find-this-img').css('background-image', 'url("images/game-icons/icon-green-onion.svg")');
+// kod tymczasowy - w tym miejscu należy połączyć elementy gry TODO: usunąć ten kod po połączeniu elementów gry
+
+$('.game-find-this-img').addClass('game-element1');
+$('.game-table').find('td:nth-child(odd)').addClass('game-element1');
+$('.game-table').find('td:nth-child(even)').addClass('game-element2');
+
+// koniec kodu tymczasowego
 
 
 <!-- End - Game-->
