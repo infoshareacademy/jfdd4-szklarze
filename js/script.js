@@ -63,11 +63,15 @@ function createRandomElement() {
     return createElement();
 }
 function addRandomElementToEmptyCell() {
-   var emptyCell = [ findEmptyCell()];
-    var addElement = emptyCell.forEach(function(cell){
-        return cell.append(createRandomElement());
-    })
-   };
+    var emptyCell = $('.empty-cell');
+    emptyCell.each(function (){
+        var add = $( this ).append(createRandomElement());
+    });
+}
+// var addElement = emptyCell.forEach(function(cell){
+    //     return cell.append(createRandomElement());
+   //  })
+   // };
     // var add = $emptyCell.prepend("test");
     // return add;
 
