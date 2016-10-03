@@ -287,16 +287,15 @@ input[type="submit"]:focus {
       margin: 30px 0; } }
 .team {
   background-color: #f5f5f5;
-  min-height: 300px;
-  padding: 70px 0 60px;
+  padding: 50px 0 30px;
   text-align: center; }
 
 .team-member {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 24%;
-  padding: 2em;
+  width: 100%;
+  padding: 1em 2em 2em;
   cursor: pointer;
   transition: background 0.2s ease-in-out; }
 
@@ -315,27 +314,28 @@ input[type="submit"]:focus {
 .team-member-foto {
   box-sizing: border-box;
   width: 100%;
-  max-width: 150px;
+  max-width: 120px;
   border-radius: 50%;
   border: 4px solid #fff; }
 
 .team-member-caption {
   border-top: 1px solid #262e3e;
   padding-top: 0.5em;
-  min-height: 6em; }
+  min-height: 5em; }
 
-@media (max-width: 800px) {
-  .team {
-    padding: 60px 0; } }
-@media (max-width: 1200px) {
+@media screen and (min-width: 321px) {
+  .team-member {
+    width: 72%; }
+
+  .team-member-foto {
+    max-width: 150px; } }
+@media screen and (min-width: 801px) {
   .team-member {
     width: 40%; } }
-@media (max-width: 800px) {
+@media screen and (min-width: 1201px) {
   .team-member {
-    width: 80%; } }
-@media (max-width: 320px) {
-  .team-member {
-    width: 100%; } }
+    width: 24%;
+    max-width: 300px; } }
 .footer {
   padding: 30px 60px;
   text-align: center;
