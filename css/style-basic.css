@@ -72,7 +72,9 @@ a {
     .nav-top ul:last-child li {
       font-weight: bold;
       transition: background-color 0.2s ease-in-out; }
-      .nav-top ul:last-child li:hover {
+      .nav-top ul:last-child li li:hover {
+        background-color: #dda20e; }
+      .nav-top ul:last-child li a.active {
         background-color: #dda20e; }
   .nav-top a:first-letter {
     text-transform: uppercase; }
@@ -83,7 +85,7 @@ a {
 
 .nav-logo a {
   padding-left: 50px;
-  color: #fff;
+  color: #ffffff;
   font-size: 20px;
   text-transform: uppercase;
   background: url("../images/icon-white-janusz.svg") no-repeat left center;
@@ -124,7 +126,7 @@ a {
   background: #ffc10e url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
   min-height: 400px;
-  padding: 120px 30px 90px 30px;
+  padding: 120px 30px 60px 30px;
   border-bottom: 2px solid #dda20e;
   text-align: center; }
 
@@ -163,7 +165,7 @@ a {
   max-width: 70%;
   text-align: center;
   margin: auto;
-  padding: 100px 0; }
+  padding: 70px 0 60px; }
   .product-info p {
     margin: 0; }
 
@@ -180,7 +182,7 @@ a {
     width: auto;
     padding: 20px; }
 
-.functionality-caption {
+.functionality-caption-wrapper {
   padding: 15px;
   margin: 0; }
 
@@ -196,7 +198,7 @@ a {
 
 .sign-up {
   background-color: #f5f5f5;
-  padding: 100px 0 100px 0;
+  padding: 70px 0 60px;
   display: flex;
   justify-content: center; }
 
@@ -260,8 +262,8 @@ input[type="submit"]:focus {
 .product-details {
   width: 80%;
   max-width: 1200px;
-  margin: 100px auto;
-  padding: 80px 0;
+  margin: auto;
+  padding: 70px 0 60px;
   text-align: center; }
 
 .product-details-list {
@@ -270,21 +272,25 @@ input[type="submit"]:focus {
   margin: 0;
   width: 100%;
   padding-right: 20px; }
-  .product-details-list ul {
+  .product-details-list .list-1 {
+    margin: 30px 0 0; }
+  .product-details-list .list-2 {
     margin: 0; }
   .product-details-list li {
     min-height: 80px;
-    text-align: justify;
+    text-align: left;
     list-style-image: url("../images/icon-yellow-check-mark.png");
     padding-left: 10px; }
 
 @media screen and (min-width: 1201px) {
   .product-details-list {
-    width: 44%; } }
+    width: 44%; }
+    .product-details-list .list-1, .product-details-list .list-2 {
+      margin: 30px 0; } }
 .team {
   background-color: #f5f5f5;
   min-height: 300px;
-  padding: 60px;
+  padding: 70px 0 60px;
   text-align: center; }
 
 .team-member {
@@ -340,6 +346,9 @@ input[type="submit"]:focus {
 
 .footer-caption {
   margin-top: 2em; }
+
+.credits {
+  font-size: 0.8em; }
 
 .game-intro-text {
   text-align: center; }

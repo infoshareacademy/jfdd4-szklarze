@@ -23,6 +23,8 @@ $blue-dark: #262e3e ;
 $grey: #888;
 $grey-light: #f5f5f5 ;
 $grey-dark: ;
+
+$white: #ffffff;
 ```
 
 ##### Fonts
