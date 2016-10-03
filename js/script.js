@@ -36,9 +36,8 @@ function showPopup(triggerButtonsClass, popupClass) {
         var $usersEmail = $('.users-email').val(),
             emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
             emailTest = emailPattern.test($usersEmail),
-            $checkboxTest = $('input:checked').addClass('checked');
-
-        if (emailTest && $checkboxTest.hasClass('checked')) {
+            $checkboxTest = $('input[type="checkbox"]').prop("checked");
+        if (emailTest && $checkboxTest) {
             $sectionToShow.css({'display': 'flex'})
         }
     })
