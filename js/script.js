@@ -1,19 +1,18 @@
 /**
  * Created by natvet on 14.09.16.
  */
+$(document).ready(function () {
 
 // Start - Nawigacja
-$(document).ready(function () {
+
     $('#nav-button, #nav-links li').click(function () {
         $('#nav-links').toggleClass('toggle-menu');
         $('#nav-button').toggleClass('change-icon');
     });
-});
 
-$(document).ready(function() {
-    var sections = $('section')
-        , nav = $('.nav-top')
-        , nav_height = nav.outerHeight();
+    var sections = $('section'),
+        nav = $('.nav-top'),
+        nav_height = nav.outerHeight();
 
     $(window).on('scroll', function () {
         var cur_pos = $(this).scrollTop();
@@ -33,38 +32,38 @@ $(document).ready(function() {
 
 // Start - "Thank-you" window
 
-function closeSection(closingButtonsClass, sectionsToCloseClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var closeButton = $(closingButtonsClass),
-        sectionToClose = $(sectionsToCloseClass);
+    function closeSection(closingButtonsClass, sectionsToCloseClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var closeButton = $(closingButtonsClass),
+            sectionToClose = $(sectionsToCloseClass);
 
-    closeButton.click(function () {
-        sectionToClose.hide();
-    });
-}
+        closeButton.click(function () {
+            sectionToClose.hide();
+        });
+    }
 
-function showPopup(triggerButtonsClass, popupClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var $triggerButton = $(triggerButtonsClass),
-        $sectionToShow = $(popupClass);
+    function showPopup(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
 
-    $triggerButton.click(function (event) {
-        event.preventDefault();
-        /*WARNING! This is line temporary! It disables
-         submitting!*/
+        $triggerButton.click(function (event) {
+            event.preventDefault();
+            /*WARNING! This is line temporary! It disables
+             submitting!*/
 
-        var $usersEmail = $('.users-email').val(),
-            emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            emailTest = emailPattern.test($usersEmail),
-            $checkboxTest = $('input[type="checkbox"]').prop("checked");
-        if (emailTest && $checkboxTest) {
-            $sectionToShow.css({'display': 'flex'})
-        }
-    })
-}
+            var $usersEmail = $('.users-email').val(),
+                emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                emailTest = emailPattern.test($usersEmail),
+                $checkboxTest = $('input[type="checkbox"]').prop("checked");
+            if (emailTest && $checkboxTest) {
+                $sectionToShow.css({'display': 'flex'})
+            }
+        })
+    }
 
-showPopup('.sign-up-button', '.popup-window-dimm');
-closeSection('.popup-close-button', '.popup-window-dimm');
+    showPopup('.sign-up-button', '.popup-window-dimm');
+    closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
 
@@ -115,20 +114,46 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         createRandomElement();
         addCreatedRandomElementToEmptyCell();
     });
-});
 
 // End - mix-buton
 
+// Start - Game
+    function createElementToFind() {
+        var $elementToFind = $('.game-find-this-img');
+        $elementToFind.find('img').remove();
+        $elementToFind.append(createRandomElement());
+    }
 
-<!-- Start - Game-->
+    function isElementFound() {
+        var $elementToFind = $('.game-find-this-img').attr('src'),
+            $elementOnTable = $('.game-table').find('img'),
+            points = 0;
 
-// kod tymczasowy - w tym miejscu należy połączyć elementy gry TODO: usunąć ten kod po połączeniu elementów gry
+        $elementOnTable.click(function () {
+            if ($elementToFind == $(this).attr('src')) {
+                $(this).remove();
+                $(this).css('background', 'green').fadeOut(1000);
+                points++;
+            } else {
+                $(this).css('background', 'red').fadeOut(1000);
+            }
+        });
+        $('.points').text(points);
+    }
 
-$('.game-find-this-img').addClass('game-element1');
-$('.game-table').find('td:nth-child(odd)').addClass('game-element1');
-$('.game-table').find('td:nth-child(even)').addClass('game-element2');
 
-// koniec kodu tymczasowego
+    (function startGame() {
+        var $gameStartButton = $('.game-start-button');
+        $gameStartButton.click(function () {
+            createElementToFind();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+            isElementFound();
+        })
+    })();
 
+// End - Game
 
-<!-- End - Game-->
+});

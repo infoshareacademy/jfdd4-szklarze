@@ -16,8 +16,16 @@
 
 tr, td, .game-find-this-img {
   border: dotted 1px $grey;
+}
+
+tr, td {
   width: 25px;
   height: 25px;
+}
+
+.game-find-this-img {
+  width: 40px;
+  height: 40px;
 }
 
 .game-mix-button, .game-start-button {
@@ -51,31 +59,32 @@ tr, td, .game-find-this-img {
 .img-element {
   width: 100%;
   height: 100%;
-}
-
-//TODO: sprawdzić przydatność klas game-elements po połączeniu elementów gry
-.game-element1 {
-  background: url(../images/game-icons/icon-green-onion.svg) no-repeat center;
-  background-size: cover;
-}
-.game-element2 {
-  background: url(../images/game-icons/icon-onion-brown.svg) no-repeat center;
-  background-size: cover;
+  vertical-align: bottom;
 }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 30px;
     height: 30px;
+  }
+
+  .game-find-this-img {
+    width: 45px;
+    height: 45px;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 35px;
     height: 35px;
+  }
+
+  .game-find-this-img {
+    width: 50px;
+    height: 50px;
   }
 
   .game-table {
@@ -95,9 +104,14 @@ tr, td, .game-find-this-img {
 
 @media screen and (min-width: 801px) and (max-width: 1200px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 40px;
     height: 40px;
+  }
+
+  .game-find-this-img {
+    width: 60px;
+    height: 60px;
   }
 
   .game-table {
@@ -117,9 +131,14 @@ tr, td, .game-find-this-img {
 
 @media screen and (min-width: 1201px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 45px;
     height: 45px;
+  }
+
+  .game-find-this-img {
+    width: 60px;
+    height: 60px;
   }
 
   .game-table {
@@ -140,11 +159,6 @@ tr, td, .game-find-this-img {
   }
 }
 @media screen and (min-width: 1601px) {
-
-  tr, td, .game-find-this-img {
-    width: 45px;
-    height: 45px;
-  }
 
   .game-table {
     width: 70%;
