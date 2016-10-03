@@ -432,5 +432,23 @@ tr, td, .game-find-this-img {
     margin-left: auto;
     margin-right: auto;
     display: flex; } }
+@media screen and (min-width: 1601px) {
+  tr, td, .game-find-this-img {
+    width: 45px;
+    height: 45px; }
+
+  .game-table {
+    width: 70%; }
+
+  .game-panel {
+    width: 30%;
+    margin-right: 5%;
+    margin-left: 5%; }
+
+  .game-box {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; } }
 
 /*# sourceMappingURL=style-basic.css.map */
