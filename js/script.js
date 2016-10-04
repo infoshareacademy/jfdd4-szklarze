@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     var sections = $('section')
         , nav = $('.nav-top')
         , nav_height = nav.outerHeight();
@@ -31,40 +31,62 @@ $(document).ready(function() {
 
 // End - Nawigacja
 
+// Start - Sign-up
+
+    $('form').submit(function (event) {
+        var formData = {
+            'email': $('input[name=email]').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://tools.is-academy.pl/mailer.php',
+            data: formData,
+            dataType: 'text'
+        })
+
+            .done(function (data) {
+                console.log(data);
+            });
+
+        //errors
+        event.preventDefault();
+    });
+
+
+// End - Sign-up
+
+
 // Start - "Thank-you" window
 
-function closeSection(closingButtonsClass, sectionsToCloseClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var closeButton = $(closingButtonsClass),
-        sectionToClose = $(sectionsToCloseClass);
+    function closeSection(closingButtonsClass, sectionsToCloseClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var closeButton = $(closingButtonsClass),
+            sectionToClose = $(sectionsToCloseClass);
 
-    closeButton.click(function () {
-        sectionToClose.hide();
-    });
-}
+        closeButton.click(function () {
+            sectionToClose.hide();
+        });
+    }
 
-function showPopup(triggerButtonsClass, popupClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var $triggerButton = $(triggerButtonsClass),
-        $sectionToShow = $(popupClass);
+    function showPopup(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
 
-    $triggerButton.click(function (event) {
-        event.preventDefault();
-        /*WARNING! This is line temporary! It disables
-         submitting!*/
+        $triggerButton.click(function (event){
+            var $usersEmail = $('.users-email').val(),
+                emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                emailTest = emailPattern.test($usersEmail),
+                $checkboxTest = $('input[type="checkbox"]').prop("checked");
+            if (emailTest && $checkboxTest) {
+                $sectionToShow.css({'display': 'flex'})
+            }
+        })
+    }
 
-        var $usersEmail = $('.users-email').val(),
-            emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            emailTest = emailPattern.test($usersEmail),
-            $checkboxTest = $('input[type="checkbox"]').prop("checked");
-        if (emailTest && $checkboxTest) {
-            $sectionToShow.css({'display': 'flex'})
-        }
-    })
-}
-
-showPopup('.sign-up-button', '.popup-window-dimm');
-closeSection('.popup-close-button', '.popup-window-dimm');
+    showPopup('.sign-up-button', '.popup-window-dimm');
+    closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
 
