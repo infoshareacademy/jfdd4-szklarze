@@ -48,7 +48,7 @@ tr, td {
 .game-mix-button {
   background-color: $blue-dark;
   color: white;
-  display: none;
+  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
 .game-start-button {
@@ -68,7 +68,7 @@ tr, td {
   vertical-align: bottom;
 }
 
-.game-instructions {
+.game-instructions-summury {
   margin: auto;
   padding: 4%;
   text-align: center;
@@ -105,7 +105,7 @@ tr, td {
 }
 
 @media screen and (min-width: 601px) {
-  .game-instructions {
+  .game-instructions-summury {
     margin: auto 6%;
   }
 }

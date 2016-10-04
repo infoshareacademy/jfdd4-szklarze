@@ -79,8 +79,7 @@ $(document).ready(function () {
     }
 
     function findEmptyCells() {
-        var emptyCells = $('td:empty').addClass('empty-cell');
-        return emptyCells;
+        return $('td:empty').addClass('empty-cell');
     }
 
     function createRandomElement() {
@@ -114,21 +113,24 @@ $(document).ready(function () {
 
     $('.game-mix-button').click(function () {
         clearCells();
-        findEmptyCells();
         createRandomElement();
+        findEmptyCells();
         addCreatedRandomElementToEmptyCell();
     });
 
 // End - mix-buton
 
 // Start - Game
-    closeSection('.game-start-button', '.game-instructions');
+
 
     function generateTable(size) {
         var $table = $('.game-table'),
             $tbody = $('<tbody>');
 
-        $table.append($tbody);
+        $table
+            .empty()
+            .css('display','flex')
+            .append($tbody);
 
         for (var rowCount=1; rowCount <= size; rowCount++){
             var $row = $('<tr>');
@@ -160,8 +162,9 @@ $(document).ready(function () {
             points = 0;
 
         $imgElement.click(function () {
-
             var $clickedElement = $(this);
+
+            isGameFinished();
 
             if ( $elementToFindSrc === $(this).attr('src') ) {
                 points++;
@@ -173,8 +176,6 @@ $(document).ready(function () {
             } else {
                 $clickedElement.css('background', 'red');
             }
-
-            isMatchingElementLeft();
         });
     }
 
@@ -191,11 +192,11 @@ $(document).ready(function () {
         return matchingElementsCounter > 1;
     }
 
-
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
+
         $gameStartButton.click(function () {
-            $('.game-table').css('display','flex');
+            $('.game-instructions-summury').hide();
             generateTable(10);
             // startTimer();
             clearPoints();
@@ -208,21 +209,36 @@ $(document).ready(function () {
         })
     })();
 
+
     function isTimeOut() {
         var $time = $('.game-timer').find('h4').text();
         return $time == '00:00';
     }
 
-    function finishGame() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
+    function showSummary() {
+        var $summary = $('.game-instructions-summary'),
+            points = $('.points').text(),
+            $table = $('.game-table');
+
+        $table.hide();
+        $summary.empty();
+        $summary.css('display', 'flex');
+        $summary.append('h3').text('Koniec gry!');
+            // .find('p').text('Zdobyłeś <br>' + points + '<br> punktów');
+        console.log($summary, points);
+
+    }
+
+    function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
         if ( !isMatchingElementLeft() ) {
             // stopTimer();
             // addTimeBonus();
-            // showSummury();
+            showSummary();
         }
         if ( isTimeOut() ) {
             // takePointsForLeftElements();
-            // showSummury();
+            showSummary();
         }
     }
 
