@@ -138,7 +138,6 @@ $(document).ready(function () {
                 var $cell = $('<td>')
                     .attr('data-row',rowCount)
                     .attr('data-col',cellCount);
-
                 $row.append($cell);
             }
         }
@@ -196,6 +195,7 @@ $(document).ready(function () {
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
         $gameStartButton.click(function () {
+            $('.game-table').css('display','flex');
             generateTable(10);
             // startTimer();
             clearPoints();
