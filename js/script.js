@@ -81,18 +81,18 @@ $(document).ready(function () {
 
     function createRandomElement() {
         var elements = [
-            'icon-black-mustache-v1',
+            // 'icon-black-mustache-v1',
             'icon-black-mustache-v2',
-            'icon-black-mustache-v3',
-            'icon-blue-flipflops',
+            // 'icon-black-mustache-v3',
+            // 'icon-blue-flipflops',
             'icon-brown-bottle',
             'icon-green-bottle',
             'icon-green-onion',
-            'icon-grey-bag',
+            // 'icon-grey-bag',
             'icon-onion-brown',
             'icon-purple-onion',
-            'icon-red-beetroot',
-            'icon-yellow-pint'
+            'icon-red-beetroot'
+            // 'icon-yellow-pint'
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
         img = new Image();
@@ -118,6 +118,29 @@ $(document).ready(function () {
 // End - mix-buton
 
 // Start - Game
+
+    function generateTable(size) {
+        var $table = $('.game-table'),
+            $tbody = $('<tbody>');
+
+        $table.append($tbody);
+
+        for (var rowCount=1; rowCount <= size; rowCount++){
+            var $row = $('<tr>');
+
+            $tbody.append($row);
+            for (var cellCount=1; cellCount <= size; cellCount++){
+                var $cell = $('<td>')
+                    .attr('data-row',rowCount)
+                    .attr('data-col',cellCount);
+
+                $row.append($cell);
+            }
+        }
+    }
+
+    generateTable(10);
+
     function createElementToFind() {
         var $elementToFind = $('.game-find-this-img');
         $elementToFind.find('img').remove();
@@ -125,7 +148,7 @@ $(document).ready(function () {
     }
 
     function isElementFound() {
-        var $elementToFind = $('.game-find-this-img').attr('src'),
+        var $elementToFind = $('.game-find-this-img'),
             $elementOnTable = $('.game-table').find('img'),
             points = 0;
 
