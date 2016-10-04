@@ -328,28 +328,6 @@ input[type="submit"]:focus {
 
   .popup-window {
     width: 60%; } }
-/*
-//  .text-container {
-&>div{
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-}
-
-.beer-img {
-  height: 25vh;
-  margin: 0;
-  width: 20%;
-}
-
-.popup-window {
-  font-size: 0.8em;
-
-  h3:first-child{
-    text-align: left;
-  }
-}*/
 .product-details {
   width: 80%;
   max-width: 1200px;
@@ -483,9 +461,12 @@ tr, td, .game-find-this-img {
 .game-points {
   text-align: center; }
 
-.img-element {
+.game-icon {
   width: 100%;
   height: 100%; }
+
+.clicked {
+  border: solid 1px red; }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
   tr, td, .game-find-this-img {

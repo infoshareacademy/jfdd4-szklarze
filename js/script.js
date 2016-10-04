@@ -67,6 +67,24 @@ showPopup('.sign-up-button', '.popup-window-dimm');
 closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
+    // create table
+    function generateTable(size) {
+        var $table = $('.game-table'),
+            $tbody = $('<tbody>');
+        $table.append($tbody);
+        // var $table = $('<table>');
+        for (var rowCount=1; rowCount <= size; rowCount++){
+            var $row = $('<tr>');
+            $tbody.append($row);
+            for (var cellCount=1; cellCount <= size; cellCount++){
+                var $cell = $('<td>')
+                    .attr('data-row',rowCount)
+                    .attr('data-col',cellCount);
+                $row.append($cell);
+            }
+        }
+    }
+    generateTable(10);
 
 // Start - Mix-button
 
@@ -98,7 +116,7 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         var randomNumber = Math.floor(Math.random() * elements.length);
         img = new Image();
         img.src = 'images/game-icons/' + elements[randomNumber] + '.svg';
-        img.className = 'img-element';
+        img.className = 'game-icon';
         return img;
     }
 
@@ -120,7 +138,39 @@ closeSection('.popup-close-button', '.popup-window-dimm');
 // End - Mix-button
 
 // Start - Gamer-click
+function countClickedCell() {
+    var clickedCell = $('.clicked'),
+        numberOfClickedCell= clickedCell.length;
+    return numberOfClickedCell;
+}
+function markCellAsClicked() {
+    var cell = $('td');
+    cell.click(function()
+        {
+            if (countClickedCell() <2 ) {
+                $(this).toggleClass('clicked');
+            }
+            else {
+                alert("Możesz zaznaczyć tylko dwie komórki");
+                $(this).removeClass('clicked');
+            }
+        }
+    );
 
+
+    // if (countClickedCell() < 2) {
+    //     var cell = $('td');
+    //     cell.click(function () {
+    //         $(this).toggleClass('clicked');
+    //     })}
+    // else
+    //     {
+    //         alert('Możesz zaznaczyć tylko dwie komórki')
+    //     }
+    }
+
+
+markCellAsClicked();
 
 
 
