@@ -5,28 +5,32 @@ $(document).ready(function () {
 
 // Start - Nawigacja
 
-    $('#nav-button, #nav-links li').click(function () {
-        $('#nav-links').toggleClass('toggle-menu');
-        $('#nav-button').toggleClass('change-icon');
-    });
-
-    var sections = $('section'),
-        nav = $('.nav-top'),
-        nav_height = nav.outerHeight();
-
-    $(window).on('scroll', function () {
-        var cur_pos = $(this).scrollTop();
-        nav.find('a').removeClass('active');
-        sections.each(function () {
-            var top = $(this).offset().top - nav_height,
-                bottom = top + $(this).outerHeight();
-
-            if (cur_pos + 200 >= top && cur_pos <= bottom) {
-                nav.find('a').removeClass('active');
-                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
-            }
+    (function toggleMenu() {
+        $('#nav-button, #nav-links li').click(function () {
+            $('#nav-links').toggleClass('toggle-menu');
+            $('#nav-button').toggleClass('change-icon');
         });
-    });
+    })();
+
+    (function highlightButtonsOnScroll() {
+        var sections = $('section'),
+            nav = $('.nav-top'),
+            nav_height = nav.outerHeight();
+
+        $(window).on('scroll', function () {
+            var cur_pos = $(this).scrollTop();
+            nav.find('a').removeClass('active');
+            sections.each(function () {
+                var top = $(this).offset().top - nav_height,
+                    bottom = top + $(this).outerHeight();
+
+                if (cur_pos + 200 >= top && cur_pos <= bottom) {
+                    nav.find('a').removeClass('active');
+                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                }
+            });
+        });
+    })();
 
 // End - Nawigacja
 
@@ -118,6 +122,7 @@ $(document).ready(function () {
 // End - mix-buton
 
 // Start - Game
+    closeSection('.game-start-button', '.game-instructions');
 
     function generateTable(size) {
         var $table = $('.game-table'),
@@ -139,41 +144,61 @@ $(document).ready(function () {
         }
     }
 
-    generateTable(10);
-
     function createElementToFind() {
         var $elementToFind = $('.game-find-this-img');
         $elementToFind.find('img').remove();
         $elementToFind.append(createRandomElement());
     }
 
+    function clearPoints() {
+        $('.points').text('0');
+    }
+
     function isElementFound() {
-        var $elementToFind = $('.game-find-this-img').find('img'),
+        var $elementToFind = $('.game-find-this-img').find('.img-element'),
             $imgElement = $('.img-element'),
-            $elementToFindSrc = $elementToFind.attr('src');
+            $elementToFindSrc = $elementToFind.attr('src'),
             points = 0;
 
-
-
         $imgElement.click(function () {
-            console.log($elementToFindSrc);
-            console.log($(this).attr('src'));
+
+            var $clickedElement = $(this);
 
             if ( $elementToFindSrc === $(this).attr('src') ) {
-                $(this).css('background', 'green');
-                // $(this).remove();
                 points++;
+                $('.points').text(points);
+                $clickedElement.css('background', 'green').fadeOut(1500);
+                setTimeout(function () {
+                    $clickedElement.remove();
+                }, 1500);
             } else {
-                $(this).css('background', 'red').fadeOut(1000);
+                $clickedElement.css('background', 'red');
             }
+
+            isMatchingElementLeft();
         });
-        $('.points').text(points);
+    }
+
+    function isMatchingElementLeft() {
+        var $elementToFind = $('.game-find-this-img').find('.img-element'),
+            $elementToFindSrc = $elementToFind.attr('src'),
+            $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
+            matchingElementsCounter = 0;
+
+        $elementsOnBoard.forEach(function (elementOnBoard) {
+            var $elementOnBoardSrc = $(elementOnBoard).attr('src');
+            if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
+        });
+        return matchingElementsCounter > 1;
     }
 
 
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
         $gameStartButton.click(function () {
+            generateTable(10);
+            // startTimer();
+            clearPoints();
             createElementToFind();
             clearCells();
             findEmptyCells();
@@ -182,6 +207,24 @@ $(document).ready(function () {
             isElementFound();
         })
     })();
+
+    function isTimeOut() {
+        var $time = $('.game-timer').find('h4').text();
+        return $time == '00:00';
+    }
+
+    function finishGame() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
+     upływie czasu*/
+        if ( !isMatchingElementLeft() ) {
+            // stopTimer();
+            // addTimeBonus();
+            // showSummury();
+        }
+        if ( isTimeOut() ) {
+            // takePointsForLeftElements();
+            // showSummury();
+        }
+    }
 
 // End - Game
 

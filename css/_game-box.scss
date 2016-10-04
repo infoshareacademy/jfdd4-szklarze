@@ -9,6 +9,10 @@
   justify-content: space-around;
 }
 
+.game-table {
+  display: none;
+}
+
 .game-panel {
   flex-direction: column;
   align-items: center;
@@ -60,6 +64,22 @@ tr, td {
   width: 100%;
   height: 100%;
   vertical-align: bottom;
+}
+
+.game-instructions {
+  margin: auto 6%;
+  padding: 4%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted $blue-dark;
+  background: $grey-light;
+
+  p {
+    padding-bottom: 5%;
+  }
 }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
