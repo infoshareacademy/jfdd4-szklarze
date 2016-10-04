@@ -272,9 +272,7 @@
 
             </div>
         <div class="game-timer">
-            <h4>
-                00:59
-            </h4>
+            <h4>00:00</h4>
         </div>
         <div class="game-points">
             <h4>
@@ -284,22 +282,30 @@
                 </span>
             </h4>
         </div>
-        <button class="game-start-button">
-            Rozpocznij grę
-        </button>
+        <button class="game-start-button">Start</button>
     </div>
     </div>
 
     <!-- Start - Timer test -->
     <script src="js/jquery-3.1.1.min.js"></script><!-- Temporary link -->
     <!--
-    Kliknięcie przycisku rozpoczyna odliczanie 60 sekund z opóźnieniem 3 sekund na przygotowanie do gry.
+    Kliknięcie przycisku rozpoczyna odliczanie 60 sekund (opcjonalnie z opóźnieniem 3 sekund na przygotowanie do gry).
     Licznik wyświetla pozostałą ilość czasu.
     Po upływie czasu gra się zatrzymmuje i wyświetla się komunikat z ilością zdobytych punktów.
     -->
     <script>
-
-
+        var timeAmount = 60; //Seconds
+        $('button.game-start-button').click(function () {
+            var timeCounter = setInterval(function() {
+                timeAmount--;
+                if (timeAmount == 0) {
+                    clearInterval(timeCounter);
+                    //Function to stop game
+                }
+                console.log(timeAmount);
+                $('.game-timer h4').text('00:' + timeAmount);
+            }, 1000); //One second interval
+        });
     </script>
     <!-- End - Timer test -->
 </section>
