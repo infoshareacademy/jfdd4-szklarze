@@ -148,14 +148,20 @@ $(document).ready(function () {
     }
 
     function isElementFound() {
-        var $elementToFind = $('.game-find-this-img'),
-            $elementOnTable = $('.game-table').find('img'),
+        var $elementToFind = $('.game-find-this-img').find('img'),
+            $imgElement = $('.img-element'),
+            $elementToFindSrc = $elementToFind.attr('src');
             points = 0;
 
-        $elementOnTable.click(function () {
-            if ($elementToFind == $(this).attr('src')) {
-                $(this).remove();
-                $(this).css('background', 'green').fadeOut(1000);
+
+
+        $imgElement.click(function () {
+            console.log($elementToFindSrc);
+            console.log($(this).attr('src'));
+
+            if ( $elementToFindSrc === $(this).attr('src') ) {
+                $(this).css('background', 'green');
+                // $(this).remove();
                 points++;
             } else {
                 $(this).css('background', 'red').fadeOut(1000);
