@@ -67,7 +67,7 @@ showPopup('.sign-up-button', '.popup-window-dimm');
 closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
-    // create table
+    // generate table
     function generateTable(size) {
         var $table = $('.game-table'),
             $tbody = $('<tbody>');
@@ -77,9 +77,10 @@ closeSection('.popup-close-button', '.popup-window-dimm');
             var $row = $('<tr>');
             $tbody.append($row);
             for (var cellCount=1; cellCount <= size; cellCount++){
-                var $cell = $('<td>')
-                    .attr('data-row',rowCount)
-                    .attr('data-col',cellCount);
+                // dodanie pola data
+                var $cell = $('<td>').data(rowCount, cellCount);
+                // .attr('data-row',rowCount)
+                    // .attr('data-col',cellCount);
                 $row.append($cell);
             }
         }
@@ -138,40 +139,6 @@ closeSection('.popup-close-button', '.popup-window-dimm');
 // End - Mix-button
 
 // Start - Gamer-click
-function countClickedCell() {
-    var clickedCell = $('.clicked'),
-        numberOfClickedCell= clickedCell.length;
-    return numberOfClickedCell;
-}
-function markCellAsClicked() {
-    var cell = $('td');
-    cell.click(function()
-        {
-            if (countClickedCell() <2 ) {
-                $(this).toggleClass('clicked');
-            }
-            else {
-                alert("Możesz zaznaczyć tylko dwie komórki");
-                $(this).removeClass('clicked');
-            }
-        }
-    );
-
-
-    // if (countClickedCell() < 2) {
-    //     var cell = $('td');
-    //     cell.click(function () {
-    //         $(this).toggleClass('clicked');
-    //     })}
-    // else
-    //     {
-    //         alert('Możesz zaznaczyć tylko dwie komórki')
-    //     }
-    }
-
-
-markCellAsClicked();
-
 
 
 
