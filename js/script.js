@@ -68,7 +68,7 @@ closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
 
-// Start - mix-button
+// Start - Mix-button
 
     function clearCells() {
         var cells = $('td');
@@ -117,4 +117,12 @@ closeSection('.popup-close-button', '.popup-window-dimm');
     });
 });
 
-// End - mix-buton
+// End - Mix-button
+
+// Start - Gamer-click
+
+
+
+
+
+// End - Gamer-click
