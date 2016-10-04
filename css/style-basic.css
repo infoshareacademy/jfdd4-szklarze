@@ -50,7 +50,7 @@ a {
   body {
     font-size: 0.7em; } }
 .nav-top {
-  background: #FFC10E;
+  background: #ffc10e;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -384,6 +384,9 @@ tr, td, .game-find-this-img {
 .game-start-button {
   background-color: #262e3e;
   color: white; }
+
+.game-start-button.disabled {
+  background-color: #888; }
 
 .game-find-this-img {
   margin-left: auto;
