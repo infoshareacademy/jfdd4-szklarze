@@ -289,12 +289,14 @@
     <!-- Start - Timer test -->
     <script src="js/jquery-3.1.1.min.js"></script><!-- Temporary link -->
     <!--
-    Kliknięcie przycisku rozpoczyna odliczanie 60 sekund (opcjonalnie z opóźnieniem 3 sekund na przygotowanie do gry).
+    Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
     Licznik wyświetla pozostałą ilość czasu.
+    W trakcie gry przycisk 'Start' jest nieaktywny.
+    Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
     Po upływie czasu gra się zatrzymmuje i wyświetla się komunikat z ilością zdobytych punktów.
     -->
     <script>
-        var timeAmount = 12; //Seconds
+        var timeAmount = 12;//Set time amount here.
         $('.game-timer h4').text('00:' + timeAmount);
         $('button.game-start-button').click(function () {
             $(this).attr('disabled', true).addClass('disabled');
@@ -303,7 +305,7 @@
                 if (timeAmount == 0) {
                     clearInterval(timeCounter);
                     $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                    timeAmount = 12;
+                    timeAmount = 12;//Set time amount here.
                     //Function to stop game
                 }
                 console.log(timeAmount);
