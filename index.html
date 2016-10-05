@@ -129,8 +129,6 @@
 </section>
 <!-- End - Zapis na premierę -->
 
-
-
 <!-- Start - Gra -->
 <section class="game">
    <div class="game-intro-text">
@@ -296,7 +294,7 @@
     Po upływie czasu gra się zatrzymmuje.
     -->
     <script>
-        var timeAmount = 12;//Set time amount here.
+        var timeAmount = 12;//Set time amount here, max 60 seconds.
         $('.game-timer h4').text('Czas: 00:' + timeAmount);
         $('button.game-start-button').click(function () {
             $(this).attr('disabled', true).addClass('disabled');
@@ -305,7 +303,7 @@
                 if (timeAmount == 0) {
                     clearInterval(timeCounter);
                     $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                    timeAmount = 12;//Set time amount here.
+                    timeAmount = 12;//Set time amount here, max 60 seconds.
                     //Function to stop game
                 }
                 console.log(timeAmount);
@@ -315,19 +313,8 @@
     </script>
     <!-- End - Timer test -->
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- End - Gra -->
+
 <!-- Start - Opis funkcjonalności -->
 <section class="product-details"
          id="product-details">
