@@ -77,10 +77,9 @@ closeSection('.popup-close-button', '.popup-window-dimm');
             var $row = $('<tr>');
             $tbody.append($row);
             for (var cellCount=1; cellCount <= size; cellCount++){
-                // dodanie pola data
-                var $cell = $('<td>').data(rowCount, cellCount);
-                // .attr('data-row',rowCount)
-                    // .attr('data-col',cellCount);
+                var $cell = $('<td>')
+                    .attr('data-row',rowCount)
+                    .attr('data-col',cellCount);
                 $row.append($cell);
             }
         }
@@ -88,7 +87,6 @@ closeSection('.popup-close-button', '.popup-window-dimm');
     generateTable(10);
 
 // Start - Mix-button
-
     function clearCells() {
         var cells = $('td');
         return cells.empty();
@@ -134,12 +132,41 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         createRandomElement();
         addCreatedRandomElementToEmptyCell();
     });
-});
+
 
 // End - Mix-button
 
 // Start - Gamer-click
+    (function clickAction() {
+        var $cell = $('td');
+            $cell.click(function () {
+                countClickedCell();
+                if (countClickedCell() < 2) {
+                    addClassToCell($(this));
+                    clickedCellPosition($(this))
+                }
+                else {
+                    $(this).removeClass('clicked');
+                }
+            })
+
+        }
+
+    )();
+function addClassToCell(cell) {
+    cell.addClass('clicked');
+}
+
+function countClickedCell() {
+    var clickedCell = $('.clicked');
+    return clickedCell.length;
+}
+function clickedCellPosition(cell) {
+
+
+}
 
 
 
 // End - Gamer-click
+});
