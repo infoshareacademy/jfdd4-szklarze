@@ -477,7 +477,7 @@ tr, td {
   height: 100%;
   vertical-align: bottom; }
 
-.game-instructions-summury {
+.game-instructions-summary {
   margin: auto;
   padding: 4%;
   text-align: center;
@@ -489,9 +489,9 @@ tr, td {
   background: #f5f5f5;
   width: 70%;
   min-height: 300px; }
-  .game-instructions-summury p {
+  .game-instructions-summary p {
     padding-bottom: 5%; }
-  .game-instructions-summury .game-start-button {
+  .game-instructions-summary .game-start-button {
     font-weight: bold;
     font-size: 1.2em; }
 
@@ -504,7 +504,7 @@ tr, td {
     width: 45px;
     height: 45px; } }
 @media screen and (min-width: 601px) {
-  .game-instructions-summury {
+  .game-instructions-summary {
     margin: auto 6%; } }
 @media screen and (min-width: 601px) and (max-width: 800px) {
   tr, td {

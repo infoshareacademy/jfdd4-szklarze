@@ -198,7 +198,7 @@ $(document).ready(function () {
         var $gameStartButton = $('.game-start-button');
 
         $gameStartButton.click(function () {
-            $('.game-instructions-summury').hide();
+            $('.game-instructions-summary').hide();
             generateTable(10);
             // startTimer();
             clearPoints();
@@ -225,10 +225,8 @@ $(document).ready(function () {
         $table.hide();
         $summary.empty();
         $summary.css('display', 'flex');
-        $summary.append('h3').text('Koniec gry!');
-            // .find('p').text('Zdobyłeś <br>' + points + '<br> punktów');
-        console.log($summary, points);
-
+        $summary.append('<h3>').text('Koniec gry!')
+                .append('<p>').text('Zdobyłeś ' + points + ' punktów');
     }
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
