@@ -93,8 +93,8 @@ $(document).ready(function () {
             'icon-green-onion',
             // 'icon-grey-bag',
             'icon-onion-brown',
-            'icon-purple-onion',
-            'icon-red-beetroot'
+            'icon-purple-onion'
+            // 'icon-red-beetroot'
             // 'icon-yellow-pint'
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
@@ -165,19 +165,19 @@ $(document).ready(function () {
         $imgElement.click(function () {
             var $clickedElement = $(this);
 
-            isGameFinished();
-
             if ( $elementToFindSrc === $(this).attr('src') ) {
                 points++;
                 $('.points').text(points);
-                $clickedElement.css('background', 'green').fadeOut(1500);
+                $clickedElement.css('background', 'green').fadeOut(500);
                 setTimeout(function () {
                     $clickedElement.remove();
                     findEmptyCells();
-                }, 1500);
+                }, 500);
             } else {
                 $clickedElement.css('background', 'red');
             }
+
+            isGameFinished();
         });
     }
 
@@ -219,14 +219,16 @@ $(document).ready(function () {
 
     function showSummary() {
         var $summary = $('.game-instructions-summary'),
-            points = $('.points').text(),
-            $table = $('.game-table');
+            pointsCount = $('.points').text(),
+            $table = $('.game-table'),
+            $head = $('<h2>').text('Koniec gry!'),
+            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
+            $points = $('<h1>').text(pointsCount);
 
         $table.hide();
         $summary.empty();
         $summary.css('display', 'flex');
-        $summary.append('<h3>').text('Koniec gry!')
-                .append('<p>').text('Zdobyłeś ' + points + ' punktów');
+        $summary.append($head).append($pointsTitle).append($points);
     }
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
