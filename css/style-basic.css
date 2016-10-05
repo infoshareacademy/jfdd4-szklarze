@@ -116,12 +116,18 @@ a {
     .nav-top a:first-letter {
       text-transform: uppercase; }
 
-  .nav-button {
+  #nav-button {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
     height: 40px;
-    width: 40px; } }
+    width: 40px; }
+
+  #nav-links.toggle-menu {
+    display: flex; }
+
+  #nav-button.change-icon {
+    background-image: url("../images/icon-white-menu-close.svg"); } }
 .intro {
   background: #ffc10e url("../images/intro-background.svg") center bottom;
   background-size: 360px 150px;
@@ -259,6 +265,91 @@ input[type="submit"]:focus {
 
   input[type=submit] {
     width: 20%; } }
+.popup-window-dimm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(38, 46, 62, 0.71);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center; }
+
+.popup-window {
+  position: relative;
+  width: 80%;
+  padding: 5% 3%;
+  background: #ffc10e;
+  border: 5px solid #dda20e;
+  text-align: center; }
+  .popup-window h1, .popup-window h3, .popup-window p {
+    margin: 0; }
+  .popup-window p {
+    font-size: 1.2em;
+    padding: 1em 0; }
+
+.text-container > div {
+  display: flex;
+  flex-direction: column; }
+
+.beer-img {
+  background: url("../images/icon-black-beer.svg") center center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 35vw;
+  min-height: 20%;
+  margin: 5% auto; }
+
+.popup-close-button {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  height: 40px;
+  width: 40px;
+  background: url("../images/icon-white-menu-close.svg") right top no-repeat;
+  background-size: contain; }
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+  .text-container > div {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+
+  .beer-img {
+    width: 25vw;
+    height: 20vw;
+    min-height: 20%;
+    margin: 0 5vw 0 0; } }
+@media screen and (min-width: 801px) {
+  .beer-img {
+    height: 25vh;
+    max-height: 200px; }
+
+  .popup-window {
+    width: 60%; } }
+/*
+//  .text-container {
+&>div{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+}
+
+.beer-img {
+  height: 25vh;
+  margin: 0;
+  width: 20%;
+}
+
+.popup-window {
+  font-size: 0.8em;
+
+  h3:first-child{
+    text-align: left;
+  }
+}*/
 .product-details {
   width: 80%;
   max-width: 1200px;
@@ -394,6 +485,10 @@ tr, td, .game-find-this-img {
 
 .game-points {
   text-align: center; }
+
+.img-element {
+  width: 100%;
+  height: 100%; }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
   tr, td, .game-find-this-img {
