@@ -149,6 +149,8 @@ $(document).ready(function () {
         var $elementToFind = $('.game-find-this-img');
         $elementToFind.find('img').remove();
         $elementToFind.append(createRandomElement());
+        $elementToFind.find('.img-element').removeClass();
+        $elementToFind.find('img').addClass('img-element-to-find');
     }
 
     function clearPoints() {
@@ -156,7 +158,7 @@ $(document).ready(function () {
     }
 
     function findElementOnClick() {
-        var $elementToFind = $('.game-find-this-img').find('.img-element'),
+        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
             $imgElement = $('.img-element'),
             $elementToFindSrc = $elementToFind.attr('src'),
             points = 0;
@@ -185,7 +187,7 @@ $(document).ready(function () {
     }
 
     function isMatchingElementLeft(getLeftElementsConut) {
-        var $elementToFind = $('.game-find-this-img').find('.img-element'),
+        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
             $elementToFindSrc = $elementToFind.attr('src'),
             $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
             matchingElementsCounter = 0;
