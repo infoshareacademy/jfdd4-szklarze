@@ -55,6 +55,10 @@ tr, td {
   background-color: $yellow;
 }
 
+.game-start-button.disabled {
+  background-color: $grey;
+}
+
 .game-find-this-img {
   margin: 0 auto;
 }
