@@ -34,40 +34,63 @@ $(document).ready(function () {
 
 // End - Nawigacja
 
+
+// Start - Sign-up
+
+    $('form').submit(function (event) {
+        var formData = {
+            'email': $('input[name=email]').val(),
+            'receiver': 'nataliavetter@gmail.com'
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'http://tools.is-academy.pl/mailer.php',
+            data: formData,
+            dataType: 'text'
+        })
+            .done(function (data) {
+                console.log(data);
+            })
+            .fail(function (data) {
+                console.log(data);
+            });
+        event.preventDefault();
+    });
+
+
+// End - Sign-up
+
+
 // Start - "Thank-you" window
 
-function closeSection(closingButtonsClass, sectionsToCloseClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var closeButton = $(closingButtonsClass),
-        sectionToClose = $(sectionsToCloseClass);
+    function closeSection(closingButtonsClass, sectionsToCloseClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var closeButton = $(closingButtonsClass),
+            sectionToClose = $(sectionsToCloseClass);
 
-    closeButton.click(function () {
-        sectionToClose.hide();
-    });
-}
+        closeButton.click(function () {
+            sectionToClose.hide();
+        });
+    }
 
-function showPopup(triggerButtonsClass, popupClass) {
-    // * Parameters needs to have this format: '.class-name'
-    var $triggerButton = $(triggerButtonsClass),
-        $sectionToShow = $(popupClass);
+    function showPopup(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
 
-    $triggerButton.click(function (event) {
-        event.preventDefault();
-        /*WARNING! This is line temporary! It disables
-         submitting!*/
+        $triggerButton.click(function (event) {
+            var $usersEmail = $('.users-email').val(),
+                emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                emailTest = emailPattern.test($usersEmail),
+                $checkboxTest = $('input[type="checkbox"]').prop("checked");
+            if (emailTest && $checkboxTest) {
+                $sectionToShow.css({'display': 'flex'})
+            }
+        })
+    }
 
-        var $usersEmail = $('.users-email').val(),
-            emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-            emailTest = emailPattern.test($usersEmail),
-            $checkboxTest = $('input[type="checkbox"]').prop("checked");
-        if (emailTest && $checkboxTest) {
-            $sectionToShow.css({'display': 'flex'})
-        }
-    })
-}
-
-showPopup('.sign-up-button', '.popup-window-dimm');
-closeSection('.popup-close-button', '.popup-window-dimm');
+    showPopup('.sign-up-button', '.popup-window-dimm');
+    closeSection('.popup-close-button', '.popup-window-dimm');
 
 // End - "Thank-you" window
 
@@ -119,7 +142,6 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         findEmptyCells();
         addCreatedRandomElementToEmptyCell();
     });
-});
 
 // End - mix-buton
 
@@ -132,17 +154,17 @@ closeSection('.popup-close-button', '.popup-window-dimm');
 
         $table
             .empty()
-            .css('display','flex')
+            .css('display', 'flex')
             .append($tbody);
 
-        for (var rowCount=1; rowCount <= size; rowCount++){
+        for (var rowCount = 1; rowCount <= size; rowCount++) {
             var $row = $('<tr>');
 
             $tbody.append($row);
-            for (var cellCount=1; cellCount <= size; cellCount++){
+            for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
-                    .attr('data-row',rowCount)
-                    .attr('data-col',cellCount);
+                    .attr('data-row', rowCount)
+                    .attr('data-col', cellCount);
                 $row.append($cell);
             }
         }
@@ -169,7 +191,7 @@ closeSection('.popup-close-button', '.popup-window-dimm');
 
             isGameFinished();
 
-            if ( $elementToFindSrc === $(this).attr('src') ) {
+            if ($elementToFindSrc === $(this).attr('src')) {
                 points++;
                 $('.points').text(points);
                 $clickedElement.css('background', 'green').fadeOut(1500);
@@ -228,19 +250,19 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         $summary.empty();
         $summary.css('display', 'flex');
         $summary.append('h3').text('Koniec gry!');
-            // .find('p').text('Zdobyłeś <br>' + points + '<br> punktów');
+        // .find('p').text('Zdobyłeś <br>' + points + '<br> punktów');
         console.log($summary, points);
 
     }
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
-        if ( !isMatchingElementLeft() ) {
+        if (!isMatchingElementLeft()) {
             // stopTimer();
             // addTimeBonus();
             showSummary();
         }
-        if ( isTimeOut() ) {
+        if (isTimeOut()) {
             // takePointsForLeftElements();
             showSummary();
         }
