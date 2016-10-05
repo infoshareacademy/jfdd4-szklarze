@@ -2,7 +2,7 @@
  * Created by natvet on 14.09.16.
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     <!-- Start - Nawigacja-->
     function toggleMenu() {
@@ -45,6 +45,31 @@ $(document).ready(function() {
         });
     });
 
-<!-- End - Nawigacja-->
+    <!-- End - Nawigacja-->
+
+    // Start - Game timer
+
+    // Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
+    // Licznik wyświetla pozostałą ilość czasu.
+    // W trakcie gry przycisk 'Start' jest nieaktywny.
+    // Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
+    // Po upływie czasu gra się zatrzymmuje.
+
+    var timeAmount = 12;//Set time amount here, max 60 seconds.
+    $('.game-timer h4').text('Czas: 00:' + timeAmount);
+    $('button.game-start-button').click(function () {
+        $(this).attr('disabled', true).addClass('disabled');
+        var timeCounter = setInterval(function () {
+            timeAmount--;
+            if (timeAmount == 0) {
+                clearInterval(timeCounter);
+                $('button.game-start-button').attr('disabled', false).removeClass('disabled');
+                timeAmount = 12;//Set time amount here, max 60 seconds.
+                //Function to stop game
+            }
+            $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
+        }, 1000); //One second interval
+    });
+    // End - Game timer
 
 });
