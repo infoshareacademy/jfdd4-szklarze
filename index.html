@@ -272,7 +272,7 @@
 
             </div>
         <div class="game-timer">
-            <h4>00:00</h4>
+            <h4>Czas: 00:00</h4>
         </div>
         <div class="game-points">
             <h4>
@@ -297,7 +297,7 @@
     -->
     <script>
         var timeAmount = 12;//Set time amount here.
-        $('.game-timer h4').text('00:' + timeAmount);
+        $('.game-timer h4').text('Czas: 00:' + timeAmount);
         $('button.game-start-button').click(function () {
             $(this).attr('disabled', true).addClass('disabled');
             var timeCounter = setInterval(function() {
@@ -309,7 +309,7 @@
                     //Function to stop game
                 }
                 console.log(timeAmount);
-                $('.game-timer h4').text('00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
+                $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
             }, 1000); //One second interval
         });
     </script>
