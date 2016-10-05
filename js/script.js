@@ -123,7 +123,6 @@ $(document).ready(function () {
 
 // Start - Game
 
-
     function generateTable(size) {
         var $table = $('.game-table'),
             $tbody = $('<tbody>');
@@ -176,12 +175,16 @@ $(document).ready(function () {
             } else {
                 $clickedElement.css('background', 'red');
             }
-
             isGameFinished();
         });
     }
 
-    function isMatchingElementLeft() {
+    function isTimeOut() {
+        var $time = $('.game-timer').find('h4').text();
+        return $time == '00:00';
+    }
+
+    function isMatchingElementLeft(getLeftElementsConut) {
         var $elementToFind = $('.game-find-this-img').find('.img-element'),
             $elementToFindSrc = $elementToFind.attr('src'),
             $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
@@ -191,7 +194,35 @@ $(document).ready(function () {
             var $elementOnBoardSrc = $(elementOnBoard).attr('src');
             if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
         });
-        return matchingElementsCounter > 1;
+
+        if (getLeftElementsConut != undefined)
+            return matchingElementsCounter;
+        else
+            return matchingElementsCounter > 1;
+    }
+
+    function showSummary() {
+        var $summary = $('.game-instructions-summary'),
+            pointsCount = $('.points').text(),
+            $table = $('.game-table'),
+            $head = $('<h2>').text('Koniec gry!'),
+            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
+            $points = $('<h1>').text(pointsCount);
+
+        $table.hide();
+        $summary.empty();
+        $summary.css('display', 'flex');
+        $summary.append($head).append($pointsTitle).append($points);
+    }
+
+    function takePointsForLeftElements() {
+        var leftElements = isMatchingElementLeft(true),
+            $pointsEarnead = $('.points'),
+            points = $pointsEarnead.text() - Number(leftElements);
+
+        if (points < 0) points = 0;
+
+        $pointsEarnead.text(points);
     }
 
     (function startGame() {
@@ -211,26 +242,6 @@ $(document).ready(function () {
         })
     })();
 
-
-    function isTimeOut() {
-        var $time = $('.game-timer').find('h4').text();
-        return $time == '00:00';
-    }
-
-    function showSummary() {
-        var $summary = $('.game-instructions-summary'),
-            pointsCount = $('.points').text(),
-            $table = $('.game-table'),
-            $head = $('<h2>').text('Koniec gry!'),
-            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
-            $points = $('<h1>').text(pointsCount);
-
-        $table.hide();
-        $summary.empty();
-        $summary.css('display', 'flex');
-        $summary.append($head).append($pointsTitle).append($points);
-    }
-
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
         if ( !isMatchingElementLeft() ) {
@@ -239,7 +250,7 @@ $(document).ready(function () {
             showSummary();
         }
         if ( isTimeOut() ) {
-            // takePointsForLeftElements();
+            takePointsForLeftElements();
             showSummary();
         }
     }
