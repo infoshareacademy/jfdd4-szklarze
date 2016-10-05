@@ -108,6 +108,7 @@ $(document).ready(function () {
         var emptyCell = $('.empty-cell');
         emptyCell.each(function () {
             $(this).append(createRandomElement());
+            $(this).removeClass('empty-cell');
         });
     }
 
@@ -155,7 +156,7 @@ $(document).ready(function () {
         $('.points').text('0');
     }
 
-    function isElementFound() {
+    function findElementOnClick() {
         var $elementToFind = $('.game-find-this-img').find('.img-element'),
             $imgElement = $('.img-element'),
             $elementToFindSrc = $elementToFind.attr('src'),
@@ -172,6 +173,7 @@ $(document).ready(function () {
                 $clickedElement.css('background', 'green').fadeOut(1500);
                 setTimeout(function () {
                     $clickedElement.remove();
+                    findEmptyCells();
                 }, 1500);
             } else {
                 $clickedElement.css('background', 'red');
@@ -205,7 +207,7 @@ $(document).ready(function () {
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            isElementFound();
+            findElementOnClick();
         })
     })();
 
