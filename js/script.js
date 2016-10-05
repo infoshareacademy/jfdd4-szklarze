@@ -40,7 +40,7 @@ $(document).ready(function () {
     $('form').submit(function (event) {
         var formData = {
             'email': $('input[name=email]').val(),
-            'receiver': 'nataliavetter@gmail.com'
+            'receiver': 'szklarze.isa@gmail.com'
         };
         $.ajax({
             type: 'POST',
