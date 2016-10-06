@@ -12,26 +12,54 @@ $(document).ready(function () {
         });
     })();
 
-$(document).ready(function() {
-    var sections = $('section')
-        , nav = $('.nav-top')
-        , nav_height = nav.outerHeight();
+    (function highlightButtonsOnScroll() {
+        var sections = $('section'),
+            nav = $('.nav-top'),
+            nav_height = nav.outerHeight();
 
-    $(window).on('scroll', function () {
-        var cur_pos = $(this).scrollTop();
-        nav.find('a').removeClass('active');
-        sections.each(function () {
-            var top = $(this).offset().top - nav_height,
-                bottom = top + $(this).outerHeight();
+        $(window).on('scroll', function () {
+            var cur_pos = $(this).scrollTop();
+            nav.find('a').removeClass('active');
+            sections.each(function () {
+                var top = $(this).offset().top - nav_height,
+                    bottom = top + $(this).outerHeight();
 
-            if (cur_pos + 200 >= top && cur_pos <= bottom) {
-                nav.find('a').removeClass('active');
-                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
-            }
+                if (cur_pos + 200 >= top && cur_pos <= bottom) {
+                    nav.find('a').removeClass('active');
+                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                }
+            });
         });
-    });
+    })();
 
 // End - Nawigacja
+
+
+// Start - Sign-up
+
+    $('form').submit(function (event) {
+        var formData = {
+            'email': $('input[name=email]').val(),
+            'receiver': 'szklarze.isa@gmail.com'
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'http://tools.is-academy.pl/mailer.php',
+            data: formData,
+            dataType: 'text'
+        })
+            .done(function (data) {
+                console.log(data);
+            })
+            .fail(function (data) {
+                console.log(data);
+            });
+        event.preventDefault();
+    });
+
+
+// End - Sign-up
+
 
 // Start - "Thank-you" window
 
@@ -51,10 +79,6 @@ $(document).ready(function() {
             $sectionToShow = $(popupClass);
 
         $triggerButton.click(function (event) {
-            event.preventDefault();
-            /*WARNING! This is line temporary! It disables
-             submitting!*/
-
             var $usersEmail = $('.users-email').val(),
                 emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                 emailTest = emailPattern.test($usersEmail),
@@ -92,8 +116,8 @@ $(document).ready(function() {
             'icon-green-onion',
             // 'icon-grey-bag',
             'icon-onion-brown',
-            'icon-purple-onion'
-            // 'icon-red-beetroot'
+            'icon-purple-onion',
+            'icon-red-beetroot'
             // 'icon-yellow-pint'
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
