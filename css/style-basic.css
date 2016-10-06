@@ -37,15 +37,6 @@ a {
   text-decoration: none;
   color: inherit; }
 
-.float-right {
-  float: right; }
-
-.float-left {
-  float: left; }
-
-.float-clear {
-  clear: both; }
-
 @media screen and (max-width: 600px) {
   body {
     font-size: 0.7em; } }
@@ -425,7 +416,6 @@ input[type="submit"]:focus {
   height: 100vh;
   max-width: 1400px;
   max-height: 757px;
-  /* z-index: 3; */
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
@@ -435,9 +425,22 @@ input[type="submit"]:focus {
 .game-intro-text {
   text-align: center;
   background: #ffc10e;
-  margin: 0;
+  border: #ffc10e 1px solid;
   height: 10%;
-  border: #ffc10e 1px solid; }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2%; }
+
+.game-intro-text h2 {
+  margin: 0; }
+
+.game-close-button {
+  height: 40px;
+  width: 40px;
+  background: url(../images/icon-white-menu-close.svg) right top no-repeat;
+  background-size: contain;
+  margin-left: auto; }
 
 .game-table, .game-panel {
   margin: 2% auto;
@@ -583,6 +586,7 @@ tr, td {
 
   .game-box {
     width: 70%;
+    height: 90%;
     margin-left: auto;
     margin-right: auto;
     display: flex; } }

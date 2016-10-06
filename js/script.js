@@ -306,6 +306,8 @@ $(document).ready(function () {
         }
     }
 
+    closeSection('.game-close-button', '.game');
+
 // End - Game
 
 });
