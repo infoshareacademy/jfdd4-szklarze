@@ -72,7 +72,7 @@ a {
     .nav-top ul:last-child li {
       font-weight: bold;
       transition: background-color 0.2s ease-in-out; }
-      .nav-top ul:last-child li li:hover {
+      .nav-top ul:last-child li:hover {
         background-color: #dda20e; }
       .nav-top ul:last-child li a.active {
         background-color: #dda20e; }
