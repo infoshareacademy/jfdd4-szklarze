@@ -212,13 +212,11 @@ $(document).ready(function () {
             if ( $elementToFindSrc === $(this).attr('src') ) {
                 points++;
                 $('.points').text(points);
-                $clickedElement.css('background', 'green').fadeOut(500);
+                $clickedElement.css('background', '#888').fadeOut(500);
                 setTimeout(function () {
                     $clickedElement.remove();
                     findEmptyCells();
                 }, 500);
-            } else {
-                $clickedElement.css('background', 'red');
             }
             isGameFinished();
         });
