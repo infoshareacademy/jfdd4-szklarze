@@ -153,7 +153,7 @@ $(document).ready(function () {
     // Po upływie czasu gra się zatrzymmuje.
 
     var timeAmount = 12;//Set time amount here, max 60 seconds.
-    $('.game-timer h4').text('Czas: 00:' + timeAmount);
+    $('.game-timer').text('Czas: 00:' + timeAmount);
     $('button.game-start-button').click(function () {
         $(this).attr('disabled', true).addClass('disabled');
         var timeCounter = setInterval(function () {
@@ -164,7 +164,7 @@ $(document).ready(function () {
                 timeAmount = 12;//Set time amount here, max 60 seconds.
                 //Function to stop game
             }
-            $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
+            $('.game-timer').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
         }, 1000); //One second interval
     });
 
@@ -178,7 +178,7 @@ $(document).ready(function () {
 
         $table
             .empty()
-            .css('display','flex')
+            .css('display','inline-block')
             .append($tbody);
 
         for (var rowCount=1; rowCount <= size; rowCount++){
@@ -262,7 +262,7 @@ $(document).ready(function () {
 
         $table.hide();
         $summary.empty();
-        $summary.css('display', 'flex');
+        $summary.css('display', 'inline-block');
         $summary.append($head).append($pointsTitle).append($points);
     }
 

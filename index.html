@@ -156,36 +156,34 @@
 
 <!-- Start - Gra -->
 <section class="game">
-    <div class="game-intro-text">
-        <h2>Baw się z Januszem</h2>
-    </div>
     <div class="game-box">
-        <table class="game-table">
-        </table>
+        <h2>Baw się z Januszem</h2>
         <div class="game-instructions-summary">
             <h3>Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!</h3>
-            <p>
-                Wyszukaj na planszy produkty, których szuka Janusz. Jeden
+            <p>Wyszukaj na planszy produkty, których szuka Janusz. Jeden
                 produkt to 1 złotówa od Janusza. Skończ przed czasem, a dostaniesz
                 dodatkowe złotówy. Jeśli nie zdążysz, Janusz zabiera złotówę za
-                nieodnalezione produkty!
-            </p>
-            <button class="game-start-button">Zacznij szukać</button>
-        </div>
-        <div class="game-panel">
+                nieodnalezione produkty!</p>
+            <button class="game-start-button">Zacznij szukać</button><!-- Ten przycisk powinien tylko ukrywać instrukcje i odkrywać grę. -->
+        </div><!--
+
+     --><div class="game-table-container">
+            <table class="game-table"></table>
+        </div><!--
+
+     --><div class="game-panel">
             <button class="game-mix-button">Mieszaj</button>
-            <div>
-                <h3>Janusz szuka:</h3>
+            <h4>Janusz szuka:</h4>
+            <div class="game-find-this-img"></div><!-- Div not necessary??? -->
+            <div><!-- Div not necessary -->
+                <h4 class="game-timer">00:12</h4>
             </div>
-            <div class="game-find-this-img"></div>
-            <div class="game-timer">
-                <h4>00:12</h4>
+            <div><!-- Div not necessary -->
+                <h4 class="game-points">Złotówy: <span class="points">--</span></h4>
             </div>
-            <div class="game-points">
-                <h4>Złotówy:<span class="points">--</span></h4>
-            </div>
-            <button class="game-start-button">Nowa gra</button>
+            <button class="game-start-button">Nowa gra</button><!-- Ten przycisk powinien rozpoczynać grę. -->
         </div>
+        <div class="float-clear"></div>
     </div>
 </section>
 <!-- End - Gra -->
