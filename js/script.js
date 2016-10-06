@@ -78,7 +78,7 @@ $(document).ready(function () {
         var $triggerButton = $(triggerButtonsClass),
             $sectionToShow = $(popupClass);
 
-        $triggerButton.click(function (event) {
+        $triggerButton.click(function () {
             var $usersEmail = $('.users-email').val(),
                 emailPattern = /^[\w\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                 emailTest = emailPattern.test($usersEmail),
@@ -141,7 +141,10 @@ $(document).ready(function () {
         findEmptyCells();
         addCreatedRandomElementToEmptyCell();
     });
-    // Start - Game timer
+
+// End - mix-buton
+
+// Start - Game timer
 
     // Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
     // Licznik wyświetla pozostałą ilość czasu.
@@ -164,11 +167,8 @@ $(document).ready(function () {
             $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
         }, 1000); //One second interval
     });
-    // End - Game timer
 
-});
-
-// End - mix-buton
+// End - Game timer
 
 // Start - Game
 
