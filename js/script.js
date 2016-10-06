@@ -148,6 +148,7 @@ closeSection('.popup-close-button', '.popup-window-dimm');
                 }
                 else if (countClickedCell() < 2) {
                     checkPosition($(this))   ;
+                    switchElements($(this));
                 }
                 else {
                     $(this).removeClass('clicked');
@@ -188,8 +189,24 @@ function checkPosition(cell) {
     else {
         console.log('niedozwolony ruch')
     }
+}
+
+function switchElements(cell) {
+    var cellOne = $('.clicked').filter(c),
+        cellTwo = cell,
+        elementOne = cellOne.children(),
+        elementTwo = cellTwo.children();
+              // wyczyszczenie komorek
+        cellOne.empty();
+        cellTwo.empty();
+    // zamiana miejscami
+                     elementOne.appendTo(cellTwo);
+        elementTwo.appendTo(cellOne)      ;
 
 
+
+    console.log(elementOne);
+    console.log(elementTwo);
 
 }
 
