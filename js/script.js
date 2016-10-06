@@ -78,6 +78,8 @@ closeSection('.popup-close-button', '.popup-window-dimm');
             $tbody.append($row);
             for (var cellCount=1; cellCount <= size; cellCount++){
                 var $cell = $('<td>')
+                    .data('row',rowCount)
+                    .data('col', cellCount)
                     .attr('data-row',rowCount)
                     .attr('data-col',cellCount);
                 $row.append($cell);
@@ -141,9 +143,11 @@ closeSection('.popup-close-button', '.popup-window-dimm');
         var $cell = $('td');
             $cell.click(function () {
                 countClickedCell();
-                if (countClickedCell() < 2) {
+                if (countClickedCell()== 0) {
                     addClassToCell($(this));
-                    clickedCellPosition($(this))
+                }
+                else if (countClickedCell() < 2) {
+                    checkPosition($(this))   ;
                 }
                 else {
                     $(this).removeClass('clicked');
@@ -161,7 +165,30 @@ function countClickedCell() {
     var clickedCell = $('.clicked');
     return clickedCell.length;
 }
-function clickedCellPosition(cell) {
+function checkPosition(cell) {
+    var firstCellPositionRow = $('.clicked').data('row'),
+        firstCellPositionCol= $('.clicked').data('col'),
+        clickedCellPositionRow = cell.data('row'),
+        clickedCellPositionCol = cell.data('col');
+
+
+    if (
+        (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow+1) || (clickedCellPositionRow == firstCellPositionRow-1))
+        )
+
+    {
+        addClassToCell(cell)
+    }
+    else if (
+        (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
+    )
+    {
+        addClassToCell(cell)
+    }
+    else {
+        console.log('niedozwolony ruch')
+    }
+
 
 
 }
