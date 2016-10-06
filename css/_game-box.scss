@@ -9,15 +9,28 @@
   justify-content: space-around;
 }
 
+.game-table {
+  display: none;
+}
+
 .game-panel {
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 tr, td, .game-find-this-img {
   border: dotted 1px $grey;
+}
+
+tr, td {
   width: 25px;
   height: 25px;
+}
+
+.game-find-this-img {
+  width: 40px;
+  height: 40px;
 }
 
 .game-mix-button, .game-start-button {
@@ -33,12 +46,13 @@ tr, td, .game-find-this-img {
 }
 
 .game-mix-button {
-  background-color: $yellow;
+  background-color: $blue-dark;
+  color: white;
+  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
 .game-start-button {
-  background-color: $blue-dark;
-  color: white;
+  background-color: $yellow;
 }
 
 .game-start-button.disabled {
@@ -46,31 +60,70 @@ tr, td, .game-find-this-img {
 }
 
 .game-find-this-img {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .game-points {
   text-align: center;
 }
-.img-element {
+.img-element, .img-element-to-find {
   width: 100%;
   height: 100%;
+  vertical-align: bottom;
+}
+
+.game-instructions-summary {
+  margin: auto;
+  padding: 4%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted $blue-dark;
+  background: $grey-light;
+  width: 70%;
+  min-height: 300px;
+
+  p {
+    padding-bottom: 5%;
+  }
+
+  .game-start-button {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 30px;
     height: 30px;
+  }
+
+  .game-find-this-img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .game-instructions-summary {
+    margin: auto 6%;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 35px;
     height: 35px;
+  }
+
+  .game-find-this-img {
+    width: 50px;
+    height: 50px;
   }
 
   .game-table {
@@ -90,9 +143,14 @@ tr, td, .game-find-this-img {
 
 @media screen and (min-width: 801px) and (max-width: 1200px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 40px;
     height: 40px;
+  }
+
+  .game-find-this-img {
+    width: 60px;
+    height: 60px;
   }
 
   .game-table {
@@ -112,9 +170,14 @@ tr, td, .game-find-this-img {
 
 @media screen and (min-width: 1201px) {
 
-  tr, td, .game-find-this-img {
+  tr, td {
     width: 45px;
     height: 45px;
+  }
+
+  .game-find-this-img {
+    width: 60px;
+    height: 60px;
   }
 
   .game-table {
@@ -135,11 +198,6 @@ tr, td, .game-find-this-img {
   }
 }
 @media screen and (min-width: 1601px) {
-
-  tr, td, .game-find-this-img {
-    width: 45px;
-    height: 45px;
-  }
 
   .game-table {
     width: 70%;
