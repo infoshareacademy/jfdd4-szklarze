@@ -127,8 +127,13 @@ closeSection('.popup-close-button', '.popup-window-dimm');
             $(this).append(createRandomElement());
         });
     }
+    function removeClicedClass() {
+        $('.clicked').removeClass('clicked');
+
+    }
 
     $('.game-mix-button').click(function () {
+        removeClicedClass();
         clearCells();
         findEmptyCells();
         createRandomElement();
@@ -147,7 +152,7 @@ closeSection('.popup-close-button', '.popup-window-dimm');
                     addClassToCell($(this));
                 }
                 else if (countClickedCell() < 2) {
-                    checkPosition($(this))   ;
+                    checkPosition($(this));
                     switchElements($(this));
                 }
                 else {
@@ -187,26 +192,29 @@ function checkPosition(cell) {
         addClassToCell(cell)
     }
     else {
-        console.log('niedozwolony ruch')
+        alert('niedozwolony ruch')      ;
     }
 }
 
 function switchElements(cell) {
-    var cellOne = $('.clicked').filter(c),
-        cellTwo = cell,
-        elementOne = cellOne.children(),
-        elementTwo = cellTwo.children();
-              // wyczyszczenie komorek
-        cellOne.empty();
-        cellTwo.empty();
-    // zamiana miejscami
-                     elementOne.appendTo(cellTwo);
-        elementTwo.appendTo(cellOne)      ;
+
+        var memoriedCellOne = cell.children(),
+
+            cellOne = cell;
+            cellOne.removeClass('clicked').empty();
+         var cellTwo = $('.clicked'),
+            memoriedCellTwo = cellTwo.children();
+
+        cellTwo.empty().removeClass('clicked');
+
+        memoriedCellTwo.appendTo(cellOne);
+    memoriedCellOne.appendTo(cellTwo)             ;
+
+    //
 
 
-
-    console.log(elementOne);
-    console.log(elementTwo);
+    console.log(cellOne);
+    console.log(cellTwo);
 
 }
 
