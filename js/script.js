@@ -38,6 +38,7 @@ $(document).ready(function () {
 // Start - Sign-up
 
     $('form').submit(function (event) {
+        event.preventDefault();
         var formData = {
             'email': $('input[name=email]').val(),
             'receiver': 'szklarze.isa@gmail.com'
@@ -54,7 +55,7 @@ $(document).ready(function () {
             .fail(function (data) {
                 console.log(data);
             });
-        event.preventDefault();
+        this.reset();
     });
 
 
