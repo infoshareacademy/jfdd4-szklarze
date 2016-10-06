@@ -1,5 +1,23 @@
+.game {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1400px;
+  max-height: 757px;
+  /* z-index: 3; */
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: $white;
+  border: 1px solid $blue;
+}
+
 .game-intro-text {
   text-align: center;
+  background: #ffc10e;
+  margin: 0;
+  height: 10%;
+  border: #ffc10e 1px solid
 }
 
 .game-table, .game-panel {
@@ -210,9 +228,10 @@ tr, td {
   }
 
   .game-box {
-    width: 50%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    height: 90%;
   }
 }
