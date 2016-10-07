@@ -172,14 +172,6 @@ $(document).ready(function () {
 
 // Start - Game
 
-    // Start - Test code
-    $('.game-show-button').click(function () {
-        $('.game-instructions-summary').hide();
-        $('.game-table-container').show();
-        $('.game-panel').show();
-    });
-    // End - Test code
-
     function generateTable(size) {
         var $table = $('.game-table'),
             $tbody = $('<tbody>');
@@ -284,12 +276,28 @@ $(document).ready(function () {
         $pointsEarnead.text(points);
     }
 
+    (function showGame() {
+        var $gameShowButton = $('.game-show-button');
+
+        $gameShowButton.click(function () {
+            $('.game-instructions-summary').hide();
+            $('.game-table-container').show();
+            $('.game-panel').show();
+            generateTable(10);
+            // startTimer();
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        })
+    })();
+
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
 
         $gameStartButton.click(function () {
             $('.game-instructions-summary').hide();
-            generateTable(10);
             // startTimer();
             clearPoints();
             createElementToFind();

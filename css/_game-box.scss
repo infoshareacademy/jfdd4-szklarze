@@ -55,6 +55,7 @@ td, .game-find-this-img {
 
 // ************************* Start - Przyciski do dopracowania *************************
 
+// Propozycja over good enough
 // Powinna być jedna ogólna klasa na wszystkie przyciski w grze '.game-button',
 // i do tego trzy specyficzne klasy '.show', '.mix', '.start'.
 // Stylujemy '.game-button', a klasy specyficzne są odnośnikami dla skryptów.
@@ -117,6 +118,6 @@ td, .game-find-this-img {
     height: 50px;
   }
   .game-box {
-    max-width: 1200px;
+    max-width: 1000px;
   }
 }
