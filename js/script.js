@@ -253,20 +253,11 @@ $(document).ready(function () {
     }
 
     function showSummary() {
+        var pointsCount = $('.points').text();
         $('.game-summary').show();
         $('.game-table-container').hide();
         $('.game-panel').hide();
-        // var $summary = $('.game-instructions'),
-        //     pointsCount = $('.points').text(),
-        //     $table = $('.game-table'),
-        //     $head = $('<h2>').text('Koniec gry!'),
-        //     $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
-        //     $points = $('<h1>').text(pointsCount);
-        //
-        // $table.hide();
-        // $summary.empty();
-        // $summary.css('display', 'inline-block');
-        // $summary.append($head).append($pointsTitle).append($points);
+        $('.game-score').text(pointsCount);
     }
 
     function takePointsForLeftElements() {
