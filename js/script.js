@@ -146,12 +146,6 @@ $(document).ready(function () {
 
 // Start - Game timer
 
-    // Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
-    // Licznik wyświetla pozostałą ilość czasu.
-    // W trakcie gry przycisk 'Start' jest nieaktywny.
-    // Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
-    // Po upływie czasu gra się zatrzymmuje.
-
     var timeAmount = 15;//Set time amount here, max 60 seconds.
     $('.game-timer').text('Czas: 00:' + timeAmount);
     $('button.game-start-button').click(function () {
@@ -165,7 +159,7 @@ $(document).ready(function () {
                 //Function to stop game
             }
             $('.game-timer').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
-        }, 1000); //One second interval
+        }, 1000);
     });
 
 // End - Game timer
