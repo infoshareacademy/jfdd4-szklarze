@@ -181,6 +181,8 @@ $(document).ready(function () {
             $tbody.append($row);
             for (var cellCount=1; cellCount <= size; cellCount++){
                 var $cell = $('<td>')
+                    .data('row',rowCount)
+                    .data('col', cellCount)
                     .attr('data-row',rowCount)
                     .attr('data-col',cellCount);
                 $row.append($cell);
@@ -188,61 +190,61 @@ $(document).ready(function () {
         }
     }
 
-    function createElementToFind() {
-        var $elementToFind = $('.game-find-this-img');
-        $elementToFind.find('img').remove();
-        $elementToFind.append(createRandomElement());
-        $elementToFind.find('.img-element').removeClass();
-        $elementToFind.find('img').addClass('img-element-to-find');
-    }
+    // function createElementToFind() {
+    //     var $elementToFind = $('.game-find-this-img');
+    //     $elementToFind.find('img').remove();
+    //     $elementToFind.append(createRandomElement());
+    //     $elementToFind.find('.img-element').removeClass();
+    //     $elementToFind.find('img').addClass('img-element-to-find');
+    // }
 
     function clearPoints() {
         $('.points').text('0');
     }
 
-    function findElementOnClick() {
-        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-            $imgElement = $('.img-element'),
-            $elementToFindSrc = $elementToFind.attr('src'),
-            points = 0;
-
-        $imgElement.click(function () {
-            var $clickedElement = $(this);
-
-            if ( $elementToFindSrc === $(this).attr('src') ) {
-                points++;
-                $('.points').text(points);
-                $clickedElement.css('background', '#888').fadeOut(500);
-                setTimeout(function () {
-                    $clickedElement.remove();
-                    findEmptyCells();
-                }, 500);
-            }
-            isGameFinished();
-        });
-    }
+    // function findElementOnClick() {
+    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+    //         $imgElement = $('.img-element'),
+    //         $elementToFindSrc = $elementToFind.attr('src'),
+    //         points = 0;
+    //
+    //     $imgElement.click(function () {
+    //         var $clickedElement = $(this);
+    //
+    //         if ( $elementToFindSrc === $(this).attr('src') ) {
+    //             points++;
+    //             $('.points').text(points);
+    //             $clickedElement.css('background', '#888').fadeOut(500);
+    //             setTimeout(function () {
+    //                 $clickedElement.remove();
+    //                 findEmptyCells();
+    //             }, 500);
+    //         }
+    //         isGameFinished();
+    //     });
+    // }
 
     function isTimeOut() {
         var $time = $('.game-timer').find('h4').text();
         return $time == '00:00';
     }
 
-    function isMatchingElementLeft(getLeftElementsConut) {
-        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-            $elementToFindSrc = $elementToFind.attr('src'),
-            $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
-            matchingElementsCounter = 0;
-
-        $elementsOnBoard.forEach(function (elementOnBoard) {
-            var $elementOnBoardSrc = $(elementOnBoard).attr('src');
-            if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
-        });
-
-        if (getLeftElementsConut != undefined)
-            return matchingElementsCounter;
-        else
-            return matchingElementsCounter > 1;
-    }
+    // function isMatchingElementLeft(getLeftElementsConut) {
+    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+    //         $elementToFindSrc = $elementToFind.attr('src'),
+    //         $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
+    //         matchingElementsCounter = 0;
+    //
+    //     $elementsOnBoard.forEach(function (elementOnBoard) {
+    //         var $elementOnBoardSrc = $(elementOnBoard).attr('src');
+    //         if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
+    //     });
+    //
+    //     if (getLeftElementsConut != undefined)
+    //         return matchingElementsCounter;
+    //     else
+    //         return matchingElementsCounter > 1;
+    // }
 
     function showSummary() {
         var $summary = $('.game-instructions-summary'),
@@ -258,15 +260,15 @@ $(document).ready(function () {
         $summary.append($head).append($pointsTitle).append($points);
     }
 
-    function takePointsForLeftElements() {
-        var leftElements = isMatchingElementLeft(true),
-            $pointsEarnead = $('.points'),
-            points = $pointsEarnead.text() - Number(leftElements);
-
-        if (points < 0) points = 0;
-
-        $pointsEarnead.text(points);
-    }
+    // function takePointsForLeftElements() {
+    //     var leftElements = isMatchingElementLeft(true),
+    //         $pointsEarnead = $('.points'),
+    //         points = $pointsEarnead.text() - Number(leftElements);
+    //
+    //     if (points < 0) points = 0;
+    //
+    //     $pointsEarnead.text(points);
+    // }
 
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
@@ -275,13 +277,14 @@ $(document).ready(function () {
             $('.game-instructions-summary').hide();
             generateTable(10);
             // startTimer();
-            clearPoints();
-            createElementToFind();
-            clearCells();
-            findEmptyCells();
-            createRandomElement();
-            addCreatedRandomElementToEmptyCell();
-            findElementOnClick();
+            // clearPoints();
+            // // createElementToFind();
+            // clearCells();
+            // findEmptyCells();
+            // createRandomElement();
+            // addCreatedRandomElementToEmptyCell();
+            // findElementOnClick();
+
         })
     })();
 
@@ -299,5 +302,81 @@ $(document).ready(function () {
     }
 
 // End - Game
+    // Start - Gamer-click
+    (function clickAction() {
+            var $cell = $('td');
+            $cell.click(function () {
+                countClickedCell();
+                if (countClickedCell()== 0) {
+                    addClassToCell($(this));
+                }
+                else if (countClickedCell() == 1) {
+                    checkPosition($(this));
+                }
+                else {
+                    $(this).removeClass('clicked');
+                }
+            })
+
+        }
+
+    )();
+    function addClassToCell(cell) {
+        cell.addClass('clicked');
+    }
+
+    function countClickedCell() {
+        var clickedCell = $('.clicked');
+        return clickedCell.length;
+    }
+    function checkPosition(cell) {
+        var firstCellPositionRow = $('.clicked').data('row'),
+            firstCellPositionCol= $('.clicked').data('col'),
+            clickedCellPositionRow = cell.data('row'),
+            clickedCellPositionCol = cell.data('col');
+
+
+        if (
+            (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow+1) || (clickedCellPositionRow == firstCellPositionRow-1))
+        )
+
+        {
+            addClassToCell(cell);
+            switchElements(cell)
+        }
+        else if (
+            (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
+        )
+        {
+            addClassToCell(cell);
+            switchElements(cell)
+        }
+        else {
+            alert('niedozwolony ruch')      ;
+        }
+    }
+
+    function switchElements(cell) {
+
+        var memoriedCellOne = cell.children(),
+
+            cellOne = cell;
+        cellOne.removeClass('clicked').empty();
+        var cellTwo = $('.clicked'),
+            memoriedCellTwo = cellTwo.children();
+
+        cellTwo.empty().removeClass('clicked');
+
+        memoriedCellTwo.appendTo(cellOne);
+        memoriedCellOne.appendTo(cellTwo)             ;
+
+        //
+
+
+    }
+
+
+
+// End - Gamer-click
 
 });

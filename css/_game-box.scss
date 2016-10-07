@@ -48,7 +48,6 @@ tr, td {
 .game-mix-button {
   background-color: $blue-dark;
   color: white;
-  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
 .game-start-button {
@@ -92,6 +91,10 @@ tr, td {
     font-weight: bold;
     font-size: 1.2em;
   }
+}
+
+.clicked {
+  border: solid 1px red;
 }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
