@@ -172,6 +172,14 @@ $(document).ready(function () {
 
 // Start - Game
 
+    // Start - Test code
+    $('.game-show-button').click(function () {
+        $('.game-instructions-summary').hide();
+        $('.game-table-container').show();
+        $('.game-panel').show();
+    });
+    // End - Test code
+
     function generateTable(size) {
         var $table = $('.game-table'),
             $tbody = $('<tbody>');

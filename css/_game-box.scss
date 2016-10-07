@@ -1,6 +1,6 @@
 .game {
   padding: 30px 0;
-  border-bottom: 1px solid red; // ******* Temporary
+  border-bottom: 1px solid red; // ******* Temporary *******
 }
 
 .game-box {
@@ -29,11 +29,11 @@
 
 .game-table-container, .game-panel {
   box-sizing: border-box;
-  display: inline-block;
+  display: none;
   width: 100%;
   margin: 0;
   padding: 4%;
-  border: 1px solid red; // ******* Temporary
+  border: 1px solid red; // ******* Temporary *******
 }
 
 td, .game-find-this-img {
@@ -53,33 +53,35 @@ td, .game-find-this-img {
   vertical-align: bottom;
 }
 
-// ************************* Start - Przyciski do dopracowania
-.game-mix-button, .game-start-button {
+// ************************* Start - Przyciski do dopracowania *************************
+
+// Powinna być jedna ogólna klasa na wszystkie przyciski w grze '.game-button',
+// i do tego trzy specyficzne klasy '.show', '.mix', '.start'.
+// Stylujeemy '.game-button', a klasy specyficzne są odnośnikami dla skryptów.
+
+.game-show-button, .game-mix-button, .game-start-button {
   width: 100%;
   max-width: 310px;
   border-radius: 30px 30px;
   border: 0;
   padding: 10px 0;
+  color: $blue-dark;
+  background-color: $yellow;
 }
 
-.game-mix-button:focus, .game-start-button {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
   outline: none;
 }
 
 .game-mix-button {
-  background-color: $blue-dark;
-  color: white;
   display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
-.game-start-button {
-  background-color: $yellow;
-}
-
 .game-start-button.disabled {
+  color: $grey-light;
   background-color: $grey;
 }
-// ************************* End - Przyciski do dopracowania
+// ************************* End - Przyciski do dopracowania *************************
 
 @media screen and (min-width: 351px) {
   td, .game-find-this-img {
