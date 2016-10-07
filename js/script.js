@@ -308,6 +308,19 @@ $(document).ready(function () {
 
     closeSection('.game-close-button', '.game');
 
+    function showSection(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
+
+        $triggerButton.click(function () {
+                $sectionToShow.show();
+        })
+    }
+
+    showSection('.beer-img', '.game');
+
+
 // End - Game
 
 });
