@@ -153,7 +153,6 @@ closeSection('.popup-close-button', '.popup-window-dimm');
                 }
                 else if (countClickedCell() < 2) {
                     checkPosition($(this));
-                    switchElements($(this));
                 }
                 else {
                     $(this).removeClass('clicked');
@@ -183,13 +182,15 @@ function checkPosition(cell) {
         )
 
     {
-        addClassToCell(cell)
+        addClassToCell(cell);
+        switchElements(cell)
     }
     else if (
         (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
     )
     {
-        addClassToCell(cell)
+        addClassToCell(cell);
+        switchElements(cell)
     }
     else {
         alert('niedozwolony ruch')      ;
@@ -212,9 +213,6 @@ function switchElements(cell) {
 
     //
 
-
-    console.log(cellOne);
-    console.log(cellTwo);
 
 }
 
