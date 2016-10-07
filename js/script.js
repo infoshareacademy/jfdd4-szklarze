@@ -180,7 +180,7 @@ $(document).ready(function () {
 
             $tbody.append($row);
             for (var cellCount=1; cellCount <= size; cellCount++){
-                var $cell = $('<td>')
+                var $cell = $('<td>').removeClass()
                     .data('row',rowCount)
                     .data('col', cellCount)
                     .attr('data-row',rowCount)
@@ -284,6 +284,7 @@ $(document).ready(function () {
             // createRandomElement();
             // addCreatedRandomElementToEmptyCell();
             // findElementOnClick();
+            clickAction();
 
         })
     })();
@@ -303,7 +304,7 @@ $(document).ready(function () {
 
 // End - Game
     // Start - Gamer-click
-    (function clickAction() {
+    function clickAction() {
             var $cell = $('td');
             $cell.click(function () {
                 countClickedCell();
@@ -320,7 +321,7 @@ $(document).ready(function () {
 
         }
 
-    )();
+
     function addClassToCell(cell) {
         cell.addClass('clicked');
     }

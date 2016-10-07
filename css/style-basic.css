@@ -496,7 +496,7 @@ tr, td {
     font-size: 1.2em; }
 
 .clicked {
-  border: solid 1px red; }
+  background-color: black; }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
   tr, td {
