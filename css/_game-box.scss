@@ -9,6 +9,11 @@
   transform: translate(-50%, -50%);
   background: $white;
   border: 1px solid $blue;
+  display: none;
+
+  tbody {
+    margin: auto;
+  }
 }
 
 .game-intro-text {
@@ -106,7 +111,7 @@ tr, td {
 
 .game-instructions-summary {
   margin: auto;
-  padding: 4%;
+  padding: 10% 4%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -127,7 +132,39 @@ tr, td {
   }
 }
 
-@media screen and (min-width: 351px) and (max-width: 600px) {
+.game-box {
+  height: 90%;
+}
+
+@media screen and (max-width: 600px) {
+  .game-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 20%;
+
+    div:first-child, .game-timer, .game-points, .game-start-button {
+      flex-grow: 2;
+    }
+
+    .game-find-this-img {
+      flex-grow: 1;
+    }
+
+    h3, h4 {
+      font-size: 1.4em;
+    }
+
+    .game-start-button {
+      width: auto;
+    }
+  }
+
+  .game-table {
+    height: 70%;
+  }
+}
+
+@media screen and (min-width: 351px) and (max-width: 800px) {
 
   tr, td {
     width: 30px;
@@ -137,6 +174,16 @@ tr, td {
   .game-find-this-img {
     width: 45px;
     height: 45px;
+  }
+
+  .game-box {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-panel {
+    flex-direction: row;
   }
 }
 
@@ -166,10 +213,11 @@ tr, td {
     width: 20%;
     margin-right: 5%;
     margin-left: 5%;
+    flex-direction: column;
   }
 
   .game-box {
-    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -193,10 +241,11 @@ tr, td {
     width: 30%;
     margin-right: 5%;
     margin-left: 5%;
+    flex-direction: column;
   }
 
   .game-box {
-    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -224,10 +273,8 @@ tr, td {
 
   .game-box {
     width: 70%;
-    height: 90%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
   }
 }
 @media screen and (min-width: 1601px) {
@@ -244,9 +291,5 @@ tr, td {
 
   .game-box {
     width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    height: 90%;
   }
 }
