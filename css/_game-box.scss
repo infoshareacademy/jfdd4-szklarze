@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.game-instructions-summary {
+.game-instructions, .game-summary {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -25,6 +25,10 @@
   button {
     margin-top: 3em;
   }
+}
+
+.game-summary {
+  display: none;
 }
 
 .game-table-container, .game-panel {

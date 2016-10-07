@@ -152,7 +152,7 @@ $(document).ready(function () {
     // Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
     // Po upływie czasu gra się zatrzymmuje.
 
-    var timeAmount = 12;//Set time amount here, max 60 seconds.
+    var timeAmount = 15;//Set time amount here, max 60 seconds.
     $('.game-timer').text('Czas: 00:' + timeAmount);
     $('button.game-start-button').click(function () {
         $(this).attr('disabled', true).addClass('disabled');
@@ -161,7 +161,7 @@ $(document).ready(function () {
             if (timeAmount == 0) {
                 clearInterval(timeCounter);
                 $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                timeAmount = 12;//Set time amount here, max 60 seconds.
+                timeAmount = 15;//Set time amount here, max 60 seconds.
                 //Function to stop game
             }
             $('.game-timer').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
@@ -253,17 +253,20 @@ $(document).ready(function () {
     }
 
     function showSummary() {
-        var $summary = $('.game-instructions-summary'),
-            pointsCount = $('.points').text(),
-            $table = $('.game-table'),
-            $head = $('<h2>').text('Koniec gry!'),
-            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
-            $points = $('<h1>').text(pointsCount);
-
-        $table.hide();
-        $summary.empty();
-        $summary.css('display', 'inline-block');
-        $summary.append($head).append($pointsTitle).append($points);
+        $('.game-summary').show();
+        $('.game-table-container').hide();
+        $('.game-panel').hide();
+        // var $summary = $('.game-instructions'),
+        //     pointsCount = $('.points').text(),
+        //     $table = $('.game-table'),
+        //     $head = $('<h2>').text('Koniec gry!'),
+        //     $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
+        //     $points = $('<h1>').text(pointsCount);
+        //
+        // $table.hide();
+        // $summary.empty();
+        // $summary.css('display', 'inline-block');
+        // $summary.append($head).append($pointsTitle).append($points);
     }
 
     function takePointsForLeftElements() {
@@ -280,7 +283,8 @@ $(document).ready(function () {
         var $gameShowButton = $('.game-show-button');
 
         $gameShowButton.click(function () {
-            $('.game-instructions-summary').hide();
+            $('.game-instructions').hide();
+            $('.game-summary').hide();
             $('.game-table-container').show();
             $('.game-panel').show();
             generateTable(10);
@@ -297,7 +301,7 @@ $(document).ready(function () {
         var $gameStartButton = $('.game-start-button');
 
         $gameStartButton.click(function () {
-            $('.game-instructions-summary').hide();
+            $('.game-instructions').hide();
             // startTimer();
             clearPoints();
             createElementToFind();

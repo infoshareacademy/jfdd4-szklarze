@@ -427,7 +427,7 @@ input[type="submit"]:focus {
   margin: 0 auto;
   text-align: center; }
 
-.game-instructions-summary {
+.game-instructions, .game-summary {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -437,10 +437,13 @@ input[type="submit"]:focus {
   vertical-align: middle;
   border: 1px dotted #262e3e;
   background: #f5f5f5; }
-  .game-instructions-summary p {
+  .game-instructions p, .game-summary p {
     margin-top: 3em; }
-  .game-instructions-summary button {
+  .game-instructions button, .game-summary button {
     margin-top: 3em; }
+
+.game-summary {
+  display: none; }
 
 .game-table-container, .game-panel {
   box-sizing: border-box;
