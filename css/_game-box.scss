@@ -19,8 +19,8 @@
   text-align: center;
 }
 
-tr, td, .game-find-this-img {
-  border: dotted 1px $grey;
+tbody {
+  background-color: $grey-light;
 }
 
 tr, td {
@@ -80,7 +80,6 @@ tr, td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px dotted $blue-dark;
   background: $grey-light;
   width: 70%;
   min-height: 300px;
