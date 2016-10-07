@@ -343,15 +343,21 @@ $(document).ready(function () {
         )
 
         {
-            addClassToCell(cell);
-            switchElements(cell)
+            addClassToCell(cell) ;
+            setTimeout(function(){
+              switchElements(cell)
+            }, 700);
         }
         else if (
             (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
         )
         {
-            addClassToCell(cell);
-            switchElements(cell)
+
+              addClassToCell(cell);
+                setTimeout(function(){
+                switchElements(cell)
+              }, 700);
+
         }
         else {
             alert('niedozwolony ruch')      ;
