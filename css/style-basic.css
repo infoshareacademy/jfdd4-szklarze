@@ -251,7 +251,7 @@ input[type="submit"]:focus {
 .sign-up-giodo-text {
   padding: 1% 0;
   text-align: justify;
-  color: #888;
+  color: #aaaaaa;
   width: 75%;
   margin: 1% auto 0 auto;
   font-size: 0.6em; }
@@ -404,7 +404,7 @@ input[type="submit"]:focus {
 .footer {
   padding: 30px 60px;
   text-align: center;
-  color: #888;
+  color: #aaaaaa;
   font-size: 0.8em;
   font-weight: 300; }
 
@@ -447,14 +447,14 @@ input[type="submit"]:focus {
   display: none;
   width: 100%;
   margin: 0;
-  padding: 4%;
+  padding: 2%;
   border: 1px solid red; }
 
 td, .game-find-this-img {
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  border: dotted 1px #888; }
+  border: dotted 1px #aaaaaa; }
 
 .game-find-this-img {
   margin: 0 auto; }
@@ -465,11 +465,10 @@ td, .game-find-this-img {
   vertical-align: bottom; }
 
 .game-show-button, .game-mix-button, .game-start-button {
-  width: 100%;
-  max-width: 310px;
-  border-radius: 30px 30px;
+  border-radius: 30px;
   border: 0;
-  padding: 10px 0;
+  padding: 0.5em 3em;
+  font-size: 1em;
   color: #262e3e;
   background-color: #ffc10e; }
 
@@ -481,8 +480,8 @@ td, .game-find-this-img {
   /*todo: przycisk potrzebny w rozszerzonej wersji gry*/ }
 
 .game-start-button.disabled {
-  color: #f5f5f5;
-  background-color: #888; }
+  color: #fff;
+  background-color: #ccc; }
 
 @media screen and (min-width: 351px) {
   td, .game-find-this-img {
@@ -498,11 +497,11 @@ td, .game-find-this-img {
     height: 45px; }
 
   .game-table-container {
-    width: 64%;
+    width: 70%;
     float: left; }
 
   .game-panel {
-    width: 36%;
+    width: 30%;
     float: right; } }
 @media screen and (min-width: 1201px) {
   td, .game-find-this-img {

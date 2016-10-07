@@ -32,7 +32,7 @@
   display: none;
   width: 100%;
   margin: 0;
-  padding: 4%;
+  padding: 2%;
   border: 1px solid red; // ******* Temporary *******
 }
 
@@ -60,11 +60,10 @@ td, .game-find-this-img {
 // Stylujemy '.game-button', a klasy specyficzne są odnośnikami dla skryptów.
 
 .game-show-button, .game-mix-button, .game-start-button {
-  width: 100%;
-  max-width: 310px;
-  border-radius: 30px 30px;
+  border-radius: 30px;
   border: 0;
-  padding: 10px 0;
+  padding: 0.5em 3em;
+  font-size: 1em;
   color: $blue-dark;
   background-color: $yellow;
 }
@@ -78,8 +77,8 @@ td, .game-find-this-img {
 }
 
 .game-start-button.disabled {
-  color: $grey-light;
-  background-color: $grey;
+  color: #fff;
+  background-color: #ccc;
 }
 // ************************* End - Przyciski do dopracowania *************************
 
@@ -103,11 +102,11 @@ td, .game-find-this-img {
     height: 45px;
   }
   .game-table-container {
-    width: 64%;
+    width: 70%;
     float: left;
   }
   .game-panel {
-    width: 36%;
+    width: 30%;
     float: right;
   }
 }
