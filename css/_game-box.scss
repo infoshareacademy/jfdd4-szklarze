@@ -38,11 +38,14 @@
   padding: 2%;
 }
 
+tbody {
+  background-color: $grey-light;
+}
+
 td, .game-find-this-img {
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  border: dotted 1px $grey;
 }
 
 .game-find-this-img {

@@ -107,18 +107,12 @@ $(document).ready(function () {
 
     function createRandomElement() {
         var elements = [
-            // 'icon-black-mustache-v1',
-            'icon-black-mustache-v2',
-            // 'icon-black-mustache-v3',
-            // 'icon-blue-flipflops',
-            'icon-brown-bottle',
-            'icon-green-bottle',
-            'icon-green-onion',
-            // 'icon-grey-bag',
-            'icon-onion-brown',
-            'icon-purple-onion',
-            'icon-red-beetroot'
-            // 'icon-yellow-pint'
+            'icon-beer',
+            'icon-carrot',
+            'icon-mustache',
+            'icon-onion',
+            'icon-sausage',
+            'icon-steak'
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
         img = new Image();
@@ -212,13 +206,11 @@ $(document).ready(function () {
             if ( $elementToFindSrc === $(this).attr('src') ) {
                 points++;
                 $('.points').text(points);
-                $clickedElement.css('background', 'green').fadeOut(500);
+                $clickedElement.css('background', '#888').fadeOut(500);
                 setTimeout(function () {
                     $clickedElement.remove();
                     findEmptyCells();
                 }, 500);
-            } else {
-                $clickedElement.css('background', 'red');
             }
             isGameFinished();
         });
