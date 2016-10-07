@@ -279,12 +279,13 @@ $(document).ready(function () {
             // startTimer();
             // clearPoints();
             // // createElementToFind();
-            // clearCells();
-            // findEmptyCells();
-            // createRandomElement();
-            // addCreatedRandomElementToEmptyCell();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
             // findElementOnClick();
             clickAction();
+
 
         })
     })();
