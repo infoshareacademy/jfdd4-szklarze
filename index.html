@@ -134,30 +134,35 @@
 <!-- End - Zapis na premierę -->
 
 <!-- Start - "Thank-you" window -->
-<aside class="popup-window-dimm">
+<aside class="popup-window-dimm"><!-- Hidden by default -->
     <div class="popup-window">
         <div class="popup-close-button"></div>
         <div class="text-container">
             <h3>Janusz mówi:</h3>
             <div><!--Whitespace clear
-            --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1><!--Whitespace clear
-            -->
+             --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1>
+                <!--Whitespace clear      -->
                 <div class="beer-img"></div><!--Whitespace clear
          --></div>
-            <p>
-                Przyjmij od nas w podzięce to wirtualne piwko i wypij zdrówko wszystkich
-                przyszłych towarzyszy Janusza!
-            </p>
-            <h3>Do zobaczenia na Premierze!</h3>
+            <h3>Kliknij w kufel, a w podzięce Janusz zapewni ci trochę rozrywki!</h3>
         </div>
     </div>
 </aside>
 <!-- End - "Thank-you" window -->
 
 <!-- Start - Gra -->
-<section class="game">
-    <div class="game-box">
+<section class="game"><!-- Hidden by default -->
+
+    <div class="game-intro-text">
         <h2>Baw się z Januszem</h2>
+        <div class="game-close-button"></div>
+    </div>
+
+    <div class="game-box">
+
+        <table class="game-table">
+        </table>
+
         <div class="game-instructions">
             <h3>Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!</h3>
             <p>Wyszukaj na planszy produkty, których szuka Janusz. Jeden
@@ -167,18 +172,14 @@
             <button class="game-show-button">Zacznij szukać</button>
         </div>
 
-        <div class="game-summary"><!-- Hidden by default -->
+        <div class="game-summary">
             <h3>Koniec gry!</h3>
             <p>Liczba zdobytych złotówek to:</p>
             <h1 class="game-score">--</h1>
             <button class="game-show-button">Zacznij szukać</button>
         </div>
 
-        <div class="game-table-container"><!-- Hidden by default -->
-            <table class="game-table"></table>
-        </div>
-
-        <div class="game-panel"><!-- Hidden by default -->
+        <div class="game-panel">
             <button class="game-mix-button">Mieszaj</button>
             <h4>Janusz szuka:</h4>
             <div class="game-find-this-img"></div>
@@ -186,7 +187,7 @@
             <h4 class="game-points">Złotówy: <span class="points">--</span></h4>
             <button class="game-start-button">Nowa gra</button>
         </div>
-        <div class="float-clear"></div>
+
     </div>
 </section>
 <!-- End - Gra -->
