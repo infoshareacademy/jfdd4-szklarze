@@ -1,75 +1,589 @@
-/*
-Error: Invalid CSS after "  position: fixed": expected "{", was ";"
-        on line 3 of _game-box.scss
-        from line 66 of style-basic.scss
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4em;
+  color: #262e3e; }
 
-1: .game {
-2: <<<<<<< HEAD
-3:   position: fixed;
-4:   width: 100vw;
-5:   height: 100vh;
-6:   max-width: 1400px;
-7:   max-height: 757px;
-8:   top: 50vh;
+h1, h2, h3, h5, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  line-height: 1.4em;
+  margin: 0.5em; }
 
-Backtrace:
-_game-box.scss:3
-style-basic.scss:66
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1125:in `expected'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1120:in `tok!'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:656:in `block'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:726:in `declaration_or_ruleset'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:676:in `block_child'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:657:in `block'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:649:in `ruleset'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:665:in `block_contents'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:312:in `to_tree'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
-/var/lib/gems/2.3.0/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
-/usr/local/bin/scss:23:in `load'
-/usr/local/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"  position: fixed\": expected \"{\", was \";\"\A         on line 3 of _game-box.scss\A         from line 66 of style-basic.scss\A \A 1: .game {\A 2: <<<<<<< HEAD\A 3:   position: fixed;\A 4:   width: 100vw;\A 5:   height: 100vh;\A 6:   max-width: 1400px;\A 7:   max-height: 757px;\A 8:   top: 50vh;"; }
+h1 {
+  font-size: 2.4em; }
+
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.8em; }
+
+h4 {
+  font-size: 1.6em; }
+
+h5 {
+  font-size: 1.4em; }
+
+h6 {
+  font-size: 1.2em; }
+
+p {
+  margin: 0.2em 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 0.7em; } }
+.nav-top {
+  background: #ffc10e;
+  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex; }
+  .nav-top ul {
+    margin: 0;
+    list-style-type: none;
+    display: flex; }
+  .nav-top ul:first-child {
+    width: 20%;
+    padding-left: 5%; }
+  .nav-top ul:last-child {
+    justify-content: flex-end;
+    width: 70%;
+    padding-right: 5%;
+    padding-left: 0; }
+    .nav-top ul:last-child li {
+      font-weight: bold;
+      transition: background-color 0.2s ease-in-out; }
+      .nav-top ul:last-child li:hover {
+        background-color: #dda20e; }
+      .nav-top ul:last-child li a.active {
+        background-color: #dda20e; }
+  .nav-top a:first-letter {
+    text-transform: uppercase; }
+  .nav-top a {
+    display: block;
+    padding: 10px;
+    line-height: 40px; }
+
+.nav-logo a {
+  padding-left: 50px;
+  color: #ffffff;
+  font-size: 20px;
+  text-transform: uppercase;
+  background: url("../images/icon-white-janusz.svg") no-repeat left center;
+  background-size: 40px; }
+
+.nav-button {
+  display: none; }
+
+@media screen and (max-width: 600px) {
+  .nav-top {
+    flex-direction: column; }
+    .nav-top ul:first-child {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between; }
+    .nav-top ul:last-child {
+      align-items: center;
+      flex-direction: column;
+      display: none; }
+      .nav-top ul:last-child li {
+        width: 100%;
+        text-align: center; }
+      .nav-top ul:last-child a {
+        padding: 5px; }
+    .nav-top ul:first-child, .nav-top ul:last-child {
+      padding: 0 5%;
+      width: 90%; }
+    .nav-top a:first-letter {
+      text-transform: uppercase; }
+
+  #nav-button {
+    display: list-item;
+    background-image: url("../images/icon-white-menu.svg");
+    background-size: contain;
+    height: 40px;
+    width: 40px; }
+
+  #nav-links.toggle-menu {
+    display: flex; }
+
+  #nav-button.change-icon {
+    background-image: url("../images/icon-white-menu-close.svg"); } }
+.intro {
+  background: #ffc10e url("../images/intro-background.svg") center bottom;
+  background-size: 360px 150px;
+  min-height: 400px;
+  padding: 120px 30px 60px 30px;
+  border-bottom: 2px solid #dda20e;
+  text-align: center; }
+
+.intro-logo {
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #fff url("../images/icon-blue-janusz.svg") no-repeat center;
+  background-size: 140px;
+  margin: 20px auto;
+  transition: background-color 0.2s ease-in-out; }
+
+.intro-logo:hover {
+  background-color: #fffbd2; }
+
+.intro-caption {
+  color: #fff; }
+
+.intro-button {
+  display: inline-block;
+  border-radius: 27px;
+  margin: 1em auto;
+  padding: 1em 2em;
+  background-color: #262e3e;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+
+.intro-button:hover {
+  background-color: #465676;
+  padding: 1em 3em; }
+
+.product-info {
+  height: auto;
+  max-width: 70%;
+  text-align: center;
+  margin: auto;
+  padding: 70px 0 60px; }
+  .product-info p {
+    margin: 0; }
+
+.functionality-item-wrapper {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top; }
+
+.functionality-img-wrapper {
+  padding: 15px 0;
+  margin: 0; }
+  .functionality-img-wrapper img {
+    height: 60px;
+    width: auto;
+    padding: 20px; }
+
+.functionality-caption-wrapper {
+  padding: 15px;
+  margin: 0; }
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  .functionality-item-wrapper {
+    width: 49%; } }
+@media screen and (min-width: 1201px) {
+  .functionality-item-wrapper {
+    width: 24%; } }
+.img-plane {
+  width: 50px;
+  height: 50px; }
+
+.sign-up {
+  background-color: #f5f5f5;
+  padding: 70px 0 60px;
+  display: flex;
+  justify-content: center; }
+
+.sign-up-box {
+  width: 65%;
+  max-width: 1200px;
+  text-align: center; }
+
+.sign-up-form {
+  text-align: center;
+  margin-top: 1%;
+  padding-top: 3%; }
+
+input[type=email] {
+  padding: 2% 5%;
+  border-radius: 30px 0 0 30px;
+  border: 1px solid #262e3e;
+  border-right: 0;
+  font-size: 1em;
+  width: 40%;
+  text-align: center; }
+
+input[type="email"]:focus {
+  outline: none; }
+
+input[type=submit] {
+  width: 20%;
+  font-size: 1em;
+  background-color: #262e3e;
+  border-radius: 0 30px 30px 0;
+  border: 1px solid #262e3e;
+  border-left: 0;
+  padding: 2% 3%;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, padding 0.2s ease-in-out; }
+
+input[type="submit"]:hover {
+  background-color: #465676; }
+
+input[type="submit"]:focus {
+  outline: none; }
+
+.sign-up-giodo-text {
+  padding: 1% 0;
+  text-align: justify;
+  color: #888;
+  width: 75%;
+  margin: 1% auto 0 auto;
+  font-size: 0.6em; }
+
+@media screen and (max-width: 800px) {
+  .sign-up-box {
+    width: 90%; }
+
+  input[type=email] {
+    width: 50%; }
+
+  input[type=submit] {
+    width: 20%; } }
+.popup-window-dimm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(38, 46, 62, 0.71);
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center; }
+
+.popup-window {
+  position: relative;
+  width: 80%;
+  padding: 5% 3%;
+  background: #ffc10e;
+  border: 5px solid #dda20e;
+  text-align: center; }
+  .popup-window h1, .popup-window h3, .popup-window p {
+    margin: 0; }
+  .popup-window p {
+    font-size: 1.2em;
+    padding: 1em 0; }
+
+.text-container > div {
+  display: flex;
+  flex-direction: column; }
+
+.beer-img {
+  background: url("../images/icon-black-beer.svg") center center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 35vw;
+  min-height: 20%;
+  margin: 5% auto; }
+
+.popup-close-button {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  height: 40px;
+  width: 40px;
+  background: url("../images/icon-white-menu-close.svg") right top no-repeat;
+  background-size: contain; }
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+  .text-container > div {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+
+  .beer-img {
+    width: 25vw;
+    height: 20vw;
+    min-height: 20%;
+    margin: 0 5vw 0 0; } }
+@media screen and (min-width: 801px) {
+  .beer-img {
+    height: 25vh;
+    max-height: 200px; }
+
+  .popup-window {
+    width: 60%; } }
+.product-details {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 0 60px;
+  text-align: center; }
+
+.product-details-list {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  width: 100%;
+  padding-right: 20px; }
+  .product-details-list .list-1 {
+    margin: 30px 0 0; }
+  .product-details-list .list-2 {
+    margin: 0; }
+  .product-details-list li {
+    min-height: 80px;
+    text-align: left;
+    list-style-image: url("../images/icon-yellow-check-mark.png");
+    padding-left: 10px; }
+
+@media screen and (min-width: 1201px) {
+  .product-details-list {
+    width: 44%; }
+    .product-details-list .list-1, .product-details-list .list-2 {
+      margin: 30px 0; } }
+.team {
+  background-color: #f5f5f5;
+  min-height: 300px;
+  padding: 70px 0 60px;
+  text-align: center; }
+
+.team-member {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  width: 24%;
+  padding: 2em;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out; }
+
+.team-member:hover {
+  background: #fff; }
+
+.team-member-back {
+  display: none;
+  background: #ddd; }
+
+.team-member-foto {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff; }
+
+.team-member-caption {
+  border-top: 1px solid #262e3e;
+  padding-top: 0.5em; }
+
+@media (max-width: 800px) {
+  .team {
+    padding: 60px 0; } }
+@media (max-width: 1200px) {
+  .team-member {
+    width: 40%; } }
+@media (max-width: 800px) {
+  .team-member {
+    width: 80%; } }
+@media (max-width: 320px) {
+  .team-member {
+    width: 100%; } }
+.footer {
+  padding: 30px 60px;
+  text-align: center;
+  color: #888;
+  font-size: 0.8em;
+  font-weight: 300; }
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  margin: 15px; }
+
+.footer-caption {
+  margin-top: 2em; }
+
+.credits {
+  font-size: 0.8em; }
+
+.game {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1400px;
+  max-height: 757px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border: 1px solid #465676;
+  display: none; }
+  .game tbody {
+    margin: auto; }
+
+.game-intro-text {
+  text-align: center;
+  background: #ffc10e;
+  border: #ffc10e 1px solid;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2%; }
+
+.game-intro-text h2 {
+  margin: 0; }
+
+.game-close-button {
+  height: 40px;
+  width: 40px;
+  background: url(../images/icon-white-menu-close.svg) right top no-repeat;
+  background-size: contain;
+  margin-left: auto; }
+
+.game-table, .game-panel {
+  margin: 2% auto;
+  display: none;
+  justify-content: space-around; }
+
+.game-table {
+  height: 70%; }
+
+.game-panel {
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 20%;
+  align-items: center;
+  text-align: center; }
+  .game-panel .game-timer, .game-panel .game-points {
+    flex-grow: 2; }
+  .game-panel .game-start-button {
+    flex-grow: 4;
+    width: 25%; }
+  .game-panel .game-find-this-img {
+    flex-grow: 1;
+    background-color: #f5f5f5;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto; }
+  .game-panel h3, .game-panel h4 {
+    font-size: 1.4em;
+    flex-grow: 2; }
+  .game-panel .game-points, .game-panel .game-start-button {
+    width: 50%; }
+
+tbody {
+  background-color: #f5f5f5; }
+
+tr, td {
+  width: 25px;
+  height: 25px; }
+
+.game-show-button, .game-mix-button, .game-start-button {
+  border-radius: 30px;
+  border: 0;
+  padding: 0.5em 3em;
+  font-size: 1em;
+  color: #262e3e;
+  background-color: #ffc10e;
+  font-weight: bold; }
+
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+  outline: none; }
+
+.game-mix-button {
+  display: none;
+  /*todo: przycisk potrzebny w rozszerzonej wersji gry*/ }
+
+.game-start-button.disabled {
+  color: #ffffff;
+  background-color: #888; }
+
+.game-points {
+  text-align: center; }
+
+.img-element, .img-element-to-find {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom; }
+
+.game-instructions, .game-summary {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  min-height: 300px;
+  margin: 0;
+  padding: 4%;
+  vertical-align: middle;
+  background: #f5f5f5;
+  text-align: center; }
+  .game-instructions p, .game-summary p {
+    margin-top: 3em; }
+  .game-instructions button, .game-summary button {
+    margin-top: 3em; }
+
+.game-summary {
+  display: none; }
+
+.game-box {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto; }
+
+@media screen and (min-width: 351px) {
+  td, .game-find-this-img {
+    width: 30px;
+    height: 30px; } }
+@media screen and (min-width: 601px) {
+  td, .game-find-this-img {
+    width: 40px;
+    height: 40px; }
+
+  .game-box {
+    flex-direction: row;
+    max-width: 650px; }
+
+  .game-table {
+    height: 100%;
+    width: 75%; }
+
+  .game-panel {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+    width: 20%; }
+    .game-panel .game-points {
+      width: 100%; }
+    .game-panel .game-start-button {
+      width: 70%;
+      padding: 0.5em 1em; } }
+@media screen and (min-width: 801px) {
+  td, .game-find-this-img {
+    width: 45px;
+    height: 45px; }
+
+  .game-table {
+    width: 70%; }
+
+  .game-table, .game-panel {
+    margin: 0; }
+
+  .game-box {
+    max-width: 800px; } }
+@media screen and (min-width: 1201px) {
+  td, .game-find-this-img {
+    width: 50px;
+    height: 50px; }
+
+  .game-box {
+    max-width: 1000px;
+    margin: auto; } }
+
+/*# sourceMappingURL=style-basic.css.map */

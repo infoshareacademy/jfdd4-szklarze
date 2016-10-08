@@ -41,13 +41,11 @@
 
 .game-table, .game-panel {
   margin: 2% auto;
-  width: 90%;
-  display: flex;
+  display: none;
   justify-content: space-around;
 }
 
 .game-table {
-  display: none;
   height: 70%;
 }
 
@@ -58,16 +56,26 @@
   align-items: center;
   text-align: center;
 
-  div:first-child, .game-timer, .game-points, .game-start-button {
+  .game-timer, .game-points  {
     flex-grow: 2;
+  }
+
+  .game-start-button {
+    flex-grow: 4;
+    width: 25%;
   }
 
   .game-find-this-img {
     flex-grow: 1;
+    background-color: #f5f5f5;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
   }
 
   h3, h4 {
     font-size: 1.4em;
+    flex-grow: 2
   }
 
   .game-points, .game-start-button {
@@ -84,20 +92,17 @@ tr, td {
   height: 25px;
 }
 
-.game-find-this-img {
-  width: 40px;
-  height: 40px;
-}
-
-.game-mix-button, .game-start-button {
-  width: 100%;
-  max-width: 310px;
-  border-radius: 30px 30px;
+.game-show-button, .game-mix-button, .game-start-button {
+  border-radius: 30px;
   border: 0;
-  padding: 10px 0;
+  padding: 0.5em 3em;
+  font-size: 1em;
+  color: $blue-dark;
+  background-color: $yellow;
+  font-weight: bold;
 }
 
-.game-mix-button:focus, .game-start-button {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
   outline: none;
 }
 
@@ -105,16 +110,9 @@ tr, td {
   display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
-.game-start-button {
-  background-color: $yellow;
-}
-
 .game-start-button.disabled {
+  color: $white;
   background-color: $grey;
-}
-
-.game-find-this-img {
-  margin: 0 auto;
 }
 
 .game-points {
@@ -126,25 +124,27 @@ tr, td {
   vertical-align: bottom;
 }
 
-.game-instructions-summary {
-  padding: 0 4%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: $grey-light;
-  width: 70%;
+.game-instructions, .game-summary {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
   min-height: 300px;
+  margin: 0;
+  padding: 4%;
+  vertical-align: middle;
+  background: $grey-light;
+  text-align: center;
 
   p {
-    padding-bottom: 5%;
+    margin-top: 3em;
   }
+  button {
+    margin-top: 3em;
+  }
+}
 
-  .game-start-button {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
+.game-summary {
+  display: none;
 }
 
 .game-box {
@@ -153,6 +153,7 @@ tr, td {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
 }
 
 //************************************************
@@ -167,6 +168,11 @@ tr, td {
   td, .game-find-this-img {
     width: 40px;
     height: 40px;
+  }
+
+  .game-box {
+    flex-direction: row;
+    max-width: 650px;
   }
 
   .game-table {
@@ -185,16 +191,16 @@ tr, td {
     }
 
     .game-start-button {
-      width: 60%;
+      width: 70%;
+      padding: 0.5em 1em;
     }
   }
 
-  .game-box {
-    flex-direction: row;
-  }
+
 }
 
 @media screen and (min-width: 801px) {
+
   td, .game-find-this-img {
     width: 45px;
     height: 45px;
@@ -205,6 +211,10 @@ tr, td {
 
   .game-table, .game-panel {
     margin: 0;
+  }
+
+  .game-box {
+    max-width: 800px;
   }
 }
 

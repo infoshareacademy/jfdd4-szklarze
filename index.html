@@ -134,14 +134,15 @@
 <!-- End - Zapis na premierę -->
 
 <!-- Start - "Thank-you" window -->
-<aside class="popup-window-dimm">
+<aside class="popup-window-dimm"><!-- Hidden by default -->
     <div class="popup-window">
         <div class="popup-close-button"></div>
         <div class="text-container">
             <h3>Janusz mówi:</h3>
             <div><!--Whitespace clear
-            --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1><!--Whitespace clear
-            --><div class="beer-img"></div><!--Whitespace clear
+             --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1>
+                <!--Whitespace clear      -->
+                <div class="beer-img"></div><!--Whitespace clear
          --></div>
             <h3>Kliknij w kufel, a w podzięce Janusz zapewni ci trochę rozrywki!</h3>
         </div>
@@ -150,55 +151,47 @@
 <!-- End - "Thank-you" window -->
 
 <!-- Start - Gra -->
-<section class="game">
-   <div class="game-intro-text">
-       <h2>Baw się z Januszem</h2>
-       <div class="game-close-button"></div>
-   </div>
+<section class="game"><!-- Hidden by default -->
+
+    <div class="game-intro-text">
+        <h2>Baw się z Januszem</h2>
+        <div class="game-close-button"></div>
+    </div>
+
     <div class="game-box">
+
         <table class="game-table">
         </table>
-        <div class="game-instructions-summary">
-            <h3>
-                Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!
-            </h3>
-            <p>
-                Wyszukaj na planszy produkty, których szuka Janusz. Jeden
+
+        <div class="game-instructions">
+            <h3>Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!</h3>
+            <p>Wyszukaj na planszy produkty, których szuka Janusz. Jeden
                 produkt to 1 złotówa od Janusza. Skończ przed czasem, a dostaniesz
                 dodatkowe złotówy. Jeśli nie zdążysz, Janusz zabiera złotówę za
-                nieodnalezione produkty!
-            </p>
-            <button class="game-start-button">
-                ZACZNIJ SZUKAĆ
-            </button>
+                nieodnalezione produkty!</p>
+            <button class="game-show-button">Zacznij szukać</button>
         </div>
-        <div class="game-panel">
-            <button class="game-mix-button">
-                Mieszaj
-            </button>
-            <div>
-                <h3>
-                    Janusz szuka:
-                </h3>
-            </div>
-            <div class="game-find-this-img">
 
+        <div class="game-summary">
+            <h3>Koniec gry!</h3>
+            <p>Liczba zdobytych złotówek to:</p>
+            <h1 class="game-score">--</h1>
+            <button class="game-show-button">Zacznij szukać</button>
+        </div>
+
+        <div class="game-panel">
+            <button class="game-mix-button">Mieszaj</button>
+            <h3>Janusz szuka:</h3>
+            <div class="game-find-this-img"></div>
+            <div class="game-timer">
+                <h4>00:12</h4>
             </div>
-        <div class="game-timer">
-            <h4>00:12</h4>
+            <div class="game-points">
+                <h4>Złotówy:<span class="points">--</span></h4>
+            </div>
+            <button class="game-start-button">Nowa gra</button>
         </div>
-        <div class="game-points">
-            <h4>
-                Złotówy:
-                <span class="points">
-                    --
-                </span>
-            </h4>
-        </div>
-        <button class="game-start-button">
-            Nowa gra
-        </button>
-    </div>
+
     </div>
 </section>
 <!-- End - Gra -->
