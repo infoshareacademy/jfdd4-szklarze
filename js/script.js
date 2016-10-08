@@ -412,7 +412,7 @@ $(document).ready(function () {
                             col: $(this).data('col')
                         };
                         $cluster.push(matchingElementObject);
-                        console.log($cluster);
+                    console.log($cluster.length, $cluster);
                     }
                 }
             })
