@@ -391,27 +391,6 @@ $(document).ready(function () {
                 $neighboringCellPositionCol = startCell.data('col') + deltaCol;
         }
 
-        //     $('td').each(function () {
-        //         // var cluster = [];
-        //         $('td').removeClass('start-cell');
-        //         var $startCell = $(this),
-        //             // $CellPositionRow = $(this).data('row'),
-        //             // $CellPositionCol = $(this).data('col'),
-        //             $element = $('.img-element'),
-        //             // $elementSrc = $element.attr('src'),
-        //         //     neighboringCellDown = findNeighboringCell($(this), 1, 0);
-        //         // neighboringCellUp = findNeighboringCell($(this), -1, 0);
-        //         neighboringCellRight = findNeighboringCell($(this), 0, 1);
-        //         neighboringCellLeft = findNeighboringCell($(this), 0, -1);
-        //         $startCell.addClass('start-cell');
-        //         // console.log($CellPositionRow);
-        //         // console.log($CellPositionCol);
-        //         // console.log($elementSrc);
-        //
-        //
-        //     })
-        // }
-
         var $cell = $('td');
 
         $cell.each(function () {
@@ -422,12 +401,18 @@ $(document).ready(function () {
 
             findNeighboringCell($(this), 1, 0);
             $cell.each(function () {
+                var $cluster = [];
 
                 if ($(this).data('row') == $neighboringCellPositionRow && $(this).data('col') == $neighboringCellPositionCol) {
                     var $neighboringElement = $(this).find('.img-element'),
                         $neighboringElementSrc = $neighboringElement.attr('src');
                     if ($startElementSrc == $neighboringElementSrc) {
-
+                        var matchingElementObject = {
+                            row: $(this).data('row'),
+                            col: $(this).data('col')
+                        };
+                        $cluster.push(matchingElementObject);
+                        console.log($cluster);
                     }
                 }
             })
