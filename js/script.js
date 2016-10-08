@@ -284,7 +284,7 @@ $(document).ready(function () {
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
             // findElementOnClick();
-            clickAction();
+            selectCell();
 
 
         })
@@ -304,95 +304,82 @@ $(document).ready(function () {
     }
 
 // End - Game
-    // Start - Gamer-click
-    function clickAction() {
-            var $cell = $('td');
-            $cell.click(function () {
-                countClickedCell();
-                if (countClickedCell()== 0) {
-                    addClassToCell($(this));
-                }
-                else if (countClickedCell() == 1) {
-                    checkPosition($(this));
-                }
-                else {
-                    $(this).removeClass('clicked');
-                }
-            })
+// Start - Gamer-click
+    function selectCell() {
+        var $cell = $('td');
 
-        }
+        $cell.click( function () {
+            var $numberOfSelectedCells = $('.selected').length;
 
+            if ( $numberOfSelectedCells == 0 ) {
+                addClassToCell($(this));
+            }
+            else if ( $numberOfSelectedCells == 1 ) {
+                checkCellPosition($(this));
+            }
+        })
+    }
 
     function addClassToCell(cell) {
-        cell.addClass('clicked');
+        cell.addClass('selected');
     }
 
-    function countClickedCell() {
-        var clickedCell = $('.clicked');
-        return clickedCell.length;
+    function switchCellsContent(cell) {
+        addClassToCell(cell);
+        setTimeout( function() {
+          switchElementsBetweenCells(cell)
+        }, 700);
     }
-    function checkPosition(cell) {
-        var firstCellPositionRow = $('.clicked').data('row'),
-            firstCellPositionCol= $('.clicked').data('col'),
-            clickedCellPositionRow = cell.data('row'),
-            clickedCellPositionCol = cell.data('col');
 
+    function clearCell(cell) {
+          cell.empty().removeClass('selected');
+    }
 
-        if (
-            (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow+1) || (clickedCellPositionRow == firstCellPositionRow-1))
-        )
+    function incorrectMoveAlert(cell) {
+        var alertMessage = 'Niedozwolony ruch!' + ' ' + "Możesz wybrać element sąsiadujący z wcześniej zaznaczonym." ;
 
-        {
-            addClassToCell(cell) ;
-            setTimeout(function(){
-              switchElements(cell)
-            }, 700);
+        alert(alertMessage);
+        cell.css('background-color', 'red');
+        setTimeout(function () {
+            cell.removeAttr('style')
+        }, 200);
+    }
+
+    function checkCellPosition(cell) {
+        var firstSelectedCellRow = $('.selected').data('row'),
+            firstSelectedCellColumn= $('.selected').data('col'),
+            secondSelectedCellRow = cell.data('row'),
+            secondSelectedCellColumn = cell.data('col');
+
+        if ((secondSelectedCellColumn === firstSelectedCellColumn) && (Math.abs(firstSelectedCellRow - secondSelectedCellRow) == 1)) {
+            switchCellsContent(cell);
+        }                                                                   
+        else if ((secondSelectedCellRow === firstSelectedCellRow) && (Math.abs(firstSelectedCellColumn - secondSelectedCellColumn) == 1)) {
+            switchCellsContent(cell);
         }
-        else if (
-            (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
-        )
-        {
-
-              addClassToCell(cell);
-                setTimeout(function(){
-                switchElements(cell)
-              }, 700);
-
+        else if ((secondSelectedCellColumn == firstSelectedCellColumn) && ( secondSelectedCellRow == firstSelectedCellRow))       {
+            cell.removeClass('selected');
         }
         else {
-            var alertMessage = 'Niedozwolony ruch!' + ' ' + "Musisz zaznaczyć obiekt, który sąsiaduje  z wcześniej zaznaczonym" ;
-            alert(alertMessage)  ;
-            cell.css('background-color', 'red');
-            setTimeout(function () {
-                cell.removeAttr('style')
-            }, 200)        ;
-
-
-
+            incorrectMoveAlert(cell);
         }
     }
 
-    function switchElements(cell) {
+    function switchElementsBetweenCells(cell) {
 
-        var memoriedCellOne = cell.children(),
+        var secondSelectedElement = cell.children(),
+            secondSelectedCell = cell;
 
-            cellOne = cell;
-        cellOne.removeClass('clicked').empty();
-        var cellTwo = $('.clicked'),
-            memoriedCellTwo = cellTwo.children();
+        clearCell(secondSelectedCell);
 
-        cellTwo.empty().removeClass('clicked');
+        var firstSelectedCell = $('.selected'),
+            firstSelectedElement = firstSelectedCell.children();
 
-        memoriedCellTwo.appendTo(cellOne).fadeIn(900);
-        memoriedCellOne.appendTo(cellTwo).fadeIn(500);
+        clearCell(firstSelectedCell);
 
-        //
-
-
+        firstSelectedElement.appendTo(secondSelectedCell);
+        secondSelectedElement.appendTo(firstSelectedCell);
     }
-
-
-
 // End - Gamer-click
 
 });
