@@ -258,6 +258,35 @@ Media Queries declarations
 }
 ```
 
+```javascript
+
+// End - Previous block of code
+
+// Start - Block of code
+
+    function nameOfFunction() {
+        var $aButton = $('button'),
+            $section = $('.section'),
+            elementProperty = $section.getProperty();    
+   
+        $('#id').click(function () {
+            $('#anotherId').toggleClass('different-class');
+            $('.class').toggleClass('change-class');
+        });
+    }
+    
+    function nameOfOtherFunction() {
+        $('#id').click(function () {
+            $('#anotherId').toggleClass('different-class');
+            $('.class').toggleClass('change-class');
+        });
+    }
+
+// End - Block of code
+
+// Start - Next block of code
+
+```
 ### Files naming and grouping
 
 All files need to be grouped in folders, according to their type:
@@ -734,8 +763,135 @@ div {
 }
 ```
 
-#!!!THE PART BELOW NEEDS TO BE UPDATED!!!
+
 ## JavaScript
+
+### Readability
+
+Don't obfuscate the intent of your code by using seemingly smart tricks.
+
+```javascript
+// bad
+foo || doSomething();
+
+// good
+if (!foo) doSomething();
+```
+```javascript
+// bad
+void function() { /* IIFE */ }();
+
+// good
+(function() { /* IIFE */ }());
+```
+```javascript
+// bad
+const n = ~~3.14;
+
+// good
+const n = Math.floor(3.14);
+```
+
+
+Always use names that mean something and provide information on what the function does/variable is.
+
+```javascript
+// bad
+function functionNo1() {
+    //code
+}
+
+//good
+function hasTheUserCompletedForm() {
+    //code
+}
+
+function activateButton() {
+    $button.click(function() {
+        doThat();
+        doThis();
+        makeSomethingElse();
+    }
+}
+```
+```javascript
+// bad
+var variableA;
+
+//good
+var buttonThatIsClicked,
+    valueFromUser;
+
+```
+
+### Code reuse
+
+Don't be afraid of creating lots of small, highly composable and reusable functions. Avoid global variables!
+
+```javascript
+// bad
+arr[arr.length - 1];
+
+// good
+const first = arr => arr[0];
+const last = arr => first(arr.slice(-1));
+last(arr);
+```
+```javascript
+// bad
+const product = (a, b) => a * b;
+const triple = n => n * 3;
+
+// good
+const product = (a, b) => a * b;
+const triple = product.bind(null, 3);
+```
+```javascript
+// bad
+    var importantValue = 99;
+    $('.class').text();
+    $('.anotherclass').click(function () {
+        $(this).do(thing).do(anotherThing);
+        if (otherThing == true || very-complicated-condition) {
+            $anArray.map().filter().doOtherThings()
+            $anObject.doEvenMoreThings()
+        }
+    });
+
+// good
+
+function doTaskOne() {
+    $('.class').text();
+}
+
+function doTaskTwo() {
+    $(this).do(thing).do(anotherThing);
+}
+
+function doTaskThree() {
+    $anArray.map().filter().doOtherThings();
+    $anObject.doEvenMoreThings();
+}
+
+function resolveCondition() {
+   return otherThing == true || very-complicated-condition;
+}
+
+function joinTogetherSmallTasks (passedArgument) {
+    var importantValue = passedArgument;
+    
+    doTaskOne();
+    $('.anotherclass').click(function () {
+        doTaskTwo();
+        if ( resolveCondition() ) {
+            doTaskThree();
+        }
+    });
+}
+
+joinTogetherSmallTasks(99);
+
+```
 
 ### Performance
 
@@ -763,6 +919,8 @@ const square = n => n * n;
 const result = arr.filter(isEven).map(square);
 ```
 
+
+#!!!THE PART BELOW NEEDS TO BE UPDATED!!!
 ### Statelessness
 
 Try to keep your functions pure. All functions should ideally produce no side-effects, use no outside data and return new objects instead of mutating existing ones.
@@ -1071,55 +1229,6 @@ sum(5)(3); // => 8
 // good
 const sum = (a, b) => a + b;
 sum(5, 3); // => 8
-```
-
-### Readability
-
-Don't obfuscate the intent of your code by using seemingly smart tricks.
-
-```javascript
-// bad
-foo || doSomething();
-
-// good
-if (!foo) doSomething();
-```
-```javascript
-// bad
-void function() { /* IIFE */ }();
-
-// good
-(function() { /* IIFE */ }());
-```
-```javascript
-// bad
-const n = ~~3.14;
-
-// good
-const n = Math.floor(3.14);
-```
-
-### Code reuse
-
-Don't be afraid of creating lots of small, highly composable and reusable functions.
-
-```javascript
-// bad
-arr[arr.length - 1];
-
-// good
-const first = arr => arr[0];
-const last = arr => first(arr.slice(-1));
-last(arr);
-```
-```javascript
-// bad
-const product = (a, b) => a * b;
-const triple = n => n * 3;
-
-// good
-const product = (a, b) => a * b;
-const triple = product.bind(null, 3);
 ```
 
 ### Dependencies
