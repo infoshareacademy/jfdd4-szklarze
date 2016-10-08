@@ -360,7 +360,15 @@ $(document).ready(function () {
 
         }
         else {
-            alert('niedozwolony ruch')      ;
+            var alertMessage = 'Niedozwolony ruch!' + ' ' + "Musisz zaznaczyć obiekt, który sąsiaduje  z wcześniej zaznaczonym" ;
+            alert(alertMessage)  ;
+            cell.css('background-color', 'red');
+            setTimeout(function () {
+                cell.removeAttr('style')
+            }, 200)        ;
+
+
+
         }
     }
 
@@ -375,8 +383,8 @@ $(document).ready(function () {
 
         cellTwo.empty().removeClass('clicked');
 
-        memoriedCellTwo.appendTo(cellOne);
-        memoriedCellOne.appendTo(cellTwo)             ;
+        memoriedCellTwo.appendTo(cellOne).fadeIn(900);
+        memoriedCellOne.appendTo(cellTwo).fadeIn(500);
 
         //
 
