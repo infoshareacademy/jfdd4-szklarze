@@ -14,15 +14,15 @@ The styles are in _style-basic.scss_ file. The styles are as follows.
 ``` 
 Sass variables for colors:
 
-$yellow: #ffc10e ;
-$yellow-dark: #dda20e ;
+$yellow: #ffc10e;
+$yellow-dark: #dda20e;
 
-$blue: #465676 ;
-$blue-dark: #262e3e ;
+$blue: #465676;
+$blue-dark: #262e3e;
+$blue-dark-transparent: rgba(38, 46, 62, 0.71);
 
-$grey: #888;
-$grey-light: #f5f5f5 ;
-$grey-dark: ;
+$grey: #aaaaaa;
+$grey-light: #f5f5f5;
 
 $white: #ffffff;
 ```
