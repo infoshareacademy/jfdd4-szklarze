@@ -102,8 +102,6 @@ tr, td {
 }
 
 .game-mix-button {
-  background-color: $blue-dark;
-  color: white;
   display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
 }
 
@@ -220,3 +218,130 @@ tr, td {
     margin: auto;
   }
 }
+
+//***********************
+//.game {
+//  padding: 30px 0;
+//}
+//
+//.game-box {
+//  margin: 0 auto;
+//  text-align: center;
+//}
+//
+//.game-instructions, .game-summary {
+//  box-sizing: border-box;
+//  display: inline-block;
+//  width: 100%;
+//  min-height: 300px;
+//  margin: 0;
+//  padding: 4%;
+//  vertical-align: middle;
+//  border: 1px dotted $blue-dark;
+//  background: $grey-light;
+//
+//  p {
+//    margin-top: 3em;
+//  }
+//  button {
+//    margin-top: 3em;
+//  }
+//}
+//
+//.game-summary {
+//  display: none;
+//}
+//
+//.game-table-container, .game-panel {
+//  box-sizing: border-box;
+//  display: none;
+//  width: 100%;
+//  margin: 0;
+//  padding: 2%;
+//}
+//
+//.game-table {
+//  background-color: $grey-light;
+//  border: 8px solid $grey-light;
+//}
+//
+//.game-table td {
+//  box-sizing: border-box;
+//  width: 25px;
+//  height: 25px;
+//}
+//
+//.game-find-this-img {
+//  margin: 0 auto;
+//  width: 25px;
+//  height: 25px;
+//  background-color: $grey-light;
+//  border: 8px solid $grey-light;
+//}
+//
+//.img-element, .img-element-to-find {
+//  width: 100%;
+//  height: 100%;
+//  vertical-align: bottom;
+//}
+//
+//.game-show-button, .game-mix-button, .game-start-button {
+//  border-radius: 30px;
+//  border: 0;
+//  padding: 0.5em 3em;
+//  font-size: 1em;
+//  color: $blue-dark;
+//  background-color: $yellow;
+//}
+//
+//.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+//  outline: none;
+//}
+//
+//.game-mix-button {
+//  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
+//}
+//
+//.game-start-button.disabled {
+//  color: #fff;
+//  background-color: #ccc;
+//}
+//
+//@media screen and (min-width: 351px) {
+//  .game-table td, .game-find-this-img {
+//    width: 30px;
+//    height: 30px;
+//  }
+//}
+//
+//@media screen and (min-width: 601px) {
+//  .game-table td, .game-find-this-img {
+//    width: 40px;
+//    height: 40px;
+//  }
+//}
+//
+//@media screen and (min-width: 801px) {
+//  .game-table td, .game-find-this-img {
+//    width: 45px;
+//    height: 45px;
+//  }
+//  .game-table-container {
+//    width: 70%;
+//    float: left;
+//  }
+//  .game-panel {
+//    width: 30%;
+//    float: right;
+//  }
+//  .game-box {
+//    max-width: 960px;
+//  }
+//}
+//
+//@media screen and (min-width: 1201px) {
+//  .game-table td, .game-find-this-img {
+//    width: 50px;
+//    height: 50px;
+//  }
+//}
