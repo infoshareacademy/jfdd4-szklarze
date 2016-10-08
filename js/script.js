@@ -281,7 +281,8 @@ $(document).ready(function () {
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            // findElementOnClick();
+            clickAction();
+
         })
     })();
 
@@ -299,6 +300,82 @@ $(document).ready(function () {
     }
 
 // End - Game
+    // Start - Gamer-click
+    function clickAction() {
+            var $cell = $('td');
+            $cell.click(function () {
+                countClickedCell();
+                if (countClickedCell()== 0) {
+                    addClassToCell($(this));
+                }
+                else if (countClickedCell() == 1) {
+                    checkPosition($(this));
+                }
+                else {
+                    $(this).removeClass('clicked');
+                }
+            })
+
+        }
+
+
+    function addClassToCell(cell) {
+        cell.addClass('clicked');
+    }
+
+    function countClickedCell() {
+        var clickedCell = $('.clicked');
+        return clickedCell.length;
+    }
+    function checkPosition(cell) {
+        var firstCellPositionRow = $('.clicked').data('row'),
+            firstCellPositionCol= $('.clicked').data('col'),
+            clickedCellPositionRow = cell.data('row'),
+            clickedCellPositionCol = cell.data('col');
+
+
+        if (
+            (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow+1) || (clickedCellPositionRow == firstCellPositionRow-1))
+        )
+
+        {
+            addClassToCell(cell);
+            switchElements(cell)
+        }
+        else if (
+            (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
+        )
+        {
+            addClassToCell(cell);
+            switchElements(cell)
+        }
+        else {
+            alert('niedozwolony ruch')      ;
+        }
+    }
+
+    function switchElements(cell) {
+
+        var memoriedCellOne = cell.children(),
+
+            cellOne = cell;
+        cellOne.removeClass('clicked').empty();
+        var cellTwo = $('.clicked'),
+            memoriedCellTwo = cellTwo.children();
+
+        cellTwo.empty().removeClass('clicked');
+
+        memoriedCellTwo.appendTo(cellOne);
+        memoriedCellOne.appendTo(cellTwo)             ;
+
+        //
+
+
+    }
+
+
+
+// End - Gamer-click
 
 
     // Start - Find clusters
