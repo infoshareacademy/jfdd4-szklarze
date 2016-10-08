@@ -126,6 +126,7 @@ $(document).ready(function () {
         emptyCell.each(function () {
             $(this).append(createRandomElement());
             $(this).removeClass('empty-cell');
+
         });
     }
 
@@ -134,6 +135,7 @@ $(document).ready(function () {
         createRandomElement();
         findEmptyCells();
         addCreatedRandomElementToEmptyCell();
+        //TODO: find clusters and remove clusters needs to be added here
     });
 
 // End - mix-buton
@@ -282,6 +284,7 @@ $(document).ready(function () {
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
             clickAction();
+            findClusters();
 
         })
     })();
@@ -302,21 +305,21 @@ $(document).ready(function () {
 // End - Game
     // Start - Gamer-click
     function clickAction() {
-            var $cell = $('td');
-            $cell.click(function () {
-                countClickedCell();
-                if (countClickedCell()== 0) {
-                    addClassToCell($(this));
-                }
-                else if (countClickedCell() == 1) {
-                    checkPosition($(this));
-                }
-                else {
-                    $(this).removeClass('clicked');
-                }
-            })
+        var $cell = $('td');
+        $cell.click(function () {
+            countClickedCell();
+            if (countClickedCell() == 0) {
+                addClassToCell($(this));
+            }
+            else if (countClickedCell() == 1) {
+                checkPosition($(this));
+            }
+            else {
+                $(this).removeClass('clicked');
+            }
+        })
 
-        }
+    }
 
 
     function addClassToCell(cell) {
@@ -327,30 +330,28 @@ $(document).ready(function () {
         var clickedCell = $('.clicked');
         return clickedCell.length;
     }
+
     function checkPosition(cell) {
         var firstCellPositionRow = $('.clicked').data('row'),
-            firstCellPositionCol= $('.clicked').data('col'),
+            firstCellPositionCol = $('.clicked').data('col'),
             clickedCellPositionRow = cell.data('row'),
             clickedCellPositionCol = cell.data('col');
 
 
         if (
-            (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow+1) || (clickedCellPositionRow == firstCellPositionRow-1))
-        )
-
-        {
+            (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow + 1) || (clickedCellPositionRow == firstCellPositionRow - 1))
+        ) {
             addClassToCell(cell);
             switchElements(cell)
         }
         else if (
-            (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol+1) || (clickedCellPositionCol == firstCellPositionCol-1))
-        )
-        {
+            (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol + 1) || (clickedCellPositionCol == firstCellPositionCol - 1))
+        ) {
             addClassToCell(cell);
             switchElements(cell)
         }
         else {
-            alert('niedozwolony ruch')      ;
+            alert('niedozwolony ruch');
         }
     }
 
@@ -366,7 +367,7 @@ $(document).ready(function () {
         cellTwo.empty().removeClass('clicked');
 
         memoriedCellTwo.appendTo(cellOne);
-        memoriedCellOne.appendTo(cellTwo)             ;
+        memoriedCellOne.appendTo(cellTwo);
 
         //
 
@@ -374,17 +375,61 @@ $(document).ready(function () {
     }
 
 
-
 // End - Gamer-click
 
 
     // Start - Find clusters
 
-$('td').each(function () {
-    var startCell = $(this);
-    if
+
+    function findClusters() {
+
+        var $neighboringCellPositionRow;
+        var $neighboringCellPositionCol;
+
+        function findNeighboringCell(startCell, deltaRow, deltaCol) {
+            $neighboringCellPositionRow = startCell.data('row') + deltaRow,
+                $neighboringCellPositionCol = startCell.data('col') + deltaCol;
+        }
+
+        //     $('td').each(function () {
+        //         // var cluster = [];
+        //         $('td').removeClass('start-cell');
+        //         var $startCell = $(this),
+        //             // $CellPositionRow = $(this).data('row'),
+        //             // $CellPositionCol = $(this).data('col'),
+        //             $element = $('.img-element'),
+        //             // $elementSrc = $element.attr('src'),
+        //         //     neighboringCellDown = findNeighboringCell($(this), 1, 0);
+        //         // neighboringCellUp = findNeighboringCell($(this), -1, 0);
+        //         neighboringCellRight = findNeighboringCell($(this), 0, 1);
+        //         neighboringCellLeft = findNeighboringCell($(this), 0, -1);
+        //         $startCell.addClass('start-cell');
+        //         // console.log($CellPositionRow);
+        //         // console.log($CellPositionCol);
+        //         // console.log($elementSrc);
+        //
+        //
+        //     })
+        // }
+
+        var $cell = $('td');
+
+        $cell.each(function () {
+
+            findNeighboringCell($(this), 1, 0);
+            $cell.each(function () {
+                if ($(this).data('row') == $neighboringCellPositionRow && $(this).data('col') == $neighboringCellPositionCol) {
+                    console.log('hello');
+                }
+            })
+        })
+
+
+    }
+
+
+// End - Find clusters
+
 })
+;
 
-    // End
-
-});
