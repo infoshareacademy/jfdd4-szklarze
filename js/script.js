@@ -245,17 +245,11 @@ $(document).ready(function () {
     }
 
     function showSummary() {
-        var $summary = $('.game-instructions-summary'),
-            pointsCount = $('.points').text(),
-            $table = $('.game-table'),
-            $head = $('<h2>').text('Koniec gry!'),
-            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
-            $points = $('<h1>').text(pointsCount);
-
-        $table.hide();
-        $summary.empty();
-        $summary.css('display', 'flex');
-        $summary.append($head).append($pointsTitle).append($points);
+        var pointsCount = $('.points').text();
+        $('.game-summary').show();
+        $('.game-table').hide();
+        $('.game-panel').hide();
+        $('.game-score').text(pointsCount);
     }
 
     function takePointsForLeftElements() {
@@ -268,12 +262,29 @@ $(document).ready(function () {
         $pointsEarnead.text(points);
     }
 
-    (function startGame() {
+    function showGame() {
+        var $gameShowButton = $('.game-show-button');
+
+        $gameShowButton.click(function () {
+            $('.game-instructions').hide();
+            $('.game-summary').hide();
+            $('.game-table').css('display','flex');
+            $('.game-panel').css('display','flex');
+            generateTable(10);
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        })
+    }
+    showGame();
+
+    function startGame() {
         var $gameStartButton = $('.game-start-button');
 
         $gameStartButton.click(function () {
-            $('.game-instructions-summary').hide();
-            generateTable(10);
+            $('.game-instructions').hide();
             // startTimer();
             clearPoints();
             createElementToFind();
@@ -283,7 +294,8 @@ $(document).ready(function () {
             addCreatedRandomElementToEmptyCell();
             findElementOnClick();
         })
-    })();
+    }
+    startGame();
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
@@ -306,7 +318,7 @@ $(document).ready(function () {
             $sectionToShow = $(popupClass);
 
         $triggerButton.click(function () {
-                $sectionToShow.show();
+            $sectionToShow.show();
         })
     }
 
