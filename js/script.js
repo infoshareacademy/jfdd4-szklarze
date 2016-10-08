@@ -141,8 +141,14 @@ $(document).ready(function () {
 
 // Start - Game timer
 
-    var timeAmount = 15;//Set time amount here, max 60 seconds.
-    $('.game-timer').text('Czas: 00:' + timeAmount);
+    // Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
+    // Licznik wyświetla pozostałą ilość czasu.
+    // W trakcie gry przycisk 'Start' jest nieaktywny.
+    // Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
+    // Po upływie czasu gra się zatrzymmuje.
+
+    var timeAmount = 12;//Set time amount here, max 60 seconds.
+    $('.game-timer h4').text('Czas: 00:' + timeAmount);
     $('button.game-start-button').click(function () {
         $(this).attr('disabled', true).addClass('disabled');
         var timeCounter = setInterval(function () {
@@ -150,11 +156,11 @@ $(document).ready(function () {
             if (timeAmount == 0) {
                 clearInterval(timeCounter);
                 $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                timeAmount = 15;//Set time amount here, max 60 seconds.
+                timeAmount = 12;//Set time amount here, max 60 seconds.
                 //Function to stop game
             }
-            $('.game-timer').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
-        }, 1000);
+            $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
+        }, 1000); //One second interval
     });
 
 // End - Game timer
@@ -167,7 +173,7 @@ $(document).ready(function () {
 
         $table
             .empty()
-            .css('display','inline-block')
+            .css('display','flex')
             .append($tbody);
 
         for (var rowCount=1; rowCount <= size; rowCount++){
@@ -242,7 +248,7 @@ $(document).ready(function () {
     function showSummary() {
         var pointsCount = $('.points').text();
         $('.game-summary').show();
-        $('.game-table-container').hide();
+        $('.game-table').hide();
         $('.game-panel').hide();
         $('.game-score').text(pointsCount);
     }
@@ -257,25 +263,25 @@ $(document).ready(function () {
         $pointsEarnead.text(points);
     }
 
-    (function showGame() {
+    function showGame() {
         var $gameShowButton = $('.game-show-button');
 
         $gameShowButton.click(function () {
             $('.game-instructions').hide();
             $('.game-summary').hide();
-            $('.game-table-container').show();
-            $('.game-panel').show();
+            $('.game-table').css('display','flex');
+            $('.game-panel').css('display','flex');
             generateTable(10);
-            // startTimer();
             clearPoints();
             clearCells();
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
         })
-    })();
+    }
+    showGame();
 
-    (function startGame() {
+    function startGame() {
         var $gameStartButton = $('.game-start-button');
 
         $gameStartButton.click(function () {
@@ -289,7 +295,8 @@ $(document).ready(function () {
             addCreatedRandomElementToEmptyCell();
             findElementOnClick();
         })
-    })();
+    }
+    startGame();
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
@@ -303,6 +310,21 @@ $(document).ready(function () {
             showSummary();
         }
     }
+
+    closeSection('.game-close-button', '.game');
+
+    function showSection(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
+
+        $triggerButton.click(function () {
+            $sectionToShow.show();
+        })
+    }
+
+    showSection('.beer-img', '.game');
+
 
 // End - Game
 
