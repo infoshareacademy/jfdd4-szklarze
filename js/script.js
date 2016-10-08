@@ -141,21 +141,41 @@ $(document).ready(function () {
 
 // Start - Game timer
 
-    var timeAmount = 15;//Set time amount here, max 60 seconds.
-    $('.game-timer').text('Czas: 00:' + timeAmount);
-    $('button.game-start-button').click(function () {
-        $(this).attr('disabled', true).addClass('disabled');
+    function setTime(time) {
+        $('.game-timer').text('Czas: 00:' +
+            (time < 10 ? '0' + time : time));
+    }
+
+    function getTimeLeft() {
+        var leftTime = $('.game-timer').text();
+        return Number(leftTime.slice(9));
+    }
+
+    function disableStartButton() {
+        $('button.game-start-button').attr('disabled', true).addClass('disabled');
+    }
+
+    function enableStartButton() {
+        $('button.game-start-button').attr('disabled', false).removeClass('disabled');
+    }
+
+    function startTimer(time) {
+        var timeAmount = time;
+        setTime(timeAmount);
+        disableStartButton();
         var timeCounter = setInterval(function () {
             timeAmount--;
+            setTime(timeAmount);
             if (timeAmount == 0) {
-                clearInterval(timeCounter);
-                $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                timeAmount = 15;//Set time amount here, max 60 seconds.
-                //Function to stop game
+                setTime(timeAmount);
+                isGameFinished();
             }
-            $('.game-timer').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
+            if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
+                clearInterval(timeCounter);
+                enableStartButton();
+            }
         }, 1000);
-    });
+    }
 
 // End - Game timer
 
@@ -167,17 +187,17 @@ $(document).ready(function () {
 
         $table
             .empty()
-            .css('display','inline-block')
+            .css('display', 'inline-block')
             .append($tbody);
 
-        for (var rowCount=1; rowCount <= size; rowCount++){
+        for (var rowCount = 1; rowCount <= size; rowCount++) {
             var $row = $('<tr>');
 
             $tbody.append($row);
-            for (var cellCount=1; cellCount <= size; cellCount++){
+            for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
-                    .attr('data-row',rowCount)
-                    .attr('data-col',cellCount);
+                    .attr('data-row', rowCount)
+                    .attr('data-col', cellCount);
                 $row.append($cell);
             }
         }
@@ -204,22 +224,25 @@ $(document).ready(function () {
         $imgElement.click(function () {
             var $clickedElement = $(this);
 
-            if ( $elementToFindSrc === $(this).attr('src') ) {
+            if ($elementToFindSrc === $(this).attr('src')) {
                 points++;
                 $('.points').text(points);
-                $clickedElement.css('background', '#888').fadeOut(500);
+                $clickedElement.css('background', '#888').fadeOut(300);
                 setTimeout(function () {
                     $clickedElement.remove();
                     findEmptyCells();
-                }, 500);
+                }, 300);
             }
-            isGameFinished();
+            setTimeout(function () {
+                isGameFinished();
+            }, 300);
+
         });
     }
 
     function isTimeOut() {
-        var $time = $('.game-timer').find('h4').text();
-        return $time == '00:00';
+        var $time = $('.game-timer').text();
+        return $time == 'Czas: 00:00';
     }
 
     function isMatchingElementLeft(getLeftElementsConut) {
@@ -236,7 +259,7 @@ $(document).ready(function () {
         if (getLeftElementsConut != undefined)
             return matchingElementsCounter;
         else
-            return matchingElementsCounter > 1;
+            return matchingElementsCounter > 0;
     }
 
     function showSummary() {
@@ -250,9 +273,16 @@ $(document).ready(function () {
     function takePointsForLeftElements() {
         var leftElements = isMatchingElementLeft(true),
             $pointsEarnead = $('.points'),
-            points = $pointsEarnead.text() - Number(leftElements);
+            points = Number($pointsEarnead.text()) - Number(leftElements);
 
         if (points < 0) points = 0;
+
+        $pointsEarnead.text(points);
+    }
+
+    function addTimeBonus() {
+        var $pointsEarnead = $('.points'),
+            points = Number($pointsEarnead.text()) + getTimeLeft();
 
         $pointsEarnead.text(points);
     }
@@ -266,7 +296,6 @@ $(document).ready(function () {
             $('.game-table-container').show();
             $('.game-panel').show();
             generateTable(10);
-            // startTimer();
             clearPoints();
             clearCells();
             findEmptyCells();
@@ -280,7 +309,7 @@ $(document).ready(function () {
 
         $gameStartButton.click(function () {
             $('.game-instructions').hide();
-            // startTimer();
+            startTimer(15);//Set time amount here, max 30 seconds.
             clearPoints();
             createElementToFind();
             clearCells();
@@ -291,14 +320,12 @@ $(document).ready(function () {
         })
     })();
 
-    function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
-     upływie czasu*/
-        if ( !isMatchingElementLeft() ) {
-            // stopTimer();
-            // addTimeBonus();
+    function isGameFinished() {
+        if (!isMatchingElementLeft()) {
+            addTimeBonus();
             showSummary();
         }
-        if ( isTimeOut() ) {
+        if (isTimeOut()) {
             takePointsForLeftElements();
             showSummary();
         }
