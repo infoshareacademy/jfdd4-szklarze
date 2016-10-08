@@ -415,14 +415,27 @@ $(document).ready(function () {
         var $cell = $('td');
 
         $cell.each(function () {
+            var $startCell = $(this),
+                $startElement = $startCell.find('.img-element'),
+                $startElementSrc = $startElement.attr('src');
+
 
             findNeighboringCell($(this), 1, 0);
             $cell.each(function () {
+
                 if ($(this).data('row') == $neighboringCellPositionRow && $(this).data('col') == $neighboringCellPositionCol) {
-                    console.log('hello');
+                    var $neighboringElement = $(this).find('.img-element'),
+                        $neighboringElementSrc = $neighboringElement.attr('src');
+                    if ($startElementSrc == $neighboringElementSrc) {
+
+                    }
                 }
             })
         })
+
+
+
+
 
 
     }
