@@ -172,77 +172,77 @@ $(document).ready(function () {
 
         $table
             .empty()
-            .css('display','flex')
+            .css('display', 'flex')
             .append($tbody);
 
-        for (var rowCount=1; rowCount <= size; rowCount++){
+        for (var rowCount = 1; rowCount <= size; rowCount++) {
             var $row = $('<tr>');
 
             $tbody.append($row);
-            for (var cellCount=1; cellCount <= size; cellCount++){
+            for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
-                    .attr('data-row',rowCount)
-                    .attr('data-col',cellCount);
+                    .attr('data-row', rowCount)
+                    .attr('data-col', cellCount);
                 $row.append($cell);
             }
         }
     }
 
-    function createElementToFind() {
-        var $elementToFind = $('.game-find-this-img');
-        $elementToFind.find('img').remove();
-        $elementToFind.append(createRandomElement());
-        $elementToFind.find('.img-element').removeClass();
-        $elementToFind.find('img').addClass('img-element-to-find');
-    }
+    // function createElementToFind() {
+    //     var $elementToFind = $('.game-find-this-img');
+    //     $elementToFind.find('img').remove();
+    //     $elementToFind.append(createRandomElement());
+    //     $elementToFind.find('.img-element').removeClass();
+    //     $elementToFind.find('img').addClass('img-element-to-find');
+    // }
 
     function clearPoints() {
         $('.points').text('0');
     }
 
-    function findElementOnClick() {
-        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-            $imgElement = $('.img-element'),
-            $elementToFindSrc = $elementToFind.attr('src'),
-            points = 0;
-
-        $imgElement.click(function () {
-            var $clickedElement = $(this);
-
-            if ( $elementToFindSrc === $(this).attr('src') ) {
-                points++;
-                $('.points').text(points);
-                $clickedElement.css('background', '#888').fadeOut(500);
-                setTimeout(function () {
-                    $clickedElement.remove();
-                    findEmptyCells();
-                }, 500);
-            }
-            isGameFinished();
-        });
-    }
+    // function findElementOnClick() {
+    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+    //         $imgElement = $('.img-element'),
+    //         $elementToFindSrc = $elementToFind.attr('src'),
+    //         points = 0;
+    //
+    //     $imgElement.click(function () {
+    //         var $clickedElement = $(this);
+    //
+    //         if ( $elementToFindSrc === $(this).attr('src') ) {
+    //             points++;
+    //             $('.points').text(points);
+    //             $clickedElement.css('background', '#888').fadeOut(500);
+    //             setTimeout(function () {
+    //                 $clickedElement.remove();
+    //                 findEmptyCells();
+    //             }, 500);
+    //         }
+    //         isGameFinished();
+    //     });
+    // }
 
     function isTimeOut() {
         var $time = $('.game-timer').find('h4').text();
         return $time == '00:00';
     }
 
-    function isMatchingElementLeft(getLeftElementsConut) {
-        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-            $elementToFindSrc = $elementToFind.attr('src'),
-            $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
-            matchingElementsCounter = 0;
-
-        $elementsOnBoard.forEach(function (elementOnBoard) {
-            var $elementOnBoardSrc = $(elementOnBoard).attr('src');
-            if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
-        });
-
-        if (getLeftElementsConut != undefined)
-            return matchingElementsCounter;
-        else
-            return matchingElementsCounter > 1;
-    }
+    // function isMatchingElementLeft(getLeftElementsConut) {
+    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+    //         $elementToFindSrc = $elementToFind.attr('src'),
+    //         $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
+    //         matchingElementsCounter = 0;
+    //
+    //     $elementsOnBoard.forEach(function (elementOnBoard) {
+    //         var $elementOnBoardSrc = $(elementOnBoard).attr('src');
+    //         if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
+    //     });
+    //
+    //     if (getLeftElementsConut != undefined)
+    //         return matchingElementsCounter;
+    //     else
+    //         return matchingElementsCounter > 1;
+    // }
 
     function showSummary() {
         var $summary = $('.game-instructions-summary'),
@@ -258,15 +258,15 @@ $(document).ready(function () {
         $summary.append($head).append($pointsTitle).append($points);
     }
 
-    function takePointsForLeftElements() {
-        var leftElements = isMatchingElementLeft(true),
-            $pointsEarnead = $('.points'),
-            points = $pointsEarnead.text() - Number(leftElements);
-
-        if (points < 0) points = 0;
-
-        $pointsEarnead.text(points);
-    }
+    // function takePointsForLeftElements() {
+    //     var leftElements = isMatchingElementLeft(true),
+    //         $pointsEarnead = $('.points'),
+    //         points = $pointsEarnead.text() - Number(leftElements);
+    //
+    //     if (points < 0) points = 0;
+    //
+    //     $pointsEarnead.text(points);
+    // }
 
     (function startGame() {
         var $gameStartButton = $('.game-start-button');
@@ -276,28 +276,38 @@ $(document).ready(function () {
             generateTable(10);
             // startTimer();
             clearPoints();
-            createElementToFind();
+            // createElementToFind();
             clearCells();
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            findElementOnClick();
+            // findElementOnClick();
         })
     })();
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
-        if ( !isMatchingElementLeft() ) {
-            // stopTimer();
-            // addTimeBonus();
-            showSummary();
-        }
-        if ( isTimeOut() ) {
+        // if ( !isMatchingElementLeft() ) {
+        //     // stopTimer();
+        //     // addTimeBonus();
+        //     showSummary();
+        // }
+        if (isTimeOut()) {
             takePointsForLeftElements();
             showSummary();
         }
     }
 
 // End - Game
+
+
+    // Start - Find clusters
+
+$('td').each(function () {
+    var startCell = $(this);
+    if
+})
+
+    // End
 
 });
