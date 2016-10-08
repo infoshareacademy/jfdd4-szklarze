@@ -70,8 +70,8 @@
     font-size: 1.4em;
   }
 
-  .game-start-button {
-    width: auto;
+  .game-points, .game-start-button {
+    width: 50%;
   }
 }
 
@@ -171,8 +171,24 @@ tr, td {
     height: 40px;
   }
 
+  .game-table {
+    height: 100%;
+    width: 75%;
+  }
+
   .game-panel {
     flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+    width: 20%;
+
+    .game-points {
+      width: 100%;
+    }
+
+    .game-start-button {
+      width: 60%;
+    }
   }
 
   .game-box {
@@ -185,13 +201,12 @@ tr, td {
     width: 45px;
     height: 45px;
   }
-  .game-table-container {
+  .game-table {
     width: 70%;
-    float: left;
   }
-  .game-panel {
-    width: 30%;
-    float: right;
+
+  .game-table, .game-panel {
+    margin: 0;
   }
 }
 
@@ -202,140 +217,6 @@ tr, td {
   }
   .game-box {
     max-width: 1000px;
+    margin: auto;
   }
 }
-//********************************************************
-//
-//@media screen and (max-width: 600px) {
-
-//}
-//
-//@media screen and (min-width: 351px) and (max-width: 800px) {
-//
-//  tr, td {
-//    width: 30px;
-//    height: 30px;
-//  }
-//
-//  .game-find-this-img {
-//    width: 45px;
-//    height: 45px;
-//  }
-//
-//  .game-box {
-//    height: 90%;
-//    display: flex;
-//    flex-direction: column;
-//  }
-//
-//  .game-panel {
-//    flex-direction: row;
-//  }
-//}
-//
-//@media screen and (min-width: 601px) {
-//  .game-instructions-summary {
-//    margin: auto 6%;
-//  }
-//}
-//
-//@media screen and (min-width: 601px) and (max-width: 800px) {
-//
-//  tr, td {
-//    width: 35px;
-//    height: 35px;
-//  }
-//
-//  .game-find-this-img {
-//    width: 50px;
-//    height: 50px;
-//  }
-//
-//  .game-table {
-//    width: 80%;
-//  }
-//
-//  .game-panel {
-//    width: 20%;
-//    margin-right: 5%;
-//    margin-left: 5%;
-//    flex-direction: column;
-//  }
-//
-//  .game-box {
-//    flex-direction: row;
-//  }
-//}
-//
-//@media screen and (min-width: 801px) and (max-width: 1200px) {
-//
-//  tr, td {
-//    width: 40px;
-//    height: 40px;
-//  }
-//
-//  .game-find-this-img {
-//    width: 60px;
-//    height: 60px;
-//  }
-//
-//  .game-table {
-//    width: 70%;
-//  }
-//
-//  .game-panel {
-//    width: 30%;
-//    margin-right: 5%;
-//    margin-left: 5%;
-//    flex-direction: column;
-//  }
-//
-//  .game-box {
-//    flex-direction: row;
-//  }
-//}
-//
-//@media screen and (min-width: 1201px) {
-//
-//  tr, td {
-//    width: 45px;
-//    height: 45px;
-//  }
-//
-//  .game-find-this-img {
-//    width: 60px;
-//    height: 60px;
-//  }
-//
-//  .game-table {
-//    width: 70%;
-//  }
-//
-//  .game-panel {
-//    width: 30%;
-//    margin-right: 5%;
-//    margin-left: 5%;
-//  }
-//
-//  .game-box {
-//    width: 70%;
-//    margin-left: auto;
-//    margin-right: auto;
-//  }
-//}
-//@media screen and (min-width: 1601px) {
-//
-//  .game-table {
-//    width: 70%;
-//  }
-//
-//  .game-panel {
-//    width: 30%;
-//    margin-right: 5%;
-//    margin-left: 5%;
-//  }
-//
-//  .game-box {
-//    width: 65%;
-//  }
-//}
