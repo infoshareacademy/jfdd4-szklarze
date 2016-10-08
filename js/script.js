@@ -383,36 +383,41 @@ $(document).ready(function () {
 
     function findClusters() {
 
-        var $neighboringCellPositionRow;
-        var $neighboringCellPositionCol;
+        var $nextCellPositionRow;
+        var $nextCellPositionCol;
 
-        function findNeighboringCell(startCell, deltaRow, deltaCol) {
-            $neighboringCellPositionRow = startCell.data('row') + deltaRow,
-                $neighboringCellPositionCol = startCell.data('col') + deltaCol;
+        function findNextCell(startCell, deltaRow, deltaCol) {
+            $nextCellPositionRow = startCell.data('row') + deltaRow,
+                $nextCellPositionCol = startCell.data('col') + deltaCol;
         }
 
         var $cell = $('td');
+
 
         $cell.each(function () {
             var $startCell = $(this),
                 $startElement = $startCell.find('.img-element'),
                 $startElementSrc = $startElement.attr('src');
+            findNextCell($startCell, 1, 0);
 
 
-            findNeighboringCell($(this), 1, 0);
+
             $cell.each(function () {
                 var $cluster = [];
 
-                if ($(this).data('row') == $neighboringCellPositionRow && $(this).data('col') == $neighboringCellPositionCol) {
-                    var $neighboringElement = $(this).find('.img-element'),
-                        $neighboringElementSrc = $neighboringElement.attr('src');
-                    if ($startElementSrc == $neighboringElementSrc) {
+                if ($(this).data('row') == $nextCellPositionRow && $(this).data('col') == $nextCellPositionCol) {
+                    var $nextElement = $(this).find('.img-element'),
+                        $nextElementSrc = $nextElement.attr('src');
+                    if ($startElementSrc == $nextElementSrc) {
                         var matchingElementObject = {
                             row: $(this).data('row'),
                             col: $(this).data('col')
                         };
                         $cluster.push(matchingElementObject);
-                    console.log($cluster.length, $cluster);
+                        console.log($cluster.length, $cluster);
+
+
+
                     }
                 }
             })
