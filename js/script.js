@@ -406,6 +406,7 @@ $(document).ready(function () {
         }
     }
 
+var points = 0;
     function findClusters(cell, deltaRow, deltaCol) {
         $('td').each(function () {
             var $cluster = [];
@@ -438,6 +439,8 @@ $(document).ready(function () {
                                     if ($(this).data('row') == $cluster[i].row && $(this).data('col') == $cluster[i].col) {
                                         $(this).find('.img-element').delay(1000).fadeOut(500, function () {
                                             $(this).remove();
+                                            points++;
+                                            $('.points').text(points);
                                             findEmptyCells();
                                             addCreatedRandomElementToEmptyCell();
                                             findAllTheClusters();
@@ -459,12 +462,11 @@ $(document).ready(function () {
     }
 
     function findAllTheClusters(cell) {
+
         findClusters(cell, 1, 0);
         findClusters(cell, -1, 0);
         findClusters(cell, 0, 1);
         findClusters(cell, 0, -1);
-        findEmptyCells();
-        addCreatedRandomElementToEmptyCell();
     }
 
 
