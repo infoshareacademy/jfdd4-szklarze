@@ -153,8 +153,8 @@ $(document).ready(function () {
             $tbody.append($row);
             for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
-                    .attr('data-row', rowCount)
-                    .attr('data-col', cellCount);
+                    .data('data-row', rowCount)
+                    .data('data-col', cellCount);
                 $row.append($cell);
             }
         }
@@ -221,11 +221,27 @@ $(document).ready(function () {
 
     function showSummary() {
         var pointsCount = $('.points').text();
-        $('.game-summary').show();
-        $('.game-table').hide();
-        $('.game-panel').hide();
-        $('.game-score').text(pointsCount);
+
+        if (pointsCount <=5) {
+            $('.game-summary').show();
+            $('.game-table').hide();
+            $('.game-panel').hide();
+            $('.game-score').text(pointsCount);
+            $('.game-summary > h4').hide();
+            $('.game-show-button-next-level-instruction').hide();
+        }
+        else {
+            $('.game-summary').show();
+            $('.game-table').hide();
+            $('.game-panel').hide();
+            $('.game-score').text(pointsCount);
+            $('.game-show-button').hide();
+        }
     }
+
+
+
+
 
     function takePointsForLeftElements() {
         var leftElements = isMatchingElementLeft(true),
@@ -248,6 +264,7 @@ $(document).ready(function () {
         var $gameShowButton = $('.game-show-button');
 
         $gameShowButton.click(function () {
+            $('.game-start-button-next-level').hide();
             $('.game-instructions').hide();
             $('.game-summary').hide();
             $('.game-table').css('display','flex');
