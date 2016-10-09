@@ -435,7 +435,7 @@ var points = 0;
 
                         if ($startElementSrc == $nextElementSrc)
                             searchForMatch($(this));
-                        else if ($cluster.length >= 3) {
+                        else if ($cluster.length >= 4) {
                             console.log($cluster, $cluster.length);
                             for (i = 0; i < $cluster.length; i++) {
                                 $('td').each(function () {
