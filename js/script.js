@@ -173,11 +173,13 @@ $(document).ready(function () {
             if (timeAmount == 0) {
                 setTime(timeAmount);
                 isGameFinished();
-            }
-            if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
                 clearInterval(timeCounter);
                 enableStartButton();
             }
+            // if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
+            //     clearInterval(timeCounter);
+            //     enableStartButton();
+            // }
         }, 1000);
     }
 
@@ -201,9 +203,8 @@ $(document).ready(function () {
             for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>').removeClass()
                     .data('row', rowCount)
-                    .data('col', cellCount)
-                    .attr('data-row', rowCount)
-                    .attr('data-col', cellCount);
+                    .data('col', cellCount);
+
                 $row.append($cell);
             }
         }
@@ -336,7 +337,7 @@ $(document).ready(function () {
         //     showSummary();
         // }
         if (isTimeOut()) {
-            takePointsForLeftElements();
+            // takePointsForLeftElements();
             showSummary();
         }
     }
@@ -357,6 +358,7 @@ $(document).ready(function () {
 
 
 // End - Game
+
 // Start - Gamer-click
     function selectCell() {
         var $cell = $('td');
