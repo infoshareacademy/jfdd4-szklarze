@@ -381,5 +381,4 @@ $(document).ready(function () {
         secondSelectedElement.appendTo(firstSelectedCell);
     }
 // End - Gamer-click
-
 });
