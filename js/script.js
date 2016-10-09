@@ -416,7 +416,6 @@ $(document).ready(function () {
                     $cell.each(function () {
 
                         if ($(this).data('row') == nextElementObject.row && $(this).data('col') == nextElementObject.col) {
-                            // console.log('bla');
                             var $nextElement = $(this).find('.img-element'),
                                 $nextElementSrc = $nextElement.attr('src');
                             if ($startElementSrc == $nextElementSrc) {
