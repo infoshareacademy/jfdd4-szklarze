@@ -339,13 +339,17 @@ $(document).ready(function () {
 
 
             if (
-                (clickedCellPositionCol === firstCellPositionCol) && ((clickedCellPositionRow == firstCellPositionRow + 1) || (clickedCellPositionRow == firstCellPositionRow - 1))
+                (clickedCellPositionCol === firstCellPositionCol) &&
+                ((clickedCellPositionRow == firstCellPositionRow + 1) ||
+                (clickedCellPositionRow == firstCellPositionRow - 1))
             ) {
                 addClassToCell(cell);
                 switchElements(cell)
             }
             else if (
-                (clickedCellPositionRow === firstCellPositionRow) && ((clickedCellPositionCol == firstCellPositionCol + 1) || (clickedCellPositionCol == firstCellPositionCol - 1))
+                (clickedCellPositionRow === firstCellPositionRow) &&
+                ((clickedCellPositionCol == firstCellPositionCol + 1) ||
+                (clickedCellPositionCol == firstCellPositionCol - 1))
             ) {
                 addClassToCell(cell);
                 switchElements(cell)
@@ -358,9 +362,10 @@ $(document).ready(function () {
         function switchElements(cell) {
 
             var memoriedCellOne = cell.children(),
-
                 cellOne = cell;
+
             cellOne.removeClass('clicked').empty();
+
             var cellTwo = $('.clicked'),
                 memoriedCellTwo = cellTwo.children();
 
@@ -368,9 +373,6 @@ $(document).ready(function () {
 
             memoriedCellTwo.appendTo(cellOne);
             memoriedCellOne.appendTo(cellTwo);
-
-            //
-
 
         }
 
@@ -381,61 +383,130 @@ $(document).ready(function () {
         // Start - Find clusters
 
 
-        function locateNextCell(cell, deltaRow, deltaCol) {
-            var startCell = cell;
+        // function locateNextCell(cell, deltaRow, deltaCol) {
+        //     var startCell = cell;
+        //     return {
+        //         row: startCell.data('row') + deltaRow,
+        //         col: startCell.data('col') + deltaCol
+        //     };
+        // }
+
+        function createElementObject(cell) {
             return {
-                row: startCell.data('row') + deltaRow,
-                col: startCell.data('col') + deltaCol
-            };
+                row: cell.data('row'),
+                col: cell.data('col')
+            }
         }
 
-            function createElementObject(cell) {
-                return {
-                    row: cell.data('row'),
-                    col: cell.data('col')
+        function getElementsToCompare(direction, cell) {
+            var target = createElementObject(cell),
+                $elementsInLine = [];
+
+            if (direction == 'right') {
+                for (col = target.col+1; col <=10 ; col++) {
+                    $elementsInLine.push($('td[data-row='+target.row+
+                                            '][data-col='+col+']'));
                 }
             }
 
-
-            function findClusters() {
-
-                var $cell = $('td');
-
-
-                $cell.each(function () {
-                    var $startCell = $(this),
-                        $startElement = $startCell.find('.img-element'),
-                        $startElementSrc = $startElement.attr('src'),
-                        $cluster = [],
-                        elementObject = createElementObject($(this)),
-                        nextElementObject = locateNextCell($startCell, 1, 0);
-
-                    $cluster.push(elementObject);
-
-
-                    $cell.each(function () {
-
-                        if ($(this).data('row') == nextElementObject.row && $(this).data('col') == nextElementObject.col) {
-                            var $nextElement = $(this).find('.img-element'),
-                                $nextElementSrc = $nextElement.attr('src');
-                            if ($startElementSrc == $nextElementSrc) {
-                                $cluster.push(nextElementObject);
-                                console.log($cluster.length, $cluster);
-
-
-                            }
-                        }
-                    })
-                })
-
-
+            else if (direction == 'left') {
+                for (col = target.col-1; col >= 1 ; col--) {
+                    $elementsInLine.push($('td[data-row='+target.row+
+                        '][data-col='+col+']'));
+                }
             }
 
+            else if (direction == 'up') {
+                for (row = target.row-1; row >=1 ; col--) {
+                    $elementsInLine.push($('td[data-row='+row+
+                        '][data-col='+target.col+']'));
+                }
+            }
 
+            else if (direction == 'down') {
+                for (col = target.col+1; col <=10 ; col++) {
+                    $elementsInLine.push($('td[data-row='+row+
+                        '][data-col='+target.col+']'));
+                }
+            }
+
+            else
+                throw console.log('Specify direction: "right", "left", "up" or "down"')
+            return $elementsInLine;
+        }
+
+
+        function getMatchingElements(direction, cell) {
+            var elementsNextToTarget = getElementsToCompare(direction, cell),
+                comparingResults = [];
+
+            elementsNextToTarget.every(function (element) {
+                var result = $(element).find('.img-element').attr('src');
+
+                if (result) comparingResults.push(result, element);
+                return result;
+            })
+
+
+        }
+
+        function findClusters() {
+
+            var $cell = $('td');
+
+
+            $cell.each(function () {
+                var $startCell = $(this),
+                    $startElement = $startCell.find('.img-element'),
+                    $startElementSrc = $startElement.attr('src'),
+                    $cluster = [],
+                    elementObject = createElementObject($(this)),
+                    nextElementObject = locateNextCell($startCell, 1, 0);
+
+                $cluster.push(elementObject);
+
+                $cell.each(function () {
+
+                    if ($(this).data('row') == nextElementObject.row &&
+                        $(this).data('col') == nextElementObject.col) {
+                        var $nextElement = $(this).find('.img-element'),
+                            $nextElementSrc = $nextElement.attr('src');
+                        if ($startElementSrc == $nextElementSrc) {
+                            $cluster.push(nextElementObject);
+                            console.log($cluster.length, $cluster);
+                        }
+                    }
+                })
+            })
+        }
+
+//     function sprawdźWszystkoPoPrawej(cell) {
+//         var tablicaElementówPoprawej = /jakiś kod do pobrania elementów/,
+//             tablicaPorównująca = [];
+//
+//         tablicaElementówPoprawej.forEach(
+//             function (index, komórka) {
+//                 if (cell == komórka) {
+//                     tablicaPorównująca.push(true, {wspolrzedne komórka})
+//                 } else {
+//                     tablicaPorównująca.push(false)
+//                 }
+//             }
+//         tablicaPorównująca.obetnijNaPierwszymFalse;
+//         return tablicaPorównująca;
+//     })
+// }
+//
+// $('td').each(function () {
+//     if (sprawdźWszystkoPoPrawej().length +
+//         sprawdźWszystkoPolewej().length + 1 >= 3) {
+//         usuńKomórkiZeZwróconychTablic
+//     }
+//     if (sprawdźWszystkoUGory().length +
+//         sprawdzWszystkoNaDole().length + 1 >= 3) {
+//         usuńKomórkiZeZwróconychTablic
+//     }
+// }
 
 // End - Find clusters
-
-    }
-)
-;
-
+});
