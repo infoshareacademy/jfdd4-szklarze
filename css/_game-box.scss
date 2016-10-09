@@ -65,9 +65,12 @@ td {
     flex-grow: 2;
   }
 
-  .game-start-button {
+  .game-start-button, .game-start-button-next-level {
     flex-grow: 4;
     width: 25%;
+  }
+  .game-start-button-next-level {
+    display: none;
   }
 
   .game-find-this-img {
@@ -84,7 +87,7 @@ td {
     flex-grow: 2
   }
 
-  .game-points, .game-start-button {
+  .game-points, .game-start-button, .game-start-button-next-level {
     width: 50%;
   }
 }
@@ -93,7 +96,9 @@ tbody {
   background-color: $grey-light;
 }
 
-.game-show-button, .game-mix-button, .game-start-button {
+.game-show-button, .game-mix-button, .game-start-button,
+.game-show-button-next-level,
+.game-start-button-next-level {
   border-radius: 30px;
   border: 0;
   padding: 0.5em 3em;
@@ -103,15 +108,16 @@ tbody {
   font-weight: bold;
 }
 
-.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus,
+.game-show-button-next-level, .game-start-button-next-level {
   outline: none;
 }
 
 .game-mix-button {
-  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
+  display: none;
 }
 
-.game-start-button.disabled {
+.game-start-button.disabled, .game-start-button-next-level.disabled {
   color: $white;
   background-color: $grey;
 }
@@ -191,7 +197,7 @@ tbody {
       width: 100%;
     }
 
-    .game-start-button {
+    .game-start-button, .game-start-button-next-level {
       width: 70%;
       padding: 0.5em 1em;
     }

@@ -318,7 +318,9 @@ input[type="submit"]:focus {
     max-height: 200px; }
 
   .popup-window {
-    width: 60%; } }
+    width: 60%;
+    max-width: 1200px;
+    padding: 2%; } }
 .product-details {
   width: 80%;
   max-width: 1200px;
@@ -449,6 +451,10 @@ input[type="submit"]:focus {
 .game-table {
   height: 70%; }
 
+td {
+  width: 25px;
+  height: 25px; }
+
 .game-panel {
   flex-direction: row;
   flex-wrap: wrap;
@@ -457,29 +463,30 @@ input[type="submit"]:focus {
   text-align: center; }
   .game-panel .game-timer, .game-panel .game-points {
     flex-grow: 2; }
-  .game-panel .game-start-button {
+  .game-panel .game-start-button, .game-panel .game-start-button-next-level {
     flex-grow: 4;
     width: 25%; }
+  .game-panel .game-start-button-next-level {
+    display: none; }
   .game-panel .game-find-this-img {
     flex-grow: 1;
     background-color: #f5f5f5;
+    border: 8px solid #f5f5f5;
     width: 40px;
     height: 40px;
     margin: 0 auto; }
   .game-panel h3, .game-panel h4 {
     font-size: 1.4em;
     flex-grow: 2; }
-  .game-panel .game-points, .game-panel .game-start-button {
+  .game-panel .game-points, .game-panel .game-start-button, .game-panel .game-start-button-next-level {
     width: 50%; }
 
 tbody {
   background-color: #f5f5f5; }
 
-tr, td {
-  width: 25px;
-  height: 25px; }
-
-.game-show-button, .game-mix-button, .game-start-button {
+.game-show-button, .game-mix-button, .game-start-button,
+.game-show-button-next-level,
+.game-start-button-next-level {
   border-radius: 30px;
   border: 0;
   padding: 0.5em 3em;
@@ -488,14 +495,14 @@ tr, td {
   background-color: #ffc10e;
   font-weight: bold; }
 
-.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus,
+.game-show-button-next-level, .game-start-button-next-level {
   outline: none; }
 
 .game-mix-button {
-  display: none;
-  /*todo: przycisk potrzebny w rozszerzonej wersji gry*/ }
+  display: none; }
 
-.game-start-button.disabled {
+.game-start-button.disabled, .game-start-button-next-level.disabled {
   color: #ffffff;
   background-color: #aaaaaa; }
 
@@ -557,7 +564,7 @@ tr, td {
     width: 20%; }
     .game-panel .game-points {
       width: 100%; }
-    .game-panel .game-start-button {
+    .game-panel .game-start-button, .game-panel .game-start-button-next-level {
       width: 70%;
       padding: 0.5em 1em; } }
 @media screen and (min-width: 801px) {

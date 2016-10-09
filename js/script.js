@@ -310,7 +310,7 @@ $(document).ready(function () {
 
         $gameStartButton.click(function () {
             $('.game-instructions').hide();
-            startTimer(15);//Set time amount here, max 30 seconds.
+            startTimer(2);//Set time amount here, max 30 seconds.
             clearPoints();
             createElementToFind();
             clearCells();
@@ -346,6 +346,67 @@ $(document).ready(function () {
     }
 
     showSection('.beer-img', '.game');
+
+    // Start Game next level
+    function showGameNextLevel() {
+        var $gameShowButtonNextLevel = $('.game-show-button-next-level');
+
+        $gameShowButtonNextLevel.click(function () {
+            $('.game-instructions').hide();
+            $('.game-summary').hide();
+            $('.game-table').css('display','flex');
+            $('.game-panel').css('display','flex');
+            $('.game-panel > .game-mix-button').css('display', 'flex');
+            $('.game-panel > h4:first').hide();
+            $('.game-find-this-img').hide();
+            $('.game-start-button').hide();
+            $('.game-start-button-next-level').show();
+            generateTable(10);
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        })
+    }
+    showGameNextLevel();
+
+    function startGameNextLevel() {
+        $gameStartButtonNextLevel = $('.game-start-button-next-level');
+
+        $gameStartButtonNextLevel.click(function () {
+            $('.game-instructions').hide();
+            startTimer(2);//Set time amount here, max 30 seconds.
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        })
+    }
+    startGameNextLevel();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // End - Game
