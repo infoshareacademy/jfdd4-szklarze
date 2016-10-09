@@ -134,69 +134,60 @@
 <!-- End - Zapis na premierę -->
 
 <!-- Start - "Thank-you" window -->
-<aside class="popup-window-dimm">
+<aside class="popup-window-dimm"><!-- Hidden by default -->
     <div class="popup-window">
         <div class="popup-close-button"></div>
         <div class="text-container">
             <h3>Janusz mówi:</h3>
             <div><!--Whitespace clear
-            --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1><!--Whitespace clear
-            --><div class="beer-img"></div><!--Whitespace clear
+             --><h1>"Uszanowanko,<br> Kierowniczko i Kierowniku!"</h1>
+                <!--Whitespace clear      -->
+                <div class="beer-img"></div><!--Whitespace clear
          --></div>
-            <p>
-                Przyjmij od nas w podzięce to wirtualne piwko i wypij zdrówko wszystkich
-                przyszłych towarzyszy Janusza!
-            </p>
-            <h3>Do zobaczenia na Premierze!</h3>
+            <h3>Kliknij w kufel, a w podzięce Janusz zapewni ci trochę rozrywki!</h3>
         </div>
     </div>
 </aside>
 <!-- End - "Thank-you" window -->
 
 <!-- Start - Gra -->
-<section class="game">
-   <div class="game-intro-text">
-       <h2>Baw się z Januszem</h2>
-   </div>
+<section class="game"><!-- Hidden by default -->
+
+    <div class="game-intro-text">
+        <h2>Baw się z Januszem</h2>
+        <div class="game-close-button"></div>
+    </div>
+
     <div class="game-box">
+
         <table class="game-table">
         </table>
-        <div class="game-instructions-summary">
-            <h3>
-                Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!
-            </h3>
-            <p>
-                Wyszukaj na planszy produkty, których szuka Janusz. Jeden
+
+        <div class="game-instructions">
+            <h3>Pomóż Januszowi w znalezieniu jego ulubionych przedmiotów!</h3>
+            <p>Wyszukaj na planszy produkty, których szuka Janusz. Jeden
                 produkt to 1 złotówa od Janusza. Skończ przed czasem, a dostaniesz
                 dodatkowe złotówy. Jeśli nie zdążysz, Janusz zabiera złotówę za
-                nieodnalezione produkty!
-            </p>
-            <button class="game-start-button">
-                ZACZNIJ SZUKAĆ
-            </button>
+                nieodnalezione produkty!</p>
+            <button class="game-show-button">Zacznij szukać</button>
         </div>
-        <div class="game-panel">
-            <button class="game-mix-button">
-                Mieszaj
-            </button>
-            <div class="game-find-this-img">
 
-            </div>
-        <div class="game-timer">
-            <h4>00:12</h4>
+        <div class="game-summary">
+            <h3>Koniec gry!</h3>
+            <p>Liczba zdobytych złotówek to:</p>
+            <h1 class="game-score">--</h1>
+            <button class="game-show-button">Zacznij szukać</button>
         </div>
-        <div class="game-points">
-            <h4>
-                Złotówy:
-                <span class="points">
-                    --
-                </span>
-            </h4>
+
+        <div class="game-panel">
+            <button class="game-mix-button">Mieszaj</button>
+            <h4>Janusz szuka:</h4>
+            <div class="game-find-this-img"></div>
+            <h4 class="game-timer">00:00</h4>
+            <h4 class="game-points">Złotówy: <span class="points">--</span></h4>
+            <button class="game-start-button">Nowa gra</button>
         </div>
-        <button class="game-start-button">
-            Nowa gra
-        </button>
-    </div>
+
     </div>
 </section>
 <!-- End - Gra -->
@@ -242,70 +233,34 @@
 <!-- Start - Zespół -->
 <section class="team" id="team">
     <h1>Zespół</h1>
-
     <div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-natalia.jpg" alt="Natalia">
             <h5>Natalia</h5>
-            <p class="team-member-caption">Globtrotterka, obieżyświatka, obywatelka
-                świata. Zdobędzie całą planetę, ale wcześniej... wyłączy ten przeklęty
-                budzik i pośpi jeszcze chwilkę.</p>
+            <p class="team-member-caption">Globtrotterka, obieżyświatka, obywatelka świata. Zdobędzie całą planetę, ale wcześniej... wyłączy ten przeklęty budzik i pośpi jeszcze chwilkę.</p>
         </div>
-
-        <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Natalia Vetter</p>
-        </div>
-    </div><!--
-
- -->
+    </div>
     <div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-sebastian.jpg" alt="Sebastian">
             <h5>Sebastian</h5>
-            <p class="team-member-caption">Wielbiciel kuchni orientalnej i czerwonego
-                wina, zakupionego koniecznie w promocji w okolicznym dyskoncie.
-                Technomaniak i elektroświr.</p>
+            <p class="team-member-caption">Wielbiciel kuchni orientalnej i czerwonego wina, zakupionego koniecznie w promocji w okolicznym dyskoncie. Technomaniak i elektroświr.</p>
         </div>
-
-        <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Sebastian Kreft</p>
-        </div>
-    </div><!--
-
- -->
+    </div>
     <div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-kamil.jpg" alt="Kamil">
             <h5>Kamil</h5>
-            <p class="team-member-caption">Lubi śruby i nakrętki, potrafi obsługiwać
-                młotek i śrubokręt. Wszędzie widzi szczegóły, prawie wszędzie. Chciałby
-                mieć kota albo psa, albo kota i psa.</p>
+            <p class="team-member-caption">Lubi śruby i nakrętki, potrafi obsługiwać młotek i śrubokręt. Wszędzie widzi szczegóły, prawie wszędzie. Chciałby mieć kota albo psa, albo kota i psa.</p>
         </div>
-
-        <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Kamil Orłowski</p>
-        </div>
-    </div><!--
-
- -->
+    </div>
     <div class="team-member">
         <div class="team-member-front">
             <img class="team-member-foto" src="images/tm-marcin.jpg" alt="Marcin">
             <h5>Marcin</h5>
-            <p class="team-member-caption">Szalony chemik, bezwzględny prawnik, od
-                niedawna haker, słowem człowiek orkiestra. Zna kody do Matrixa na
-                funkcjonowanie bez snu.</p>
-        </div>
-
-        <div class="team-member-back">
-            <p>Back placeholder</p>
-            <p>Marcin Andrzejewski</p>
+            <p class="team-member-caption">Szalony chemik, bezwzględny prawnik, od niedawna haker, słowem człowiek orkiestra. Zna kody do Matrixa na funkcjonowanie bez snu.</p>
         </div>
     </div>
-
 </section>
 <!-- End - Zespół -->
 

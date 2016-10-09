@@ -38,6 +38,7 @@ $(document).ready(function () {
 // Start - Sign-up
 
     $('form').submit(function (event) {
+        event.preventDefault();
         var formData = {
             'email': $('input[name=email]').val(),
             'receiver': 'szklarze.isa@gmail.com'
@@ -54,7 +55,7 @@ $(document).ready(function () {
             .fail(function (data) {
                 console.log(data);
             });
-        event.preventDefault();
+        this.reset();
     });
 
 
@@ -140,27 +141,41 @@ $(document).ready(function () {
 
 // Start - Game timer
 
-    // Kliknięcie przycisku 'Start' rozpoczyna odliczanie XX sekund.
-    // Licznik wyświetla pozostałą ilość czasu.
-    // W trakcie gry przycisk 'Start' jest nieaktywny.
-    // Po zakończeniu gry przycisk 'Start' jest ponownie aktywny.
-    // Po upływie czasu gra się zatrzymmuje.
+    function setTime(time) {
+        $('.game-timer').text('Czas: 00:' +
+            (time < 10 ? '0' + time : time));
+    }
 
-    var timeAmount = 12;//Set time amount here, max 60 seconds.
-    $('.game-timer h4').text('Czas: 00:' + timeAmount);
-    $('button.game-start-button').click(function () {
-        $(this).attr('disabled', true).addClass('disabled');
+    function getTimeLeft() {
+        var leftTime = $('.game-timer').text();
+        return Number(leftTime.slice(9));
+    }
+
+    function disableStartButton() {
+        $('button.game-start-button').attr('disabled', true).addClass('disabled');
+    }
+
+    function enableStartButton() {
+        $('button.game-start-button').attr('disabled', false).removeClass('disabled');
+    }
+
+    function startTimer(time) {
+        var timeAmount = time;
+        setTime(timeAmount);
+        disableStartButton();
         var timeCounter = setInterval(function () {
             timeAmount--;
+            setTime(timeAmount);
             if (timeAmount == 0) {
-                clearInterval(timeCounter);
-                $('button.game-start-button').attr('disabled', false).removeClass('disabled');
-                timeAmount = 12;//Set time amount here, max 60 seconds.
-                //Function to stop game
+                setTime(timeAmount);
+                isGameFinished();
             }
-            $('.game-timer h4').text('Czas: 00:' + (timeAmount < 10 ? '0' + timeAmount : timeAmount));
-        }, 1000); //One second interval
-    });
+            if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
+                clearInterval(timeCounter);
+                enableStartButton();
+            }
+        }, 1000);
+    }
 
 // End - Game timer
 
@@ -175,210 +190,164 @@ $(document).ready(function () {
             .css('display','flex')
             .append($tbody);
 
-        for (var rowCount=1; rowCount <= size; rowCount++){
+        for (var rowCount = 1; rowCount <= size; rowCount++) {
             var $row = $('<tr>');
 
             $tbody.append($row);
-            for (var cellCount=1; cellCount <= size; cellCount++){
-                var $cell = $('<td>').removeClass()
-                    .data('row',rowCount)
-                    .data('col', cellCount)
-                    .attr('data-row',rowCount)
-                    .attr('data-col',cellCount);
+            for (var cellCount = 1; cellCount <= size; cellCount++) {
+                var $cell = $('<td>')
+                    .attr('data-row', rowCount)
+                    .attr('data-col', cellCount);
                 $row.append($cell);
             }
         }
     }
 
-    // function createElementToFind() {
-    //     var $elementToFind = $('.game-find-this-img');
-    //     $elementToFind.find('img').remove();
-    //     $elementToFind.append(createRandomElement());
-    //     $elementToFind.find('.img-element').removeClass();
-    //     $elementToFind.find('img').addClass('img-element-to-find');
-    // }
+    function createElementToFind() {
+        var $elementToFind = $('.game-find-this-img');
+        $elementToFind.find('img').remove();
+        $elementToFind.append(createRandomElement());
+        $elementToFind.find('.img-element').removeClass();
+        $elementToFind.find('img').addClass('img-element-to-find');
+    }
 
     function clearPoints() {
         $('.points').text('0');
     }
 
-    // function findElementOnClick() {
-    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-    //         $imgElement = $('.img-element'),
-    //         $elementToFindSrc = $elementToFind.attr('src'),
-    //         points = 0;
-    //
-    //     $imgElement.click(function () {
-    //         var $clickedElement = $(this);
-    //
-    //         if ( $elementToFindSrc === $(this).attr('src') ) {
-    //             points++;
-    //             $('.points').text(points);
-    //             $clickedElement.css('background', '#888').fadeOut(500);
-    //             setTimeout(function () {
-    //                 $clickedElement.remove();
-    //                 findEmptyCells();
-    //             }, 500);
-    //         }
-    //         isGameFinished();
-    //     });
-    // }
+    function findElementOnClick() {
+        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+            $imgElement = $('.img-element'),
+            $elementToFindSrc = $elementToFind.attr('src'),
+            points = 0;
+
+        $imgElement.click(function () {
+            var $clickedElement = $(this);
+
+            if ($elementToFindSrc === $(this).attr('src')) {
+                points++;
+                $('.points').text(points);
+                $clickedElement.css('background', '#888').fadeOut(300);
+                setTimeout(function () {
+                    $clickedElement.remove();
+                    findEmptyCells();
+                }, 300);
+            }
+            setTimeout(function () {
+                isGameFinished();
+            }, 300);
+
+        });
+    }
 
     function isTimeOut() {
-        var $time = $('.game-timer').find('h4').text();
-        return $time == '00:00';
+        var $time = $('.game-timer').text();
+        return $time == 'Czas: 00:00';
     }
 
-    // function isMatchingElementLeft(getLeftElementsConut) {
-    //     var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
-    //         $elementToFindSrc = $elementToFind.attr('src'),
-    //         $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
-    //         matchingElementsCounter = 0;
-    //
-    //     $elementsOnBoard.forEach(function (elementOnBoard) {
-    //         var $elementOnBoardSrc = $(elementOnBoard).attr('src');
-    //         if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
-    //     });
-    //
-    //     if (getLeftElementsConut != undefined)
-    //         return matchingElementsCounter;
-    //     else
-    //         return matchingElementsCounter > 1;
-    // }
+    function isMatchingElementLeft(getLeftElementsConut) {
+        var $elementToFind = $('.game-find-this-img').find('.img-element-to-find'),
+            $elementToFindSrc = $elementToFind.attr('src'),
+            $elementsOnBoard = $('.game-table').find('.img-element').toArray(),
+            matchingElementsCounter = 0;
+
+        $elementsOnBoard.forEach(function (elementOnBoard) {
+            var $elementOnBoardSrc = $(elementOnBoard).attr('src');
+            if ($elementOnBoardSrc == $elementToFindSrc) matchingElementsCounter++;
+        });
+
+        if (getLeftElementsConut != undefined)
+            return matchingElementsCounter;
+        else
+            return matchingElementsCounter > 0;
+    }
 
     function showSummary() {
-        var $summary = $('.game-instructions-summary'),
-            pointsCount = $('.points').text(),
-            $table = $('.game-table'),
-            $head = $('<h2>').text('Koniec gry!'),
-            $pointsTitle = $('<p>').append('Liczba zdobytych złotówek to:'),
-            $points = $('<h1>').text(pointsCount);
-
-        $table.hide();
-        $summary.empty();
-        $summary.css('display', 'flex');
-        $summary.append($head).append($pointsTitle).append($points);
+        var pointsCount = $('.points').text();
+        $('.game-summary').show();
+        $('.game-table').hide();
+        $('.game-panel').hide();
+        $('.game-score').text(pointsCount);
     }
 
-    // function takePointsForLeftElements() {
-    //     var leftElements = isMatchingElementLeft(true),
-    //         $pointsEarnead = $('.points'),
-    //         points = $pointsEarnead.text() - Number(leftElements);
-    //
-    //     if (points < 0) points = 0;
-    //
-    //     $pointsEarnead.text(points);
-    // }
+    function takePointsForLeftElements() {
+        var leftElements = isMatchingElementLeft(true),
+            $pointsEarnead = $('.points'),
+            points = Number($pointsEarnead.text()) - Number(leftElements);
 
-    (function startGame() {
-        var $gameStartButton = $('.game-start-button');
+        if (points < 0) points = 0;
 
-        $gameStartButton.click(function () {
-            $('.game-instructions-summary').hide();
+        $pointsEarnead.text(points);
+    }
+
+    function addTimeBonus() {
+        var $pointsEarnead = $('.points'),
+            points = Number($pointsEarnead.text()) + getTimeLeft();
+
+        $pointsEarnead.text(points);
+    }
+
+    function showGame() {
+        var $gameShowButton = $('.game-show-button');
+
+        $gameShowButton.click(function () {
+            $('.game-instructions').hide();
+            $('.game-summary').hide();
+            $('.game-table').css('display','flex');
+            $('.game-panel').css('display','flex');
             generateTable(10);
-            // startTimer();
-            // clearPoints();
-            // // createElementToFind();
+            clearPoints();
             clearCells();
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            // findElementOnClick();
-            selectCell();
-
-
         })
-    })();
+    }
+    showGame();
 
-    function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
-     upływie czasu*/
-        if ( !isMatchingElementLeft() ) {
-            // stopTimer();
-            // addTimeBonus();
+    function startGame() {
+        var $gameStartButton = $('.game-start-button');
+
+        $gameStartButton.click(function () {
+            $('.game-instructions').hide();
+            startTimer(15);//Set time amount here, max 30 seconds.
+            clearPoints();
+            createElementToFind();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+            findElementOnClick();
+        })
+    }
+    startGame();
+
+    function isGameFinished() {
+        if (!isMatchingElementLeft()) {
+            addTimeBonus();
             showSummary();
         }
-        if ( isTimeOut() ) {
+        if (isTimeOut()) {
             takePointsForLeftElements();
             showSummary();
         }
     }
 
-// End - Game
-// Start - Gamer-click
-    function selectCell() {
-        var $cell = $('td');
+    closeSection('.game-close-button', '.game');
 
-        $cell.click( function () {
-            var $numberOfSelectedCells = $('.selected').length;
+    function showSection(triggerButtonsClass, popupClass) {
+        // * Parameters needs to have this format: '.class-name'
+        var $triggerButton = $(triggerButtonsClass),
+            $sectionToShow = $(popupClass);
 
-            if ( $numberOfSelectedCells == 0 ) {
-                addClassToCell($(this));
-            }
-            else if ( $numberOfSelectedCells == 1 ) {
-                checkCellPosition($(this));
-            }
+        $triggerButton.click(function () {
+            $sectionToShow.show();
         })
     }
 
-    function addClassToCell(cell) {
-        cell.addClass('selected');
-    }
+    showSection('.beer-img', '.game');
 
-    function switchCellsContent(cell) {
-        addClassToCell(cell);
-        setTimeout( function() {
-          switchElementsBetweenCells(cell)
-        }, 700);
-    }
 
-    function clearCell(cell) {
-          cell.empty().removeClass('selected');
-    }
+// End - Game
 
-    function incorrectMoveAlert(cell) {
-        var alertMessage = 'Niedozwolony ruch!' + ' ' + "Możesz wybrać element sąsiadujący z wcześniej zaznaczonym." ;
-
-        alert(alertMessage);
-        cell.css('background-color', 'red');
-        setTimeout(function () {
-            cell.removeAttr('style')
-        }, 200);
-    }
-
-    function checkCellPosition(cell) {
-        var firstSelectedCellRow = $('.selected').data('row'),
-            firstSelectedCellColumn= $('.selected').data('col'),
-            secondSelectedCellRow = cell.data('row'),
-            secondSelectedCellColumn = cell.data('col');
-
-        if ((secondSelectedCellColumn === firstSelectedCellColumn) && (Math.abs(firstSelectedCellRow - secondSelectedCellRow) == 1)) {
-            switchCellsContent(cell);
-        }                                                                   
-        else if ((secondSelectedCellRow === firstSelectedCellRow) && (Math.abs(firstSelectedCellColumn - secondSelectedCellColumn) == 1)) {
-            switchCellsContent(cell);
-        }
-        else if ((secondSelectedCellColumn == firstSelectedCellColumn) && ( secondSelectedCellRow == firstSelectedCellRow))       {
-            cell.removeClass('selected');
-        }
-        else {
-            incorrectMoveAlert(cell);
-        }
-    }
-
-    function switchElementsBetweenCells(cell) {
-
-        var secondSelectedElement = cell.children(),
-            secondSelectedCell = cell;
-
-        clearCell(secondSelectedCell);
-
-        var firstSelectedCell = $('.selected'),
-            firstSelectedElement = firstSelectedCell.children();
-
-        clearCell(firstSelectedCell);
-
-        firstSelectedElement.appendTo(secondSelectedCell);
-        secondSelectedElement.appendTo(firstSelectedCell);
-    }
-// End - Gamer-click
 });
