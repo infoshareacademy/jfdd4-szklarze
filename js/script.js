@@ -393,8 +393,8 @@ $(document).ready(function () {
 
         function createElementObject(cell) {
             return {
-                row: cell.data('row'),
-                col: cell.data('col')
+                row: $(cell).data('row'),
+                col: $(cell).data('col')
             }
         }
 
@@ -435,48 +435,43 @@ $(document).ready(function () {
             return $elementsInLine;
         }
 
+        function areElementsImgEqual(cell, elementToCompare) {
+            var cellSrc = $(cell).find('.img-element').attr('src'),
+                elementsSrc = elementToCompare.find('.img-element').attr('src');
+
+            return cellSrc == elementsSrc;
+        }
 
         function getMatchingElements(direction, cell) {
             var elementsNextToTarget = getElementsToCompare(direction, cell),
                 comparingResults = [];
 
             elementsNextToTarget.every(function (element) {
-                var result = $(element).find('.img-element').attr('src');
+                var srcComparison = areElementsImgEqual(cell, element);
 
-                if (result) comparingResults.push(result, element);
-                return result;
-            })
+                if (srcComparison)
+                    comparingResults.push([srcComparison, element]);
 
-
+                return srcComparison;
+            });
+            console.log(comparingResults);
+            return comparingResults;
         }
 
         function findClusters() {
 
             var $cell = $('td');
 
+            $cell.each(function (index, cell) {
+                var right = getMatchingElements('right', cell),
+                    left = getMatchingElements('left', cell),
+                    up = getMatchingElements('up', cell),
+                    down = getMatchingElements('down', cell);
 
-            $cell.each(function () {
-                var $startCell = $(this),
-                    $startElement = $startCell.find('.img-element'),
-                    $startElementSrc = $startElement.attr('src'),
-                    $cluster = [],
-                    elementObject = createElementObject($(this)),
-                    nextElementObject = locateNextCell($startCell, 1, 0);
+                var sumCross = right.length() + left.length(),
+                    sumDown = up.length() + down.length();
 
-                $cluster.push(elementObject);
-
-                $cell.each(function () {
-
-                    if ($(this).data('row') == nextElementObject.row &&
-                        $(this).data('col') == nextElementObject.col) {
-                        var $nextElement = $(this).find('.img-element'),
-                            $nextElementSrc = $nextElement.attr('src');
-                        if ($startElementSrc == $nextElementSrc) {
-                            $cluster.push(nextElementObject);
-                            console.log($cluster.length, $cluster);
-                        }
-                    }
-                })
+                console.log(sumCross,sumDown);
             })
         }
 
