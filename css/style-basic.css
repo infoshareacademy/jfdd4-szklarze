@@ -495,8 +495,8 @@ tr, td {
     font-weight: bold;
     font-size: 1.2em; }
 
-.clicked {
-  background-color: black; }
+.selected {
+  background-color: #babac2; }
 
 @media screen and (min-width: 351px) and (max-width: 600px) {
   tr, td {
