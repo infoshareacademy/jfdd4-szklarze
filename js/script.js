@@ -284,7 +284,7 @@ $(document).ready(function () {
                 createRandomElement();
                 addCreatedRandomElementToEmptyCell();
                 clickAction();
-                findClusters();
+                findAllTheClusters();
 
             })
         })();
@@ -395,7 +395,7 @@ $(document).ready(function () {
                     col: cell.data('col')
                 }
             }
-        function findClusters() {
+        function findClusters(cell, deltaRow, deltaCol) {
             $('td').each(function () {
                 var $cluster = [];
 
@@ -406,7 +406,7 @@ $(document).ready(function () {
                         $startElement = $startCell.find('.img-element'),
                         $startElementSrc = $startElement.attr('src'),
                         elementObject = createElementObject(cell),
-                        nextElementObject = locateNextCell($startCell, 1, 0);
+                        nextElementObject = locateNextCell(cell, deltaRow, deltaCol);
 
 
                     $cluster.push(elementObject);
@@ -446,6 +446,13 @@ $(document).ready(function () {
 
 
         }
+
+        function findAllTheClusters(cell) {
+            findClusters(cell, 1, 0);
+            findClusters(cell, -1, 0);
+            findClusters(cell, 0, 1);
+            findClusters(cell, 0, -1);
+}
 
 
 // End - Find clusters
