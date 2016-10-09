@@ -121,6 +121,7 @@ $(document).ready(function () {
         var timeAmount = time;
         setTime(timeAmount);
         disableStartButton();
+        disableStartButtonNextLevel();
         var timeCounter = setInterval(function () {
             timeAmount--;
             setTime(timeAmount);
@@ -131,6 +132,7 @@ $(document).ready(function () {
             if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
                 clearInterval(timeCounter);
                 enableStartButton();
+                enableStartButtonNextLevel();
             }
         }, 1000);
     }
@@ -379,6 +381,55 @@ $(document).ready(function () {
     }
     showInstructionNextLevel();
 
+    function showGameNextLevel() {
+        var $gameShowButtonNextLevel = $('.game-show-button-next-level');
+
+        $gameShowButtonNextLevel.click(function () {
+            $('.game-instructions').hide();
+            $('.game-instructions-next-level').hide();
+            $('.game-summary').hide();
+            $('.game-table').css('display','flex');
+            $('.game-panel').css('display','flex');
+            $('.game-panel > .game-mix-button').css('display', 'flex');
+            $('.game-panel > h4:first').hide();
+            $('.game-find-this-img').hide();
+            $('.game-start-button').hide();
+            $('.game-start-button-next-level').show();
+            generateTable(10);
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        })
+    }
+
+    showGameNextLevel();
+
+    function startGameNextLevel() {
+        var $gameStartButtonNextLevel = $('.game-start-button-next-level');
+
+        $gameStartButtonNextLevel.click(function () {
+            $('.game-instructions').hide();
+            $('.game-show-button-next-level-instruction').hide();
+            startTimer(60);//Set time amount here, max 30 seconds.
+            clearPoints();
+            clearCells();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+            selectCell();
+        })
+    }
+    startGameNextLevel();
+
+    function disableStartButtonNextLevel() {
+        $('button.game-start-button-next-level').attr('disabled', true).addClass('disabled');
+    }
+
+    function enableStartButtonNextLevel() {
+        $('button.game-start-button-next-level').attr('disabled', false).removeClass('disabled');
+    }
 
 
 
