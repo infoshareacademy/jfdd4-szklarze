@@ -99,7 +99,7 @@ $(document).ready(function () {
 
     function clearCells() {
         var cells = $('td');
-        return cells.empty();
+        return cells.empty().removeClass('selected');
     }
 
     function findEmptyCells() {
@@ -369,10 +369,11 @@ $(document).ready(function () {
             addCreatedRandomElementToEmptyCell();
         })
     }
+
     showGameNextLevel();
 
     function startGameNextLevel() {
-        $gameStartButtonNextLevel = $('.game-start-button-next-level');
+        var $gameStartButtonNextLevel = $('.game-start-button-next-level');
 
         $gameStartButtonNextLevel.click(function () {
             $('.game-instructions').hide();
@@ -385,6 +386,85 @@ $(document).ready(function () {
         })
     }
     startGameNextLevel();
+
+        // Start - Movement of Player
+
+    function selectCell() {
+        var $cell = $('td');
+
+        $cell.click( function () {
+            var $numberOfSelectedCells = $('.selected').length;
+
+            if ( $numberOfSelectedCells == 0 ) {
+                addClassSelected($(this));
+            }
+            else if ( $numberOfSelectedCells == 1) {
+                checkCellPosition($(this));
+            }
+        })
+    }
+
+    function addClassSelected(cell) {
+        cell.addClass('selected')
+    }
+
+    function changeContentsOfCell(cell) {
+        addClassSelected(cell);
+        setTimeout( function () {
+            switchElementsBetweenCells(cell)
+        }, 700)
+    }
+
+    function invalidMovementOfPalyer(cell) {
+        var alertMessage = 'Niedozwolony ruch!' + ' ' + 'Możesz wybrać element sąsiadujący z wcześniej zaznaczonym.';
+
+        alert(alertMessage);
+        cell.css('background-color', 'red');
+        setTimeout(function () {
+            cell.removeAttr('style')
+        }, 300);
+    }
+
+    function checkCellPosition(cell) {
+        var rowFirstSelectedCell = $('selected').data('row'),
+            columnFirstSelectedCell = $('selected').data('col'),
+            rowSecondSelectedCell = cell.data('row'),
+            columnSeconSelectedCell = cell.data('col');
+
+        if ( (columnFirstSelectedCell == columnSeconSelectedCell) && (Math.abs(rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
+            changeContentsOfCell(cell);
+        }
+        else if ( (rowFirstSelectedCell == rowSecondSelectedCell) && (Math.abs(columnFirstSelectedCell - columnSeconSelectedCell) == 1) ) {
+            changeContentsOfCell(cell);
+        }
+        else {
+            invalidMovementOfPalyer(cell);
+        }
+    }
+
+    function switchElementsBetweenCells(cell) {
+        var secondSelectedCell = cell,
+            secondSelectedElement = cell.children();
+
+
+
+        clearCells(secondSelectedCell);
+
+        var firstSelectedCell = $('.selected'),
+            firstSelectedElement = firstSelectedCell.children();
+
+
+        clearCells(firstSelectedCell);
+
+        firstSelectedElement.appendTo(secondSelectedCell);
+        secondSelectedElement.appendTo(firstSelectedCell);
+    }
+
+        // End - Movement of Player
+
+    // End - Game next level
+
+
 
 
 
