@@ -320,7 +320,7 @@ $(document).ready(function () {
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            // findElementOnClick();
+            findElementOnClick();
         })
     }
     startGame();
@@ -380,7 +380,7 @@ $(document).ready(function () {
 
         $gameStartButtonNextLevel.click(function () {
             $('.game-instructions').hide();
-            // startTimer(30);//Set time amount here, max 30 seconds.
+            startTimer(30);//Set time amount here, max 30 seconds.
             clearPoints();
             clearCells();
             findEmptyCells();
