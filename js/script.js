@@ -369,7 +369,15 @@ $(document).ready(function () {
 
     // End - Mix-button
 
+    function showInstructionNextLevel() {
+        var $gameShowButtonNextLevelInstruction = $('.game-show-button-next-level-instruction');
 
+        $gameShowButtonNextLevelInstruction.click(function () {
+            $('.game-instructions-next-level').css('display', 'inline-block');
+            $('.game-summary').hide()
+        })
+    }
+    showInstructionNextLevel();
 
 
 

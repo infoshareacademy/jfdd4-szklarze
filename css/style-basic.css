@@ -483,7 +483,7 @@ tbody {
   background-color: #f5f5f5; }
 
 .game-show-button, .game-mix-button, .game-start-button,
-.game-show-button-next-level-instruction, .game-start-button-next-level {
+.game-show-button-next-level-instruction, .game-start-button-next-level, .game-show-button-next-level {
   border-radius: 30px;
   border: 0;
   padding: 0.5em 3em;
@@ -493,7 +493,7 @@ tbody {
   font-weight: bold; }
 
 .game-show-button:focus, .game-mix-button:focus, .game-start-button:focus,
-.game-show-button-next-level-instruction:focus, .game-start-button-next-level:focus {
+.game-show-button-next-level-instruction:focus, .game-start-button-next-level:focus, .game-show-button-next-level:focus {
   outline: none; }
 
 .game-mix-button {
