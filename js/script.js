@@ -426,7 +426,9 @@ $(document).ready(function () {
                                     $('td').each(function () {
                                         if ($(this).data('row') == $cluster[i].row && $(this).data('col') == $cluster[i].col) {
                                             console.log('nara');
-                                            $(this).find('.img-element').remove();
+                                            $(this).find('.img-element').delay(1000).fadeOut(500, function () {
+                                               $(this).remove();
+                                            });
 
                                         }
                                     })
