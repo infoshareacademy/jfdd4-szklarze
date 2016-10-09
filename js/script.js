@@ -112,7 +112,10 @@ $(document).ready(function () {
             'icon-mustache',
             'icon-onion',
             'icon-sausage',
-            'icon-steak'
+            'icon-steak',
+            'icon-chicken',
+            'icon-tomato'
+
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
         img = new Image();
@@ -278,7 +281,7 @@ $(document).ready(function () {
             $('.game-instructions-summary').hide();
             generateTable(10);
             // startTimer();
-            // clearPoints();
+            clearPoints();
             // // createElementToFind();
             clearCells();
             findEmptyCells();
@@ -293,11 +296,11 @@ $(document).ready(function () {
 
     function isGameFinished() { /*fukncje trzeba dodać do kliknięcia i uruchomić po
      upływie czasu*/
-        if (!isMatchingElementLeft()) {
-            // stopTimer();
-            // addTimeBonus();
-            showSummary();
-        }
+        // if (!isMatchingElementLeft()) {
+        //     // stopTimer();
+        //     // addTimeBonus();
+        //     showSummary();
+        // }
         if (isTimeOut()) {
             takePointsForLeftElements();
             showSummary();
