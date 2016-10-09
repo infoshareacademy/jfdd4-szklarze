@@ -379,15 +379,15 @@ $(document).ready(function () {
 
 
         // Start - Find clusters
+        function findClusters() {
 
-
-        function locateNextCell(cell, deltaRow, deltaCol) {
-            var startCell = cell;
-            return {
-                row: startCell.data('row') + deltaRow,
-                col: startCell.data('col') + deltaCol
-            };
-        }
+            function locateNextCell(cell, deltaRow, deltaCol) {
+                var startCell = cell;
+                return {
+                    row: startCell.data('row') + deltaRow,
+                    col: startCell.data('col') + deltaCol
+                };
+            }
 
             function createElementObject(cell) {
                 return {
@@ -396,40 +396,45 @@ $(document).ready(function () {
                 }
             }
 
+            $('td').each(function () {
+                var $cluster = [];
 
-            function findClusters() {
+                go($(this));
 
-                var $cell = $('td');
-
-
-                $cell.each(function () {
-                    var $startCell = $(this),
+                function go(cell)
+                {
+                    var $startCell = cell,
                         $startElement = $startCell.find('.img-element'),
                         $startElementSrc = $startElement.attr('src'),
-                        $cluster = [],
-                        elementObject = createElementObject($(this)),
+                        elementObject = createElementObject(cell),
                         nextElementObject = locateNextCell($startCell, 1, 0);
+
 
                     $cluster.push(elementObject);
 
 
-                    $cell.each(function () {
+                    $('td').each(function () {
 
                         if ($(this).data('row') == nextElementObject.row && $(this).data('col') == nextElementObject.col) {
                             var $nextElement = $(this).find('.img-element'),
                                 $nextElementSrc = $nextElement.attr('src');
                             if ($startElementSrc == $nextElementSrc) {
-                                $cluster.push(nextElementObject);
                                 console.log($cluster.length, $cluster);
+                                go($(this));
 
 
                             }
                         }
                     })
-                })
+
+                }
 
 
-            }
+                // go($(this));
+
+
+            })
+        }
 
 
 
