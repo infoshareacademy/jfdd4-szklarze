@@ -431,6 +431,81 @@ $(document).ready(function () {
         $('button.game-start-button-next-level').attr('disabled', false).removeClass('disabled');
     }
 
+    function selectCell() {
+        var $cell = $('td');
+
+        $cell.click( function () {
+            var $numberOfSelectedCells = $('.selected').length;
+
+            if ( $numberOfSelectedCells == 0 ) {
+                addClassSelected($(this));
+            }
+            else if ( $numberOfSelectedCells == 1) {
+                checkCellPosition($(this));
+            }
+        })
+    }
+
+    function clearCell(cell) {
+        cell.empty().removeClass('selected');
+    }
+
+    function addClassSelected(cell) {
+        cell.addClass('selected')
+    }
+
+    function changeContentsOfCell(cell) {
+        addClassSelected(cell);
+        setTimeout( function () {
+            switchElementsBetweenCells(cell)
+        }, 700)
+    }
+
+    function switchElementsBetweenCells(cell) {
+        var secondSelectedElement = cell.children(),
+            secondSelectedCell = cell;
+
+        clearCell(secondSelectedCell);
+
+        var firstSelectedCell = $('.selected'),
+            firstSelectedElement = $('.selected > img');
+
+        clearCell(firstSelectedCell);
+
+        firstSelectedElement.appendTo(secondSelectedCell);
+        secondSelectedElement.appendTo(firstSelectedCell);
+    }
+
+    function invalidMovementOfPalyer(cell) {
+        var alertMessage = 'Niedozwolony ruch!' + ' ' + 'Możesz wybrać element sąsiadujący z wcześniej zaznaczonym.';
+
+        alert(alertMessage);
+        cell.css('background-color', 'red');
+        setTimeout(function () {
+            cell.removeAttr('style')
+        }, 300);
+    }
+
+    function checkCellPosition(cell) {
+        var $rowFirstSelectedCell = $('.selected').data('row'),
+            $columnFirstSelectedCell = $('.selected').data('col'),
+            rowSecondSelectedCell = cell.data('row'),
+            columnSecondSelectedCell = cell.data('col');
+
+        if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && (Math.abs($rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
+            changeContentsOfCell(cell);
+        }
+        else if ( ($rowFirstSelectedCell == rowSecondSelectedCell) && (Math.abs($columnFirstSelectedCell - columnSecondSelectedCell) == 1) ) {
+            changeContentsOfCell(cell);
+        }
+        else if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && ($rowFirstSelectedCell == rowSecondSelectedCell) ) {
+            cell.removeClass('selected');
+        }
+        else {
+            invalidMovementOfPalyer(cell);
+        }
+    }
+
 
 
 
