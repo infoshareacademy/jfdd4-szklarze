@@ -379,7 +379,7 @@ $(document).ready(function () {
 
 
         // Start - Find clusters
-        function findClusters() {
+
 
             function locateNextCell(cell, deltaRow, deltaCol) {
                 var startCell = cell;
@@ -395,7 +395,7 @@ $(document).ready(function () {
                     col: cell.data('col')
                 }
             }
-
+        function findClusters() {
             $('td').each(function () {
                 var $cluster = [];
 
