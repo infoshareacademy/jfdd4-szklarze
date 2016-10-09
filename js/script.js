@@ -196,6 +196,9 @@ $(document).ready(function () {
             $tbody.append($row);
             for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
+                    .removeClass()
+                    .data('row', rowCount)
+                    .data('col', cellCount)
                     .attr('data-row', rowCount)
                     .attr('data-col', cellCount);
                 $row.append($cell);
@@ -317,7 +320,7 @@ $(document).ready(function () {
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
-            findElementOnClick();
+            // findElementOnClick();
         })
     }
     startGame();
@@ -377,12 +380,13 @@ $(document).ready(function () {
 
         $gameStartButtonNextLevel.click(function () {
             $('.game-instructions').hide();
-            startTimer(2);//Set time amount here, max 30 seconds.
+            // startTimer(30);//Set time amount here, max 30 seconds.
             clearPoints();
             clearCells();
             findEmptyCells();
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
+            selectCell();
         })
     }
     startGameNextLevel();
@@ -404,6 +408,10 @@ $(document).ready(function () {
         })
     }
 
+    function clearCell(cell) {
+        cell.empty().removeClass('selected');
+    }
+
     function addClassSelected(cell) {
         cell.addClass('selected')
     }
@@ -413,6 +421,21 @@ $(document).ready(function () {
         setTimeout( function () {
             switchElementsBetweenCells(cell)
         }, 700)
+    }
+
+    function switchElementsBetweenCells(cell) {
+        var secondSelectedElement = cell.children(),
+            secondSelectedCell = cell;
+
+        clearCell(secondSelectedCell);
+
+        var firstSelectedCell = $('.selected'),
+            firstSelectedElement = $('.selected > img');
+
+        clearCell(firstSelectedCell);
+
+        firstSelectedElement.appendTo(secondSelectedCell);
+        secondSelectedElement.appendTo(firstSelectedCell);
     }
 
     function invalidMovementOfPalyer(cell) {
@@ -426,40 +449,24 @@ $(document).ready(function () {
     }
 
     function checkCellPosition(cell) {
-        var rowFirstSelectedCell = $('selected').data('row'),
-            columnFirstSelectedCell = $('selected').data('col'),
+        var $rowFirstSelectedCell = $('.selected').data('row'),
+            $columnFirstSelectedCell = $('.selected').data('col'),
             rowSecondSelectedCell = cell.data('row'),
-            columnSeconSelectedCell = cell.data('col');
+            columnSecondSelectedCell = cell.data('col');
 
-        if ( (columnFirstSelectedCell == columnSeconSelectedCell) && (Math.abs(rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
+        if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && (Math.abs($rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
             changeContentsOfCell(cell);
         }
-        else if ( (rowFirstSelectedCell == rowSecondSelectedCell) && (Math.abs(columnFirstSelectedCell - columnSeconSelectedCell) == 1) ) {
+        else if ( ($rowFirstSelectedCell == rowSecondSelectedCell) && (Math.abs($columnFirstSelectedCell - columnSecondSelectedCell) == 1) ) {
             changeContentsOfCell(cell);
+        }
+        else if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && ($rowFirstSelectedCell == rowSecondSelectedCell) ) {
+            cell.removeClass('selected');
         }
         else {
             invalidMovementOfPalyer(cell);
         }
     }
-
-    function switchElementsBetweenCells(cell) {
-        var secondSelectedCell = cell,
-            secondSelectedElement = cell.children();
-
-
-
-        clearCells(secondSelectedCell);
-
-        var firstSelectedCell = $('.selected'),
-            firstSelectedElement = firstSelectedCell.children();
-
-
-        clearCells(firstSelectedCell);
-
-        firstSelectedElement.appendTo(secondSelectedCell);
-        secondSelectedElement.appendTo(firstSelectedCell);
-    }
-
         // End - Movement of Player
 
     // End - Game next level
