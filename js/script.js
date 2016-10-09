@@ -95,51 +95,9 @@ $(document).ready(function () {
 
 // End - "Thank-you" window
 
-// Start - mix-button
+// Start - Game-level-one
 
-    function clearCells() {
-        var cells = $('td');
-        return cells.empty();
-    }
-
-    function findEmptyCells() {
-        return $('td:empty').addClass('empty-cell');
-    }
-
-    function createRandomElement() {
-        var elements = [
-            'icon-beer',
-            'icon-carrot',
-            'icon-mustache',
-            'icon-onion',
-            'icon-sausage',
-            'icon-steak'
-        ];
-        var randomNumber = Math.floor(Math.random() * elements.length);
-        img = new Image();
-        img.src = 'images/game-icons/' + elements[randomNumber] + '.svg';
-        img.className = 'img-element';
-        return img;
-    }
-
-    function addCreatedRandomElementToEmptyCell() {
-        var emptyCell = $('.empty-cell');
-        emptyCell.each(function () {
-            $(this).append(createRandomElement());
-            $(this).removeClass('empty-cell');
-        });
-    }
-
-    $('.game-mix-button').click(function () {
-        clearCells();
-        createRandomElement();
-        findEmptyCells();
-        addCreatedRandomElementToEmptyCell();
-    });
-
-// End - mix-buton
-
-// Start - Game timer
+    // Start - Game timer
 
     function setTime(time) {
         $('.game-timer').text('Czas: 00:' +
@@ -177,9 +135,8 @@ $(document).ready(function () {
         }, 1000);
     }
 
-// End - Game timer
+    // End - Game timer
 
-// Start - Game
 
     function generateTable(size) {
         var $table = $('.game-table'),
@@ -347,7 +304,85 @@ $(document).ready(function () {
 
     showSection('.beer-img', '.game');
 
+// End - Game-level-one
 
-// End - Game
+// Start - Game-level-two
+
+    // Start - Mix-button
+
+    function clearCells() {
+        var cells = $('td');
+        return cells.empty();
+    }
+
+    function findEmptyCells() {
+        return $('td:empty').addClass('empty-cell');
+    }
+
+    function createRandomElement() {
+        var elements = [
+            'icon-beer',
+            'icon-carrot',
+            'icon-mustache',
+            'icon-onion',
+            'icon-sausage',
+            'icon-steak'
+        ];
+        var randomNumber = Math.floor(Math.random() * elements.length);
+        img = new Image();
+        img.src = 'images/game-icons/' + elements[randomNumber] + '.svg';
+        img.className = 'img-element';
+        return img;
+    }
+
+    function addCreatedRandomElementToEmptyCell() {
+        var emptyCell = $('.empty-cell');
+        emptyCell.each(function () {
+            $(this).append(createRandomElement());
+            $(this).removeClass('empty-cell');
+        });
+    }
+
+    $('.game-mix-button').click(function () {
+        clearCells();
+        createRandomElement();
+        findEmptyCells();
+        addCreatedRandomElementToEmptyCell();
+    });
+
+    // End - Mix-button
+
+    //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// End- Game-level-two
 
 });
