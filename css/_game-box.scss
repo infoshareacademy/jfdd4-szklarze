@@ -1,47 +1,114 @@
+.game {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1400px;
+  max-height: 757px;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: $white;
+  border: 1px solid $blue;
+  display: none;
+
+  tbody {
+    margin: auto;
+  }
+}
+
 .game-intro-text {
   text-align: center;
+  background: $yellow;
+  border: $yellow 1px solid;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2%;
+}
+
+.game-intro-text h2 {
+  margin: 0;
+}
+
+.game-close-button {
+  height: 40px;
+  width: 40px;
+  background: url(../images/icon-white-menu-close.svg) right top no-repeat;
+  background-size: contain;
+  margin-left: auto;
 }
 
 .game-table, .game-panel {
   margin: 2% auto;
-  width: 90%;
-  display: flex;
+  display: none;
   justify-content: space-around;
 }
 
 .game-table {
-  display: none;
+  height: 70%;
+}
+
+td {
+  width: 25px;
+  height: 25px;
 }
 
 .game-panel {
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 20%;
   align-items: center;
   text-align: center;
+
+  .game-timer, .game-points  {
+    flex-grow: 3;
+  }
+
+  .game-start-button, .game-mix-button {
+    flex-grow: 2;
+    width: 25%;
+  }
+
+  .game-find-this-img {
+    flex-grow: 1;
+    background-color: $grey-light;
+    border: 8px solid $grey-light;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  h3, h4 {
+    font-size: 1.4em;
+    flex-grow: 2
+  }
+
+  .game-points, .game-timer {
+    width: 50%;
+  }
+
+  .game-start-button, .game-mix-button{
+    width: 40%;
+    margin: auto 5%;
+  }
 }
 
 tbody {
   background-color: $grey-light;
 }
 
-tr, td {
-  width: 25px;
-  height: 25px;
-}
-
-.game-find-this-img {
-  width: 40px;
-  height: 40px;
-}
-
-.game-mix-button, .game-start-button {
-  width: 100%;
-  max-width: 310px;
-  border-radius: 30px 30px;
+.game-show-button, .game-mix-button, .game-start-button {
+  border-radius: 30px;
   border: 0;
-  padding: 10px 0;
+  padding: 0.5em 3em;
+  font-size: 1em;
+  color: $blue-dark;
+  background-color: $yellow;
+  font-weight: bold;
 }
 
-.game-mix-button:focus, .game-start-button {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
   outline: none;
 }
 
@@ -50,16 +117,9 @@ tr, td {
   color: white;
 }
 
-.game-start-button {
-  background-color: $yellow;
-}
-
 .game-start-button.disabled {
+  color: $white;
   background-color: $grey;
-}
-
-.game-find-this-img {
-  margin: 0 auto;
 }
 
 .game-points {
@@ -71,150 +131,110 @@ tr, td {
   vertical-align: bottom;
 }
 
-.game-instructions-summary {
-  margin: auto;
-  padding: 4%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: $grey-light;
-  width: 70%;
+.game-instructions, .game-summary {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
   min-height: 300px;
+  margin: 0;
+  padding: 4%;
+  vertical-align: middle;
+  background: $grey-light;
+  text-align: center;
 
   p {
-    padding-bottom: 5%;
+    margin-top: 3em;
   }
-
-  .game-start-button {
-    font-weight: bold;
-    font-size: 1.2em;
+  button {
+    margin-top: 3em;
   }
 }
 
-.clicked {
-  background-color: black;
+.game-summary {
+  display: none;
 }
 
-@media screen and (min-width: 351px) and (max-width: 600px) {
+.game-box {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
 
-  tr, td {
+.selected {
+  background-color: #babac2;
+}
+
+//************************************************
+@media screen and (min-width: 351px) {
+  td, .game-find-this-img {
     width: 30px;
     height: 30px;
-  }
-
-  .game-find-this-img {
-    width: 45px;
-    height: 45px;
   }
 }
 
 @media screen and (min-width: 601px) {
-  .game-instructions-summary {
-    margin: auto 6%;
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 800px) {
-
-  tr, td {
-    width: 35px;
-    height: 35px;
-  }
-
-  .game-find-this-img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .game-table {
-    width: 80%;
-  }
-
-  .game-panel {
-    width: 20%;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
-  .game-box {
-    display: flex;
-  }
-}
-
-@media screen and (min-width: 801px) and (max-width: 1200px) {
-
-  tr, td {
+  td, .game-find-this-img {
     width: 40px;
     height: 40px;
   }
 
-  .game-find-this-img {
-    width: 60px;
-    height: 60px;
+  .game-box {
+    flex-direction: row;
+    max-width: 650px;
   }
 
+  .game-table {
+    height: 100%;
+    width: 75%;
+  }
+
+  .game-panel {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+    width: 20%;
+
+    .game-points, .game-timer {
+      width: 100%;
+    }
+
+    .game-start-button, .game-mix-button {
+      width: 80%;
+      padding: 0.5em 1em;
+      margin: 1em auto;
+    }
+  }
+}
+
+@media screen and (min-width: 801px) {
+
+  td, .game-find-this-img {
+    width: 45px;
+    height: 45px;
+  }
   .game-table {
     width: 70%;
   }
 
-  .game-panel {
-    width: 30%;
-    margin-right: 5%;
-    margin-left: 5%;
+  .game-table, .game-panel {
+    margin: 0;
   }
 
   .game-box {
-    display: flex;
+    max-width: 800px;
   }
 }
 
 @media screen and (min-width: 1201px) {
-
-  tr, td {
-    width: 45px;
-    height: 45px;
+  td, .game-find-this-img {
+    width: 50px;
+    height: 50px;
   }
-
-  .game-find-this-img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .game-table {
-    width: 70%;
-  }
-
-  .game-panel {
-    width: 30%;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
   .game-box {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-  }
-}
-@media screen and (min-width: 1601px) {
-
-  .game-table {
-    width: 70%;
-  }
-
-  .game-panel {
-    width: 30%;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
-  .game-box {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+    max-width: 1000px;
+    margin: auto;
   }
 }
