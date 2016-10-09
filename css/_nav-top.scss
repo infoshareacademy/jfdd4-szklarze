@@ -1,5 +1,5 @@
 .nav-top {
-  background: #FFC10E;
+  background: $yellow;
   margin: 0;
   width: 100%;
   position: fixed;
@@ -29,7 +29,10 @@
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: #dda20e;
+        background-color: $yellow-dark;
+      }
+      a.active {
+        background-color: $yellow-dark;
       }
     }
   }
@@ -45,17 +48,14 @@
   }
 }
 
-.nav-logo-img {
-  color: #fff;
-  font-size: 20px;
-  text-transform: uppercase;
-  background: url("../images/icon-white-janusz.svg") no-repeat left center;
-  background-size: 40px;
-}
-
 .nav-logo {
-  .nav-logo-img {
+  a {
     padding-left: 50px;
+    color: $white;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: url("../images/icon-white-janusz.svg") no-repeat left center;
+    background-size: 40px;
   }
 }
 
@@ -98,11 +98,19 @@
     }
   }
 
-  .nav-button {
+  #nav-button {
     display: list-item;
     background-image: url("../images/icon-white-menu.svg");
     background-size: contain;
     height: 40px;
     width: 40px;
+  }
+
+  #nav-links.toggle-menu {
+    display: flex;
+  }
+
+  #nav-button.change-icon {
+    background-image: url('../images/icon-white-menu-close.svg');
   }
 }

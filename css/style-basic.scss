@@ -49,18 +49,6 @@ a {
   color: inherit;
 }
 
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-clear {
-  clear: both;
-}
-
 @media screen and (max-width: 600px) {
   body {
     font-size: 0.7em;
@@ -71,6 +59,8 @@ a {
 @import "intro";
 @import "product-info";
 @import "sign-up";
+@import "popup-window";
 @import "product-details";
 @import "team";
 @import "footer";
+@import "game-box";
