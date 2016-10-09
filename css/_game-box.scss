@@ -163,6 +163,10 @@ tbody {
   margin: auto;
 }
 
+.selected {
+  background-color: #babac2;
+}
+
 //************************************************
 @media screen and (min-width: 351px) {
   td, .game-find-this-img {
