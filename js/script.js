@@ -121,22 +121,21 @@ $(document).ready(function () {
         var timeAmount = time;
         setTime(timeAmount);
         disableStartButton();
-        disableStartButtonNextLevel();
         var timeCounter = setInterval(function () {
             timeAmount--;
             setTime(timeAmount);
             if (timeAmount == 0) {
                 setTime(timeAmount);
                 isGameFinished();
-            }
-            if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
                 clearInterval(timeCounter);
                 enableStartButton();
-                enableStartButtonNextLevel();
             }
+            // if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
+            //     clearInterval(timeCounter);
+            //     enableStartButton();
+            // }
         }, 1000);
     }
-
     // End - Game timer
 
 
@@ -227,13 +226,14 @@ $(document).ready(function () {
     function showSummary() {
         var pointsCount = $('.points').text();
 
-        if (pointsCount <=5) {
+        if (pointsCount < 6) {
             $('.game-summary').show();
             $('.game-table').hide();
             $('.game-panel').hide();
             $('.game-score').text(pointsCount);
             $('.game-summary > h4').hide();
             $('.game-show-button-next-level-instruction').hide();
+            $('.game-show-button-next-level').hide();
         }
         else {
             $('.game-summary').show();
@@ -241,11 +241,9 @@ $(document).ready(function () {
             $('.game-panel').hide();
             $('.game-score').text(pointsCount);
             $('.game-show-button').hide();
+            $('.game-show-button-next-level').hide();
         }
     }
-
-
-
 
 
     function takePointsForLeftElements() {
@@ -289,8 +287,8 @@ $(document).ready(function () {
 
         $gameStartButton.click(function () {
             $('.game-instructions').hide();
-            startTimer(15);//Set time amount here, max 30 seconds.
             clearPoints();
+            startTimer(15);//Set time amount here, max 30 seconds.
             createElementToFind();
             clearCells();
             findEmptyCells();
@@ -329,6 +327,43 @@ $(document).ready(function () {
 // End - Game-level-one
 
 // Start - Game-level-two
+    function showSummaryNextLevel() {
+        var pointsCount = $('.points').text();
+            $('.game-summary').show();
+            $('.game-table').hide();
+            $('.game-panel').hide();
+            $('.game-score').text(pointsCount);
+            $('.game-summary > h4').hide();
+            $('.game-show-button-next-level-instruction').hide();
+    }
+
+    function startTimerNextLevel(time) {
+        var timeAmount = time;
+        setTime(timeAmount);
+        disableStartButtonNextLevel();
+        enableMixButton();
+        var timeCounter = setInterval(function () {
+            timeAmount--;
+            setTime(timeAmount);
+            if (timeAmount == 0) {
+                setTime(timeAmount);
+                isGameFinishedNextLevel();
+                clearInterval(timeCounter);
+                enableStartButtonNextLevel();
+            }
+            // if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
+            //     clearInterval(timeCounter);
+            //     enableStartButton();
+            // }
+        }, 1000);
+    }
+
+    function isGameFinishedNextLevel() {
+
+        if (isTimeOut()) {
+            showSummaryNextLevel();
+        }
+    }
 
     // Start - Mix-button
 
@@ -379,6 +414,7 @@ $(document).ready(function () {
 
         $gameShowButtonNextLevelInstruction.click(function () {
             $('.game-instructions-next-level').css('display', 'inline-block');
+            $('.game-show-button-next-level').css('display', 'inline-block');
             $('.game-summary').hide()
         })
     }
@@ -398,6 +434,7 @@ $(document).ready(function () {
             $('.game-find-this-img').hide();
             $('.game-start-button').hide();
             $('.game-start-button-next-level').show();
+            disableMixButton();
             generateTable(10);
             clearPoints();
             clearCells();
@@ -413,10 +450,11 @@ $(document).ready(function () {
         var $gameStartButtonNextLevel = $('.game-start-button-next-level');
 
         $gameStartButtonNextLevel.click(function () {
+            $('.game-summary').hide();
             $('.game-instructions').hide();
             $('.game-show-button-next-level-instruction').hide();
-            startTimer(60);//Set time amount here, max 30 seconds.
             clearPoints();
+            startTimerNextLevel(60);//Set time amount here, max 30 seconds.
             clearCells();
             findEmptyCells();
             createRandomElement();
@@ -434,6 +472,16 @@ $(document).ready(function () {
     function enableStartButtonNextLevel() {
         $('button.game-start-button-next-level').attr('disabled', false).removeClass('disabled');
     }
+
+    function disableMixButton() {
+        $('button.game-mix-button').attr('disabled', true).addClass('disabled');
+    }
+
+    function enableMixButton() {
+        $('button.game-mix-button').attr('disabled', false).removeClass('disabled');
+    }
+
+
 
     function selectCell() {
         var $cell = $('td');
