@@ -203,8 +203,9 @@ $(document).ready(function () {
             for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>').removeClass()
                     .data('row', rowCount)
-                    .data('col', cellCount);
-
+                    .data('col', cellCount)
+                    .attr('data-row', rowCount)
+                    .attr('data-col', cellCount);
                 $row.append($cell);
             }
         }
@@ -319,14 +320,14 @@ $(document).ready(function () {
             $('.game-instructions').hide();
             startTimer(15);//Set time amount here, max 30 seconds.
             clearPoints();
+            findClusters(3);
             // // createElementToFind();
-            clearCells();
-            findEmptyCells();
-            createRandomElement();
-            addCreatedRandomElementToEmptyCell();
+            // clearCells();
+            // findEmptyCells();
+            // createRandomElement();
+            // addCreatedRandomElementToEmptyCell();
             // findElementOnClick();
             selectCell();
-            findAllTheClusters();
 
         })
     })();
@@ -383,10 +384,10 @@ $(document).ready(function () {
         addClassToCell(cell);
         setTimeout(function () {
             switchElementsBetweenCells(cell);
-            findAllTheClusters();
+            findClusters(3);
             findEmptyCells();
             addCreatedRandomElementToEmptyCell();
-        }, 700);
+        }, 201);
     }
 
     function clearCell(cell) {
@@ -396,8 +397,8 @@ $(document).ready(function () {
     function incorrectMoveAlert(cell) {
         var alertMessage = 'Niedozwolony ruch!' + ' ' + "Możesz wybrać element sąsiadujący z wcześniej zaznaczonym.";
 
-        alert(alertMessage);
         cell.css('background-color', 'red');
+        alert(alertMessage);
         setTimeout(function () {
             cell.removeAttr('style')
         }, 200);
@@ -464,6 +465,7 @@ $(document).ready(function () {
             var target = createElementObject(cell),
                 $elementsInLine = [];
 
+
             if (direction == 'right') {
                 for (col = target.col+1; col <=10 ; col++) {
                     $elementsInLine.push($('td[data-row='+target.row+
@@ -479,25 +481,26 @@ $(document).ready(function () {
             }
 
             else if (direction == 'up') {
-                for (row = target.row-1; row >=1 ; col--) {
+                for (row = target.row-1; row >=1 ; row--) {
                     $elementsInLine.push($('td[data-row='+row+
                         '][data-col='+target.col+']'));
                 }
             }
 
             else if (direction == 'down') {
-                for (col = target.col+1; col <=10 ; col++) {
+                for (row = target.row+1; row <=10 ; row++) {
                     $elementsInLine.push($('td[data-row='+row+
                         '][data-col='+target.col+']'));
                 }
             }
 
             else
-                throw console.log('Specify direction: "right", "left", "up" or "down"')
+                throw console.log('Specify direction: "right", "left", "up" or "down"');
+
             return $elementsInLine;
         }
 
-        function areElementsImgEqual(cell, elementToCompare) {
+        function areElementsSrcEqual(cell, elementToCompare) {
             var cellSrc = $(cell).find('.img-element').attr('src'),
                 elementsSrc = elementToCompare.find('.img-element').attr('src');
 
@@ -509,61 +512,60 @@ $(document).ready(function () {
                 comparingResults = [];
 
             elementsNextToTarget.every(function (element) {
-                var srcComparison = areElementsImgEqual(cell, element);
+                var srcComparison = areElementsSrcEqual(cell, element);
 
                 if (srcComparison)
                     comparingResults.push([srcComparison, element]);
 
                 return srcComparison;
             });
-            console.log(comparingResults);
             return comparingResults;
         }
 
-        function findClusters() {
+        function findClusters(clusterSize) {
 
             var $cell = $('td');
 
-            $cell.each(function (index, cell) {
-                var right = getMatchingElements('right', cell),
-                    left = getMatchingElements('left', cell),
-                    up = getMatchingElements('up', cell),
-                    down = getMatchingElements('down', cell);
+            $cell.each(function (index, element) {
+                var right = getMatchingElements('right', element),
+                    left = getMatchingElements('left', element),
+                    up = getMatchingElements('up', element),
+                    down = getMatchingElements('down', element);
 
-                var sumCross = right.length() + left.length(),
-                    sumDown = up.length() + down.length();
+                var sumCross = right.length + left.length + 1,
+                    sumDown = up.length + down.length + 1;
 
-                console.log(sumCross,sumDown);
+                if (sumCross >= clusterSize) {
+                    var leftSide = getElementsToRemove (left),
+                        rightSide = getElementsToRemove (right);
+                    removeElements (element, leftSide, rightSide);
+                }
+                if (sumDown >= clusterSize) {
+                    var upSide = getElementsToRemove (up),
+                        downSide = getElementsToRemove (down);
+                    removeElements (element, upSide, downSide);
+                }
             })
         }
 
-//     function sprawdźWszystkoPoPrawej(cell) {
-//         var tablicaElementówPoprawej = /jakiś kod do pobrania elementów/,
-//             tablicaPorównująca = [];
-//
-//         tablicaElementówPoprawej.forEach(
-//             function (index, komórka) {
-//                 if (cell == komórka) {
-//                     tablicaPorównująca.push(true, {wspolrzedne komórka})
-//                 } else {
-//                     tablicaPorównująca.push(false)
-//                 }
-//             }
-//         tablicaPorównująca.obetnijNaPierwszymFalse;
-//         return tablicaPorównująca;
-//     })
-// }
-//
-// $('td').each(function () {
-//     if (sprawdźWszystkoPoPrawej().length +
-//         sprawdźWszystkoPolewej().length + 1 >= 3) {
-//         usuńKomórkiZeZwróconychTablic
-//     }
-//     if (sprawdźWszystkoUGory().length +
-//         sprawdzWszystkoNaDole().length + 1 >= 3) {
-//         usuńKomórkiZeZwróconychTablic
-//     }
-// }
+        function removeElements(initElement, side1, side2) {
+            side1.forEach(function (element) {
+                element.find('img').remove();
+            });
+            side2.forEach(function (element) {
+                element.find('img').remove();
+            });
+            initElement.find('img').remove();
+            findEmptyCells();
+            createRandomElement();
+            addCreatedRandomElementToEmptyCell();
+        }
+
+        function getElementsToRemove(arrayHoldingElementsToRemove) {
+            return arrayHoldingElementsToRemove.map(function (element) {
+                return $(element[1]);
+            })
+        }
 
 // End - Find clusters
 });
