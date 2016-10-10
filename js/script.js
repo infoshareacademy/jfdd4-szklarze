@@ -509,28 +509,89 @@ $(document).ready(function () {
         }
     }
 
+    / Start - Find; clusters;
 
 
+    function locateNextCell(cell, deltaRow, deltaCol) {
+        var startCell = cell;
+        return {
+            row: startCell.data('row') + deltaRow,
+            col: startCell.data('col') + deltaCol
+        };
+    }
+
+    function createElementObject(cell) {
+        return {
+            row: cell.data('row'),
+            col: cell.data('col')
+        }
+    }
+
+    var points = 0;
+    function findClusters(cell, deltaRow, deltaCol) {
+        $('td').each(function () {
+            var $cluster = [];
+
+            searchForMatch($(this));
+
+            function searchForMatch(cell) {
+                var $startCell = cell,
+                    $startElement = $startCell.find('.img-element'),
+                    $startElementSrc = $startElement.attr('src'),
+                    elementObject = createElementObject(cell),
+                    nextElementObject = locateNextCell(cell, deltaRow, deltaCol);
 
 
+                $cluster.push(elementObject);
 
 
+                $('td').each(function () {
+
+                    if ($(this).data('row') == nextElementObject.row && $(this).data('col') == nextElementObject.col) {
+                        var $nextElement = $(this).find('.img-element'),
+                            $nextElementSrc = $nextElement.attr('src');
+
+                        if ($startElementSrc == $nextElementSrc)
+                            searchForMatch($(this));
+                        else if ($cluster.length >= 4) {
+                            console.log($cluster, $cluster.length);
+                            for (i = 0; i < $cluster.length; i++) {
+                                $('td').each(function () {
+                                    if ($(this).data('row') == $cluster[i].row && $(this).data('col') == $cluster[i].col) {
+                                        $(this).find('.img-element').delay(1000).fadeOut(500, function () {
+                                            $(this).remove();
+                                            points++;
+                                            $('.points').text(points);
+                                            findEmptyCells();
+                                            addCreatedRandomElementToEmptyCell();
+                                            findAllTheClusters();
+                                        });
+
+                                    }
+                                })
+                            }
+                        }
+
+                    }
+                })
+            }
 
 
+        });
 
 
+    }
+
+    function findAllTheClusters(cell) {
+
+        findClusters(cell, 1, 0);
+        findClusters(cell, -1, 0);
+        findClusters(cell, 0, 1);
+        findClusters(cell, 0, -1);
+    }
 
 
-
-
-
-
-
-
-
-
-
-
+// End - Find clusters
 
 
 
