@@ -503,7 +503,6 @@ $(document).ready(function () {
         }
         else if ( ($columnFirstSelectedCell === columnSecondSelectedCell) && ($rowFirstSelectedCell == rowSecondSelectedCell) ) {
             cell.removeClass('selected');
-            console.log('jeden')
         }
         else {
             invalidMovementOfPalyer(cell);
