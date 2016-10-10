@@ -62,11 +62,11 @@ td {
   text-align: center;
 
   .game-timer, .game-points  {
-    flex-grow: 2;
+    flex-grow: 3;
   }
 
-  .game-start-button, .game-start-button-next-level {
-    flex-grow: 4;
+  .game-start-button, .game-mix-button {
+    flex-grow: 2;
     width: 25%;
   }
 
@@ -84,8 +84,13 @@ td {
     flex-grow: 2
   }
 
-  .game-points, .game-start-button, .game-start-button-next-level {
+  .game-points, .game-timer {
     width: 50%;
+  }
+
+  .game-start-button, .game-mix-button, .game-start-button-next-level {
+    width: 40%;
+    margin: auto 5%;
   }
 }
 
@@ -110,8 +115,12 @@ tbody {
 }
 
 .game-mix-button {
-  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
+  background-color: $blue-dark;
+  color: white;
+  display: none;
+  justify-content: center;
 }
+
 
 .game-start-button.disabled, .game-start-button-next-level:disabled {
   color: $white;
@@ -197,17 +206,16 @@ tbody {
     height: auto;
     width: 20%;
 
-    .game-points {
+    .game-points, .game-timer {
       width: 100%;
     }
 
-    .game-start-button, .game-start-button-next-level{
-      width: 70%;
+    .game-start-button, .game-start-button-next-level, .game-mix-button{
+      width: 80%;
       padding: 0.5em 1em;
+      margin: 1em auto;
     }
   }
-
-
 }
 
 @media screen and (min-width: 801px) {
