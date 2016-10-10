@@ -648,11 +648,6 @@ $(document).ready(function () {
 
 // End - Find clusters
 
-
-
-
-
-
 // End- Game-level-two
 
 });
