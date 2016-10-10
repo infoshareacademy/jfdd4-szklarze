@@ -383,7 +383,9 @@ $(document).ready(function () {
             'icon-mustache',
             'icon-onion',
             'icon-sausage',
-            'icon-steak'
+            'icon-steak',
+            'icon-chicken',
+            'icon-tomato'
         ];
         var randomNumber = Math.floor(Math.random() * elements.length);
         img = new Image();
