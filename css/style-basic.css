@@ -318,7 +318,9 @@ input[type="submit"]:focus {
     max-height: 200px; }
 
   .popup-window {
-    width: 60%; } }
+    width: 60%;
+    max-width: 1200px;
+    padding: 2%; } }
 .product-details {
   width: 80%;
   max-width: 1200px;
@@ -449,6 +451,10 @@ input[type="submit"]:focus {
 .game-table {
   height: 70%; }
 
+td {
+  width: 25px;
+  height: 25px; }
+
 .game-panel {
   flex-direction: row;
   flex-wrap: wrap;
@@ -456,30 +462,31 @@ input[type="submit"]:focus {
   align-items: center;
   text-align: center; }
   .game-panel .game-timer, .game-panel .game-points {
-    flex-grow: 2; }
-  .game-panel .game-start-button {
-    flex-grow: 4;
+    flex-grow: 3; }
+  .game-panel .game-start-button, .game-panel .game-mix-button {
+    flex-grow: 2;
     width: 25%; }
   .game-panel .game-find-this-img {
     flex-grow: 1;
     background-color: #f5f5f5;
+    border: 8px solid #f5f5f5;
     width: 40px;
     height: 40px;
     margin: 0 auto; }
   .game-panel h3, .game-panel h4 {
     font-size: 1.4em;
     flex-grow: 2; }
-  .game-panel .game-points, .game-panel .game-start-button {
+  .game-panel .game-points, .game-panel .game-timer {
     width: 50%; }
+  .game-panel .game-start-button, .game-panel .game-mix-button, .game-panel .game-start-button-next-level {
+    width: 40%;
+    margin: auto 5%; }
 
 tbody {
   background-color: #f5f5f5; }
 
-tr, td {
-  width: 25px;
-  height: 25px; }
-
-.game-show-button, .game-mix-button, .game-start-button {
+.game-show-button, .game-mix-button, .game-start-button,
+.game-show-button-next-level-instruction, .game-start-button-next-level, .game-show-button-next-level {
   border-radius: 30px;
   border: 0;
   padding: 0.5em 3em;
@@ -488,14 +495,17 @@ tr, td {
   background-color: #ffc10e;
   font-weight: bold; }
 
-.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus,
+.game-show-button-next-level-instruction:focus, .game-start-button-next-level:focus, .game-show-button-next-level:focus {
   outline: none; }
 
 .game-mix-button {
+  background-color: #262e3e;
+  color: white;
   display: none;
-  /*todo: przycisk potrzebny w rozszerzonej wersji gry*/ }
+  justify-content: center; }
 
-.game-start-button.disabled {
+.game-start-button.disabled, .game-start-button-next-level:disabled {
   color: #ffffff;
   background-color: #aaaaaa; }
 
@@ -507,7 +517,7 @@ tr, td {
   height: 100%;
   vertical-align: bottom; }
 
-.game-instructions, .game-summary {
+.game-instructions, .game-summary, .game-instructions-next-level {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -517,10 +527,13 @@ tr, td {
   vertical-align: middle;
   background: #f5f5f5;
   text-align: center; }
-  .game-instructions p, .game-summary p {
+  .game-instructions p, .game-summary p, .game-instructions-next-level p {
     margin-top: 3em; }
-  .game-instructions button, .game-summary button {
+  .game-instructions button, .game-summary button, .game-instructions-next-level button {
     margin-top: 3em; }
+
+.game-instructions-next-level {
+  display: none; }
 
 .game-summary {
   display: none; }
@@ -532,6 +545,9 @@ tr, td {
   align-items: center;
   justify-content: center;
   margin: auto; }
+
+.selected {
+  background-color: #babac2; }
 
 @media screen and (min-width: 351px) {
   td, .game-find-this-img {
@@ -555,11 +571,12 @@ tr, td {
     flex-wrap: nowrap;
     height: auto;
     width: 20%; }
-    .game-panel .game-points {
+    .game-panel .game-points, .game-panel .game-timer {
       width: 100%; }
-    .game-panel .game-start-button {
-      width: 70%;
-      padding: 0.5em 1em; } }
+    .game-panel .game-start-button, .game-panel .game-start-button-next-level, .game-panel .game-mix-button {
+      width: 80%;
+      padding: 0.5em 1em;
+      margin: 1em auto; } }
 @media screen and (min-width: 801px) {
   td, .game-find-this-img {
     width: 45px;

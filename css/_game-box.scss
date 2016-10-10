@@ -62,11 +62,11 @@ td {
   text-align: center;
 
   .game-timer, .game-points  {
-    flex-grow: 2;
+    flex-grow: 3;
   }
 
-  .game-start-button {
-    flex-grow: 4;
+  .game-start-button, .game-mix-button {
+    flex-grow: 2;
     width: 25%;
   }
 
@@ -84,8 +84,13 @@ td {
     flex-grow: 2
   }
 
-  .game-points, .game-start-button {
+  .game-points, .game-timer {
     width: 50%;
+  }
+
+  .game-start-button, .game-mix-button, .game-start-button-next-level {
+    width: 40%;
+    margin: auto 5%;
   }
 }
 
@@ -93,7 +98,8 @@ tbody {
   background-color: $grey-light;
 }
 
-.game-show-button, .game-mix-button, .game-start-button {
+.game-show-button, .game-mix-button, .game-start-button,
+.game-show-button-next-level-instruction, .game-start-button-next-level, .game-show-button-next-level {
   border-radius: 30px;
   border: 0;
   padding: 0.5em 3em;
@@ -103,15 +109,20 @@ tbody {
   font-weight: bold;
 }
 
-.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus {
+.game-show-button:focus, .game-mix-button:focus, .game-start-button:focus,
+.game-show-button-next-level-instruction:focus, .game-start-button-next-level:focus, .game-show-button-next-level:focus {
   outline: none;
 }
 
 .game-mix-button {
-  display: none; /*todo: przycisk potrzebny w rozszerzonej wersji gry*/
+  background-color: $blue-dark;
+  color: white;
+  display: none;
+  justify-content: center;
 }
 
-.game-start-button.disabled {
+
+.game-start-button.disabled, .game-start-button-next-level:disabled {
   color: $white;
   background-color: $grey;
 }
@@ -125,7 +136,7 @@ tbody {
   vertical-align: bottom;
 }
 
-.game-instructions, .game-summary {
+.game-instructions, .game-summary, .game-instructions-next-level {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
@@ -144,6 +155,10 @@ tbody {
   }
 }
 
+.game-instructions-next-level {
+  display: none;
+}
+
 .game-summary {
   display: none;
 }
@@ -155,6 +170,10 @@ tbody {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+.selected {
+  background-color: #babac2;
 }
 
 //************************************************
@@ -187,17 +206,16 @@ tbody {
     height: auto;
     width: 20%;
 
-    .game-points {
+    .game-points, .game-timer {
       width: 100%;
     }
 
-    .game-start-button {
-      width: 70%;
+    .game-start-button, .game-start-button-next-level, .game-mix-button{
+      width: 80%;
       padding: 0.5em 1em;
+      margin: 1em auto;
     }
   }
-
-
 }
 
 @media screen and (min-width: 801px) {
