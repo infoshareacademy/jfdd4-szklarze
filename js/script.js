@@ -405,6 +405,7 @@ $(document).ready(function () {
         createRandomElement();
         findEmptyCells();
         addCreatedRandomElementToEmptyCell();
+        findAllTheClusters();
     });
 
     // End - Mix-button
