@@ -461,7 +461,10 @@ $(document).ready(function () {
     function changeContentsOfCell(cell) {
         addClassSelected(cell);
         setTimeout( function () {
-            switchElementsBetweenCells(cell)
+            switchElementsBetweenCells(cell);
+            findAllTheClusters();
+            findEmptyCells();
+            addCreatedRandomElementToEmptyCell();
         }, 700)
     }
 
@@ -491,8 +494,9 @@ $(document).ready(function () {
     }
 
     function checkCellPosition(cell) {
-        var $rowFirstSelectedCell = $('.selected').data('row'),
-            $columnFirstSelectedCell = $('.selected').data('col'),
+        var $selected = $('.selected'),
+            $rowFirstSelectedCell = $selected.data('row'),
+            $columnFirstSelectedCell = $selected.data('col'),
             rowSecondSelectedCell = cell.data('row'),
             columnSecondSelectedCell = cell.data('col');
 
@@ -510,7 +514,7 @@ $(document).ready(function () {
         }
     }
 
-    / Start - Find; clusters;
+    // Start - Find; clusters;
 
 
     function locateNextCell(cell, deltaRow, deltaCol) {
