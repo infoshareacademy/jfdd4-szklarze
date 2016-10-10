@@ -422,6 +422,7 @@ $(document).ready(function () {
             createRandomElement();
             addCreatedRandomElementToEmptyCell();
             selectCell();
+            findAllTheClusters();
         })
     }
     startGameNextLevel();
