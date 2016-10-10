@@ -155,8 +155,11 @@ $(document).ready(function () {
             $tbody.append($row);
             for (var cellCount = 1; cellCount <= size; cellCount++) {
                 var $cell = $('<td>')
+                    .removeClass()
                     .data('data-row', rowCount)
-                    .data('data-col', cellCount);
+                    .data('data-col', cellCount)
+                    .attr('data-col', cellCount)
+                    .attr('data-row', rowCount);
                 $row.append($cell);
             }
         }
@@ -331,7 +334,7 @@ $(document).ready(function () {
 
     function clearCells() {
         var cells = $('td');
-        return cells.empty();
+        return cells.empty().removeClass();
     }
 
     function findEmptyCells() {
@@ -492,14 +495,15 @@ $(document).ready(function () {
             rowSecondSelectedCell = cell.data('row'),
             columnSecondSelectedCell = cell.data('col');
 
-        if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && (Math.abs($rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
+        if ( ($columnFirstSelectedCell === columnSecondSelectedCell) && (Math.abs($rowFirstSelectedCell - rowSecondSelectedCell) == 1) ) {
             changeContentsOfCell(cell);
         }
-        else if ( ($rowFirstSelectedCell == rowSecondSelectedCell) && (Math.abs($columnFirstSelectedCell - columnSecondSelectedCell) == 1) ) {
+        else if ( ($rowFirstSelectedCell === rowSecondSelectedCell) && (Math.abs($columnFirstSelectedCell - columnSecondSelectedCell) == 1) ) {
             changeContentsOfCell(cell);
         }
-        else if ( ($columnFirstSelectedCell == columnSecondSelectedCell) && ($rowFirstSelectedCell == rowSecondSelectedCell) ) {
+        else if ( ($columnFirstSelectedCell === columnSecondSelectedCell) && ($rowFirstSelectedCell == rowSecondSelectedCell) ) {
             cell.removeClass('selected');
+            console.log('jeden')
         }
         else {
             invalidMovementOfPalyer(cell);
