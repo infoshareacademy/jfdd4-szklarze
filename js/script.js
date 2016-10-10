@@ -127,13 +127,11 @@ $(document).ready(function () {
             if (timeAmount == 0) {
                 setTime(timeAmount);
                 isGameFinished();
+            }
+            if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
                 clearInterval(timeCounter);
                 enableStartButton();
             }
-            // if (timeAmount == 0 || isMatchingElementLeft(true) == 0) {
-            //     clearInterval(timeCounter);
-            //     enableStartButton();
-            // }
         }, 1000);
     }
     // End - Game timer
@@ -445,7 +443,6 @@ $(document).ready(function () {
             addCreatedRandomElementToEmptyCell();
         })
     }
-
     showGameNextLevel();
 
     function startGameNextLevel() {
