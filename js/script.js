@@ -224,7 +224,7 @@ $(document).ready(function () {
     function showSummary() {
         var pointsCount = $('.points').text();
 
-        if (pointsCount < 6) {
+        if (pointsCount < 1) {
             $('.game-summary').show();
             $('.game-table').hide();
             $('.game-panel').hide();
